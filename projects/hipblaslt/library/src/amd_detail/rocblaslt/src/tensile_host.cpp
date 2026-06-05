@@ -3145,6 +3145,13 @@ void initTensileGemmData(rocblaslt_handle       handle,
 #ifdef HIPBLASLT_USE_ROCROLLER
 bool useRocRoller(rocblaslt_handle handle, const RocblasltContractionProblem& prob)
 {
+    // rocRoller's GPUArchitectureGFX::fromString does not recognize "gfx1250";
+    // every kernel instantiation throws and the heuristic returns 0 candidates.
+    // Fall back to Tensile on this arch until rocRoller adds gfx1250 support.
+    static const bool skipForArch = (rocblaslt_internal_get_arch_name() == "gfx1250");
+    if(skipForArch)
+        return false;
+
     // Do not use rocRoller for FP4 A + FP4 B with pre-swizzled (shuffled) scale layout
     bool isFp4A = (prob.a_type == static_cast<hipDataType>(HIP_R_4F_E2M1));
     bool isFp4B = (prob.b_type == static_cast<hipDataType>(HIP_R_4F_E2M1));
