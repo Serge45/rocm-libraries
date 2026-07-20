@@ -26,6 +26,7 @@ target_sources(stinkytofu_objs PRIVATE
     MemTokenConsistencyCheckPass.cpp
     InsertVgprMsbPass.cpp
     InsertInitialUnclausedVmemPass.cpp
+    InsertPseudoClusterBarrierPass.cpp
     RaiseVgprMsbPass.cpp
     RemoveDelayAluPass.cpp
     RemoveInstructionPass.cpp
