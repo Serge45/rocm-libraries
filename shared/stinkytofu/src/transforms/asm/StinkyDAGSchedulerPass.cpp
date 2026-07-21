@@ -588,6 +588,7 @@ class StinkyDAGSchedulerPass : public StinkyInstPass {
         auto scheduleBlock = [&](BasicBlock* bb, ReadyQueue& rq) {
             AsmIRBuilder builder(*bb, archId);
             collapseExecMaskedRegions(*bb, builder, wavefrontSize);
+            collapseClusterBarrierPairs(*bb, builder);
             scheduleInDAG(*bb, rq, wmmaIndex);
             expandExecMaskedGroups(*bb);
         };
