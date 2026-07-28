@@ -22,7 +22,12 @@
  * ************************************************************************ */
 #include "stinkytofu/transforms/asm/StinkyDAGSchedulerPass.hpp"
 
+#include <algorithm>
+#include <cassert>
 #include <climits>
+#include <unordered_map>
+#include <unordered_set>
+#include <vector>
 
 #include "stinkytofu/analysis/AnalysisRegistration.hpp"
 #include "stinkytofu/analysis/BBIndexAnalysis.hpp"
@@ -57,6 +62,93 @@ static void dumpDAGGraph(const std::vector<std::unordered_set<unsigned>>& dagGra
         std::cerr << "\n";
     }
     std::cerr << "\n\n";
+}
+
+// TDMSplit swap-barrier partial-drain: keep non-conflict (other-buffer) ds_reads in flight
+// at a swap barrier so WaitDataflow computes a PARTIAL s_wait_dscnt instead of a full drain (0).
+//
+// A "swap barrier" gates LDS token(s) T that a later tensor_load_to_lds overwrites. Python emits
+// the OTHER buffer's reads (token != T, non-conflict — not overwritten by this swap) interleaved
+// BEFORE the barrier, but the affinity pre-scan ranks them by far next-iter consumer distance and
+// the scheduler hoists them AFTER the barrier → at the barrier only conflict reads are in flight →
+// dscnt 0. Add DAG edges from the LAST K non-conflict reads to the barrier, hard-forcing them
+// before it (Kahn: barrier stays out of barrierQueue at inDegree>0, so even Phase A's
+// extractForcedBarrier cannot hoist it past these reads). Latest-before-barrier (not earliest) is
+// deliberate: it keeps them freshly in flight as FIFO-tail padding.
+//
+// Self-gates: a barrier is only treated as a swap barrier if a later tensor_load_to_lds's dest
+// tokens intersect the barrier's tokens AND there are non-conflict reads before it, so non-swap
+// regions / non-TDMSplit / other-arch kernels get zero edges and stay byte-identical.
+static void addSwapBarrierKeepReadsEdges(IRList::iterator regionStart, IRList::iterator regionEnd,
+                                         DAGNodeList& dagNodes,
+                                         std::vector<std::unordered_set<unsigned>>& dagGraph) {
+    constexpr unsigned kKeepReads = 32;  // REF keeps ~32 non-conflict reads in flight at the swap.
+
+    // Map region instructions to dag id (== program order == dagNodes index).
+    std::unordered_map<const StinkyInstruction*, unsigned> instToId;
+    instToId.reserve(dagNodes.size());
+    for (unsigned i = 0; i < dagNodes.size(); ++i) instToId[dagNodes[i].inst] = i;
+
+    // The set of LDS tokens overwritten by ANY tensor_load_to_lds in the region (dest tokens).
+    // A barrier is a swap barrier iff its tokens intersect this set.
+    std::unordered_set<uint32_t> overwrittenTokens;
+    for (IRList::iterator it = regionStart; it != regionEnd; ++it) {
+        StinkyInstruction& inst = getStinkyInst(it);
+        if (!isTensorLoad(inst)) continue;
+        for (const StinkyRegister& d : inst.getDestRegs())
+            if (isPseudoReg(d)) overwrittenTokens.insert(d.reg.idx);
+    }
+    if (overwrittenTokens.empty()) return;  // no swap in this region → no-op.
+
+    auto barrierGroups =
+        groupBarrierTokens(collectBarrierTokens(regionStart, regionEnd, /*useSrc=*/true));
+
+    for (const BarrierTokenGroup& group : barrierGroups) {
+        // Swap-barrier test: this barrier's tokens must be overwritten by some tensor_load.
+        bool isSwap = false;
+        for (uint32_t t : group.tokens)
+            if (overwrittenTokens.count(t)) {
+                isSwap = true;
+                break;
+            }
+        if (!isSwap) continue;
+
+        auto barrierIdIt = instToId.find(group.barriers.front());
+        if (barrierIdIt == instToId.end()) continue;
+        const unsigned barrierId = barrierIdIt->second;
+
+        // Collect non-conflict ds_reads (LDS read whose src token ∉ group.tokens) BEFORE the barrier.
+        std::vector<unsigned> nonConflictIds;
+        for (IRList::iterator it = regionStart; it != group.firstIt; ++it) {
+            StinkyInstruction& inst = getStinkyInst(it);
+            if (!isDSRead(inst)) continue;
+            auto idIt = instToId.find(&inst);
+            if (idIt == instToId.end()) continue;
+            bool hasLdsSrc = false;
+            bool isConflict = false;
+            for (const StinkyRegister& src : inst.getSrcRegs()) {
+                if (!isPseudoReg(src)) continue;
+                hasLdsSrc = true;
+                if (group.tokens.count(src.reg.idx)) {
+                    isConflict = true;
+                    break;
+                }
+            }
+            if (hasLdsSrc && !isConflict) nonConflictIds.push_back(idIt->second);
+        }
+        if (nonConflictIds.empty()) continue;  // nothing to keep → no-op.
+
+        // Edge the LAST K non-conflict reads → barrier (they must precede it). nonConflictIds is
+        // already in ascending program order; take the tail K.
+        const unsigned start =
+            nonConflictIds.size() > kKeepReads ? (unsigned)nonConflictIds.size() - kKeepReads : 0u;
+        for (unsigned k = start; k < nonConflictIds.size(); ++k) {
+            const unsigned readId = nonConflictIds[k];
+            // Forward-only edge (readId < barrierId) is acyclic by construction.
+            assert(readId < barrierId && "swap-keep edge must be forward (read before barrier)");
+            addEdgeById(&dagNodes[readId], &dagNodes[barrierId], dagGraph);
+        }
+    }
 }
 
 // collapseExecMaskedRegions()/expandExecMaskedGroups(): see ExecMaskGrouping.hpp and
@@ -164,6 +256,11 @@ static void scheduleRegionWithMovableSideEffects(
             }
         }
     }
+
+    // TDMSplit swap-barrier partial-drain: force the last K non-conflict (other-buffer) ds_reads
+    // before each swap barrier so they stay in flight at it → partial s_wait_dscnt (not full drain).
+    // Self-gates to a no-op on regions without a conflict+non-conflict swap barrier.
+    addSwapBarrierKeepReadsEdges(regionStart, regionEnd, dagNodes, dagGraph);
 
     // Pre-scan: assign dsReadPriority to each ds_read based on WMMA affinity
     // and DsReadOrder config. Lower priority = pick first.
