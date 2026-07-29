@@ -1,0 +1,102 @@
+# A/B test for "disable staggerU when workgroup cluster is enabled" (gfx1250).
+#
+# Both solutions request StaggerU=32. The ClusterDim fork produces two kernels:
+#   - ClusterDim [1,1] (control): cluster off -> staggerU code SHOULD be emitted
+#   - ClusterDim [2,2] (test)   : cluster on  -> staggerU code SHOULD be suppressed
+#                                 by the KernelWriter gate (clusterEnabled -> staggerUCode=False)
+#
+# How to use (KeepBuildTmp keeps the .s under the build tmp dir):
+#   1. Codegen check: diff the two kernels' .s. The [2,2] kernel must have NO
+#      "StaggerUIter" / "WrapU" / "Is this the wrapIter?" in the unroll loop;
+#      the [1,1] kernel must still have them. Confirms the gate fires only on cluster.
+#   2. Correctness: NumElementsToValidate=-1 -> the cluster kernel must still PASS
+#      (verifies suppressing stagger leaves no dangling sgpr / addressing bug).
+#   3. Perf A/B: build once before the code change and once after, run this same
+#      yaml both times, and compare the ClusterDim [2,2] kernel's time. The delta
+#      is the multicast-hit gain from dropping stagger in the cluster case.
+TestParameters:
+  marks: [skip-gfx900, skip-gfx906, skip-gfx908, skip-gfx90a, skip-gfx940, skip-gfx941, skip-gfx942, skip-gfx950, skip-gfx1010, skip-gfx1011, skip-gfx1012, skip-gfx1030, skip-gfx1100, skip-gfx1101, skip-gfx1102, skip-gfx1200, skip-gfx1201] # not supported by arch
+GlobalParameters:
+  NumElementsToValidate: -1
+  KernelTime: True
+  BoundsCheck: 0
+  PrintSolutionRejectionReason: True
+  ValidationMaxToPrint: 4
+  ValidationPrintValids: False
+  DataInitTypeA: 3
+  DataInitTypeB: 3
+  DataInitTypeD: 0
+  DataInitTypeAlpha: 1
+  DataInitTypeBeta: 0
+  NumWarmups: 0
+  EnqueuesPerSync: 1
+  PrintWinnersOnly: False
+  Architecture: gfx1250
+  CpuThreads: 1
+  KeepBuildTmp: True
+  PrintLevel: 2
+  ForceGenerateKernel: [True]
+
+BenchmarkProblems:
+  -
+    - # ProblemType, TN
+      OperationType: GEMM
+      DataType: b
+      DestDataType: b
+      ComputeDataType: s
+      HighPrecisionAccumulate: True
+      TransposeA: True
+      TransposeB: False
+      UseBeta: True
+      Batched: True
+      Activation: False
+      SupportUserArgs: True
+      UseBias: 0
+
+    - # BenchmarkProblemSizeGroup - Standard
+      InitialSolutionParameters:
+      BenchmarkCommonParameters:
+        - KernelLanguage: ["Assembly"]
+      ForkParameters:
+        - MatrixInstruction:
+          - [16, 16, 32, 1,  1,  1, 1,  2, 2 ]  # 32x32
+        - DepthU: [64]
+        - TransposeLDS: [-1]
+        - LdsPadA: [0]
+        - LdsPadB: [0]
+        - LdsBlockSizePerPadA: [0]
+        - LdsBlockSizePerPadB: [0]
+        - LdsPadMetadata: [0]
+        - TDMInst: [3]
+        - LDSTrInst: [False]
+        - StaggerU: [32]                # non-zero on purpose: exercises stagger on the control kernel
+        - ScheduleIterAlg: [0]
+        - PrefetchLocalRead: [1]
+        - PrefetchGlobalRead: [2]
+        - StoreRemapVectorWidth: [0]
+        - GlobalSplitU: [1]
+        - GlobalSplitUAlgorithm: [MultipleBuffer]
+        - GlobalReadVectorWidthA: [-1]
+        - GlobalReadVectorWidthB: [-1]
+        - VectorWidthA: [1]
+        - VectorWidthB: [1]
+        - LocalReadVectorWidth: [8]
+        - 1LDSBuffer: [0]
+        - SourceSwap: [false]
+        - DirectToVgprSparseMetadata: [false]
+        - WorkGroupMapping: [1]
+        - StoreVectorWidth: [-1]
+        - DirectToVgprA: [False]
+        - DirectToVgprB: [False]
+        - WavefrontSize: [32]
+        - ExpandPointerSwap: [false]
+        - GroupLoadStore: [False]
+        - ClusterDim: [[1, 1], [2, 2]]  # control (stagger stays) vs cluster (stagger dropped)
+      BenchmarkForkParameters:
+      JoinParameters:
+      BenchmarkJoinParameters:
+      BenchmarkFinalParameters:
+        - ProblemSizes:
+          - Exact: [256, 256, 1, 2048]  # K=2048 / DepthU=64 = 32 unroll iters -> StaggerU=32 stays active
+        - ActivationArgs:
+          - [Enum: none]
