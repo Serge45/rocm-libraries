@@ -18900,8 +18900,14 @@ class KernelWriterAssembly(KernelWriter):
 
   def _emitTdmWaveParitySCC(self, module: Module, kernel: Mapping, dstTmpIdx: int,
                             comment: str = "wave parity"):
-    """Leave this wave's parity (bit0 of WaveId) in SCC. WaveIdx is not live inside
-    the loop, so recompute it from Serial. Clobbers sgpr(dstTmpIdx)."""
+    """Leave this wave's parity (bit0 of WaveId) in SCC. In ClusterBarrier mode
+    sgpr("WaveIdx") stays live for the whole kernel (its undefineSgpr is gated on
+    not-ClusterBarrier), so read it directly and skip the per-use recompute.
+    Otherwise WaveIdx is freed before the loop, so recompute it from Serial.
+    Clobbers sgpr(dstTmpIdx) only on the recompute path."""
+    if kernel["ClusterBarrier"]:
+      module.add(SBitcmp1B32(src0=sgpr("WaveIdx"), src1=0, comment=comment))
+      return
     wavelen: int = kernel["WavefrontSize"]
     module.add(VReadfirstlaneB32(dst=sgpr(dstTmpIdx), src=vgpr("Serial"), comment="get tId"))
     module.add(SLShiftRightB32(dst=sgpr(dstTmpIdx), shiftHex=ceil(log2(wavelen)),
