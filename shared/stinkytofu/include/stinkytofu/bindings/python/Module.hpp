@@ -72,6 +72,7 @@
     X(EnableLoopCarriedTokenDeps, bool)  \
     X(EnableESM2, bool)                  \
     X(EnableESM2TrackValuVsrc, bool)     \
+    X(SuppressGlobalPrefetchVaVdst, bool)\
     X(VgprMsbMode, int)                  \
     X(EnableSwPrefetchInsertion, bool)   \
     X(SwPrefetchScratchSgpr, int)        \

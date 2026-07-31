@@ -1098,6 +1098,12 @@ validParameters = { # we need to make sure this matches develop
     # are not split regardless of this flag. When True, two extra SGPRs are allocated to
     # hold the per-iteration LDS and global address increments for the split loads.
     "TDMSplit": [False, True],
+    # Suppress the s_wait_alu depctr_va_vdst wait that InsertWaitAluPass otherwise emits
+    # before each global_prefetch_b8 (its vaddr VGPR RAW). Only sound when the DAG hazard
+    # gate (ValuVgprToVmemAddr) already spaces the vaddr producer far enough from the
+    # prefetch, making the wait redundant — otherwise it reintroduces a vaddr hazard.
+    # Tuning knob; default False leaves behavior unchanged.
+    "SuppressGlobalPrefetchVaVdst": [False, True],
     # In-device layout of the MX scale tensors (MXSA/MXSB).
     # User-facing values:
     #   "NoSwizzle":       no swizzling; plain row/column layout (this is the default

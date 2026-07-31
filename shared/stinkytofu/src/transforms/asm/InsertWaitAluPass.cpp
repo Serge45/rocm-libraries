@@ -51,6 +51,12 @@ using namespace stinkytofu;
 // Gate for the ESM2 VALU source-operand VA_VDST stamp (the src-operand WAR hazard).
 bool g_enableESM2TrackValuVsrc = false;
 
+// Tuning: when true, suppress the VA_VDST wait normally emitted before a
+// global_prefetch_b8 (its vaddr VGPR RAW). Only sound when the DAG hazard gate
+// (ValuVgprToVmemAddr) already spaces the vaddr producer far enough from the
+// prefetch, making the wait redundant. Default false — behavior unchanged.
+bool g_suppressGlobalPrefetchVaVdst = false;
+
 // ---------------------------------------------------------------------------
 // Mode 2 counters and events (VA_VDST, VM_VSRC).
 // ---------------------------------------------------------------------------
@@ -641,9 +647,11 @@ class InsertWaitAluPassImpl : public Pass {
     VGPRHalfKeyer keyer{};
 
    public:
-    explicit InsertWaitAluPassImpl(StinkyAsmModule* module, bool enableESM2TrackValuVsrc)
+    explicit InsertWaitAluPassImpl(StinkyAsmModule* module, bool enableESM2TrackValuVsrc,
+                                   bool suppressGlobalPrefetchVaVdst = false)
         : module(module) {
         g_enableESM2TrackValuVsrc = enableESM2TrackValuVsrc;
+        g_suppressGlobalPrefetchVaVdst = suppressGlobalPrefetchVaVdst;
     }
 
    private:
@@ -695,6 +703,16 @@ class InsertWaitAluPassImpl : public Pass {
         if (isVectorALU(inst) || isTranscendental(inst) || isMatrixInstruction(inst)) {
             if (!isNoWait(wait, CT_VA_VDST))
                 PASS_DEBUG(std::cerr << "[InsertWaitAlu]     suppress va_vdst (VALU consumer, was "
+                                     << int(wait.get(CT_VA_VDST)) << ")\n");
+            setNoWait(wait, CT_VA_VDST);
+        }
+
+        // Step 2b: tuning — suppress VA_VDST for global_prefetch_b8 consumers. The DAG
+        // hazard gate (ValuVgprToVmemAddr) already spaces the vaddr producer far enough,
+        // so the wait is redundant. Gated OFF by default (g_suppressGlobalPrefetchVaVdst).
+        if (g_suppressGlobalPrefetchVaVdst && isGlobalPrefetch(inst)) {
+            if (!isNoWait(wait, CT_VA_VDST))
+                PASS_DEBUG(std::cerr << "[InsertWaitAlu]     suppress va_vdst (global_prefetch, was "
                                      << int(wait.get(CT_VA_VDST)) << ")\n");
             setNoWait(wait, CT_VA_VDST);
         }
@@ -1040,10 +1058,14 @@ char InsertWaitAluPassImpl::ID = 0;
 
 namespace stinkytofu {
 std::unique_ptr<Pass> createInsertWaitAluPass(StinkyAsmModule& module,
-                                              bool enableESM2TrackValuVsrc) {
-    return std::make_unique<InsertWaitAluPassImpl>(&module, enableESM2TrackValuVsrc);
+                                              bool enableESM2TrackValuVsrc,
+                                              bool suppressGlobalPrefetchVaVdst) {
+    return std::make_unique<InsertWaitAluPassImpl>(&module, enableESM2TrackValuVsrc,
+                                                   suppressGlobalPrefetchVaVdst);
 }
-std::unique_ptr<Pass> createInsertWaitAluPass(bool enableESM2TrackValuVsrc) {
-    return std::make_unique<InsertWaitAluPassImpl>(nullptr, enableESM2TrackValuVsrc);
+std::unique_ptr<Pass> createInsertWaitAluPass(bool enableESM2TrackValuVsrc,
+                                              bool suppressGlobalPrefetchVaVdst) {
+    return std::make_unique<InsertWaitAluPassImpl>(nullptr, enableESM2TrackValuVsrc,
+                                                   suppressGlobalPrefetchVaVdst);
 }
 }  // namespace stinkytofu

@@ -6674,6 +6674,7 @@ class KernelWriter(metaclass=abc.ABCMeta):
                                # True: expert scheduling mode2; False: mode 0. Independent of ScheduleIterAlg/OptLevel.
                                "EnableESM2": kernel["EnableStinkyTofuESM2"],
                                "EnableESM2TrackValuVsrc": kernel["EnableESM2TrackValuVsrc"],
+                               "SuppressGlobalPrefetchVaVdst": kernel["SuppressGlobalPrefetchVaVdst"],
                                "TileA0": kernel["ThreadTile0"],
                                "TileB0": kernel["ThreadTile1"],
                                "TileM0": kernel["MacroTile0"],
