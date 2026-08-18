@@ -11052,8 +11052,11 @@ class KernelWriter(metaclass=abc.ABCMeta):
           loopSpanByLabel[target] = (beginIdx, idx)
 
       headInfo = {}
+      orphanInfo = {}
       for beginName, (beginIdx, branchIdx) in loopSpanByLabel.items():
         info = {}
+        bodyWriters = set()
+        bothHalfReadSets = set()
         for k in range(beginIdx, branchIdx + 1):
           leaf = flatLeaves[k]
           if not isinstance(leaf, Instruction):
@@ -11063,13 +11066,25 @@ class KernelWriter(metaclass=abc.ABCMeta):
           if access is None or not tokens:
             continue
           phase = _accessPhase(access)
+          if access == "write":
+            bodyWriters.update(tokens)
+          elif access == "read" and len(tokens) > 1:
+            bothHalfReadSets.add(frozenset(tokens))
           for token in tokens:
             if token not in info:
               info[token] = [access, phase]  # [firstAccess, tailState]
             else:
               info[token][1] = phase          # update tail to the last access
         headInfo[beginName] = info
-      return headInfo
+        # A both-half read whose tokens are NEVER written inside the body is
+        # "orphaned": the single-copy (ExpandPointerSwap=false) loop reads one
+        # ping-pong parity while writing the other, so there is no in-body
+        # write->read edge for the read's tokens and the phase-transition
+        # barrier pass never fences them. These need an explicit group barrier.
+        orphanInfo[beginName] = {
+          s for s in bothHalfReadSets if not (set(s) & bodyWriters)
+        }
+      return headInfo, orphanInfo
 
     # Back-edge modeling is only needed for PrefetchGlobalRead < 2. With
     # PrefetchGlobalRead >= 2 the pipelined prologue pre-stages the next
@@ -11078,10 +11093,17 @@ class KernelWriter(metaclass=abc.ABCMeta):
     # _rewriteModuleInOrder degrade to exactly that linear pass.
     loopEntryOverride = {}
     loopPendingTokens = set()
-    loopHeadInfo = _detectLoopHeadInfo() if kernel["PrefetchGlobalRead"] < 2 else {}
+    if kernel["PrefetchGlobalRead"] < 2:
+      loopHeadInfo, loopOrphanBothHalf = _detectLoopHeadInfo()
+    else:
+      loopHeadInfo, loopOrphanBothHalf = {}, {}
+    # Orphan both-half read sets active in the loop body currently being
+    # rewritten, and the ones already fenced (one group barrier per set).
+    loopActiveOrphanSets = set()
+    loopEmittedOrphanSets = set()
 
     def _rewriteModuleInOrder(mod: Module):
-      nonlocal insertedCount
+      nonlocal insertedCount, loopActiveOrphanSets
       rewrittenItems = []
       for item in mod.items():
         if hasattr(item, "getLabelName") and not isinstance(item, Instruction):
@@ -11098,6 +11120,8 @@ class KernelWriter(metaclass=abc.ABCMeta):
             # not already covered by a back-edge barrier, is satisfied ONCE by a
             # barrier hoisted into the prologue (emitted right before the loop
             # label) instead of one that re-fires every iteration.
+            loopActiveOrphanSets = loopOrphanBothHalf.get(labelName, set())
+            loopEmittedOrphanSets.clear()
             prologueBarrierTokens = []
             for token, (firstAccess, tailState) in loopHeadInfo[labelName].items():
               preState = tokenState.get(token, "standby")
@@ -11131,6 +11155,8 @@ class KernelWriter(metaclass=abc.ABCMeta):
           # Reached the loop back-branch: drop any stale loop-entry overrides.
           loopEntryOverride.clear()
           loopPendingTokens.clear()
+          loopActiveOrphanSets = set()
+          loopEmittedOrphanSets.clear()
 
         access = _classifyTokenAccess(item)
         tokens = _getTokenList(item)
@@ -11173,6 +11199,28 @@ class KernelWriter(metaclass=abc.ABCMeta):
           barrier.setMemToken(MemTokenData(uniqueTokens))
           rewrittenItems.append(barrier)
           insertedCount += 1
+
+        # Orphan both-half read (single-copy loop, ExpandPointerSwap=false): the
+        # widening above did not fire because neither half is written in-body, so
+        # its cross-iteration producers are un-fenced. Emit ONE group barrier per
+        # distinct orphan set per loop body (before the first such read), never
+        # per read -- mirrors the single pre-cluster barrier the 2-copy loop gets.
+        elif access == "read" and len(tokens) > 1:
+          key = frozenset(tokens)
+          if key in loopActiveOrphanSets and key not in loopEmittedOrphanSets:
+            uniqueTokens = sorted(tokens)
+            syncComments = ", ".join([f"sync LDS{token}" for token in uniqueTokens])
+            # Emit UNTAGGED: a tagged barrier only wave-syncs and drains DS/async
+            # on token overlap, relying on the SSA UD-chain for the tensorcnt. In
+            # the single-copy body the orphan read's tokens have no in-body
+            # producer to chain against, so a tagged barrier yields ZERO
+            # s_wait_tensorcnt. An untagged tensor anchor forces a full tensorcnt
+            # drain (WaitDataflow required[CK_Tensor]=0), waiting for the
+            # cross-iteration tensor_load that filled the buffer being read.
+            barrier = SBarrier(comment=f"auto token transition barrier (TDMSplit single-copy both-half), {syncComments}")
+            rewrittenItems.append(barrier)
+            insertedCount += 1
+            loopEmittedOrphanSets.add(key)
 
         nextState = _accessPhase(access)
         for token in tokens:
