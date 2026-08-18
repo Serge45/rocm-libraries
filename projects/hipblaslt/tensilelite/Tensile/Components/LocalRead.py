@@ -1771,28 +1771,27 @@ class LocalReadMFMA(LocalRead):
                                 # indexTranpose case, disable index conversion for local read
                                 destVgpr = self.getVgprForEmu(writer, kernel, tc, bufferIdx, iui, index, lrvwTile, vgprLen=numVgpr, dst=False, localRead=True)
 
-                            # A TDMSplit read may depend on BOTH half tensor_loads, but the
-                            # byte-offset classifier (_getLdsReadMemToken) only assigns one half
-                            # token. Two cases need both:
-                            #   (a) numVectorsPerTile==1: only vIdx=0 exists; its combined region
-                            #       spans both halves but the classifier would tag everything half0.
-                            #   (b) MIWaveGroup>1 wave-separated read: TDM splits the tile dim
-                            #       across components when NumWaves>1 (auto, not gated on
-                            #       WaveSeparateGlobalRead). One ds_load is executed by MG waves
-                            #       interleaved along the tile dim (per-wave stride Sw). Their
-                            #       combined span (Sg = Sw*MG columns) can cross a comp/half
-                            #       boundary, so the read depends on both halves' loads. Tokens have
-                            #       no component dim (comp0/comp1 same-half share one token), so the
-                            #       half-token parity of a tile-col is (col // H) % 2 where H is the
-                            #       per-component half width; if the MG waves of this instruction do
-                            #       not all share one parity, carry both half tokens.
-                            tdmCross = False
+                            # TDMSplit half-token classification. The byte-offset classifier in
+                            # _getLdsReadMemToken uses a single monotone boundary (mt/2), which is
+                            # WRONG: TDM splits the tile dim into numComp components (auto when
+                            # NumWaves>1), and each component's tile is TDMSplit into lower/upper.
+                            # Tokens have no component dim, so the half-token parity of a tile-col is
+                            # (col // H) % 2 with H the per-comp half width -- it flips every H
+                            # columns (period 2H), NOT once at mt/2. One ds_load is executed by MG
+                            # interleaved waves (per-wave stride Sw); a single wave's span can also
+                            # straddle a boundary mid-tile when H is not a multiple of Sw (odd
+                            # MIWaveTile). We compute the parity of every wave's span endpoints and
+                            # pass the half set to the classifier:
+                            #   single parity -> that half's token (fixes the monotone mis-tag)
+                            #   two parities  -> both half tokens (span crosses a boundary)
+                            # Applies uniformly to A and B; MG==1 degrades to the w=0 span, which
+                            # still catches odd-MIWaveTile mid-tile straddles the monotone missed.
+                            tdmHalves = None
                             if (kernel["TDMSplit"] and not kernel["ProblemType"]["Sparse"]
                                     and not tP.get("isM", False)
                                     and kernel["enableTDMA"] and kernel["enableTDMB"]
                                     and kernel["NumWaves"] > 1
-                                    and not kernel.get("UseSubtileImpl")
-                                    and kernel["MIWaveGroup"][tile01] > 1):
+                                    and not kernel.get("UseSubtileImpl")):
                                 Sg = MIWaveGroupShape[tile01]
                                 MG = kernel["MIWaveGroup"][tile01]
                                 Sw = Sg // MG
@@ -1806,11 +1805,12 @@ class LocalReadMFMA(LocalRead):
                                         c0 = base + w * Sw
                                         ps.add((c0 // H) % 2)
                                         ps.add(((c0 + Sw - 1) // H) % 2)
-                                    tdmCross = len(ps) > 1
+                                    tdmHalves = sorted(ps)
+                            # numVectorsPerTile==1 legacy case: whole tile spans both halves.
                             tdmBothHalves = (kernel["TDMSplit"] and not kernel["ProblemType"]["Sparse"]
                                              and not tP.get("isM", False)
-                                             and (numVectorsPerTile == 1 or tdmCross))
-                            self._emitLdsRead(writer, kernel, tP, LocalReadX, dst=destVgpr, src=srcAddr, ds=ds, module=localReadCodeT, ldsByteOffset=tdmFullLdsOffset, bothHalves=tdmBothHalves, comment=comment)
+                                             and numVectorsPerTile == 1)
+                            self._emitLdsRead(writer, kernel, tP, LocalReadX, dst=destVgpr, src=srcAddr, ds=ds, module=localReadCodeT, ldsByteOffset=tdmFullLdsOffset, bothHalves=tdmBothHalves, tdmHalves=tdmHalves, comment=comment)
                             # TODO - handle vector-load
                             with writer.allocTmpSgpr(1, tag="LocalReadVALU_tmpSgprInfo2") as tmpSgprInfo:
                                 tmpSgpr = tmpSgprInfo.idx

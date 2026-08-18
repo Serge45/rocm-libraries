@@ -218,12 +218,21 @@ class LocalRead(Component):
     """
     Local read block.
     """
-    def _getLdsReadMemToken(self, writer, kernel, tP, ldsByteOffset=None, bothHalves=False):
+    def _getLdsReadMemToken(self, writer, kernel, tP, ldsByteOffset=None, bothHalves=False, tdmHalves=None):
         from rocisa.container import MemTokenData
         useSplit = (kernel["TDMSplit"] and not kernel["ProblemType"]["Sparse"]
                     and ldsByteOffset is not None and not tP.get("isM", False))
         if useSplit:
             parity = writer.states.ldsReadTokenIdx
+            if tdmHalves is not None:
+                # Authoritative half set computed in column space by the caller (wave-separated
+                # MIWaveGroup>1 path). The byte-offset classifier below uses a single monotone
+                # boundary, which is wrong when the half-token parity flips every H columns
+                # (period 2H) rather than once at mt/2. tdmHalves already accounts for the MG
+                # interleaved waves: a single-element set picks the correct half (fixing the
+                # monotone mis-tag), a two-element set carries both halves (wave span crosses).
+                toks = [writer.states.memTokenLdsSplit[parity][h] for h in tdmHalves]
+                return MemTokenData(toks), toks[0]
             if bothHalves:
                 # Tile whose per-wave reads do not statically separate the two TDMSplit halves
                 # (numVectorsPerTile==1, e.g. B with MIWaveTile[N] == VectorWidth): a single read's
@@ -241,8 +250,8 @@ class LocalRead(Component):
             tok = writer.states.ldsReadTokenIdx
         return MemTokenData([tok]), tok
 
-    def _emitLdsRead(self, writer, kernel, tP, LocalReadX, dst, src, ds, module, ldsByteOffset=None, bothHalves=False, comment=""):
-        ldsMemToken, ldsMemTokenIdx = self._getLdsReadMemToken(writer, kernel, tP, ldsByteOffset, bothHalves)
+    def _emitLdsRead(self, writer, kernel, tP, LocalReadX, dst, src, ds, module, ldsByteOffset=None, bothHalves=False, tdmHalves=None, comment=""):
+        ldsMemToken, ldsMemTokenIdx = self._getLdsReadMemToken(writer, kernel, tP, ldsByteOffset, bothHalves, tdmHalves)
         tokenList = list(getattr(ldsMemToken, "tokens", []))
         if len(tokenList) == 1:
             syncComment = "sync LDS%u" % tokenList[0]
