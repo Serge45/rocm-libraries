@@ -1771,13 +1771,45 @@ class LocalReadMFMA(LocalRead):
                                 # indexTranpose case, disable index conversion for local read
                                 destVgpr = self.getVgprForEmu(writer, kernel, tc, bufferIdx, iui, index, lrvwTile, vgprLen=numVgpr, dst=False, localRead=True)
 
-                            # When numVectorsPerTile==1 the per-wave reads never cross the TDMSplit
-                            # half boundary (only vIdx=0 exists), so the byte-offset half classifier
-                            # would tag every read half0 and leave the half1 tensor_load un-waited.
-                            # Such reads' combined region depends on BOTH half loads -> carry both
-                            # half tokens.
+                            # A TDMSplit read may depend on BOTH half tensor_loads, but the
+                            # byte-offset classifier (_getLdsReadMemToken) only assigns one half
+                            # token. Two cases need both:
+                            #   (a) numVectorsPerTile==1: only vIdx=0 exists; its combined region
+                            #       spans both halves but the classifier would tag everything half0.
+                            #   (b) MIWaveGroup>1 wave-separated read: TDM splits the tile dim
+                            #       across components when NumWaves>1 (auto, not gated on
+                            #       WaveSeparateGlobalRead). One ds_load is executed by MG waves
+                            #       interleaved along the tile dim (per-wave stride Sw). Their
+                            #       combined span (Sg = Sw*MG columns) can cross a comp/half
+                            #       boundary, so the read depends on both halves' loads. Tokens have
+                            #       no component dim (comp0/comp1 same-half share one token), so the
+                            #       half-token parity of a tile-col is (col // H) % 2 where H is the
+                            #       per-component half width; if the MG waves of this instruction do
+                            #       not all share one parity, carry both half tokens.
+                            tdmCross = False
+                            if (kernel["TDMSplit"] and not kernel["ProblemType"]["Sparse"]
+                                    and not tP.get("isM", False)
+                                    and kernel["enableTDMA"] and kernel["enableTDMB"]
+                                    and kernel["NumWaves"] > 1
+                                    and not kernel.get("UseSubtileImpl")
+                                    and kernel["MIWaveGroup"][tile01] > 1):
+                                Sg = MIWaveGroupShape[tile01]
+                                MG = kernel["MIWaveGroup"][tile01]
+                                Sw = Sg // MG
+                                numComp = kernel["NumWaves"] // 2
+                                compCols = kernel["MacroTile%u" % tile01] // numComp if numComp > 0 else 0
+                                H = compCols // 2
+                                if H > 0 and Sw > 0:
+                                    base = vIdx * Sg
+                                    ps = set()
+                                    for w in range(MG):
+                                        c0 = base + w * Sw
+                                        ps.add((c0 // H) % 2)
+                                        ps.add(((c0 + Sw - 1) // H) % 2)
+                                    tdmCross = len(ps) > 1
                             tdmBothHalves = (kernel["TDMSplit"] and not kernel["ProblemType"]["Sparse"]
-                                             and not tP.get("isM", False) and numVectorsPerTile == 1)
+                                             and not tP.get("isM", False)
+                                             and (numVectorsPerTile == 1 or tdmCross))
                             self._emitLdsRead(writer, kernel, tP, LocalReadX, dst=destVgpr, src=srcAddr, ds=ds, module=localReadCodeT, ldsByteOffset=tdmFullLdsOffset, bothHalves=tdmBothHalves, comment=comment)
                             # TODO - handle vector-load
                             with writer.allocTmpSgpr(1, tag="LocalReadVALU_tmpSgprInfo2") as tmpSgprInfo:
