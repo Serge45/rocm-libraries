@@ -11152,6 +11152,20 @@ class KernelWriter(metaclass=abc.ABCMeta):
           if _conflicts(access, state):
             barrierTokens.append(token)
 
+        # A read tagged with MULTIPLE tokens (TDMSplit both-halves: a wave-
+        # separated read whose interleaved waves span a comp/half boundary,
+        # see LocalRead tdmHalves) depends on two different-half tensor_loads.
+        # The phase-transition rule above fences a token only on its FIRST
+        # write->read edge, so one half (already in the "reading" phase from
+        # earlier single-token reads) would be dropped -> its cross-iteration
+        # producer goes un-fenced -> stale-read race. When this read ALREADY
+        # triggers a barrier (some half is in the writing phase), widen that
+        # SAME barrier to cover the read's other half too -- no extra barrier.
+        # Group-interior double-reads (no half in writing phase) still emit
+        # nothing, so we don't insert one barrier per read.
+        if barrierTokens and access == "read" and len(tokens) > 1:
+          barrierTokens = list(tokens)
+
         if barrierTokens:
           uniqueTokens = sorted(set(barrierTokens))
           syncComments = ", ".join([f"sync LDS{token}" for token in uniqueTokens])
