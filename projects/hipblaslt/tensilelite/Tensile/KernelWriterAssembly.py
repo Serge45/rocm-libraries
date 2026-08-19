@@ -16311,6 +16311,19 @@ class KernelWriterAssembly(KernelWriter):
     #  numVectorsPerBatch = numElementsPerBatch / kernel["GlobalWriteVectorWidth"]
     #  #print "  NumVectorsPerBatch", numVectorsPerBatch
     #  numElementsPerBatch = numVectorsPerBatch * kernel["GlobalWriteVectorWidth"]
+
+    # CompactLoopStore replays the body over m0Step-sized periods, so the body
+    # (batchesPerCLSBody * numElementsPerBatch) must divide the period exactly or
+    # the replay reads wrong accumulators. Clamp when the loop actually runs.
+    if kernel["CompactLoopStore"]:
+      numBatchesCLSChk = max(1, ceilDivide(len(element), numElementsPerBatch))
+      bpbCLS, iterCntCLS, periodCLS = GlobalWriteBatchWriter.computeCLSLayout(kernel, numBatchesCLSChk)
+      if iterCntCLS > 1 and periodCLS > 0 and (bpbCLS * numElementsPerBatch) != periodCLS:
+        alignedNEPB = min(numElementsPerBatch, periodCLS)
+        while alignedNEPB > 1 and periodCLS % alignedNEPB != 0:
+          alignedNEPB -= 1
+        numElementsPerBatch = alignedNEPB
+
     numBatches = max(1, ceilDivide(len(element),numElementsPerBatch))
 
     # Grow pool if needed
