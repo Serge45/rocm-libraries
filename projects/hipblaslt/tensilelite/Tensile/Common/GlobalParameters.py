@@ -563,7 +563,7 @@ defaultBenchmarkCommonParameters = [
     {"PreloadKernArgs": [True]},
     {"CustomKernelName": [""]},
     {"NoReject": [False]},
-    {"F8WaveTranspose": [0]},
+    {"WaveTransposeStore": [0]},
     {"StoreRemapVectorWidth": [0]},
     {"SourceSwap": [False]},
     {"UseDualFMAC": [False]},
