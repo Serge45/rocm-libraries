@@ -123,6 +123,7 @@ def getRequiredParametersMin() -> set:
         'StoreRemapVectorWidth',
         'StoreSyncOpt',
         'StoreVectorWidth',
+        'TensorStore',
         'StreamK',
         'StreamKForceDPOnly',
         'StreamKWorkStealing',
