@@ -210,6 +210,8 @@ namespace TensileLite
                 return "TrigIndAbsCos";
             case InitMode::UniformLowPrecision:
                 return "UniformLowPrecision";
+            case InitMode::Uniform01:
+                return "Uniform01";
 
             case InitMode::Count:
                 break;
@@ -283,6 +285,8 @@ namespace TensileLite
                 mode = InitMode::TrigIndAbsCos;
             else if(strValue == ToString(InitMode::UniformLowPrecision))
                 mode = InitMode::UniformLowPrecision;
+            else if(strValue == ToString(InitMode::Uniform01))
+                mode = InitMode::Uniform01;
             else if(std::all_of(strValue.begin(), strValue.end(), isdigit))
             {
                 int value = atoi(strValue.c_str());
@@ -1968,6 +1972,11 @@ namespace TensileLite
             // exponent range.
             case InitMode::UniformLowPrecision:
                 return "uniform_low_precision";
+            // All-positive [0,1] uniform data. Avoids the signed-cancellation that
+            // amplifies NarrowGSUWorkspace bf16-partial rounding error; mirrors the
+            // aiter/flyDSL validation inputs for this bf16->fp32->bf16 GSU reduction.
+            case InitMode::Uniform01:
+                return "uniform_01";
             // Free / Count have no mxDataGenerator analogue; throw rather than
             // silently fall through to an unrelated distribution.
             case InitMode::Free:
@@ -1992,6 +2001,7 @@ namespace TensileLite
             case InitMode::RandomNarrow:
             case InitMode::RandomNegPosLimited:
             case InitMode::UniformLowPrecision:
+            case InitMode::Uniform01:
                 return true;
             default:
                 return false;

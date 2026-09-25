@@ -111,6 +111,7 @@ namespace TensileLite
             TrigIndAbsSin, // 25
             TrigIndAbsCos, // 26
             UniformLowPrecision, // 27
+            Uniform01, // 28 -- all-positive [0,1] uniform (MX path only: initModeToMXMethod -> "uniform_01")
             Count
         };
 
@@ -574,6 +575,10 @@ namespace TensileLite
                 case InitMode::TrigIndCos:
                 case InitMode::TrigIndAbsSin:
                 case InitMode::TrigIndAbsCos:
+                // Uniform01 is only wired through the MX data generator
+                // (initModeToMXMethod -> "uniform_01"); the scalar getValue path
+                // does not implement it.
+                case InitMode::Uniform01:
                 case InitMode::Count:
                     throw std::runtime_error("Invalid InitMode.");
                 }
@@ -668,6 +673,8 @@ namespace TensileLite
                 case InitMode::TrigIndAbsCos:
                     initArrayTrig<T, true, true>(array, elements);
                     break;
+                // MX-only (initModeToMXMethod); no scalar initArray implementation.
+                case InitMode::Uniform01:
                 case InitMode::Count:
                     throw std::runtime_error("Invalid InitMode.");
                 }
@@ -760,6 +767,8 @@ namespace TensileLite
                 case InitMode::UniformLowPrecision:
                     initArray<T, InitMode::UniformLowPrecision>(array, tensor);
                     break;
+                // MX-only (initModeToMXMethod); no scalar initArray implementation.
+                case InitMode::Uniform01:
                 case InitMode::Free:
                 case InitMode::Count:
                     throw std::runtime_error("Invalid InitMode.");
