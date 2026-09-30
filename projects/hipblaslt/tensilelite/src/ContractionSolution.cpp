@@ -2962,6 +2962,7 @@ namespace TensileLite
     KernelInvocation
         ContractionSolution::generateOutputConversionCall(Problem const&           problem,
                                                           ContractionInputs const& inputs,
+                                                          Hardware const&          hardware,
                                                           StreamKSettings const&   sk,
                                                           uint32_t                 autoGsuVal,
                                                           size_t resolvedGlobalAccumulation) const
@@ -2972,7 +2973,12 @@ namespace TensileLite
 
         rv.args.reserve(512, 64);
 
-        rv.workGroupSize.x = 256;
+        // PostGSU reduce WG = 4 waves (128 on wave32/gfx1250, 256 on wave64).
+        // 4 waves measured best on gfx1250; larger regressed.
+        uint32_t _waveSize = 64;
+        if(auto const* pAMDGPU = dynamic_cast<AMDGPU const*>(&hardware))
+            _waveSize = pAMDGPU->wavefrontSize;
+        rv.workGroupSize.x = _waveSize * 4;
         rv.workGroupSize.y = 1;
         rv.workGroupSize.z = 1;
 
@@ -3850,10 +3856,10 @@ namespace TensileLite
         {
             if(debug)
                 rv.push_back(generateOutputConversionCall<true>(
-                    problem, inputs, sk, autoGsuVal, gsuSettings.globalAccumulation));
+                    problem, inputs, hardware, sk, autoGsuVal, gsuSettings.globalAccumulation));
             else
                 rv.push_back(generateOutputConversionCall<false>(
-                    problem, inputs, sk, autoGsuVal, gsuSettings.globalAccumulation));
+                    problem, inputs, hardware, sk, autoGsuVal, gsuSettings.globalAccumulation));
         }
 
         // The reduction of A is done in ConversionKernel when GSU > 1 in MultipleBuffer mode

@@ -104,112 +104,126 @@ class KernelWriterConversion(KernelWriterBase):
       return "", ""
     return "\n#if " + " && ".join(sorted(macros)) + "\n", "\n#endif // F8 macro guard\n"
 
-  def functionArgument(self):
-    kStr = ""
+  def _flatConvArgs(self):
+    """Whether the non-grouped PostGSU/conversion kernel should take its
+    arguments as separate scalars instead of one packed struct.
 
-    # argument structure start
-    kStr += self.endLine
-    kStr += "struct __attribute__((__packed__)) argument_%s" % ( self.kernelName )
-    kStr += "{" + self.endLine
+    The struct-by-value ABI blocks the AMDGPU kernarg-preload pass (verified:
+    preload_length=0 for a struct arg, 24 for the same fields passed flat), so
+    the memory-bound reduce opens with s_load + s_wait_kmcnt to fetch its args
+    at runtime -- on the critical path in ATT. Passing the fields flat lets the
+    preload pass hoist them into user SGPRs (needs the compile flag
+    -mllvm --amdgpu-kernarg-preload-count=N, wired in Toolchain/Component.py).
+    Grouped GEMM still needs the struct (it passes an array of them), so this
+    only rewrites the non-grouped path. ON by default (measured ~40% faster
+    reduce, beating FlyDSL); set TENSILE_FLAT_CONV_ARGS=0 to fall back to struct.
+    """
+    from os import environ
+    return (not self.state["ProblemType"]["GroupedGemm"]) \
+        and environ.get("TENSILE_FLAT_CONV_ARGS", "1") != "0"
 
-    # pointers
-    ptrStr = self.state["ProblemType"]["DestDataType"].toDevice(self.language)
-    ptrStr += '' if self.state["ProblemType"]["StridedBatched"] else '*'
-    bStr = '' if self.state["ProblemType"]["StridedBatched"] else 'Batch'
+  def _convStructName(self):
+    return "argument_%s" % (self.kernelName)
 
-    if self.state["ProblemType"]["UseE"]:
-      ptrCStr = self.state["ProblemType"]["DataTypeE"].toDevice(self.language)
-      ptrCStr += '' if self.state["ProblemType"]["StridedBatched"] else '*'
-      kStr += "  " + ptrCStr + " * " + bStr + "E;" + self.endLine
-    kStr += "  " + ptrStr + " * " + bStr + "D;" + self.endLine
-    kStr += "  " + self.datatype + " * W;" + self.endLine
-    kStr += "  " + ptrStr + " * " + bStr + "C;" + self.endLine
+  def _convArgFields(self):
+    """Ordered [(ctype, name), ...] of the conversion kernel's arguments.
 
-    # bias
-    if self.state["ProblemType"]["UseBias"]:
-      if (not self.state["ProblemType"]["Gradient"]):
-        biasPtrStr = self.state["ProblemType"]["BiasDataType"].toDevice(self.language)
-        kStr += "  " + biasPtrStr + " * " + "Bias;" + self.endLine
-      elif self.state["ProblemType"]["Gradient"] and (self.state["ProblemType"]["BiasSrc"] == "A" or self.state["ProblemType"]["BiasSrc"] == "B"):
-        biasPtrStr = self.state["ProblemType"]["BiasDataType"].toDevice(self.language)
-        kStr += "  " + biasPtrStr + "* " + "Bias;" + self.endLine
+    Single source of truth for the argument order shared by the struct
+    definition (functionArgument), the flat function signature, and the local
+    struct reassembly in kernelBody. Mirrors exactly the field order the host
+    appends in ContractionSolution::outputConversionCallArgs, so struct and
+    flat ABIs stay byte-compatible.
+    """
+    pt = self.state["ProblemType"]
+    fields = []
+    ptrStr = pt["DestDataType"].toDevice(self.language)
+    ptrStr += '' if pt["StridedBatched"] else '*'
+    bStr = '' if pt["StridedBatched"] else 'Batch'
 
-    # ScaleAB
-    if self.state["ProblemType"]["UseScaleAB"]:
-      scalePtrStr = self.state["ProblemType"]["ComputeDataType"].toDevice(self.language)
-      kStr += "  " + scalePtrStr + " * " + "ScaleA;" + self.endLine
-      kStr += "  " + scalePtrStr + " * " + "ScaleB;" + self.endLine
+    if pt["UseE"]:
+      ptrCStr = pt["DataTypeE"].toDevice(self.language)
+      ptrCStr += '' if pt["StridedBatched"] else '*'
+      fields.append((ptrCStr + " *", bStr + "E"))
+    fields.append((ptrStr + " *", bStr + "D"))
+    fields.append((self.datatype + " *", "W"))
+    fields.append((ptrStr + " *", bStr + "C"))
 
-    # ScaleCD
-    if self.state["ProblemType"]["UseScaleCD"]:
-      scalePtrStr = self.state["ProblemType"]["ComputeDataType"].toDevice(self.language)
-      kStr += "  " + scalePtrStr + " * " + "ScaleC;" + self.endLine
-      kStr += "  " + scalePtrStr + " * " + "ScaleD;" + self.endLine
+    if pt["UseBias"]:
+      if (not pt["Gradient"]):
+        fields.append((pt["BiasDataType"].toDevice(self.language) + " *", "Bias"))
+      elif pt["Gradient"] and (pt["BiasSrc"] == "A" or pt["BiasSrc"] == "B"):
+        fields.append((pt["BiasDataType"].toDevice(self.language) + "*", "Bias"))
+
+    if pt["UseScaleAB"]:
+      s = pt["ComputeDataType"].toDevice(self.language)
+      fields.append((s + " *", "ScaleA"))
+      fields.append((s + " *", "ScaleB"))
+    if pt["UseScaleCD"]:
+      s = pt["ComputeDataType"].toDevice(self.language)
+      fields.append((s + " *", "ScaleC"))
+      fields.append((s + " *", "ScaleD"))
 
     enableFactorDim = False
-    # interface: ScaleAlphaVec GSU>1 GSUA "MUL"
-    if self.state["ProblemType"]["UseScaleAlphaVec"]:
-      scaleAlphaVecPtrStr = self.state["ProblemType"]["ComputeDataType"].toDevice(self.language)
-      kStr += "  " + scaleAlphaVecPtrStr + " * " + "ScaleAlphaVec;" + self.endLine
-      if self.state["ProblemType"]["UseScaleAlphaVec"] == 3:
+    if pt["UseScaleAlphaVec"]:
+      fields.append((pt["ComputeDataType"].toDevice(self.language) + " *", "ScaleAlphaVec"))
+      if pt["UseScaleAlphaVec"] == 3:
+        enableFactorDim = True
+    if pt["UseGateResidual"]:
+      fields.append((pt["GateResidualDataTypeList"][0].toDevice(self.language) + " *", "Gate"))
+
+    cdt = pt["ComputeDataType"].toDevice(self.language)
+    fields.append((cdt, "alpha"))
+    fields.append((cdt, "beta"))
+
+    if (pt["ActivationType"] != 'none') and self.state["ActivationFused"]:
+      actDt = pt["ActivationComputeDataType"].toDevice(self.language)
+      for name in pt["ActivationType"].getAdditionalArgStringList():
+        fields.append((actDt, name))
+      if pt["ActivationType"] in ['all', 'hipblaslt_all']:
+        enumName = "Tensile::%sActivationType_%s" % (
+            self.actGradientPrefix, pt["ActivationComputeDataType"].toChar())
+        fields.append((enumName, "activationType"))
+
+    firstStrideCD = 0 if pt["UseInitialStridesCD"] else 1
+    lastStrideC = pt["NumIndicesC"]
+    if pt["UseE"]:
+      for i in range(firstStrideCD, lastStrideC):
+        fields.append(("unsigned int", "strideE%s" % self.indexChars[i]))
+    for i in range(firstStrideCD, lastStrideC):
+      fields.append(("unsigned int", "strideD%s" % self.indexChars[i]))
+    for i in range(firstStrideCD, lastStrideC):
+      fields.append(("unsigned int", "strideW%s" % self.indexChars[i]))
+    for i in range(firstStrideCD, lastStrideC):
+      fields.append(("unsigned int", "strideC%s" % self.indexChars[i]))
+    if pt["UseGateResidual"]:
+      for i in range(firstStrideCD, lastStrideC):
+        fields.append(("unsigned int", "strideGate%s" % self.indexChars[i]))
+
+    if pt["UseBias"] and (not pt["Gradient"] or
+        (pt["Gradient"] and (pt["BiasSrc"] == "A" or pt["BiasSrc"] == "B"))):
+      fields.append(("unsigned int", "strideBias"))
+      if pt["UseBias"] == 3:
         enableFactorDim = True
 
-    if self.state["ProblemType"]["UseGateResidual"]:
-      gatePtrStr = self.state["ProblemType"]["GateResidualDataTypeList"][0].toDevice(self.language)
-      kStr += "  " + gatePtrStr + " * " + "Gate;" + self.endLine
-
-    # alpha & beta
-    kStr += "  %s alpha;%s" % (self.state["ProblemType"]["ComputeDataType"].toDevice(self.language), self.endLine)
-    kStr += "  %s beta;%s" % (self.state["ProblemType"]["ComputeDataType"].toDevice(self.language), self.endLine)
-
-    # activation
-    activationCDataType = self.state["ProblemType"]["ActivationComputeDataType"]
-    enumName = "Tensile::%sActivationType_%s"%(self.actGradientPrefix, activationCDataType.toChar())
-    if ((self.state["ProblemType"]["ActivationType"] != 'none') and self.state["ActivationFused"]):
-      for name in self.state["ProblemType"]["ActivationType"].getAdditionalArgStringList():
-        kStr += "  %s %s;%s" % (self.state["ProblemType"]["ActivationComputeDataType"].toDevice(self.language), name, self.endLine)
-      if self.state["ProblemType"]["ActivationType"] in ['all', 'hipblaslt_all']:
-        kStr += "  %s activationType;%s" % (enumName, self.endLine)
-
-    # strides
-    firstStrideCD = 1
-    if self.state["ProblemType"]["UseInitialStridesCD"]:
-      firstStrideCD = 0
-    lastStrideC = self.state["ProblemType"]["NumIndicesC"]
-    if self.state["ProblemType"]["UseE"]:
-      for i in range(firstStrideCD, lastStrideC):
-        kStr += "  unsigned int strideE%s;%s" % (self.indexChars[i], self.endLine)
-    for i in range(firstStrideCD, lastStrideC):
-      kStr += "  unsigned int strideD%s;%s" % (self.indexChars[i], self.endLine)
-    for i in range(firstStrideCD, lastStrideC):
-      kStr += "  unsigned int strideW%s;%s" % (self.indexChars[i], self.endLine)
-    for i in range(firstStrideCD, lastStrideC):
-      kStr += "  unsigned int strideC%s;%s" % (self.indexChars[i], self.endLine)
-    if self.state["ProblemType"]["UseGateResidual"]:
-      for i in range(firstStrideCD, lastStrideC):
-        kStr += "  unsigned int strideGate%s;%s" % (self.indexChars[i], self.endLine)
-
-    if self.state["ProblemType"]["UseBias"] and \
-        (not self.state["ProblemType"]["Gradient"] or \
-          (self.state["ProblemType"]["Gradient"] and (self.state["ProblemType"]["BiasSrc"] == "A" or self.state["ProblemType"]["BiasSrc"] == "B"))):
-      kStr += "  unsigned int strideBias;%s" % (self.endLine)
-      if self.state["ProblemType"]["UseBias"] == 3:
-        enableFactorDim = True
-
-    # sizes
-    for i in range(0, self.state["ProblemType"]["NumIndicesC"]):
-      if i < (self.state["ProblemType"]["NumIndicesC"] - 1):
-        kStr += "  unsigned int size%s;%s" % (self.indexChars[i], self.endLine)
-      else:
-        kStr += "  unsigned int size%s;%s" % (self.indexChars[i], self.endLine)
-    kStr += "  unsigned int gsu;%s" % (self.endLine)
+    for i in range(0, pt["NumIndicesC"]):
+      fields.append(("unsigned int", "size%s" % self.indexChars[i]))
+    fields.append(("unsigned int", "gsu"))
 
     if enableFactorDim:
-      kStr += "  unsigned int factorDim;%s" % (self.endLine)
+      fields.append(("unsigned int", "factorDim"))
 
-    # argument structure end
+    return fields
+
+  def functionArgument(self):
+    # Struct definition, emitted from the shared field list so the struct ABI
+    # (grouped path + the flat path's local reassembly type) stays in lockstep
+    # with the flat signature.
+    kStr = self.endLine
+    kStr += "struct __attribute__((__packed__)) %s{%s" % (
+        self._convStructName(), self.endLine)
+    for ctype, name in self._convArgFields():
+      kStr += "  %s %s;%s" % (ctype, name, self.endLine)
     kStr += "};" + self.endLine
-
     return kStr
 
   def functionSignature(self):
@@ -225,6 +239,16 @@ class KernelWriterConversion(KernelWriterBase):
     # kernel argument
     if self.state["ProblemType"]["GroupedGemm"]:
       kStr += "  uint32_t* wiTablePtr, void* deviceUserArgsPtr, argument_%s* argsPtr, uint32_t gemm_count)" % ( self.kernelName ) + self.endLine
+    elif self._flatConvArgs():
+      # Flat ABI: pass each field as its own scalar (suffixed "_") instead of a
+      # struct by value, so the AMDGPU kernarg-preload pass can hoist them into
+      # user SGPRs (a struct-by-value arg gets preload_length 0). kernelBody
+      # rebuilds a local `arg` from these, so the rest of the body is unchanged.
+      # Field order is identical to the struct, so the host-side append order in
+      # outputConversionCallArgs stays byte-compatible.
+      for ctype, name in self._convArgFields():
+        kStr += "  %s %s_,%s" % (ctype, name, self.endLine)
+      kStr += "  uint32_t batch_mode, uint32_t additionalPaddingPerBatch, int64_t batchOffsetD, int64_t batchOffsetC)" + self.endLine
     else:
       # Additional argument batch_mode is added to distinguish between Strided Batch and General Batched GEMM
       # batch_mode will dictate how the GLOBAL_C and GLOBAL_D macros are defined and used in the kernel body
@@ -239,6 +263,18 @@ class KernelWriterConversion(KernelWriterBase):
     kStr = ""
     kStr += "{%s" % self.endLine
     problemType = self.state["ProblemType"]
+
+    # Flat ABI: rebuild the local `arg` struct from the flat scalar params so the
+    # entire body below (which reads arg.X) is unchanged. The params arrive in
+    # user SGPRs via kernarg preload; the local struct is SROA'd back into those
+    # registers (verified: preload_length unchanged at 24 vs the flat signature),
+    # so this reassembly costs nothing and is not spilled to the kernarg segment.
+    if self._flatConvArgs():
+      fields = self._convArgFields()
+      kStr += "  %s arg = { %s };%s" % (
+          self._convStructName(),
+          ", ".join("%s_" % name for _, name in fields),
+          self.endLine)
 
     ########################################
     # defined initial strides
@@ -423,13 +459,36 @@ class KernelWriterConversion(KernelWriterBase):
       kStr += ", id%d" % i
     kStr += ";%s" % self.endLine
 
+    # The linear output index `id` (already bounds-checked above to be
+    # < total_output_elems / NUM_ELEMENT_LOAD) is decomposed into per-dim
+    # indices via repeated div/mod. Doing this in 64-bit forces hipcc to
+    # inline a Newton-Raphson software divide (runtime divisor), which shows
+    # up as a long chain of v_mul_u64/v_mul_hi/readfirstlane on the critical
+    # path before any buffer_load can issue -- starving this memory-bound
+    # reduce. When the whole output fits in 32 bits, decompose in uint32 so
+    # each div/mod is a (cheaper) 32-bit software divide, halving that chain.
+    kStr += "  bool _idxFitsU32 = ((arg.size%s" % self.indexChars[0]
+    for i in range(1, problemType["NumIndicesC"]):
+      kStr += " * arg.size%s" % self.indexChars[i]
+    kStr += ") <= 0xffffffffull);%s" % self.endLine
+    kStr += "  if(_idxFitsU32) {%s" % self.endLine
+    kStr += "    uint32_t id32 = (uint32_t)id;%s" % self.endLine
     for i in range(0, problemType["NumIndicesC"]):
       if i == 0:
-        kStr += "  id%d = (id %% (arg.size%s/NUM_ELEMENT_LOAD)) * NUM_ELEMENT_LOAD;%s" % (i, self.indexChars[i], self.endLine)
-        kStr += "  id  = id / (arg.size%s/NUM_ELEMENT_LOAD);%s" % (self.indexChars[i], self.endLine)
+        kStr += "    id%d = (uint64_t)((id32 %% (uint32_t)(arg.size%s/NUM_ELEMENT_LOAD)) * NUM_ELEMENT_LOAD);%s" % (i, self.indexChars[i], self.endLine)
+        kStr += "    id32 = id32 / (uint32_t)(arg.size%s/NUM_ELEMENT_LOAD);%s" % (self.indexChars[i], self.endLine)
       else:
-        kStr += "  id%d = id %% arg.size%s;%s" % (i, self.indexChars[i], self.endLine)
-        kStr += "  id  = id / arg.size%s;%s" % (self.indexChars[i], self.endLine)
+        kStr += "    id%d = (uint64_t)(id32 %% (uint32_t)arg.size%s);%s" % (i, self.indexChars[i], self.endLine)
+        kStr += "    id32 = id32 / (uint32_t)arg.size%s;%s" % (self.indexChars[i], self.endLine)
+    kStr += "  } else {%s" % self.endLine
+    for i in range(0, problemType["NumIndicesC"]):
+      if i == 0:
+        kStr += "    id%d = (id %% (arg.size%s/NUM_ELEMENT_LOAD)) * NUM_ELEMENT_LOAD;%s" % (i, self.indexChars[i], self.endLine)
+        kStr += "    id  = id / (arg.size%s/NUM_ELEMENT_LOAD);%s" % (self.indexChars[i], self.endLine)
+      else:
+        kStr += "    id%d = id %% arg.size%s;%s" % (i, self.indexChars[i], self.endLine)
+        kStr += "    id  = id / arg.size%s;%s" % (self.indexChars[i], self.endLine)
+    kStr += "  }%s" % self.endLine
 
     # Set batchIdx = id2 for strided batched mode (batch_mode == 0)
     if not self.state["ProblemType"]["GroupedGemm"]:
@@ -567,6 +626,33 @@ class KernelWriterConversion(KernelWriterBase):
       kStr += " + (arg.size%s - 1) * arg.strideW%s" % (indexChar, indexChar)
     kStr += ";" + self.endLine
     kStr += "  %s strideWLimit = strideW * arg.gsu * sizeof(%s);"%(self.uint64Str, self.wsDataType) + self.endLine
+
+    # L2-prefetch every GSU partial AS EARLY AS POSSIBLE -- right after the base
+    # index (idxW) and stride are known, before the ~dozens of lines of accum/
+    # scale/type setup that precede the real buffer_loads. The NUM_GSU partials
+    # sit strideW apart (a whole D-plane, ~MBs, different cache lines/pages), so
+    # firing the global_prefetch_b8 hints now lets the L2 pull them in while all
+    # that setup runs, shortening the s_wait_loadcnt that dominates this
+    # memory-bound reduce (mirrors the FlyDSL reduce). Address must match the
+    # loads: arg.W is ComputeDataType* but is addressed in wsDataType units, so
+    # index off a char* by idxPf * sizeof(wsDataType), not float* arithmetic.
+    # ON by default (it alone killed s_wait_xcnt 131712->512 in ATT and is pure
+    # upside -- no VGPR cost, doesn't change results); set TENSILE_CONV_PREFETCH=0
+    # to disable. Prefetch ALL NUM_GSU (prefetch-1 regressed loadcnt/wave badly).
+    import os
+    if os.environ.get("TENSILE_CONV_PREFETCH", "1") != "0" and self.state["UnrollOnly"]:
+      # How many of the NUM_GSU partials to prefetch. Default: all. Fewer hints
+      # (e.g. 1, like the FlyDSL reduce) cut issue pressure; the L2's own
+      # stride/next-line prefetcher may then cover the rest once the first line
+      # is touched. Tunable via env for A/B.
+      _pfN = int(os.environ.get("TENSILE_CONV_PREFETCH_N", str(self.state["GlobalSplitU"])))
+      _pfN = max(1, min(_pfN, self.state["GlobalSplitU"]))
+      kStr += "  {%s" % self.endLine
+      kStr += "    %s idxPf = idxW;%s" % (self.uint64Str, self.endLine)
+      for gsuIdx in range(_pfN):
+        kStr += "    __builtin_prefetch((const void*)((const char*)arg.W + idxPf * sizeof(%s)), 0, 3);%s" % (self.wsDataType, self.endLine)
+        kStr += "    idxPf += strideW;%s" % self.endLine
+      kStr += "  }%s" % self.endLine
 
     kStr += "  " + intermediateDataType + " accum[NUM_ELEMENT_LOAD] = {0};" + self.endLine
     kStr += "  " + convTypeStr + " result[NUM_ELEMENT_LOAD];" + self.endLine

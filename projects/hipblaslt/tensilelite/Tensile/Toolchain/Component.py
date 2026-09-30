@@ -221,6 +221,24 @@ class Compiler(Component):
             "-std=c++17",
         ]
 
+        # Preload kernel arguments into SGPRs. The HIP helper kernels (PostGSU
+        # reduction / output conversion) otherwise open with s_load + s_wait_kmcnt
+        # to fetch their (large, ~288B) argument struct at runtime -- on the
+        # memory-bound GSU reduce that kmcnt wait sat on the critical path
+        # (~80k cycles in ATT). Preloading the leading dwords (pointers + strides,
+        # the inputs to every address calc) hoists them into user SGPRs so the
+        # kernel can issue its buffer_loads immediately. Mirrors the FlyDSL
+        # reduce, which sets amdgpu-kernarg-preload-count and shows zero kmcnt.
+        # Overridable via env for A/B testing.
+        _preload = environ.get("TENSILE_KERNARG_PRELOAD_COUNT", "16")
+        if _preload and int(_preload) > 0:
+            self.default_args += ["-mllvm", f"-amdgpu-kernarg-preload-count={int(_preload)}"]
+            # Loud confirmation so a build can verify the flag is actually applied
+            # to the HIP source compile (the helper-kernel cache key does NOT
+            # include compile flags, so a stale cache entry can silently mask it).
+            print("[Tensile] kernarg-preload ENABLED for HIP source kernels: "
+                  f"-mllvm -amdgpu-kernarg-preload-count={int(_preload)}", flush=True)
+
         if asan_build:
             self.default_args.extend(["-fsanitize=address", "-shared-libasan", "-fuse-ld=lld"])
         if save_temps:
