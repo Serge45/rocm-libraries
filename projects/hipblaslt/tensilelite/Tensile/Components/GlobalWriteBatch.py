@@ -4292,8 +4292,9 @@ class GlobalWriteBatchWriter:
     # Scaling each element right before its own pack lets the previous batch's grouped stores drain:
     # the pack output overlays the element's first registers, and an up-front scale of all elements
     # would overwrite the last store's source registers while that store is still waiting to read them.
-    return bool(self.kernel["GroupLoadStore"] and not self.edge and not self.beta and self.gwvw % 8 == 0
-                and self.kernel["ProblemType"]["DestDataType"].isFloat8())
+    dstType = self.kernel["ProblemType"]["DestDataType"]
+    return bool(self.kernel["GroupLoadStore"] and not self.edge and not self.beta
+                and (dstType.isBFloat16() or (dstType.isFloat8() and self.gwvw % 8 == 0)))
 
   def _applyAlpha(self, kernel, gwvw, elementSumIdx, elementIdx, tmpS01, usePK=False):
     module = Module("applyAlpha")
