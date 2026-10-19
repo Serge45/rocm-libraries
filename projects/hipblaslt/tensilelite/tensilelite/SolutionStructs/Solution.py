@@ -6299,7 +6299,8 @@ class Solution(collections.abc.Mapping):
       state["LdsOffsetMetadata_Blk"] = state["LdsOffsetMXSB_Blk"] + state["LdsNumElementsAlignedMXSB"]
       state["LdsOffsetB_Blk"] = state["LdsOffsetMetadata_Blk"] + state["LdsNumElementsAlignedMetadata"]
       ldsNumBytesAB = (numLdsBlk - 2) * offsetBlk + state["LdsOffsetB_Blk"] + ldsNumBytesB
-      return ldsNumBytesAB
+      # The last buffer's span also holds the extra interleave bytes (offsetBlk already counts them).
+      return ldsNumBytesAB + _segExtraBytes
 
     def setLdsOffsetsDecoupled(ldsNumBytesB):
       # nBlkA x [A|MXSA] with stride blkA, then nBlkB x [MXSB|B] with stride blkB.
@@ -6351,6 +6352,7 @@ class Solution(collections.abc.Mapping):
     state["LDSSegInterleaveOffsets"] = _segRes["offsets"]    # consumed by emit sites when applied
     _segAligned = _segRes["applicable"] and _segRes["aligned"]
     _segReason = _segRes["reason"]                           # why not applied (may change if budget disables aligned)
+    _segExtraBytes = int((_segRes["offsets"] or {}).get("mxsDupExtra", 0)) if (_segApplicable and not _segAligned) else 0
     # Keep dcpDivergent local: serializing it would change every solution's key set.
     # KernelWriterAssembly._dcpDivergent re-derives it from PGRA/PGRB.
     if dcpDivergent:
@@ -6358,11 +6360,13 @@ class Solution(collections.abc.Mapping):
       _segApplicable = False
       _segAligned = False
       _segReason = "not supported with PrefetchGlobalReadA/B"
+      _segExtraBytes = 0
       ldsNumBytesAB = setLdsOffsetsDecoupled(ldsNumBytesB)
       # Packed layout has no power-of-two swap stride, so force StoreSwapAddr.
       state["StoreSwapAddr"] = True
     elif state["PrefetchGlobalRead"]:
       offsetBlk = state["LdsOffsetB"] + ldsNumBytesAlignedB
+      offsetBlk += _segExtraBytes
       # Aligned interleave grows the per-buffer block; keep it only if it still double-buffers
       # within MaxLDS, else disable (a too-tight forced kernel is rejected below, not run baseline).
       if _segAligned:

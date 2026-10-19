@@ -299,6 +299,14 @@ def mxsSegmentSplit(ks, tc):
             and bool((ks.get("LDSSegInterleaveOffsets") or {}).get("mxsSplitA")))
 
 
+def mxsDupB(ks):
+    """LDSSegmentInterleave on the tight [2,2] layout with MXSA split: MXSB is written twice (one copy per SIMD
+    pair, one component stride apart) by a single iterate-mode TDM load, so the pairs never read it from the same
+    LDS segment."""
+    return (ks.get("LDSSegmentInterleave") == 1
+            and bool((ks.get("LDSSegInterleaveOffsets") or {}).get("mxsDupB")))
+
+
 def tdmSoleWave(ks, tc):
     """Return the sole wave carrying `tc`."""
     _, waves = tdmWavePartition(ks, tc)

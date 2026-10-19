@@ -1101,6 +1101,19 @@ class LraTileAssignmentMFMA(LraTileAssignment):
                         comment="8. (TileSpan wave-split) hi = (tid / MI_dim) & 1  (lower/upper half-wave)"))
                     module.add(vectorStaticMultiplyAdd(vgpr(tReg), vgpr(dummy), hiOffset, vgpr(tReg), tmpSgprInfo, \
                         "8. (TileSpan wave-split) wave offset in %s dimen: wOffset += hi * hiOffset(%u); upper half-wave grabs partner block" % (tileDim, hiOffset)))
+                if tc == "MXSB" and kernel.get("LDSSegmentInterleave") == 1 \
+                        and (kernel.get("LDSSegInterleaveOffsets") or {}).get("mxsDupB"):
+                    # Each SIMD pair reads its own copy of MXSB: pair 1's copy sits one component stride up;
+                    # added post-pad in lraFinalOffset.
+                    pairReg = writer.vgprPool.checkOut(1, tag="mxsDupPair")
+                    module.add(vectorStaticDivide(pairReg, dividendReg, waveWidth, tmpVgprRes, \
+                        "mx dup: wave id = tid / wavelength(%u)" % waveWidth))
+                    module.add(VAndB32(dst=vgpr(pairReg), src0=1, src1=vgpr(pairReg), comment="mx dup: pair = wave id & 1"))
+                    segOff = writer.vgprPool.checkOut(1, tag="segWaveByteOff")
+                    module.add(vectorStaticMultiply(vgpr(segOff), vgpr(pairReg), kernel["LDSSegInterleaveOffsets"]["writeStrideBytes"], tmpSgprInfo, \
+                        "mx dup: copy byte offset = pair * writeStrideBytes"))
+                    tP["gpr"]["segWaveByteOff"] = segOff
+                    writer.vgprPool.checkIn(pairReg)
             if perpBlockSize > 0:
                writer.vgprPool.checkIn(rotVgpr)
 

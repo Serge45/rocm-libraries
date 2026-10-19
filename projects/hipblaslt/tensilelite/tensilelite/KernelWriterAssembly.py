@@ -85,7 +85,7 @@ from .Components.TDMFuse import tdmFusePaired, tdmGroupPartner, \
                                 tdmSharedScaleSetOwner, tdmSetOwner, tdmSetGroup, \
                                 tdmGrouping, tdmSharedSetOrder, tdmSharedScaleSetActive, \
                                 tdmMemberIsLive
-from .Components.TDMFuse import tdmWaveComponents, tdmWavePartition, tdmSoleWave, tdmWaveRangeText, mxsSegmentSplit
+from .Components.TDMFuse import tdmWaveComponents, tdmWavePartition, tdmSoleWave, tdmWaveRangeText, mxsSegmentSplit, mxsDupB
 from .SolutionStructs import isPackedIndex
 from .AsmStoreState import StoreState, VectorDataTypes
 from .Activation import ActivationType
@@ -1245,10 +1245,22 @@ class KernelWriterAssembly(KernelWriter):
             module.add(RegSet("s", "sgprtdm%sGroup0" % mxs, "sgprtdm%sGroup0" % owner))
             module.add(RegSet("s", "sgprtdm%sGroup1" % mxs, "sgprtdm%sGroup1" % owner))
 
+    if mxsDupB(kernel):
+      if not (self.isTdmWaveSeparated(kernel) and self.tdmDescriptorSetOwner(kernel, "MXSA") == "MXSA"
+              and self.tdmDescriptorSetOwner(kernel, "MXSB") == "MXSA"):
+        raise RuntimeError("MXSB duplication needs MXSA and MXSB to share their own wave-separated descriptor set")
+      # The scale set iterates (MXSB copy per pair), so its four-operand load needs its own Group2/3.
+      module.add(self.defineSgpr("tdmMXSGroup2", 4, 4))
+      for mxs in ("MXSA", "MXSB"):
+        module.add(RegSet("s", "sgprtdm%sGroup2" % mxs, "sgprtdmMXSGroup2"))
+        module.add(RegSet("s", "sgprtdm%sGroup3" % mxs, "sgprtdmMXSGroup2"))
+
     # The four-operand load reads Group2/3 for every member of an iterating set.
     if self.isTdmWaveSeparated(kernel) and (kernel.get("_TDMIterateModeA", False)
                                             or kernel.get("_TDMIterateModeB", False)):
       for mxs in ("MXSA", "MXSB"):
+        if mxsDupB(kernel):
+          continue
         if not kernel["ProblemType"]["MXBlock%s" % mxs[-1]]:
           continue
         if not (kernel["enableTDMA"] if mxs == "MXSA" else kernel["enableTDMB"]):
@@ -12103,7 +12115,9 @@ class KernelWriterAssembly(KernelWriter):
             imod.middle.add(self.tdmResetTailLdsBuffer(kernel, ldsAddrSgprName))
         if not rapTdmDead:
           imod.middle.add(self.rapNullTdmDescriptorForEvenWaves(kernel, "tdmMXSAGroup0+0"))
-          imod.middle.add(comp.issueLoad("tdmMXSAGroup0", "tdmMXSAGroup1", None, None))
+          dupB = mxsDupB(kernel)
+          imod.middle.add(comp.issueLoad("tdmMXSAGroup0", "tdmMXSAGroup1",
+                                         "tdmMXSAGroup2" if dupB else None, "tdmMXSAGroup3" if dupB else None))
       return imod
 
     if tc == "Metadata" and kernel["enableTDMMetadata"]:
@@ -20687,6 +20701,7 @@ class KernelWriterAssembly(KernelWriter):
                                 and (tc in ("A", "B")
                                      or any(m in ("A", "B")
                                             for m in (tdmSetGroup(kernel, tc) or ()))))
+    needGroup23 = needGroup23 or (isMX and mxsDupB(kernel))
     group2Name = descSgprName(2) if needGroup23 else None
     # Group 3 aliases Group 2; skip the redundant alias-side zero-init.
     mod.add(comp.initOperands(descSgprName(0), descSgprName(1), group2Name, None))
@@ -20831,6 +20846,15 @@ class KernelWriterAssembly(KernelWriter):
 
     # Multi-wave TDMSplit recomputes the LDS/global split increments transiently at
     # point of use (see _tdmSplitMultiWaveInc); nothing is initialized here.
+
+    if tc == "MXSB" and mxsDupB(kernel):
+      # Two iterations of the same tile: the second lands one component stride up (lds_inc, bytes) and
+      # re-reads the same global data (global_inc 0); the iteration field holds n-1.
+      mod.add(comp.setIterationEnabled(descSgprName(1), True))
+      mod.add(SMovB32(sgpr(f"{descSgprName(2)}+1"), kernel["LDSSegInterleaveOffsets"]["writeStrideBytes"],
+                      "MXSB copy: lds increment = component stride"))
+      mod.add(SMovB32(sgpr(f"{descSgprName(2)}+2"), 0, "MXSB copy: global increment = 0"))
+      mod.add(SMovB32(sgpr(f"{descSgprName(2)}+3"), 1 << 16, "MXSB copy: iterations = 2 (field holds n-1)"))
 
     return mod
 

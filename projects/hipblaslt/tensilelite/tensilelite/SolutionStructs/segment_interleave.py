@@ -414,6 +414,19 @@ def evaluate(state):
             offsets["ldsBaseMXSA"] = h0
             offsets["mxsSplitA"] = True
             bMXSA = h0
+            if bMXSB is not None and not state.get("LdsPadMXSB", 0) \
+                    and not state.get("LdsBlockSizePerPadMXSB", 0):
+                m = int(state.get("LdsNumElementsAlignedMXSB", 0))
+                stride2 = stride + m
+                x0 = h0 + half
+                natural = state["LdsOffsetB"] + state["LdsNumElementsAlignedB"]
+                if m > 0 and m % 16 == 0 and SEG < stride2 < 2 * SEG and x0 // SEG != (x0 + stride2) // SEG \
+                        and h0 // SEG != (h0 + stride2) // SEG and state.get("PrefetchGlobalRead") == 2 \
+                        and 2 * (natural + m) <= state["MaxLDS"]:
+                    offsets["writeStrideBytes"] = stride2
+                    offsets["mxsDupB"] = True
+                    offsets["mxsDupExtra"] = m
+                    bMXSB = x0
     if bMXSA is not None: offsets["ldsBaseMXSA"] = bMXSA
     if bMXSB is not None: offsets["ldsBaseMXSB"] = bMXSB
     a0 = base // SEG
