@@ -414,8 +414,7 @@ def evaluate(state):
             offsets["ldsBaseMXSA"] = h0
             offsets["mxsSplitA"] = True
             bMXSA = h0
-            if bMXSB is not None and not state.get("LdsPadMXSB", 0) \
-                    and not state.get("LdsBlockSizePerPadMXSB", 0):
+            if bMXSB is not None:
                 m = int(state.get("LdsNumElementsAlignedMXSB", 0))
                 stride2 = stride + m
                 x0 = h0 + half
