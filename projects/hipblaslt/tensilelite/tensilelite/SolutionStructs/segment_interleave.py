@@ -87,23 +87,30 @@ def _mx_scale_bases(state, mxsaStart):
     szB = int(state.get("LdsNumElementsAlignedMXSB", 0)) if hasB else 0
     return (baseA if hasA else None), (baseB if hasB else None), baseB + szB
 
-def _mx_split_a(state, offsets, baseMXSA, stride, holeStart, segEnd):
-    """MXSA is loaded as two M halves, one per SIMD pair. Half 1 keeps the trailing scale slot (segment of
-    A1/B1); half 0 moves one component stride down, into the segment-0 hole right after B0, so the two
-    read ports never read MXSA from the same segment. Marks offsets["mxsSplitA"] only when the half fits
-    the hole, the base stays 16B aligned and MXSA is a plain InMemorySwizzle scale with coarse A (so a
-    pair's M rows are exactly one half of the tile)."""
+def _mx_split_half(state):
+    """Size of one MXSA M half when MXSA can be loaded as two M halves (one per SIMD pair), else 0: a plain
+    InMemorySwizzle scale with coarse A (a pair's M rows are exactly one half of the tile) and a 16B-aligned half."""
     pt = state["ProblemType"]
-    if baseMXSA is None or not pt.get("MXBlockA") or state.get("MXScaleFormat") != "InMemorySwizzle":
-        return
+    if not pt.get("MXBlockA") or state.get("MXScaleFormat") != "InMemorySwizzle":
+        return 0
     if state.get("TDMFuse") or state.get("TDMSplit") or state.get("DirectToVgprMXSA"):
-        return
-    if state.get("LdsPadMXSA", 0) > 0 or state.get("LdsBlockSizePerPadMXSA", 0) > 0:
-        return
+        return 0
     if not _coarse(state, "A"):
-        return
+        return 0
+    pad, blk = state.get("LdsPadMXSA", 0), state.get("LdsBlockSizePerPadMXSA", 0)
     half = int(state.get("LdsNumElementsAlignedMXSA", 0)) // 2
-    if half <= 0 or baseMXSA - stride != holeStart or holeStart % 16 != 0 or holeStart + half > segEnd:
+    if pad > 0 or blk > 0:
+        # A padded half is the same whole pad blocks as half of the unsplit image, so it needs an even block count.
+        if pad <= 0 or blk <= 0 or (int(state["ldsNumBytesMXSA"]) // (blk + pad)) % 2 or int(state["ldsNumBytesMXSA"]) // 2 > half:
+            return 0
+    return half if half % 16 == 0 else 0
+
+def _mx_split_a(state, offsets, baseMXSA, stride, holeStart, segEnd):
+    """Aligned layout: half 1 keeps the trailing scale slot (segment of A1/B1); half 0 moves one component
+    stride down, into the segment-0 hole right after B0, so the two read ports never read MXSA from the same
+    segment. Marks offsets["mxsSplitA"] only when the half fits the hole."""
+    half = _mx_split_half(state)
+    if baseMXSA is None or half <= 0 or baseMXSA - stride != holeStart or holeStart + half > segEnd:
         return
     offsets["ldsBaseMXSA"] = holeStart
     offsets["mxsSplitA"] = True
@@ -396,6 +403,17 @@ def evaluate(state):
         offsets["portSplitA"] = True
     # mxf8: put the scale block after B1. Uses no more LDS than the non-interleaved layout.
     bMXSA, bMXSB, _ = _mx_scale_bases(state, base + 2 * (fA + fB))
+    # MXSA as two M halves: widen the component stride by one half so half 0 fills the gap after B0 and half 1
+    # the gap after B1 (the MXSA slot is just split in two, so the total and MXSB's base are unchanged).
+    half = _mx_split_half(state) if bMXSA is not None else 0
+    if half:
+        stride = fA + fB + half
+        h0, h1 = base + fA + fB, base + fA + fB + stride
+        if SEG < stride < 2 * SEG and h0 // SEG != h1 // SEG:
+            offsets["writeStrideBytes"] = stride
+            offsets["ldsBaseMXSA"] = h0
+            offsets["mxsSplitA"] = True
+            bMXSA = h0
     if bMXSA is not None: offsets["ldsBaseMXSA"] = bMXSA
     if bMXSB is not None: offsets["ldsBaseMXSB"] = bMXSB
     a0 = base // SEG

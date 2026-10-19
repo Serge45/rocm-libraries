@@ -1067,10 +1067,14 @@ class LraTileAssignmentMFMA(LraTileAssignment):
                     module.add(vectorStaticMultiply(vgpr(segOff), vgpr(dummy), kernel["LDSSegInterleaveOffsets"]["writeStrideBytes"], tmpSgprInfo, \
                                              "seg interleave: component byte offset = wtid0 * (fA+fB)"))
                     tP["gpr"]["segWaveByteOff"] = segOff
+                elif mxsSegmentSplit(kernel, tc):
+                    # MXSA half h (= this wave's M half) sits one segment stride above half 0; added post-pad
+                    # in lraFinalOffset so the jump is not run through the pad formula.
+                    segOff = writer.vgprPool.checkOut(1, tag="segWaveByteOff")
+                    module.add(vectorStaticMultiply(vgpr(segOff), vgpr(dummy), kernel["LDSSegInterleaveOffsets"]["writeStrideBytes"], tmpSgprInfo, \
+                                             "mx split: M-half byte offset = wtid0 * writeStrideBytes"))
+                    tP["gpr"]["segWaveByteOff"] = segOff
                 else:
-                    if mxsSegmentSplit(kernel, tc):
-                        # MXSA half h (= this wave's M half) sits one segment stride above half 0.
-                        strideWave = kernel["LDSSegInterleaveOffsets"]["writeStrideBytes"]
                     module.add(vectorStaticMultiplyAdd(vgpr(tReg), vgpr(dummy), strideWave, vgpr(tReg), tmpSgprInfo, \
                                              "7. wave offset in M dimen: wOffset = wtid0 * W0Stride(%u); 7. final local read offset: flrOffset = lrOffset + WOffset" % strideWave))
                 if tileSpanWaveSplit:

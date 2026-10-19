@@ -20614,8 +20614,9 @@ class KernelWriterAssembly(KernelWriter):
     if piecesPerComp > 1:
       mod.add(SAddU32(sgpr(offsetIdx), sgpr(offsetIdx), sgpr(tmpIdx), "woffset += pieceOffset"))
     # footprintPacked: writeStrideBytes is the post-pad footprint fA+fB; A/B tiles are packed
-    # exactly, so the component jump must NOT be re-padded (tile-internal pad is set below).
-    if ldsBlockSizePerPad != 0 and ldsPadSize != 0 and not _segFootprint:
+    # exactly, so the component jump must NOT be re-padded (tile-internal pad is set below). The MXSA split
+    # stride is post-pad as well.
+    if ldsBlockSizePerPad != 0 and ldsPadSize != 0 and not _segFootprint and not mxsSegmentSplit(kernel, tc):
       mod.add(SLShiftRightB32(sgpr(tmpIdx), int(log2(ldsBlockSizePerPad)), sgpr(offsetIdx), \
               f"numPadBlocks = woffset >> log2({ldsBlockSizePerPad=})"))
       mod.add(SMulI32(sgpr(tmpIdx), sgpr(tmpIdx), ldsPadSize, \
