@@ -33,6 +33,7 @@ from rocisa.functions import vectorStaticRemainder, \
 from ..Component import LraTileAssignment, LraTileProperties, LocalRead
 from ..Common import roundUp, log2, ceilDivide
 from ..Common.DataType import DataType
+from .TDMFuse import mxsSegmentSplit
 from dataclasses import dataclass
 
 @dataclass
@@ -1067,6 +1068,9 @@ class LraTileAssignmentMFMA(LraTileAssignment):
                                              "seg interleave: component byte offset = wtid0 * (fA+fB)"))
                     tP["gpr"]["segWaveByteOff"] = segOff
                 else:
+                    if mxsSegmentSplit(kernel, tc):
+                        # MXSA half h (= this wave's M half) sits one segment stride above half 0.
+                        strideWave = kernel["LDSSegInterleaveOffsets"]["writeStrideBytes"]
                     module.add(vectorStaticMultiplyAdd(vgpr(tReg), vgpr(dummy), strideWave, vgpr(tReg), tmpSgprInfo, \
                                              "7. wave offset in M dimen: wOffset = wtid0 * W0Stride(%u); 7. final local read offset: flrOffset = lrOffset + WOffset" % strideWave))
                 if tileSpanWaveSplit:

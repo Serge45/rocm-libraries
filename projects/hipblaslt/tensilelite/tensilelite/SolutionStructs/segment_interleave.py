@@ -87,6 +87,27 @@ def _mx_scale_bases(state, mxsaStart):
     szB = int(state.get("LdsNumElementsAlignedMXSB", 0)) if hasB else 0
     return (baseA if hasA else None), (baseB if hasB else None), baseB + szB
 
+def _mx_split_a(state, offsets, baseMXSA, stride, holeStart, segEnd):
+    """MXSA is loaded as two M halves, one per SIMD pair. Half 1 keeps the trailing scale slot (segment of
+    A1/B1); half 0 moves one component stride down, into the segment-0 hole right after B0, so the two
+    read ports never read MXSA from the same segment. Marks offsets["mxsSplitA"] only when the half fits
+    the hole, the base stays 16B aligned and MXSA is a plain InMemorySwizzle scale with coarse A (so a
+    pair's M rows are exactly one half of the tile)."""
+    pt = state["ProblemType"]
+    if baseMXSA is None or not pt.get("MXBlockA") or state.get("MXScaleFormat") != "InMemorySwizzle":
+        return
+    if state.get("TDMFuse") or state.get("TDMSplit") or state.get("DirectToVgprMXSA"):
+        return
+    if state.get("LdsPadMXSA", 0) > 0 or state.get("LdsBlockSizePerPadMXSA", 0) > 0:
+        return
+    if not _coarse(state, "A"):
+        return
+    half = int(state.get("LdsNumElementsAlignedMXSA", 0)) // 2
+    if half <= 0 or baseMXSA - stride != holeStart or holeStart % 16 != 0 or holeStart + half > segEnd:
+        return
+    offsets["ldsBaseMXSA"] = holeStart
+    offsets["mxsSplitA"] = True
+
 def _wactive(state, tc):
     return state["MIWaveGroup"][0] if tc == "A" else state["MIWaveGroup"][1]
 
@@ -357,6 +378,7 @@ def evaluate(state):
         bMXSA, bMXSB, mxEnd = _mx_scale_bases(state, blockSpan)
         if bMXSA is not None: offsets["ldsBaseMXSA"] = bMXSA
         if bMXSB is not None: offsets["ldsBaseMXSB"] = bMXSB
+        _mx_split_a(state, offsets, bMXSA, pre, base + fA + fB, base + pre)
         blockSpan = max(blockSpan, mxEnd)
         return {"applicable": True, "aligned": True, "offsets": offsets,
                 "blockSpan": blockSpan, "reason": "aligned",
