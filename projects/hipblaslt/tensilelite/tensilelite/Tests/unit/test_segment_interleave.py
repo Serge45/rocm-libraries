@@ -1,5 +1,5 @@
 import pytest
-from tensilelite.SolutionStructs.segment_interleave import evaluate, aligned_budget_ok, SEG
+from tensilelite.SolutionStructs.segment_interleave import evaluate, aligned_budget_ok, SEG, _footprint
 
 pytestmark = pytest.mark.unit
 
@@ -706,7 +706,7 @@ def test_brotate_rejects_buffering_and_schedule_modes():
     _brot_rejects(_brot_state(ExpandPointerSwap=1), "ExpandPointerSwap=0")
 
 def test_brotate_rejects_wave_config():
-    _brot_rejects(_brot_state(MIWaveGroup=[4, 1]), "[2,2]")
+    _brot_rejects(_brot_state(MIWaveGroup=[1, 4]), "[2,2]")
     _brot_rejects(_brot_state(NumWaves=8), "[2,2]")
     _brot_rejects(_brot_state(WavefrontSize=64), "wave32")
     _brot_rejects(_brot_state(VectorWidthB=0), "even")
@@ -1270,3 +1270,78 @@ def test_paired_tdm_piece_bases_match_relocated_local_reads(layout, base):
         # Execute actual emitted TDM scalar arithmetic, then compare with the
         # independent padded logical-row mapping used by the read-side oracle.
         assert _piece_lds_addrs(s, tc) == [_read_addr(s, o, tc, c*rows) for c in range(components)]
+
+
+
+def _brot41_state(tight=False, **ovr):
+    # F8 [4,1] with B split into two components via the [2,2] layout. Aligned: MT256x128, A0+B0 fit
+    # one segment so comp 1 is padded to 64K. Tight: MT256x256, A0+B0 exceed 64K (S = fA+fB).
+    kw = dict(DepthU=256, MatrixInstM=16, MatrixInstN=16, MIWaveGroup=[4, 1], MIWaveTile=[4, 16 if tight else 8],
+              VectorWidthA=4, VectorWidthB=4, LdsBlockSizePerPadA=256, LdsBlockSizePerPadB=256,
+              LdsPadA=16, LdsPadB=16, PrefetchGlobalRead=2, LDSSegmentInterleave=1, LDSSegmentBRotate=1,
+              ProblemType=dict(DataType=_FakeDataType(bf16=False, f8=True, nbytes=1.0)))
+    kw.update(ovr)
+    s = _vw8_state(**kw)
+    s["LDSSegInterleaveOffsets"] = evaluate(s)["offsets"] or {}
+    s.update({"NumLdsBlk": 2, "1LDSBuffer": 0, "ExpandPointerSwap": 0, "HalfPLR": 0, "LocalSplitU": 1,
+              "StoreSwapAddr": tight, "LdsOffsetA_Blk": 262144 if tight else 131072})
+    return s
+
+def test_brotate_41_splits_b_and_applies():
+    for tight in (False, True):
+        s = _brot41_state(tight=tight)
+        r = evaluate(s)
+        assert r["applicable"] and r["reason"] == ("tight" if tight else "aligned"), r["reason"]
+        assert "bBaseline" not in r["offsets"] and "aBaseline" not in r["offsets"]
+        assert r["offsets"]["ldsBaseB"] == _footprint(s, "A")
+        assert SEG <= r["offsets"]["writeStrideBytes"] < 2 * SEG
+        assert b_rotate_reason(s) is None
+        # nV = MIWaveTile[1]/VWB = 4 and 8 are both even
+        assert b_rotate_reason(_brot41_state(tight=tight, VectorWidthB=2)) is None
+
+def test_brotate_41_off_or_auto_keeps_asymmetric_layout():
+    for ovr in (dict(LDSSegmentBRotate=0), dict(LDSSegmentInterleave=-1), dict(TDMSplit=1)):
+        r = evaluate(_brot41_state(tight=True, **ovr))
+        assert r["applicable"] and r["offsets"].get("bBaseline") is True, (ovr, r["reason"])
+
+def test_brotate_41_rejects_unsupported():
+    _brot_rejects(_brot41_state(VectorWidthB=8), "even")  # nV == 1: B stays one component
+    s = _brot41_state()
+    s["ProblemType"] = {**s["ProblemType"], "MXBlockA": 32, "MXBlockB": 32}
+    _brot_rejects(s, "MX: MIWaveGroup [4,1]")
+    for mx in ({"MXBlockA": 32}, {"MXBlockB": 32}):
+        s = _brot41_state()
+        s["ProblemType"] = {**s["ProblemType"], **mx}
+        _brot_rejects(s, "MX: MIWaveGroup [4,1]")
+    # A not coarse (VWA != WaveTileA) and no TDMSplit: no split layout, so no B-rotate.
+    s = _brot41_state(VectorWidthA=2)
+    assert not evaluate(s)["applicable"]
+    assert b_rotate_reason(s) is not None
+    # StreamK/persistent is still gated on this base.
+    assert "persistent" in b_rotate_reason(_brot41_state(), persistent=True)
+    # [1,4] never takes the split layout.
+    assert evaluate(_brot41_state(MIWaveGroup=[1, 4], MIWaveTile=[16, 4]))["offsets"].get("aBaseline") is True
+    assert b_rotate_reason(_brot41_state(tight=True, TDMSplit=1)) is not None
+
+
+@pytest.mark.parametrize("tight", [False, True])
+def test_brotate_41_paired_buffers_read_write_agree(tight):
+    # [4,1] B-rotate on the common paired layout: every byte of each B component, for both pairs,
+    # both buffers and both halves, is read from where TDM wrote it.
+    from tensilelite.SolutionStructs.segment_interleave import paired_buffer_layout_reason
+    s = _brot41_state(tight=tight, MaxLDS=5 * SEG)
+    assert b_rotate_reason(s) is None
+    o = paired_buffer_offsets(s)
+    assert o is not None and paired_buffer_layout_reason(s, o) is None
+    physical, logical = o["writeStrideBytes"], o["readStrideBytesB"]
+    for pair in range(2):
+        root = o["ldsBaseB"] + pair * physical
+        delta = physical - logical % SEG - pair * 2 * physical
+        for within in range(0, o["bufferStrideB"], 4):
+            for buf in range(2):
+                addr = root + within + buf * o["bufferStrideB"]
+                for half in range(2):
+                    read = addr + half * delta + half * (logical % SEG)
+                    written = (o["ldsBaseB"] + (half ^ pair) * physical
+                               + buf * o["bufferStrideB"] + within)
+                    assert read == written
