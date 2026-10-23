@@ -8611,7 +8611,8 @@ class KernelWriter(PersistentKernelState, StreamKKernelState, metaclass=abc.ABCM
           wavesPerCompB = kernel["MIWaveGroup"][1] // numComp
           compColsB = kernel["MacroTile1"] // numComp
           segILWaveSpansCompB = min(kernel["MatrixInstM"], kernel["MatrixInstN"]) * kernel["VectorWidthB"] >= compColsB
-          if wavesPerCompB == 1 and not segILWaveSpansCompB:
+          # [4,1] (B-rotate) has no wave-level component jump either: comp 1 is reached via the read offset.
+          if (wavesPerCompB == 1 and not segILWaveSpansCompB) or (kernel.get("LDSSegmentBRotate") and kernel["MIWaveGroup"][1] == 1):
             writeStride = kernel["LDSSegInterleaveOffsets"]["writeStrideBytes"]
             reachB = (numComp - 1) * writeStride + maxOffsetB // numComp
             maxOffsetB = max(maxOffsetB, reachB)

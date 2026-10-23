@@ -277,9 +277,13 @@ def evaluate(state):
 
     # [4,1]/[1,4]: exactly one MIWaveGroup dim is 1 -> one active + one shared tensor.
     wgM, wgN = state["MIWaveGroup"][0], state["MIWaveGroup"][1]
-    if (wgM == 1) ^ (wgN == 1):
+    # [4,1] + B-rotate: B must be split into two components for the rotate, so reuse the [2,2]
+    # [A0][B0][A1][B1] layout below (A is still split per wave pair by LocalRead/LraTileAssignment).
+    bRotate41 = (mode == 1 and state.get("LDSSegmentBRotate") and [wgM, wgN] == [4, 1]
+                 and not state.get("TDMSplit"))
+    if (wgM == 1) ^ (wgN == 1) and not bRotate41:
         return _evaluate_asymmetric(state)
-    if [wgM, wgN] != [2, 2]:
+    if [wgM, wgN] != [2, 2] and not bRotate41:
         return _no("MIWaveGroup unsupported")
 
     # [2,2]: A must be coarse (VWA==WaveTileA) or port-split (VWA==WaveTileA/2, needs TDMSplit).
@@ -387,7 +391,9 @@ def b_rotate_reason(state, persistent=False):
     """LDSSegmentBRotate gate. Returns None when B-rotate can be applied, else the reject reason.
 
     B-rotate builds on the [2,2] split layout (A0/B0 component 0, A1/B1 component 1, component
-    stride S = writeStrideBytes, aligned S == 64K or tight 64K < S < 128K). LocalRead reaches B half
+    stride S = writeStrideBytes, aligned S == 64K or tight 64K < S < 128K). MIWaveGroup [4,1]
+    (non-MX, non-TDMSplit) reuses the same layout: all four waves share B, which evaluate() splits
+    into two components, and the pair is still wave id & 1. LocalRead reaches B half
     h through LocalReadAddrB+h; SIMD pair 1 (odd waves) gets +0 = root + S and +1 = +0 + 64K - 2S, so
     it reads vIdx v from the other component, i.e. the data of rot(v) = (v + nV/2) mod nV. Both pairs
     then always read addresses exactly S apart, which with 64K <= S < 128K are in different 64K LDS
@@ -416,8 +422,10 @@ def b_rotate_reason(state, persistent=False):
             return "LdsOffsetA_Blk must be a power of two above the B component span"
     if state.get("PrefetchGlobalRead") != 2:                  return "needs PrefetchGlobalRead=2"
     if state.get("ExpandPointerSwap"):                        return "needs ExpandPointerSwap=0"
-    if list(state["MIWaveGroup"]) != [2, 2] or state["NumWaves"] != 4 or state["WavefrontSize"] != 32:
-        return "needs MIWaveGroup [2,2], 4 waves, wave32"
+    if list(state["MIWaveGroup"]) not in ([2, 2], [4, 1]) or state["NumWaves"] != 4 or state["WavefrontSize"] != 32:
+        return "needs MIWaveGroup [2,2] or [4,1], 4 waves, wave32"
+    if list(state["MIWaveGroup"]) == [4, 1] and (pt.get("MXBlockA") or pt.get("MXBlockB")):
+        return "MX: MIWaveGroup [4,1] not supported"
     vwb, wtb = state["VectorWidthB"], state["MIWaveTile"][1]
     if vwb <= 0 or wtb % vwb != 0 or (wtb // vwb) % 2 != 0:
         return "MIWaveTile[1]/VectorWidthB must be even"
