@@ -421,9 +421,13 @@ def evaluate(state):
 
     # [4,1]/[1,4]: exactly one MIWaveGroup dim is 1 -> one active + one shared tensor.
     wgM, wgN = state["MIWaveGroup"][0], state["MIWaveGroup"][1]
-    if (wgM == 1) ^ (wgN == 1):
+    # [4,1] + B-rotate: B must be split into two components for the rotate, so reuse the [2,2]
+    # [A0][B0][A1][B1] layout below (A is still split per wave pair by LocalRead/LraTileAssignment).
+    bRotate41 = (mode == 1 and state.get("LDSSegmentBRotate") and [wgM, wgN] == [4, 1]
+                 and not state.get("TDMSplit"))
+    if (wgM == 1) ^ (wgN == 1) and not bRotate41:
         return _evaluate_asymmetric(state)
-    if [wgM, wgN] != [2, 2]:
+    if [wgM, wgN] != [2, 2] and not bRotate41:
         return _no("MIWaveGroup unsupported")
 
     # [2,2]: A must be coarse (VWA==WaveTileA) or port-split (VWA==WaveTileA/2, needs TDMSplit).
@@ -451,7 +455,9 @@ def evaluate(state):
 def b_rotate_reason(state, persistent=False):
     """LDSSegmentBRotate gate. Returns None when B-rotate can be applied, else the reject reason.
 
-    Validate the logical [2,2] split layout used by aligned and paired tight kernels.
+    Validate the logical [2,2] split layout used by aligned and paired tight kernels. MIWaveGroup [4,1]
+    (non-MX, non-TDMSplit) reuses the same layout: all four waves share B, which evaluate() splits
+    into two components, and the pair is still wave id & 1.
     B's logical component stride stays in [64K, 128K), so LocalReadAddrB+h still selects
     half h. The physical component stride comes from the selected layout; a per-wave
     register delta bridges that distance and rotates odd waves' B reads. The accumulator halves are
@@ -473,8 +479,10 @@ def b_rotate_reason(state, persistent=False):
     if baseB < S - SEG:                                       return "ldsBaseB below S - 64K"
     if state.get("NumLdsBlk") != 2 or state.get("1LDSBuffer") != 0:
         return "needs 2 LDS buffers"
-    if list(state["MIWaveGroup"]) != [2, 2] or state["NumWaves"] != 4 or state["WavefrontSize"] != 32:
-        return "needs MIWaveGroup [2,2], 4 waves, wave32"
+    if list(state["MIWaveGroup"]) not in ([2, 2], [4, 1]) or state["NumWaves"] != 4 or state["WavefrontSize"] != 32:
+        return "needs MIWaveGroup [2,2] or [4,1], 4 waves, wave32"
+    if list(state["MIWaveGroup"]) == [4, 1] and (pt.get("MXBlockA") or pt.get("MXBlockB")):
+        return "MX: MIWaveGroup [4,1] not supported"
     fA = _footprint(state, "A")
     if fA > SEG:
         return "A component exceeds 64K"
