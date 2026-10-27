@@ -292,6 +292,13 @@ def tdmWaveComponents(ks, tc):
         % (tc, waves, numComp, numComp - 1, tuple(w >> 1 for w in waves)))
 
 
+def mxsSegmentSplit(ks, tc):
+    """LDSSegmentInterleave on an aligned [2,2] layout with room for it: MXSA's TDM pieces are its M halves
+    (one per SIMD pair) instead of K-groups, and the two halves sit one LDS segment stride apart."""
+    return (tc == "MXSA" and ks.get("LDSSegmentInterleave") == 1
+            and bool((ks.get("LDSSegInterleaveOffsets") or {}).get("mxsSplitA")))
+
+
 def tdmSoleWave(ks, tc):
     """Return the sole wave carrying `tc`."""
     _, waves = tdmWavePartition(ks, tc)

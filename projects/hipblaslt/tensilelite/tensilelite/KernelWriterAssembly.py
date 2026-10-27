@@ -85,7 +85,7 @@ from .Components.TDMFuse import tdmFusePaired, tdmGroupPartner, \
                                 tdmSharedScaleSetOwner, tdmSetOwner, tdmSetGroup, \
                                 tdmGrouping, tdmSharedSetOrder, tdmSharedScaleSetActive, \
                                 tdmMemberIsLive
-from .Components.TDMFuse import tdmWaveComponents, tdmWavePartition, tdmSoleWave, tdmWaveRangeText
+from .Components.TDMFuse import tdmWaveComponents, tdmWavePartition, tdmSoleWave, tdmWaveRangeText, mxsSegmentSplit
 from .SolutionStructs import isPackedIndex
 from .AsmStoreState import StoreState, VectorDataTypes
 from .Activation import ActivationType
@@ -6523,6 +6523,13 @@ class KernelWriterAssembly(KernelWriter):
       module.add(VAddU32(dst=vgpr("LocalReadAddrB+1"), src0=sgpr("BRotateLRDelta"), src1=vgpr("LocalReadAddrB+0"), \
                          comment="B-rotate: other component"))
       return module
+    windows = (kernel.get("LDSSegInterleaveOffsets") or {}).get("readAddressWindows" + tc)
+    if windows is not None:
+      assert len(windows) == numLra and windows[0] == 0
+      for i, window in enumerate(windows[1:], 1):
+        module.add(VAddU32(dst=vgpr("LocalReadAddr%s+%u"%(tc,i)), src0=window * maxOff,
+                           src1=vgpr("LocalReadAddr%s"%tc), comment="Reachable LDS read window %u" % window))
+      return module
     for i in range(1, numLra):
       module.add(VAddU32(dst=vgpr("LocalReadAddr%s+%u"%(tc,i)), src0=(i * maxOff), \
         src1=vgpr("LocalReadAddr%s"%tc), comment="Final Offset Plus %uK"%((i * maxOff) / 1024)))
@@ -6550,10 +6557,12 @@ class KernelWriterAssembly(KernelWriter):
                            src0=hex(_ldsBase), src1=vgpr("LocalReadAddr%s+0"%tc),
                            comment=" += LdsOffset%s (lower)"%tc))
       if tc == "B" and kernel.get("LDSSegmentBRotate"):
-        # B-rotate: SIMD pair 1 (odd wave) reads B half h from component 1-h. LocalRead reaches
-        # half h through LocalReadAddrB+h with immediate (h*S + within) - h*64K, S = component
-        # stride. So pair p needs +0 = root + p*S and +1 = +0 + 64K - p*2S (the per-wave delta).
+        # B-rotate: SIMD pair 1 (odd wave) reads B half h from component 1-h.
+        # LocalRead uses logical stride R; the physical LDS component stride is S.
+        # Pair p needs +0 = root + p*S and +1 = +0 + S - (R % 64K) - p*2S.
         compStride = _segOff["writeStrideBytes"]
+        readStride = _segOff.get("readStrideBytesB", compStride)
+        baseDelta = compStride - readStride % self.states.regCaps["maxLDSConstOffset"]
         with self.allocTmpSgpr(1, tag="bRotatePair") as tmpSgprInfo:
           pairSgpr = sgpr(tmpSgprInfo.idx)
           module.add(VReadfirstlaneB32(dst=pairSgpr, src=vgpr("Serial"), comment="B-rotate: tId"))
@@ -6562,8 +6571,8 @@ class KernelWriterAssembly(KernelWriter):
           module.add(SAndB32(dst=pairSgpr, src0=pairSgpr, src1=1, comment="B-rotate: pair = wave id & 1"))
           module.add(SMulI32(dst=sgpr("BRotateLRDelta"), src0=pairSgpr, src1=2 * compStride, \
                              comment="B-rotate: pair * 2S"))
-          module.add(SSubU32(dst=sgpr("BRotateLRDelta"), src0=self.states.regCaps["maxLDSConstOffset"], \
-                             src1=sgpr("BRotateLRDelta"), comment="B-rotate: delta = 64K - pair*2S"))
+          module.add(SSubU32(dst=sgpr("BRotateLRDelta"), src0=baseDelta, \
+                             src1=sgpr("BRotateLRDelta"), comment="B-rotate: component delta minus pair*2S"))
           module.add(SMulI32(dst=pairSgpr, src0=pairSgpr, src1=compStride, comment="B-rotate: pair * S"))
           module.add(VAddU32(dst=vgpr("LocalReadAddrB+0"), src0=pairSgpr, src1=vgpr("LocalReadAddrB+0"), \
                              comment="B-rotate: pair 1 reads the other component first"))
@@ -6592,6 +6601,8 @@ class KernelWriterAssembly(KernelWriter):
     if kernel["StoreSwapAddr"]:
       _lrSwapBlk = self._decoupledSwapStride(kernel, tc) if self._dcpDivergent(kernel) \
                    else kernel["LdsOffsetA_Blk"]
+      if (kernel.get("LDSSegInterleaveOffsets") or {}).get("pairedBuffers"):
+        _lrSwapBlk = kernel["LDSSegInterleaveOffsets"]["bufferStride" + tc]
       module.add(VAddU32(dst=vgpr("LocalReadSwapAddr%s"%tc), src0=_lrSwapBlk, src1=vgpr("LocalReadAddr%s"%tc), \
                          comment="Calculate starting lds addr of second buffer" ))
       module.add(VXorB32(dst=vgpr("LocalReadSwapAddr%s"%tc), \
@@ -12595,6 +12606,13 @@ class KernelWriterAssembly(KernelWriter):
     comp: TensorDataMoverLoad = TensorDataMoverLoad.find(self)
     ldsAddrSgprName: str = comp.getLdsAddrSgprName(f"tdm{tc}Group0")
 
+    if (kernel.get("LDSSegInterleaveOffsets") or {}).get("pairedBuffers"):
+      module = Module("TDM LDS swap (paired buffers)")
+      swapMask = "BRotateTDMScaleSwap" if tc.startswith("MXS") else "BRotateTDMSwap"
+      module.add(SXorB32(sgpr(ldsAddrSgprName), sgpr(ldsAddrSgprName), sgpr(swapMask),
+                         "Swap the owning wave's paired TDM buffers"))
+      return module
+
     if self._dcpDivergent(kernel):
       return self._tdmSwapLdsOffsetDecoupled(kernel, tP, ldsAddrSgprName)
 
@@ -13983,6 +14001,8 @@ class KernelWriterAssembly(KernelWriter):
               inc = kernel["MacroTile%s"%tP["tensorChar"]] * tP["bpeDS"] * max(self.states.numReadsIterCoalescedMXSA,self.states.numReadsIterCoalescedMXSB)
               comment = " (bpeDS)"
               inc *= matrixInstK
+              if mxsSegmentSplit(kernel, tc):
+                inc //= tdmWaveComponents(kernel, tc)[0]
             else:
               inc = mxUnit * tP["bpeDS"] * max(self.states.numReadsIterCoalescedMXSA, self.states.numReadsIterCoalescedMXSB)
               comment = " (mxUnit*bpeDS)"
@@ -14051,6 +14071,9 @@ class KernelWriterAssembly(KernelWriter):
             isMxSwizzled  = mxScaleFormat in ("InMemorySwizzle", "HostPreSwizzle")
             if isMxSwizzled:
               offsetInc = kernel["MacroTile%s"%tP["tensorChar"]] * mxUnit
+              if mxsSegmentSplit(kernel, tc):
+                # each M half holds its K-groups back to back
+                offsetInc //= tdmWaveComponents(kernel, tc)[0]
             elif kernel["UnrollMajorLDS%s" % tP["tensorChar"]]:
               offsetInc = mxUnit
             else:
@@ -20620,7 +20643,7 @@ class KernelWriterAssembly(KernelWriter):
     _segComponentSplit = _segAB and _segOffAB.get("componentSplit", False) and _segOffAB.get("activeTC") == tc
     _segWaveJump = (_segAB and not kernel["TDMSplit"]) or _segPortSplit or _segComponentSplit
     _segFootprint = _segWaveJump and kernel["LDSSegInterleaveOffsets"].get("footprintPacked", False)
-    if _segWaveJump:
+    if _segWaveJump or mxsSegmentSplit(kernel, tc):
         dataBytes = kernel["LDSSegInterleaveOffsets"]["writeStrideBytes"]
     # The interleaved layout has NumWaves // 2 components, so a tensor moved in more
     # pieces packs consecutive pieces into each component.
@@ -20635,8 +20658,9 @@ class KernelWriterAssembly(KernelWriter):
     if piecesPerComp > 1:
       mod.add(SAddU32(sgpr(offsetIdx), sgpr(offsetIdx), sgpr(tmpIdx), "woffset += pieceOffset"))
     # footprintPacked: writeStrideBytes is the post-pad footprint fA+fB; A/B tiles are packed
-    # exactly, so the component jump must NOT be re-padded (tile-internal pad is set below).
-    if ldsBlockSizePerPad != 0 and ldsPadSize != 0 and not _segFootprint:
+    # exactly, so the component jump must NOT be re-padded (tile-internal pad is set below). The MXSA split
+    # stride is post-pad as well.
+    if ldsBlockSizePerPad != 0 and ldsPadSize != 0 and not _segFootprint and not mxsSegmentSplit(kernel, tc):
       mod.add(SLShiftRightB32(sgpr(tmpIdx), int(log2(ldsBlockSizePerPad)), sgpr(offsetIdx), \
               f"numPadBlocks = woffset >> log2({ldsBlockSizePerPad=})"))
       mod.add(SMulI32(sgpr(tmpIdx), sgpr(tmpIdx), ldsPadSize, \
@@ -20733,6 +20757,13 @@ class KernelWriterAssembly(KernelWriter):
                                   ldsConstOffset, ldsBlockSizePerPad, ldsPadSize,
                                   waveOffsetSgprIdx, tmpPadSgprIdx))
       mod.add(comp.setLdsAddr(descSgprName(0), sgpr(waveOffsetSgprIdx)))
+      if (kernel.get("LDSSegInterleaveOffsets") or {}).get("pairedBuffers"):
+        # Each descriptor set has one per-wave mask; scales own a separate set.
+        swapMask = "BRotateTDMScaleSwap" if isMX else "BRotateTDMSwap"
+        mod.add(SAddU32(sgpr(swapMask), sgpr(waveOffsetSgprIdx),
+                         kernel["LDSSegInterleaveOffsets"]["bufferStride" + tc], "Paired TDM buffer base"))
+        mod.add(SXorB32(sgpr(swapMask), sgpr(swapMask), sgpr(waveOffsetSgprIdx),
+                         "Per-wave paired TDM buffer swap mask"))
 
     #TODO: refactor, currently special handling for FP4 along K-dim
     sizeShifter = 1 if dtype.isFloat4() else 0
@@ -20760,7 +20791,7 @@ class KernelWriterAssembly(KernelWriter):
         dim1 = sizeRefName(3)
         with self.allocTmpSgpr(1, tag="initTDMDescriptorWaveSeparatedImpl_tmpSgpr2") as tmpSgpr:
           tmpSgprWaveOffset = tmpSgpr.idx
-          if numMxKGroups < numComp:
+          if numMxKGroups < numComp or mxsSegmentSplit(kernel, tc):
             # M/N-splitting: offset within same k_group along tile dimension
             if compShift == 1:
               mod.add(VReadfirstlaneB32(sgpr(tmpSgprWaveOffset), vgpr("Serial"), "first tId"))
@@ -20817,7 +20848,7 @@ class KernelWriterAssembly(KernelWriter):
       #reset to 0 since scale of sizeTile0 and stride for MX is not required
       sizeShifter = 1 if dtype.isFloat4() else 0
       numMxKGroups = sizeTile0 // mxUnit
-      if numMxKGroups >= numComp:
+      if numMxKGroups >= numComp and not mxsSegmentSplit(kernel, tc):
         # K-splitting: enough k_groups to divide among wave components
         mod.add(comp.setTensorTile0(descSgprName(1), sizeTile1 * mxUnit, self, sizeShifter))
         mod.add(comp.setTensorTile1(descSgprName(1), numMxKGroups // numComp // dim1Divisor, self))
@@ -21754,7 +21785,7 @@ class KernelWriterAssembly(KernelWriter):
         mxUnit: int = kernel["MatrixInstK"] // kernel["ProblemType"][f"MXBlock{subTc}"]
         mxDU = kernel["DepthU"] // kernel["ProblemType"][f"MXBlock{subTc}"]
         numMxKGroups = mxDU // mxUnit
-    mxKSplitting = numMxKGroups >= numComp if isMXS else False
+    mxKSplitting = (numMxKGroups >= numComp and not mxsSegmentSplit(kernel, tc)) if isMXS else False
 
     #TODO: refactor, currently special handling for FP4 along K-dim
     sizeShifter = 1 if dtype.isFloat4() else 0
@@ -21821,7 +21852,7 @@ class KernelWriterAssembly(KernelWriter):
         mxUnit: int = kernel["MatrixInstK"] // kernel["ProblemType"][f"MXBlock{subTc}"]
         mxDU = kernel["DepthU"] // kernel["ProblemType"][f"MXBlock{subTc}"]
         numMxKGroups = mxDU // mxUnit
-    mxKSplittingA = numMxKGroups >= numCompA if isMXSA else False
+    mxKSplittingA = (numMxKGroups >= numCompA and not mxsSegmentSplit(kernel, tcA)) if isMXSA else False
     if isMXSB:
         subTc = tcB[3]
         mxUnit: int = kernel["MatrixInstK"] // kernel["ProblemType"][f"MXBlock{subTc}"]
@@ -21850,7 +21881,7 @@ class KernelWriterAssembly(KernelWriter):
             subM = tcM[3]
             mxUnitM: int = kernel["MatrixInstK"] // kernel["ProblemType"][f"MXBlock{subM}"]
             mxDUM = kernel["DepthU"] // kernel["ProblemType"][f"MXBlock{subM}"]
-            mxKSplittingM = (mxDUM // mxUnitM) >= numCompM
+            mxKSplittingM = (mxDUM // mxUnitM) >= numCompM and not mxsSegmentSplit(kernel, tcM)
           else:
             mxKSplittingM = False
           if not unrolledMajorM or mxKSplittingM:

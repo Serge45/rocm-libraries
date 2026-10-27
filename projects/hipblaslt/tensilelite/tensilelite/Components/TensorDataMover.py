@@ -1,7 +1,7 @@
 from ..Component import TensorDataMover
 from ..Common.DataType import DataType
 from ..Common import INDEX_CHARS
-from .TDMFuse import tdmWaveComponents
+from .TDMFuse import tdmWaveComponents, mxsSegmentSplit
 from typing import Mapping, Optional
 from rocisa.code import Module, Label
 from rocisa.instruction import SMovB32, SMovB64, SOrB32, SAndB32, SLShiftLeftB32, SLShiftLeftB64, \
@@ -227,7 +227,7 @@ class TensorDataMoverLoad(TensorDataMover):
             if ("MXS" in tc):
                 mxDU = kernel["DepthU"] // kernel["ProblemType"][f"MXBlock{subTc}"]
                 numMxKGroups = mxDU // mxUnit
-                if numMxKGroups >= numComp:
+                if numMxKGroups >= numComp and not mxsSegmentSplit(kernel, tc):
                     # K-splitting: offset by stride to next k_group
                     scale = numMxKGroups // numComp
                     mod.add(SMulI32(sgpr(waveOffsetSgprIdx), sgpr(waveOffsetSgprIdx), (mxUnit * numMxKGroups // numComp), f"woffset = wCompId * mxUnit({mxUnit}) * numMxKGroups({numMxKGroups}) // numComp({numComp})"))
