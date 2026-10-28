@@ -321,11 +321,11 @@ def _getName(state, requiredParameters: frozenset, splitGSU: bool, ignoreInterna
     else:
       requiredParametersTemp.discard("StinkyTofuRegisterAllocation")
 
-    # LDSSegmentBRotate=0 is the default layout; naming it would rename every kernel.
-    if state.get("LDSSegmentBRotate", 0):
-      requiredParametersTemp.add("LDSSegmentBRotate")
+    # LDSSegmentRotate=0 is the default layout; naming it would rename every kernel.
+    if state.get("LDSSegmentRotate", 0):
+      requiredParametersTemp.add("LDSSegmentRotate")
     else:
-      requiredParametersTemp.discard("LDSSegmentBRotate")
+      requiredParametersTemp.discard("LDSSegmentRotate")
 
     # ClusterAIDMapping=-1 (disabled) is the default; naming it would rename every kernel.
     if state.get("ClusterAIDMapping", -1) != -1:

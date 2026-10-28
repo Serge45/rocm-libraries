@@ -100,7 +100,7 @@ BenchmarkProblems:
           - {DsReadDrainLatency: 32, DsReadPerCap: 2, DsReadThrottleLatency: 72}
 
         - ClusterAIDMapping: [-2]
-        - LDSSegmentBRotate: [1]
+        - LDSSegmentRotate: [1]
 
       BenchmarkForkParameters:
       JoinParameters:

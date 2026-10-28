@@ -17,7 +17,7 @@ def derive(_gp_gfx1250, gfx1250_iim, assembler, capsys):
             mi=[16, 16, 128, 1, 1, 8, 8, 2, 2],
             StreamK=0, GlobalSplitU=1, SourceSwap=True,
             VectorWidthA=8, VectorWidthB=4, TDMIterateMode=-1,
-            LDSSegmentInterleave=mode, LDSSegmentBRotate=0,
+            LDSSegmentInterleave=mode, LDSSegmentRotate=0,
         )
         params.update(overrides)
         sol = Solution(_make_params(gfx1250_iim, **params), False, True,
@@ -45,7 +45,7 @@ def test_mxsa_m_halves_separate_both_buffer_phases(derive, tile, pad, rotate, pg
     sol, out = derive(1, mi=[16, 16, 128, 1, 1, tile, tile, 2, 2],
                       VectorWidthA=tile, VectorWidthB=tile // 2,
                       HalfPLR=1 if tile == 8 else 0, PrefetchGlobalRead=pgr,
-                      LDSSegmentBRotate=rotate, LdsPadMXSA=pad,
+                      LDSSegmentRotate=rotate, LdsPadMXSA=pad,
                       LdsBlockSizePerPadMXSA=256 if pad else 0,
                       ProblemType={"MXBlockA": 32, "MXBlockB": 32})
     assert sol["Valid"], out
@@ -105,7 +105,7 @@ def test_mxsa_split_budget_is_checked_before_committing_paired(derive):
     assert auto["Valid"], out
     assert _lds_configuration(auto) == _lds_configuration(off)
     for mode, rotate in ((1, 0), (-1, 1)):
-        sol, out = derive(mode, LDSSegmentBRotate=rotate, **overrides)
+        sol, out = derive(mode, LDSSegmentRotate=rotate, **overrides)
         assert not sol["Valid"]
         assert "requires paired LDS placement: layout exceeds MaxLDS" in out
 
@@ -247,7 +247,7 @@ def test_mxsa_split_with_whole_b(derive, pad, pgr, streamk, mode):
 @pytest.mark.parametrize("rotate", [0, 1])
 @pytest.mark.parametrize("pgr", [1, 2])
 def test_tight_interleave_requires_paired(derive, mode, rotate, pgr):
-    sol, out = derive(mode, LDSSegmentBRotate=rotate, PrefetchGlobalRead=pgr)
+    sol, out = derive(mode, LDSSegmentRotate=rotate, PrefetchGlobalRead=pgr)
     assert sol["Valid"], out
     assert sol["LDSSegmentInterleave"] == 1
     assert sol["LDSSegInterleaveOffsets"]["pairedBuffers"] is True
@@ -359,7 +359,7 @@ def test_aligned_retains_component_offsets_and_separate_buffers(
                         lambda state: pytest.fail("aligned placement must not be paired"))
     sol, out = derive(1, mi=[16, 16, 128, 1, 1, 4, 4, 2, 2],
                       VectorWidthA=4, VectorWidthB=vwb, HalfPLR=0,
-                      PrefetchGlobalRead=pgr, LDSSegmentBRotate=rotate)
+                      PrefetchGlobalRead=pgr, LDSSegmentRotate=rotate)
     assert sol["Valid"], out
     assert sol["LDSSegInterleaveOffsets"] == {
         "ldsBaseB": 16640, "writeStrideBytes": 65536, "footprintPacked": True,
@@ -400,9 +400,9 @@ def test_paired_budget_failure_obeys_requested_mode(derive, monkeypatch):
     forced, out = derive(1)
     assert not forced["Valid"]
     assert "requires paired LDS placement: layout exceeds MaxLDS" in out
-    rotated, out = derive(-1, LDSSegmentBRotate=1)
+    rotated, out = derive(-1, LDSSegmentRotate=1)
     assert not rotated["Valid"]
-    assert "LDSSegmentBRotate requires paired LDS placement" in out
+    assert "LDSSegmentRotate requires paired LDS placement" in out
 
 
 def test_auto_cannot_commit_a_layout_that_grows_lds(derive, monkeypatch):
@@ -431,10 +431,10 @@ def test_auto_cannot_commit_a_layout_that_grows_lds(derive, monkeypatch):
 
 @pytest.mark.parametrize("mode", [-1, 1])
 def test_brotate_cannot_fall_back_to_unpaired(derive, mode):
-    sol, out = derive(mode, LDSSegmentBRotate=1,
+    sol, out = derive(mode, LDSSegmentRotate=1,
                       PrefetchGlobalRead=1, HalfPLR=0, ExpandPointerSwap=True)
     assert not sol["Valid"]
-    assert "LDSSegmentBRotate: needs ExpandPointerSwap=0" in out
+    assert "LDSSegmentRotate: needs ExpandPointerSwap=0" in out
 
 
 def test_tdmsplit_remains_disabled(derive):
@@ -452,7 +452,7 @@ def test_paired_capacity_includes_only_final_layout_and_other_lds_users(
     derive, occupancy, amax, dest, expected
 ):
     sol, out = derive(1,
-                      LDSSegmentBRotate=1, MaxOccupancy=occupancy,
+                      LDSSegmentRotate=1, MaxOccupancy=occupancy,
                       ProblemType={"DestDataType": dest, "OutputAmaxD": amax})
     assert sol["Valid"], out
     # This tight tile needs 259 KiB for paired A/B data; occupancy and amax

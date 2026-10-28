@@ -98,7 +98,7 @@ BenchmarkProblems:
         - SwInstructionPrefetch: [1]
         - PrefetchGL2: [2]
         - ClusterAIDMapping: [-2]
-        - LDSSegmentBRotate: [1]
+        - LDSSegmentRotate: [1]
       BenchmarkForkParameters:
       JoinParameters:
       BenchmarkJoinParameters:

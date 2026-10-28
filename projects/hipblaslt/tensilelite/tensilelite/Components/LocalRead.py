@@ -684,10 +684,10 @@ class LocalReadMFMA(LocalRead):
                             kernel["MatrixInstN"] * kernel["MatrixInstBN"] * kernel["MIWaveGroup"][1] * kernel["VectorWidthB"]]
         tileSpanInfo = self.getMxsTileSpanInfo(kernel, tc, tile01, writer.states.asmCaps)
         mxsTileSpan = tileSpanInfo is not None
-        if tc == "MXSB" and kernel.get("LDSSegmentBRotate"):
+        if tc == "MXSB" and kernel.get("LDSSegRotateB"):
             # LRA rotates MXSB by flipping the half-wave select, which covers only one group.
             assert mxsTileSpan and tileSpanInfo["numGroups"] == 1 and kernel["MIWaveGroup"][1] > 1, \
-                "LDSSegmentBRotate: MXSB needs the single-group TileSpan wave-split layout"
+                "LDSSegmentRotate: MXSB needs the single-group TileSpan wave-split layout"
         numVectorsPerTile = self.getMxNumVectorsPerTile(kernel, tc, tile01, writer.states.asmCaps)
         # 2D phase: each vector reads through its own LocalReadAddr+vIdx, which
         # already holds its scale row (mxPhaseLraFixup); no vIdx immediate.
@@ -1886,12 +1886,12 @@ class LocalReadMFMA(LocalRead):
                             highBits = 0 if writer.states.archCaps["DSLow16NotPreserve"] else highBitsForHalf or isHigh16Bits
 
                             addrIdx = paramList[0] // 65536
-                            if tc == "B" and kernel.get("LDSSegmentBRotate"):
+                            if tc == "B" and kernel.get("LDSSegRotateB"):
                                 # B-rotate swaps LocalReadAddrB+0/+1 per SIMD pair, so register h must
-                                # serve exactly component h (see segment_interleave.b_rotate_reason).
+                                # serve exactly component h (see segment_interleave.rotate_reason).
                                 assert numOffsets == 1 and \
                                     addrIdx == segCompByteOff // _segOff.get("readStrideBytesB", _segOff["writeStrideBytes"]), \
-                                    "LDSSegmentBRotate: B read vIdx=%u uses LocalReadAddrB+%u" % (vIdx, addrIdx)
+                                    "LDSSegmentRotate: B read vIdx=%u uses LocalReadAddrB+%u" % (vIdx, addrIdx)
                             addressWindows = (kernel.get("LDSSegInterleaveOffsets") or {}).get("readAddressWindows" + tc)
                             registerIndex = addressWindows.index(addrIdx) if addressWindows is not None else addrIdx
                             srcAddr=vgpr("LocalReadAddr%s+%u"%(tc, registerIndex))

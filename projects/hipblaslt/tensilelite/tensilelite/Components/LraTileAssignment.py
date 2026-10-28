@@ -1123,7 +1123,7 @@ class LraTileAssignmentMFMA(LraTileAssignment):
                     and kernel["LDSSegInterleaveOffsets"].get("footprintPacked") and segILActive
                 _segWavesPerComp = (num1DWaves // (kernel["NumWaves"] // 2)) if _segPacked else 1
                 # [1,4] B-rotate picks B's component by vIdx in LocalRead, so no wave-pair jump here.
-                if _segPacked and _segWavesPerComp > 1 and not (tc == "B" and kernel.get("LDSSegmentBRotate")):
+                if _segPacked and _segWavesPerComp > 1 and not (tc == "B" and kernel.get("LDSSegRotateB")):
                     # [4,1]/[1,4]: wtid0 = segment jump + within-comp offset. portSplit jumps on the
                     # read port (wtid0 & 1), otherwise on the component (wtid0 // 2). wavesPerComp == 2.
                     _portSplit = (tc == "A" and _segOff.get("portSplitA", False)) or \
@@ -1170,9 +1170,9 @@ class LraTileAssignmentMFMA(LraTileAssignment):
                     tileDim = "M" if tile01 == 0 else "N"
                     module.add(vectorStaticDivide(dummy, dividendReg, matrixInstTO, tmpVgprRes, \
                         "8. (TileSpan wave-split) hiSel = tid / MI_dim(%u)" % matrixInstTO))
-                    if tc == "MXSB" and kernel.get("LDSSegmentBRotate"):
+                    if tc == "MXSB" and kernel.get("LDSSegRotateB"):
                         # B-rotate: SIMD pair 1 reads B vIdx v from rot(v) = 1 - v (nV == 2, gated
-                        # in b_rotate_reason). Its scales must follow: flip the half-wave select so
+                        # in rotate_reason). Its scales must follow: flip the half-wave select so
                         # lanes 0..MI-1 load the partner block and MI..2MI-1 the base block.
                         pairReg = writer.vgprPool.checkOut(1, tag="bRotatePair")
                         module.add(vectorStaticDivide(pairReg, dividendReg, waveWidth, tmpVgprRes, \

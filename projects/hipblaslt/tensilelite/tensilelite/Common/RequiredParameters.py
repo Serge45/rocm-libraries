@@ -81,7 +81,7 @@ def getRequiredParametersMin() -> set:
         'LdsPadMetadata',
         'LdsPadMXSA',
         'LdsPadMXSB',
-        'LDSSegmentBRotate',
+        'LDSSegmentRotate',
         'LDSSegmentInterleave',
         'LDSTrInst',
         'LocalReadVectorWidth',

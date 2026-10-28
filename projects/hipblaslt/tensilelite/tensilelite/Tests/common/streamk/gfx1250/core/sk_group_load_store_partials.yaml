@@ -68,7 +68,7 @@ BenchmarkProblems:
     - StoreRemapVectorWidth: [0]
     - VectorWidthB: [4]
     - LDSSegmentInterleave: [1]
-    - LDSSegmentBRotate: [0]
+    - LDSSegmentRotate: [0]
     - NumElementsPerBatchStore: [16]
     - GroupLoadStore: [true]
     - InterleaveAlpha: [2]

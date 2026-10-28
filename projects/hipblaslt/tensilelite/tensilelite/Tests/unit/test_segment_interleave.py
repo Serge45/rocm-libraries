@@ -618,8 +618,11 @@ def test_tdm_pieces_land_where_the_local_reads_expect_them(tdmFuse, layout):
         assert _piece_lds_addrs(state, tc) == expected, (tc, numComp)
 
 
-# ---- LDSSegmentBRotate gate (b_rotate_reason) ----
-from tensilelite.SolutionStructs.segment_interleave import b_rotate_reason, paired_buffer_offsets
+# ---- LDSSegmentRotate gate (rotate_reason / rotate_plan) ----
+from tensilelite.SolutionStructs.segment_interleave import rotate_reason, rotate_plan, paired_buffer_offsets
+
+def b_rotate_reason(state, persistent=False):
+    return rotate_reason(state, False, True, persistent=persistent)
 
 def _brot_state(**ovr):
     # F8 MT128x128x256 [2,2] aligned layout: A0,B0 fit seg0, so the oracle pads comp 1 to 64K.
@@ -631,7 +634,7 @@ def _brot_state(**ovr):
     assert r["applicable"] and r["aligned"], r["reason"]
     s.update({"LDSSegInterleaveOffsets": r["offsets"], "NumLdsBlk": 2, "1LDSBuffer": 0,
               "LdsOffsetA_Blk": 131072, "StoreSwapAddr": False, "ExpandPointerSwap": 0,
-              "LDSSegmentBRotate": 1, "HalfPLR": 0, "LocalSplitU": 1})
+              "LDSSegmentRotate": 1, "LDSSegRotateB": True, "HalfPLR": 0, "LocalSplitU": 1})
     s.update(ovr)
     return s
 
@@ -666,7 +669,7 @@ def _brot_tight_state(**ovr):
     assert r["applicable"] and r["reason"] == "tight", r["reason"]
     s.update({"LDSSegInterleaveOffsets": r["offsets"], "NumLdsBlk": 2, "1LDSBuffer": 0,
               "LdsOffsetA_Blk": 2 * r["offsets"]["writeStrideBytes"], "StoreSwapAddr": True,
-              "ExpandPointerSwap": 0, "LDSSegmentBRotate": 1, "HalfPLR": 3, "LocalSplitU": 1})
+              "ExpandPointerSwap": 0, "LDSSegmentRotate": 1, "LDSSegRotateB": True, "HalfPLR": 3, "LocalSplitU": 1})
     s.update(ovr)
     return s
 
@@ -818,7 +821,7 @@ def test_brotate_reuses_common_physical_layout(make_state, depth, padding, mx):
     s["ProblemType"] = {**s["ProblemType"], "MXBlockA": 32 if mx else 0, "MXBlockB": 32 if mx else 0}
     s["LDSSegInterleaveOffsets"] = evaluate(s)["offsets"]
     assert b_rotate_reason(s) is None
-    ordinary = paired_buffer_offsets({**s, "LDSSegmentBRotate": 0})
+    ordinary = paired_buffer_offsets({**s, "LDSSegRotateB": False})
     rotated = paired_buffer_offsets(s)
     # Only the read-address representation changes. Bases, component/buffer
     # strides, MX scale placement and allocation extent must be identical.
@@ -1345,7 +1348,7 @@ def _brot41_state(tight=False, **ovr):
     # one segment so comp 1 is padded to 64K. Tight: MT256x256, A0+B0 exceed 64K (S = fA+fB).
     kw = dict(DepthU=256, MatrixInstM=16, MatrixInstN=16, MIWaveGroup=[4, 1], MIWaveTile=[4, 16 if tight else 8],
               VectorWidthA=4, VectorWidthB=4, LdsBlockSizePerPadA=256, LdsBlockSizePerPadB=256,
-              LdsPadA=16, LdsPadB=16, PrefetchGlobalRead=2, LDSSegmentInterleave=1, LDSSegmentBRotate=1,
+              LdsPadA=16, LdsPadB=16, PrefetchGlobalRead=2, LDSSegmentInterleave=1, LDSSegmentRotate=1, LDSSegRotateB=True,
               ProblemType=dict(DataType=_FakeDataType(bf16=False, f8=True, nbytes=1.0)))
     kw.update(ovr)
     s = _vw8_state(**kw)
@@ -1367,7 +1370,7 @@ def test_brotate_41_splits_b_and_applies():
         assert b_rotate_reason(_brot41_state(tight=tight, VectorWidthB=2)) is None
 
 def test_brotate_41_off_or_auto_keeps_asymmetric_layout():
-    for ovr in (dict(LDSSegmentBRotate=0), dict(LDSSegmentInterleave=-1), dict(TDMSplit=1)):
+    for ovr in (dict(LDSSegmentRotate=0), dict(LDSSegmentInterleave=-1), dict(TDMSplit=1)):
         r = evaluate(_brot41_state(tight=True, **ovr))
         assert r["applicable"] and r["offsets"].get("bBaseline") is True, (ovr, r["reason"])
 
@@ -1422,7 +1425,7 @@ def _brot14_state(**ovr):
     # fit one segment, so the aligned layout [B0][A][pad][B1] with S = 64K applies.
     kw = dict(DepthU=256, MatrixInstM=16, MatrixInstN=16, MIWaveGroup=[1, 4], MIWaveTile=[8, 2],
               VectorWidthA=8, VectorWidthB=1, LdsBlockSizePerPadA=256, LdsBlockSizePerPadB=256,
-              LdsPadA=16, LdsPadB=16, PrefetchGlobalRead=2, LDSSegmentInterleave=1, LDSSegmentBRotate=1,
+              LdsPadA=16, LdsPadB=16, PrefetchGlobalRead=2, LDSSegmentInterleave=1, LDSSegmentRotate=1, LDSSegRotateB=True,
               ProblemType=dict(DataType=_FakeDataType(bf16=False, f8=True, nbytes=1.0)))
     kw.update(ovr)
     s = _vw8_state(**kw)
@@ -1446,7 +1449,7 @@ def test_brotate_14_aligned_layout_and_gate():
 
 def test_brotate_14_off_or_auto_or_tdmsplit_keep_other_layouts():
     # B-rotate off: the existing asymmetric layout (B coarse, split per wave pair).
-    r = evaluate(_brot14_state(LDSSegmentBRotate=0, VectorWidthB=2))
+    r = evaluate(_brot14_state(LDSSegmentRotate=0, VectorWidthB=2))
     assert r["applicable"] and "asym" in r["reason"] and r["offsets"].get("aBaseline") is True
     # auto LSI never takes the B-rotate layout.
     assert evaluate(_brot14_state(LDSSegmentInterleave=-1))["reason"] != "brotate-1x4-aligned"
@@ -1484,3 +1487,21 @@ def test_brotate_14_rejects_unsupported():
     s = _brot_state()
     s["LDSSegInterleaveOffsets"] = {**s["LDSSegInterleaveOffsets"], "aBaseline": True, "activeTC": "B"}
     _brot_rejects(s, "aBaseline")
+
+
+def test_rotate_plan_modes():
+    s = _brot_state()
+    assert rotate_plan(s) == (False, True, None)                                  # 1 = auto -> B
+    assert rotate_plan(_brot_state(LDSSegmentRotate=2)) == (False, True, None)    # force B
+    assert rotate_plan(_brot_state(LDSSegmentRotate=0)) == (False, False, None)   # off
+    for mode in (3, 4):                                                           # A-rotate reserved
+        a, b, reason = rotate_plan(_brot_state(LDSSegmentRotate=mode))
+        assert (a, b) == (False, False) and "not supported yet" in reason
+    a, b, reason = rotate_plan(_brot_state(PrefetchGlobalRead=1))
+    assert (a, b) == (False, False) and "PrefetchGlobalRead=2" in reason
+    assert "persistent" in rotate_plan(s, persistent=True)[2]
+
+def test_rotate_reason_needs_a_tensor_and_no_a():
+    s = _brot_state()
+    assert "A-rotate" in rotate_reason(s, True, False)
+    assert "no tensor" in rotate_reason(s, False, False)

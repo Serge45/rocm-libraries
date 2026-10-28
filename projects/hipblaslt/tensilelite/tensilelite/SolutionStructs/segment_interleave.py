@@ -218,7 +218,7 @@ def _component_offsets(state, bWhole, portSplit):
         offsets.update(mxsa, ldsBaseMXSA=base + fA + (0 if bWhole else fB),
                        mxsaStrideBytes=stride)
         end += half
-        if state.get("LDSSegmentBRotate"):
+        if state.get("LDSSegmentRotate"):
             # B's DS half selection uses its original logical component stride.
             offsets["readStrideBytesB"] = stride if aligned else fA + fB
     elif pt.get("MXBlockA") and not state.get("DirectToVgprMXSA"):
@@ -416,6 +416,11 @@ def _evaluate_brotate_1x4(state):
             "segmentMap": "BROTATE-1x4-ALIGNED seg%d={B0,A} seg%d={B1}" % (base // SEG, (base + pre) // SEG)}
 
 
+def _rotate_b_requested(state):
+    # LDSSegmentRotate: 0 off, 1 auto, 2 force B, 3 force A, 4 force A+B. B is rotated by 1 (auto) and 2.
+    return state.get("LDSSegmentRotate", 0) in (1, 2)
+
+
 def evaluate(state):
     pt = state["ProblemType"]
     # Tri-state knob: -1 = auto (default), 0 = force baseline, 1 = force on where applicable.
@@ -453,10 +458,10 @@ def evaluate(state):
     wgM, wgN = state["MIWaveGroup"][0], state["MIWaveGroup"][1]
     # [4,1] + B-rotate: B must be split into two components for the rotate, so reuse the [2,2]
     # [A0][B0][A1][B1] layout below (A is still split per wave pair by LocalRead/LraTileAssignment).
-    bRotate41 = (mode == 1 and state.get("LDSSegmentBRotate") and [wgM, wgN] == [4, 1]
+    bRotate41 = (mode == 1 and _rotate_b_requested(state) and [wgM, wgN] == [4, 1]
                  and not state.get("TDMSplit"))
     # [1,4] + B-rotate: split B by vIdx with A kept whole (see _evaluate_brotate_1x4).
-    if mode == 1 and state.get("LDSSegmentBRotate") and [wgM, wgN] == [1, 4] and not state.get("TDMSplit"):
+    if mode == 1 and _rotate_b_requested(state) and [wgM, wgN] == [1, 4] and not state.get("TDMSplit"):
         return _evaluate_brotate_1x4(state)
     if (wgM == 1) ^ (wgN == 1) and not bRotate41:
         return _evaluate_asymmetric(state)
@@ -485,8 +490,27 @@ def evaluate(state):
             "blockSpan": end if aligned else 0, "reason": reason}
 
 
-def b_rotate_reason(state, persistent=False):
-    """LDSSegmentBRotate gate. Returns None when B-rotate can be applied, else the reject reason.
+def rotate_plan(state, persistent=False):
+    """LDSSegmentRotate decision: returns (rotateA, rotateB, reject_reason).
+
+    0 = off; 1 = auto (the model picks the rotation set; only B is available so far); 2 = force B;
+    3 = force A and 4 = force A+B are reserved and rejected until A-rotate exists.
+    """
+    mode = state.get("LDSSegmentRotate", 0)
+    if mode == 0:
+        return False, False, None
+    if mode in (3, 4):
+        return False, False, "LDSSegmentRotate=%d (A-rotate) is not supported yet" % mode
+    reason = rotate_reason(state, False, True, persistent)
+    if reason is not None:
+        return False, False, reason
+    return False, True, None
+
+
+def rotate_reason(state, rotA, rotB, persistent=False):
+    """LDSSegmentRotate gate for one rotation set. Returns None when it can be applied, else the reject reason.
+
+    Only B-rotate exists so far (rotA must be False). The text below describes B-rotate.
 
     Validate the logical [2,2] split layout used by aligned and paired tight kernels. MIWaveGroup [4,1]
     (non-MX, non-TDMSplit) reuses the same layout: all four waves share B, which evaluate() splits
@@ -498,6 +522,8 @@ def b_rotate_reason(state, persistent=False):
     swapped back before the epilogue. Aligned kernels retain separate ping/pong blocks.
     """
     pt = state["ProblemType"]
+    if rotA:                                                  return "A-rotate is not supported yet"
+    if not rotB:                                              return "no tensor to rotate"
     if tuple(state.get("ISA", ()))[:2] != (12, 5):            return "not gfx1250"
     if state.get("LDSSegmentInterleave") != 1:                return "needs LDSSegmentInterleave=1"
     o = state.get("LDSSegInterleaveOffsets") or {}
@@ -655,7 +681,7 @@ def paired_buffer_offsets(state, isolate_operands=False):
     offsets["ldsBase" + other] = otherBase
     offsets["bufferStride" + active] = dActive
     offsets["bufferStride" + other] = dOther
-    if state.get("LDSSegmentBRotate"):
+    if state.get("LDSSegRotateB"):
         # Preserve logical DS half selection while VGPR bases bridge the common
         # physical stride. Rotation changes read order, never data placement.
         offsets["readStrideBytesB"] = original.get("readStrideBytesB", original["writeStrideBytes"])
@@ -677,7 +703,7 @@ def paired_buffer_offsets(state, isolate_operands=False):
     offsets["pairedOperandIsolation"] = isolate_operands
     # Narrow [2,2] B reads reach both components through DS immediates. Reserve
     # only reachable 64 KiB windows, rather than allocating registers for gaps.
-    if state.get("LDSSegmentBRotate"):
+    if state.get("LDSSegRotateB"):
         # B rotation uses two logical halves, not the ordinary physical windows.
         offsets.pop("readAddressWindowsB", None)
     elif not shared and state["MIWaveGroup"] == [2, 2] and not _coarse(state, "B"):
