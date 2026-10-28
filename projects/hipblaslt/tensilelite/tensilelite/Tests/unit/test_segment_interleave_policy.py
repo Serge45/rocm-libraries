@@ -18,7 +18,7 @@ def derive(_gp_gfx1250, gfx1250_iim, assembler, capsys):
             mi=[16, 16, 128, 1, 1, 8, 8, 2, 2],
             StreamK=0, GlobalSplitU=1, SourceSwap=True,
             VectorWidthA=8, VectorWidthB=4, TDMIterateMode=-1,
-            LDSSegmentInterleave=mode, LDSSegmentBRotate=0,
+            LDSSegmentInterleave=mode, LDSSegmentRotate=0,
         )
         params.update(overrides)
         sol = Solution(_make_params(gfx1250_iim, **params), False, True,
@@ -113,7 +113,7 @@ def test_mxsa_m_halves_separate_both_buffer_phases(derive, tile, pad, rotate, pg
     sol, out = derive(1, mi=[16, 16, 128, 1, 1, tile, tile, 2, 2],
                       VectorWidthA=tile, VectorWidthB=tile // 2,
                       HalfPLR=1 if tile == 8 else 0, PrefetchGlobalRead=pgr,
-                      LDSSegmentBRotate=rotate, LdsPadMXSA=pad,
+                      LDSSegmentRotate=rotate, LdsPadMXSA=pad,
                       LdsBlockSizePerPadMXSA=256 if pad else 0,
                       ProblemType={"MXBlockA": 32, "MXBlockB": 32})
     assert sol["Valid"], out
@@ -173,7 +173,7 @@ def test_mxsa_split_budget_is_checked_before_committing_paired(derive):
     assert auto["Valid"], out
     assert _lds_configuration(auto) == _lds_configuration(off)
     for mode, rotate in ((1, 0), (-1, 1)):
-        sol, out = derive(mode, LDSSegmentBRotate=rotate, **overrides)
+        sol, out = derive(mode, LDSSegmentRotate=rotate, **overrides)
         assert not sol["Valid"]
         assert "requires paired LDS placement: layout exceeds MaxLDS" in out
 
@@ -315,7 +315,7 @@ def test_mxsa_split_with_whole_b(derive, pad, pgr, streamk, mode):
 @pytest.mark.parametrize("rotate", [0, 1])
 @pytest.mark.parametrize("pgr", [1, 2])
 def test_tight_interleave_requires_paired(derive, mode, rotate, pgr):
-    sol, out = derive(mode, LDSSegmentBRotate=rotate, PrefetchGlobalRead=pgr)
+    sol, out = derive(mode, LDSSegmentRotate=rotate, PrefetchGlobalRead=pgr)
     assert sol["Valid"], out
     assert sol["LDSSegmentInterleave"] == 1
     assert sol["LDSSegInterleaveOffsets"]["pairedBuffers"] is True
@@ -427,7 +427,7 @@ def test_aligned_retains_component_offsets_and_separate_buffers(
                         lambda state: pytest.fail("aligned placement must not be paired"))
     sol, out = derive(1, mi=[16, 16, 128, 1, 1, 4, 4, 2, 2],
                       VectorWidthA=4, VectorWidthB=vwb, HalfPLR=0,
-                      PrefetchGlobalRead=pgr, LDSSegmentBRotate=rotate)
+                      PrefetchGlobalRead=pgr, LDSSegmentRotate=rotate)
     assert sol["Valid"], out
     assert sol["LDSSegInterleaveOffsets"] == {
         "ldsBaseB": 16640, "writeStrideBytes": 65536, "footprintPacked": True,
@@ -468,9 +468,9 @@ def test_paired_budget_failure_obeys_requested_mode(derive, monkeypatch):
     forced, out = derive(1)
     assert not forced["Valid"]
     assert "requires paired LDS placement: layout exceeds MaxLDS" in out
-    rotated, out = derive(-1, LDSSegmentBRotate=1)
+    rotated, out = derive(-1, LDSSegmentRotate=1)
     assert not rotated["Valid"]
-    assert "LDSSegmentBRotate requires paired LDS placement" in out
+    assert "LDSSegmentRotate requires paired LDS placement" in out
 
 
 def test_auto_cannot_commit_a_layout_that_grows_lds(derive, monkeypatch):
@@ -499,10 +499,10 @@ def test_auto_cannot_commit_a_layout_that_grows_lds(derive, monkeypatch):
 
 @pytest.mark.parametrize("mode", [-1, 1])
 def test_brotate_cannot_fall_back_to_unpaired(derive, mode):
-    sol, out = derive(mode, LDSSegmentBRotate=1,
+    sol, out = derive(mode, LDSSegmentRotate=1,
                       PrefetchGlobalRead=1, HalfPLR=0, ExpandPointerSwap=True)
     assert not sol["Valid"]
-    assert "LDSSegmentBRotate: needs ExpandPointerSwap=0" in out
+    assert "LDSSegmentRotate: needs ExpandPointerSwap=0" in out
 
 
 def test_tdmsplit_remains_disabled(derive):
@@ -520,7 +520,7 @@ def test_paired_capacity_includes_only_final_layout_and_other_lds_users(
     derive, occupancy, amax, dest, expected
 ):
     sol, out = derive(1,
-                      LDSSegmentBRotate=1, MaxOccupancy=occupancy,
+                      LDSSegmentRotate=1, MaxOccupancy=occupancy,
                       ProblemType={"DestDataType": dest, "OutputAmaxD": amax})
     assert sol["Valid"], out
     # This tight tile needs 259 KiB for paired A/B data; occupancy and amax
@@ -697,13 +697,13 @@ def test_mxsa_split_preserves_128_byte_m_boundary(
     params = dict(mi=[16, 16, 128, 1, 1, tile, 2, 2, 2],
                   SourceSwap=source_swap, VectorWidthA=1, VectorWidthB=1,
                   HalfPLR=0, DepthU=depth_u, WaveTileContiguousA=True,
-                  LDSSegmentBRotate=1, TDMIterateMode=0,
+                  LDSSegmentRotate=1, TDMIterateMode=0,
                   ProblemType={"DataType": dtype, "DestDataType": "S",
                                "MXBlockA": 32, "MXBlockB": 32})
     sol, out = derive(1, **params)
     assert sol["Valid"], out
     assert sol["WaveTileContiguousA"] and sol["LDSSegmentInterleave"] == 1
-    assert sol["LDSSegmentBRotate"] == 1
+    assert sol["LDSSegmentRotate"] == 1
     offsets = sol["LDSSegInterleaveOffsets"]
     assert bool(offsets.get("mxsSplitA")) is split
     assert sol["MacroTile0"] // 2 * 4 == half_row_bytes
@@ -733,7 +733,7 @@ def test_contiguous_a_auto_padding_matches_row_padded_writer(
     overrides = dict(mi=[16, 16, 128, 1, 1, tile, 8, 2, 2],
                      SourceSwap=source_swap, VectorWidthA=width, VectorWidthB=4,
                      HalfPLR=half_plr, DepthU=depth_u, WaveTileContiguousA=True,
-                     LDSSegmentBRotate=1, TDMIterateMode=0,
+                     LDSSegmentRotate=1, TDMIterateMode=0,
                      ProblemType={"DataType": dtype, "DestDataType": "S",
                                   "MXBlockA": mx, "MXBlockB": mx,
                                   "DataTypeMXSA": "E8", "DataTypeMXSB": "E8"})
@@ -772,7 +772,7 @@ def test_contiguous_a_disables_only_a_iterate(derive, iterate_mode, tile, width,
     params = dict(mi=[16, 16, 128, 1, 1, tile, 8, 2, 2],
                   VectorWidthA=width, VectorWidthB=4, HalfPLR=half_plr,
                   SourceSwap=source_swap, WaveTileContiguousA=True,
-                  LDSSegmentBRotate=1, ProblemType={"MXBlockA": 32, "MXBlockB": 32})
+                  LDSSegmentRotate=1, ProblemType={"MXBlockA": 32, "MXBlockB": 32})
     expected_mode = 2 if iterate_mode in (2, 3) else 0
     if expected_mode:
         params.update(LdsBlockSizePerPadB=2048, LdsPadB=16)
@@ -814,7 +814,7 @@ def test_equal_auto_width_preserves_original_iterate_and_width_fallback(derive, 
 def test_equal_wave_tile_width_uses_original_solution(derive, tile, width, source_swap, dtype, mx, depth_u):
     params = dict(mi=[16, 16, 128, 1, 1, tile, 8, 2, 2],
                   VectorWidthA=width, VectorWidthB=4, DepthU=depth_u, HalfPLR=2,
-                  SourceSwap=source_swap, TDMIterateMode=-1, LDSSegmentBRotate=1,
+                  SourceSwap=source_swap, TDMIterateMode=-1, LDSSegmentRotate=1,
                   ProblemType={"DataType": dtype, "DestDataType": "S",
                                "MXBlockA": mx, "MXBlockB": mx,
                                "DataTypeMXSA": "E8", "DataTypeMXSB": "E8"})
@@ -915,7 +915,7 @@ def test_contiguous_a_scale_read_metadata_preserves_vgpr_interleave(derive, asse
 
     sol, out = derive(1, mi=[16, 16, 128, 1, 1, 12, 4, 2, 2],
                       VectorWidthA=6, VectorWidthB=2, HalfPLR=1, DepthU=256,
-                      SourceSwap=True, WaveTileContiguousA=True, LDSSegmentBRotate=1,
+                      SourceSwap=True, WaveTileContiguousA=True, LDSSegmentRotate=1,
                       NumElementsPerBatchStore=16,
                       ProblemType={"DataType": "F4", "DestDataType": "S",
                                    "MXBlockA": 32, "MXBlockB": 32})
@@ -1036,7 +1036,7 @@ def test_contiguous_a_scale_loads_match_wmma_rows(
     sol, out = derive(1, mi=[32 if rectangular else 16, 16, 128, 1, 1, tile, 1 if rectangular else 2, 2, 2],
                       VectorWidthA=width, VectorWidthB=1, DepthU=depth_u, HalfPLR=0,
                       SourceSwap=source_swap, WaveTileContiguousA=True,
-                      LDSSegmentBRotate=0 if rectangular else 1, NumElementsPerBatchStore=16,
+                      LDSSegmentRotate=0 if rectangular else 1, NumElementsPerBatchStore=16,
                       LdsPadMXSA=-1, LdsBlockSizePerPadMXSA=-1,
                       ProblemType={"DataType": dtype, "DestDataType": "S",
                                    "MXBlockA": 32, "MXBlockB": 32})
@@ -1150,7 +1150,7 @@ def test_contiguous_a_with_original_b_and_rotate(derive, tile, width, half_plr, 
     sol, out = derive(1, mi=[16, 16, 128, 1, 1, tile, 8, 2, 2],
                       SourceSwap=source_swap, VectorWidthA=width, VectorWidthB=width_b,
                       HalfPLR=half_plr, WaveTileContiguousA=True,
-                      LDSSegmentBRotate=rotate, LdsPadA=16, LdsPadB=16,
+                      LDSSegmentRotate=rotate, LdsPadA=16, LdsPadB=16,
                       LdsBlockSizePerPadA=256, LdsBlockSizePerPadB=1024,
                       TDMIterateMode=0, ProblemType={"MXBlockA": 0, "MXBlockB": 0})
     assert sol["Valid"], out
@@ -1172,7 +1172,7 @@ def test_contiguous_a_store_width_is_explicit_and_lane_local(derive, source_swap
     sol, out = derive(1, mi=[16, 16, 128, 1, 1, 6, 8, 2, 2],
                       SourceSwap=source_swap, VectorWidthA=2, VectorWidthB=4,
                       HalfPLR=1, WaveTileContiguousA=True,
-                      StoreVectorWidth=store_width, LDSSegmentBRotate=1,
+                      StoreVectorWidth=store_width, LDSSegmentRotate=1,
                       LdsPadA=16, LdsPadB=16,
                       LdsBlockSizePerPadA=256, LdsBlockSizePerPadB=1024,
                       TDMIterateMode=0, ProblemType={"MXBlockA": 0, "MXBlockB": 0})
@@ -1240,7 +1240,7 @@ def test_contiguous_a_gradient_scalar_e_uses_loaded_half(derive, assembler, cont
 
 
 @pytest.mark.parametrize("overrides,reason", [
-    ({"VectorWidthB": 8, "LDSSegmentBRotate": 1}, "MIWaveTile[1]/VectorWidthB must be even"),
+    ({"VectorWidthB": 8, "LDSSegmentRotate": 1}, "MIWaveTile[1]/VectorWidthB must be even"),
     ({"ProblemType": {"MXBlockA": 32, "MXBlockB": 32, "MXBlockFreeA": 2}},
      "2D MX scale for A supports MXBlockFreeA 128 only, got 2"),
 ])
@@ -1271,9 +1271,9 @@ def test_contiguous_a_mx_selects_scale_layout_and_preserves_b_rotate(derive, til
                      ProblemType={"DataType": dtype, "DestDataType": "S",
                                   "MXBlockA": 32, "MXBlockB": 32,
                                   "DataTypeMXSA": "E8", "DataTypeMXSB": "E8"})
-    reference, out = derive(1, LDSSegmentBRotate=0, **overrides)
+    reference, out = derive(1, LDSSegmentRotate=0, **overrides)
     assert reference["Valid"], out
-    rotated, out = derive(1, LDSSegmentBRotate=1, **overrides)
+    rotated, out = derive(1, LDSSegmentRotate=1, **overrides)
     assert rotated["Valid"], out
     # BRotate changes reader deltas; the TDM writer and allocation stay fixed.
     writer_keys = [key for key in reference._state if key.startswith("Lds")]
@@ -1309,7 +1309,7 @@ def test_mxsa_split_preserves_b_rotate_encoding_across_segment_boundary(derive, 
     sol, out = derive(
         1, mi=[16, 16, 128, 1, 1, 6, 8, 2, 2],
         SourceSwap=source_swap, VectorWidthA=1, VectorWidthB=4,
-        HalfPLR=1, DepthU=512, WaveTileContiguousA=True, LDSSegmentBRotate=1,
+        HalfPLR=1, DepthU=512, WaveTileContiguousA=True, LDSSegmentRotate=1,
         LdsPadA=128, LdsPadB=64, LdsBlockSizePerPadA=256, LdsBlockSizePerPadB=1024,
         TDMIterateMode=0,
         ProblemType={"DataType": "F4", "DestDataType": "S", "MXBlockA": 32, "MXBlockB": 32})
@@ -1345,12 +1345,12 @@ def test_contiguous_a_mxsa_split_budget_keeps_auto_fallback_intact(derive, sourc
     assert automatic["LDSSegmentInterleave"] == 0
     assert _lds_configuration(automatic) == _lds_configuration(ordinary)
     for mode, rotate in ((1, 0), (1, 1), (-1, 1)):
-        rejected, out = derive(mode, LDSSegmentBRotate=rotate, **params)
+        rejected, out = derive(mode, LDSSegmentRotate=rotate, **params)
         assert not rejected["Valid"]
         if mode == 1:
             assert "requires paired LDS placement: layout exceeds MaxLDS" in out
         else:
-            assert "LDSSegmentBRotate: needs LDSSegmentInterleave=1" in out
+            assert "LDSSegmentRotate: needs LDSSegmentInterleave=1" in out
 
 
 @pytest.mark.parametrize("source_swap,tile,width,depth_u,half_plr,mt", [
@@ -1367,7 +1367,7 @@ def test_contiguous_a_rectangular_mxf4_derivation(derive, source_swap, tile, wid
     sol, out = derive(mode, mi=[32, 16, 128, 1, 1, *tile, 2, 2],
                       VectorWidthA=width, VectorWidthB=2, DepthU=depth_u, HalfPLR=half_plr,
                       SourceSwap=source_swap, WaveTileContiguousA=True,
-                      LDSSegmentBRotate=0, ClusterDim=[4, 4], ClusterAIDMapping=-2,
+                      LDSSegmentRotate=0, ClusterDim=[4, 4], ClusterAIDMapping=-2,
                       ProblemType={"DataType": "F4", "DestDataType": "F8",
                                    "MXBlockA": mx_block, "MXBlockB": mx_block,
                                    "DataTypeMXSA": scale_type, "DataTypeMXSB": scale_type})

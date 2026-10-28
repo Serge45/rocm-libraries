@@ -306,7 +306,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -518,7 +518,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -727,7 +727,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -937,7 +937,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -1150,7 +1150,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -1357,7 +1357,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -1571,7 +1571,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -1781,7 +1781,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -1992,7 +1992,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -2204,7 +2204,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -2415,7 +2415,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -2626,7 +2626,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -2837,7 +2837,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -3048,7 +3048,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -3259,7 +3259,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -3468,7 +3468,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -3677,7 +3677,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -3888,7 +3888,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -4099,7 +4099,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -4310,7 +4310,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -4521,7 +4521,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -4731,7 +4731,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -4941,7 +4941,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -5146,7 +5146,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -5356,7 +5356,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -5565,7 +5565,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -5774,7 +5774,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -5985,7 +5985,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -6199,7 +6199,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -6410,7 +6410,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -6619,7 +6619,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -6832,7 +6832,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 8
@@ -7042,7 +7042,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -7251,7 +7251,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -7463,7 +7463,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -7676,7 +7676,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -7885,7 +7885,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -8096,7 +8096,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -8306,7 +8306,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -8517,7 +8517,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -8725,7 +8725,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -8935,7 +8935,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -9143,7 +9143,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -9353,7 +9353,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -9561,7 +9561,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 4
@@ -9768,7 +9768,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 4
@@ -9979,7 +9979,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -10191,7 +10191,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -10403,7 +10403,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -10612,7 +10612,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -10821,7 +10821,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -11029,7 +11029,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -11239,7 +11239,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LDSTrInst: true
   LSCA: 64
   LSCB: 64
@@ -11449,7 +11449,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -11656,7 +11656,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -11865,7 +11865,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -12075,7 +12075,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 4
@@ -12283,7 +12283,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 8
@@ -12495,7 +12495,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -12705,7 +12705,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -12914,7 +12914,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -13123,7 +13123,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -13335,7 +13335,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -13544,7 +13544,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -13750,7 +13750,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 4
@@ -13960,7 +13960,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -14168,7 +14168,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -14379,7 +14379,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -14589,7 +14589,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -14799,7 +14799,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -15008,7 +15008,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 4
@@ -15216,7 +15216,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -15424,7 +15424,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -15635,7 +15635,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -15844,7 +15844,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 4
@@ -16054,7 +16054,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -16260,7 +16260,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -16469,7 +16469,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LDSTrInst: true
   LSCA: 64
   LSCB: 64
@@ -16680,7 +16680,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -16892,7 +16892,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -17102,7 +17102,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -17310,7 +17310,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -17520,7 +17520,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -17732,7 +17732,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -17941,7 +17941,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -18150,7 +18150,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LDSTrInst: true
   LSCA: 64
   LSCB: 64
@@ -18363,7 +18363,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -18572,7 +18572,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -18782,7 +18782,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -18991,7 +18991,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -19202,7 +19202,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -19412,7 +19412,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -19621,7 +19621,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LDSTrInst: true
   LSCA: 64
   LSCB: 64
@@ -19834,7 +19834,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 4
@@ -20048,7 +20048,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -20260,7 +20260,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -20469,7 +20469,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LDSTrInst: true
   LSCA: 64
   LSCB: 64
@@ -20680,7 +20680,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -20890,7 +20890,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LDSTrInst: true
   LSCA: 64
   LSCB: 64
@@ -21100,7 +21100,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -21311,7 +21311,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -21520,7 +21520,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -21730,7 +21730,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -21941,7 +21941,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -22152,7 +22152,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: true,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -22358,7 +22358,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 4
@@ -22570,7 +22570,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LDSTrInst: true
   LSCA: 64
   LSCB: 64
@@ -22779,7 +22779,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LDSTrInst: true
   LSCA: 64
   LSCB: 64
@@ -22990,7 +22990,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -23201,7 +23201,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -23411,7 +23411,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LDSTrInst: true
   LSCA: 64
   LSCB: 64
@@ -23620,7 +23620,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -23828,7 +23828,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -24036,7 +24036,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 4
@@ -24243,7 +24243,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 4
@@ -24454,7 +24454,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 4
@@ -24664,7 +24664,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -24872,7 +24872,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -25083,7 +25083,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 4
@@ -25291,7 +25291,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 4
@@ -25500,7 +25500,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 4
@@ -25706,7 +25706,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 4
@@ -25915,7 +25915,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 4
@@ -26127,7 +26127,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 4
@@ -26338,7 +26338,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -26551,7 +26551,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -26763,7 +26763,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -26977,7 +26977,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -27189,7 +27189,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -27400,7 +27400,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -27610,7 +27610,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LDSTrInst: true
   LSCA: 64
   LSCB: 64
@@ -27821,7 +27821,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LDSTrInst: true
   LSCA: 64
   LSCB: 64
@@ -28033,7 +28033,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LDSTrInst: true
   LSCA: 64
   LSCB: 64
@@ -28242,7 +28242,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LDSTrInst: true
   LSCA: 64
   LSCB: 64
@@ -28453,7 +28453,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LDSTrInst: true
   LSCA: 64
   LSCB: 64
@@ -28664,7 +28664,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -28873,7 +28873,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -29081,7 +29081,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -29290,7 +29290,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -29500,7 +29500,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -29710,7 +29710,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -29921,7 +29921,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -30132,7 +30132,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -30343,7 +30343,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -30551,7 +30551,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -30763,7 +30763,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -30977,7 +30977,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -31188,7 +31188,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -31399,7 +31399,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -31610,7 +31610,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -31821,7 +31821,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -32030,7 +32030,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -32244,7 +32244,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -32455,7 +32455,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -32666,7 +32666,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 4
@@ -32877,7 +32877,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -33085,7 +33085,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -33293,7 +33293,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 4
@@ -33504,7 +33504,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -33711,7 +33711,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -33918,7 +33918,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -34126,7 +34126,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -34334,7 +34334,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -34543,7 +34543,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -34751,7 +34751,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 8
@@ -34961,7 +34961,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -35171,7 +35171,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -35380,7 +35380,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -35590,7 +35590,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 4
@@ -35803,7 +35803,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 4
@@ -36010,7 +36010,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 8
@@ -36222,7 +36222,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 4
@@ -36434,7 +36434,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -36644,7 +36644,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 4
@@ -36851,7 +36851,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 8
@@ -37057,7 +37057,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -37266,7 +37266,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -37474,7 +37474,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -37686,7 +37686,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -37894,7 +37894,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -38100,7 +38100,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -38311,7 +38311,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -38522,7 +38522,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 4
@@ -38729,7 +38729,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -38938,7 +38938,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 8
@@ -39148,7 +39148,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -39356,7 +39356,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -39566,7 +39566,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 4
@@ -39777,7 +39777,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -39985,7 +39985,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -40193,7 +40193,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -40403,7 +40403,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -40615,7 +40615,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -40826,7 +40826,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -41036,7 +41036,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -41245,7 +41245,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -41456,7 +41456,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -41667,7 +41667,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -41878,7 +41878,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -42091,7 +42091,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 4
@@ -42299,7 +42299,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -42508,7 +42508,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 4
@@ -42715,7 +42715,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 4
@@ -42927,7 +42927,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 4
@@ -43136,7 +43136,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 4
@@ -43344,7 +43344,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -43552,7 +43552,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 4
@@ -43761,7 +43761,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 512
   LSCB: 512
   LSPA: 2
@@ -43972,7 +43972,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 4
@@ -44180,7 +44180,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -44385,7 +44385,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -44597,7 +44597,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 16
@@ -44808,7 +44808,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -45016,7 +45016,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 4
@@ -45228,7 +45228,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 16
@@ -45437,7 +45437,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 4
@@ -45646,7 +45646,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 4
@@ -45857,7 +45857,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 4
@@ -46067,7 +46067,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 4
@@ -46276,7 +46276,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 4
@@ -46487,7 +46487,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -46697,7 +46697,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 4
@@ -46908,7 +46908,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -47120,7 +47120,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 4
@@ -47327,7 +47327,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 512
   LSCB: 512
   LSPA: 2
@@ -47534,7 +47534,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 4
@@ -47745,7 +47745,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 4
@@ -47953,7 +47953,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 4
@@ -48160,7 +48160,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 512
   LSCB: 512
   LSPA: 4
@@ -48367,7 +48367,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 2
@@ -48578,7 +48578,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 4
@@ -48788,7 +48788,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 512
   LSCB: 512
   LSPA: 4
@@ -48999,7 +48999,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 4
@@ -49209,7 +49209,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -49416,7 +49416,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 512
   LSCB: 512
   LSPA: 4
@@ -49624,7 +49624,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 4
@@ -49833,7 +49833,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 2
@@ -50041,7 +50041,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 4
@@ -50252,7 +50252,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 512
   LSCB: 512
   LSPA: 4
@@ -50462,7 +50462,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 4
@@ -50671,7 +50671,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 2
@@ -50882,7 +50882,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 2
@@ -51090,7 +51090,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 32
   LSCB: 32
   LSPA: 16
@@ -51299,7 +51299,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 2
@@ -51508,7 +51508,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -51720,7 +51720,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 32
   LSCB: 32
   LSPA: 16
@@ -51931,7 +51931,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 4
@@ -52140,7 +52140,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 512
   LSCB: 512
   LSPA: 4
@@ -52347,7 +52347,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 512
   LSCB: 512
   LSPA: 4
@@ -52556,7 +52556,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 512
   LSCB: 512
   LSPA: 4
@@ -52766,7 +52766,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -52976,7 +52976,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 4
@@ -53184,7 +53184,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -53391,7 +53391,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -53598,7 +53598,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -53808,7 +53808,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -54020,7 +54020,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -54228,7 +54228,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -54438,7 +54438,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -54646,7 +54646,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 512
   LSCB: 512
   LSPA: 4
@@ -54858,7 +54858,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -55066,7 +55066,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -55273,7 +55273,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 512
   LSCB: 512
   LSPA: 4
@@ -55483,7 +55483,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 2
@@ -55692,7 +55692,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 512
   LSCB: 512
   LSPA: 4
@@ -55905,7 +55905,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 512
   LSCB: 512
   LSPA: 4
@@ -56113,7 +56113,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -56322,7 +56322,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 512
   LSCB: 512
   LSPA: 4
@@ -56532,7 +56532,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 512
   LSCB: 512
   LSPA: 4
@@ -56743,7 +56743,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -56951,7 +56951,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -57162,7 +57162,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -57374,7 +57374,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -57585,7 +57585,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -57793,7 +57793,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -58001,7 +58001,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -58213,7 +58213,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -58422,7 +58422,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -58631,7 +58631,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 4
@@ -58838,7 +58838,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -59046,7 +59046,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -59254,7 +59254,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -59463,7 +59463,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -59674,7 +59674,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 4
@@ -59881,7 +59881,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -60088,7 +60088,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -60297,7 +60297,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -60507,7 +60507,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -60718,7 +60718,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -60927,7 +60927,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -61136,7 +61136,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -61347,7 +61347,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -61555,7 +61555,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -61762,7 +61762,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -61974,7 +61974,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -62183,7 +62183,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -62394,7 +62394,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -62602,7 +62602,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -62810,7 +62810,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 256
   LSCB: 256
   LSPA: 8
@@ -63022,7 +63022,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -63235,7 +63235,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -63447,7 +63447,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -63660,7 +63660,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 4
@@ -63872,7 +63872,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 4
@@ -64086,7 +64086,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -64299,7 +64299,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -64509,7 +64509,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -64721,7 +64721,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -64930,7 +64930,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -65144,7 +65144,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -65357,7 +65357,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -65569,7 +65569,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -65784,7 +65784,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -65997,7 +65997,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -66208,7 +66208,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -66419,7 +66419,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -66631,7 +66631,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -66843,7 +66843,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -67051,7 +67051,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -67264,7 +67264,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -67477,7 +67477,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -67688,7 +67688,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -67898,7 +67898,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -68110,7 +68110,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -68318,7 +68318,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -68533,7 +68533,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -68744,7 +68744,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -68953,7 +68953,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 8
@@ -69164,7 +69164,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -69373,7 +69373,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -69579,7 +69579,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -69791,7 +69791,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -69997,7 +69997,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -70207,7 +70207,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -70420,7 +70420,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -70631,7 +70631,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -70844,7 +70844,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -71051,7 +71051,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -71262,7 +71262,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -71473,7 +71473,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -71683,7 +71683,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -71895,7 +71895,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -72105,7 +72105,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -72318,7 +72318,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -72531,7 +72531,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -72743,7 +72743,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -72951,7 +72951,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -73162,7 +73162,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -73374,7 +73374,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -73585,7 +73585,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -73796,7 +73796,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -74001,7 +74001,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -74212,7 +74212,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -74423,7 +74423,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -74632,7 +74632,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 4
@@ -74843,7 +74843,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -75054,7 +75054,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -75264,7 +75264,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -75473,7 +75473,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -75684,7 +75684,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 8
@@ -75893,7 +75893,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -76103,7 +76103,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -76312,7 +76312,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -76520,7 +76520,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -76731,7 +76731,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -76941,7 +76941,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 128
   LSCB: 128
   LSPA: 16
@@ -77158,7 +77158,7 @@ Solutions:
   InternalSupportParams: {PersistentLoopArgsVersion: 0, SupportCustomStaggerU: false,
     SupportCustomWGM: true, SupportUserGSU: false, UseSFC: false, UseUniversalArgs: true}
   Kernel: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -77432,7 +77432,7 @@ Solutions:
     UseSFC: false, UseUniversalArgs: true}
   Kernel: true
   LDSSegInterleaveOffsets: null
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -77712,7 +77712,7 @@ Solutions:
     UseSFC: false, UseUniversalArgs: true}
   Kernel: true
   LDSSegInterleaveOffsets: null
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -77989,7 +77989,7 @@ Solutions:
     UseSFC: false, UseUniversalArgs: true}
   Kernel: true
   LDSSegInterleaveOffsets: null
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -78266,7 +78266,7 @@ Solutions:
     UseSFC: false, UseUniversalArgs: true}
   Kernel: true
   LDSSegInterleaveOffsets: null
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LDSTrInst: true
   LSCA: 64
   LSCB: 64
@@ -78546,7 +78546,7 @@ Solutions:
     UseSFC: false, UseUniversalArgs: true}
   Kernel: true
   LDSSegInterleaveOffsets: null
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -78825,7 +78825,7 @@ Solutions:
     UseSFC: false, UseUniversalArgs: true}
   Kernel: true
   LDSSegInterleaveOffsets: null
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -79101,7 +79101,7 @@ Solutions:
     UseSFC: false, UseUniversalArgs: true}
   Kernel: true
   LDSSegInterleaveOffsets: null
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -79381,7 +79381,7 @@ Solutions:
     UseSFC: false, UseUniversalArgs: true}
   Kernel: true
   LDSSegInterleaveOffsets: null
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LDSTrInst: true
   LSCA: 64
   LSCB: 64
@@ -79663,7 +79663,7 @@ Solutions:
     UseSFC: false, UseUniversalArgs: true}
   Kernel: true
   LDSSegInterleaveOffsets: null
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LDSTrInst: true
   LSCA: 64
   LSCB: 64
@@ -79941,7 +79941,7 @@ Solutions:
     UseSFC: false, UseUniversalArgs: true}
   Kernel: true
   LDSSegInterleaveOffsets: null
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -80218,7 +80218,7 @@ Solutions:
     UseSFC: false, UseUniversalArgs: true}
   Kernel: true
   LDSSegInterleaveOffsets: null
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LDSTrInst: true
   LSCA: 64
   LSCB: 64
@@ -80499,7 +80499,7 @@ Solutions:
     UseSFC: false, UseUniversalArgs: true}
   Kernel: true
   LDSSegInterleaveOffsets: null
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LDSTrInst: true
   LSCA: 64
   LSCB: 64
@@ -80778,7 +80778,7 @@ Solutions:
     UseSFC: false, UseUniversalArgs: true}
   Kernel: true
   LDSSegInterleaveOffsets: null
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LDSTrInst: true
   LSCA: 64
   LSCB: 64
@@ -81058,7 +81058,7 @@ Solutions:
     UseSFC: false, UseUniversalArgs: true}
   Kernel: true
   LDSSegInterleaveOffsets: null
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32
@@ -81336,7 +81336,7 @@ Solutions:
     UseSFC: false, UseUniversalArgs: true}
   Kernel: true
   LDSSegInterleaveOffsets: null
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   LSCA: 64
   LSCB: 64
   LSPA: 32

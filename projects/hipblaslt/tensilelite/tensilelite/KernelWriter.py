@@ -9302,7 +9302,7 @@ class KernelWriter(PersistentKernelState, StreamKKernelState, metaclass=abc.ABCM
           segILWaveSpansCompB = wave_tile_span(kernel, "B") >= compColsB
           # B-rotate picks B's component by vIdx ([4,1], [1,4]: no wave-level jump), so comp 1 is always
           # reached via the read offset.
-          if (wavesPerCompB == 1 and not segILWaveSpansCompB) or kernel.get("LDSSegmentBRotate"):
+          if (wavesPerCompB == 1 and not segILWaveSpansCompB) or kernel.get("LDSSegRotateB"):
             segOffsets = kernel["LDSSegInterleaveOffsets"]
             readStride = segOffsets.get("readStrideBytesB", segOffsets["writeStrideBytes"])
             reachB = (numComp - 1) * readStride + maxOffsetB // numComp
@@ -9311,14 +9311,14 @@ class KernelWriter(PersistentKernelState, StreamKKernelState, metaclass=abc.ABCM
         numVgprMultiplierA = maxOffsetA // maxLDSConstOffset + 1
         # maxOffsetB is an extent (last byte is maxOffsetB-1), so an exact multiple of the reach needs no extra register.
         # B-rotate asserts exactly two B local-read addresses, which this exposes at 128 KiB extents.
-        if kernel.get("LDSSegmentBRotate"):
+        if kernel.get("LDSSegRotateB"):
           numVgprMultiplierB = (maxOffsetB + maxLDSConstOffset - 1) // maxLDSConstOffset
         else:
           numVgprMultiplierB = maxOffsetB // maxLDSConstOffset + 1
         readWindowsB = (kernel.get("LDSSegInterleaveOffsets") or {}).get("readAddressWindowsB")
         if readWindowsB is not None:
           assert maxLDSConstOffset == 65536 and readWindowsB[0] == 0
-          assert not kernel["ExpandPointerSwap"] and not kernel["LDSSegmentBRotate"]
+          assert not kernel["ExpandPointerSwap"] and not kernel.get("LDSSegRotateB") and not kernel.get("LDSSegRotateA")
           numVgprMultiplierB = len(readWindowsB)
         numVgprMultiplierMXSA = maxOffsetMXSA // maxLDSConstOffset + 1
         numVgprMultiplierMXSB = maxOffsetMXSB // maxLDSConstOffset + 1
@@ -9360,7 +9360,7 @@ class KernelWriter(PersistentKernelState, StreamKKernelState, metaclass=abc.ABCM
       # Split MXSB B-rotate: +0/+1 address the two vIdx halves (rebuilt by _lraFanOut), not +64K copies.
       if mxsbRotateSplit(kernel):
         assert self.states.mxsb.numVgprLocalReadAddr == 1, \
-          "LDSSegmentBRotate: split MXSB needs local-read offsets below 64K"
+          "LDSSegmentRotate: split MXSB needs local-read offsets below 64K"
         self.states.mxsb.numVgprLocalReadAddr = 2
 
       # do not allocate local read address register if DirectToVgpr is enabled
@@ -10583,10 +10583,10 @@ class KernelWriter(PersistentKernelState, StreamKKernelState, metaclass=abc.ABCM
       self.defineSgpr("FusedCounterPtr", 2, 2)
 
     self.defineSgpr("OrigLoopCounter", 1)
-    if kernel.get("LDSSegmentBRotate"):
+    if kernel.get("LDSSegRotateB"):
       # B-rotate: per-wave LocalReadAddrB+1 - LocalReadAddrB+0.
       # Defined here (not in defineVariableSgprs) because lraDeclareAddresses is emitted first.
-      self.defineSgpr("BRotateLRDelta", 1)
+      self.defineSgpr("RotateLRDelta", 1)
       if mxsbRotateSplit(kernel):
         self.defineSgpr("MXSBRotateLRDelta", 1)
     if (kernel.get("LDSSegInterleaveOffsets") or {}).get("pairedBuffers"):

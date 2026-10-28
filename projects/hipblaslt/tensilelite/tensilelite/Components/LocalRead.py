@@ -701,16 +701,16 @@ class LocalReadMFMA(LocalRead):
         tileSpanInfo = self.getMxsTileSpanInfo(kernel, tc, tile01, writer.states.asmCaps)
         mxsTileSpan = tileSpanInfo is not None
         rotateSplit = tc == "MXSB" and mxsbRotateSplit(kernel)
-        if tc == "MXSB" and kernel.get("LDSSegmentBRotate") and not rotateSplit:
+        if tc == "MXSB" and kernel.get("LDSSegRotateB") and not rotateSplit:
             # LRA rotates MXSB by flipping the half-wave select, which covers only one group.
             assert mxsTileSpan and tileSpanInfo["numGroups"] == 1 and kernel["MIWaveGroup"][1] > 1, \
-                "LDSSegmentBRotate: MXSB needs the single-group TileSpan wave-split layout"
+                "LDSSegmentRotate: MXSB needs the single-group TileSpan wave-split layout"
         numVectorsPerTile = self.getMxNumVectorsPerTile(kernel, tc, tile01, writer.states.asmCaps)
         if rotateSplit:
             # Logical half h of the vIdx range reads LocalReadAddrMXSB+h; per pair the two
             # registers are swapped in LRA, so the immediate carries only the in-half offset.
             assert not mxsTileSpan and not mx2d and numVectorsPerTile % 2 == 0, \
-                "LDSSegmentBRotate: split MXSB needs a 1D non-TileSpan layout with even vIdx count"
+                "LDSSegmentRotate: split MXSB needs a 1D non-TileSpan layout with even vIdx count"
             rotateHalf = numVectorsPerTile // 2
             rotateHalfStride = self.getMxsbRotateHalfStride(kernel)
         # 2D phase: each vector reads through its own LocalReadAddr+vIdx, which
@@ -797,7 +797,7 @@ class LocalReadMFMA(LocalRead):
                 paramList[0] -= addrIdx * 65536
                 if rotateSplit:
                     assert addrIdx == 0 and (kernel["LdsBlockSizePerPad%s"%tc] == 0 or kernel["LdsPad%s"%tc] == 0), \
-                        "LDSSegmentBRotate: split MXSB needs unpadded offsets below 64K"
+                        "LDSSegmentRotate: split MXSB needs unpadded offsets below 64K"
                     half = vIdx // rotateHalf
                     paramList[0] -= half * rotateHalfStride
                     assert paramList[0] >= 0
@@ -1965,12 +1965,12 @@ class LocalReadMFMA(LocalRead):
                             highBits = 0 if writer.states.archCaps["DSLow16NotPreserve"] else highBitsForHalf or isHigh16Bits
 
                             addrIdx = paramList[0] // 65536
-                            if tc == "B" and kernel.get("LDSSegmentBRotate"):
+                            if tc == "B" and kernel.get("LDSSegRotateB"):
                                 # B-rotate swaps LocalReadAddrB+0/+1 per SIMD pair, so register h must
-                                # serve exactly component h (see segment_interleave.b_rotate_reason).
+                                # serve exactly component h (see segment_interleave.rotate_reason).
                                 assert numOffsets == 1 and \
                                     addrIdx == segCompByteOff // _segOff.get("readStrideBytesB", _segOff["writeStrideBytes"]), \
-                                    "LDSSegmentBRotate: B read vIdx=%u uses LocalReadAddrB+%u" % (vIdx, addrIdx)
+                                    "LDSSegmentRotate: B read vIdx=%u uses LocalReadAddrB+%u" % (vIdx, addrIdx)
                             addressWindows = (kernel.get("LDSSegInterleaveOffsets") or {}).get("readAddressWindows" + tc)
                             registerIndex = addressWindows.index(addrIdx) if addressWindows is not None else addrIdx
                             srcAddr=vgpr("LocalReadAddr%s+%u"%(tc, registerIndex))

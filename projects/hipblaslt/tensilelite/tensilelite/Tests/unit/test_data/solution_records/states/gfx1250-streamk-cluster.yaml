@@ -72,7 +72,7 @@ InternalSupportParams: {KernArgsVersion: 3, PersistentLoopArgsVersion: 2, Suppor
   UseSFC: false, UseUniversalArgs: true}
 KernelLanguage: Assembly
 LDSSegInterleaveOffsets: {}
-LDSSegmentBRotate: 0
+LDSSegmentRotate: 0
 LDSSegmentInterleave: 0
 LDSTrInst: false
 LSCA: 64

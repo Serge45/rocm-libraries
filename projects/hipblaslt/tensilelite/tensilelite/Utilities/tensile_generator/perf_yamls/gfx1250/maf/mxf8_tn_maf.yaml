@@ -97,7 +97,7 @@ BenchmarkProblems:
         - ClusterDim: [[4,4]]
         - ClusterAIDMapping: [-2]
         - LDSSegmentInterleave: [1]
-        - LDSSegmentBRotate: [1]
+        - LDSSegmentRotate: [1]
         - WorkGroupMapping: [1]
         - StoreVectorWidth: [-1]
         - NumElementsPerBatchStore: [16]

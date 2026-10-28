@@ -1421,8 +1421,8 @@
     'InnerUnroll',
     'InterleaveAlpha',
     'KernelLanguage',
-    'LDSSegmentBRotate',
     'LDSSegmentInterleave',
+    'LDSSegmentRotate',
     'LDSTrInst',
     'LDSTrStoreShuffle',
     'LdsBlockSizePerPadA',
@@ -2048,14 +2048,6 @@
       'len': 1,
       'type': 'list',
     }),
-    'LDSSegmentBRotate': dict({
-      'head': list([
-        0,
-        1,
-      ]),
-      'len': 2,
-      'type': 'list',
-    }),
     'LDSSegmentInterleave': dict({
       'head': list([
         -1,
@@ -2063,6 +2055,15 @@
         1,
       ]),
       'len': 3,
+      'type': 'list',
+    }),
+    'LDSSegmentRotate': dict({
+      'head': list([
+        0,
+        1,
+        2,
+      ]),
+      'len': 5,
       'type': 'list',
     }),
     'LDSTrInst': dict({

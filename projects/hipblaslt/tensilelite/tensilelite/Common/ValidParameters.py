@@ -440,12 +440,17 @@ validParameters = { # we need to make sure this matches develop
     #
     # Recommended: set [0, 1] when tuning to compare baseline vs interleaved.
     "LDSSegmentInterleave": [-1, 0, 1],
-    # LDSSegmentBRotate (gfx1250, needs LDSSegmentInterleave=1 aligned [2,2] layout): split B into
-    # two N-halves in different LDS segments and let SIMD pair 1 (odd waves) read its B vIdx groups
-    # rotated by half (v -> (v + nV/2) mod nV), so the two LDS read ports never read the same
-    # segment at the same time. Pair 1's accumulator halves are swapped back before the epilogue.
-    #   0 = off (default), 1 = on.
-    "LDSSegmentBRotate": [0, 1],
+    # LDSSegmentRotate (gfx1250, needs LDSSegmentInterleave=1): split a tensor into two components in
+    # different LDS segments and let SIMD pair 1 (odd waves) read its vIdx groups rotated by half
+    # (v -> (v + nV/2) mod nV), so the two LDS read ports never read the same segment at the same
+    # time. Pair 1's accumulator halves are swapped back before the epilogue.
+    # Rotation changes read order and accumulator mapping, not physical placement: tight layouts use
+    # the paired ping/pong placement, aligned layouts keep separate ping/pong blocks.
+    #   0 = off (default)
+    #   1 = auto: the model picks which tensor(s) to rotate (B only so far)
+    #   2 = force B-rotate
+    #   3 = force A-rotate, 4 = force A+B (reserved, rejected until A-rotate is implemented)
+    "LDSSegmentRotate": [0, 1, 2, 3, 4],
     # gfx1250 TDM, MIWaveGroup [2, 2]: each wave covers one M half.
     # With smaller VectorWidthA, adjacent lanes read adjacent A rows.
     # VectorWidthA and inherited VectorWidthMXSA retain their values.

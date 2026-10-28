@@ -94,7 +94,7 @@ BenchmarkProblems:
         - ClusterAIDMapping: [-2]
         - InitCIterWmma: [1]
         - LDSSegmentInterleave: [1]
-        - LDSSegmentBRotate: [0, 1]
+        - LDSSegmentRotate: [0, 1]
         - WorkGroupMapping: [1]
         - StoreVectorWidth: [-1]
         - WavefrontSize: [32]

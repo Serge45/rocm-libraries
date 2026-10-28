@@ -1,7 +1,7 @@
 # Copyright Advanced Micro Devices, Inc., or its affiliates.
 # SPDX-License-Identifier: MIT
 ################################################################################
-# Codegen regression for LDSSegmentBRotate on a full-wave MXSB tile: MXF4 32x16x128
+# Codegen regression for LDSSegmentRotate on a full-wave MXSB tile: MXF4 32x16x128
 # with SourceSwap=True (effective MatrixInstN == wave size), where the MXSB scales have
 # no half-wave select to flip. The kernel keeps two MXSB read addresses
 # (LocalReadAddrMXSB+0/+1) that address the two vIdx halves; per SIMD pair they are
@@ -61,7 +61,7 @@ def _params(iim, vwb, rotate):
         "SourceSwap": True, "ExpandPointerSwap": False,
         "GlobalSplitUAlgorithm": "MultipleBuffer", "TDMInst": 3, "TDMIterateMode": -1,
         "HalfPLR": 1, "TDMSplit": False, "LDSTrInst": False, "LDSSegmentInterleave": 1,
-        "LDSSegmentBRotate": rotate, "StreamK": 0, "PrefetchAcrossPersistent": 0,
+        "LDSSegmentRotate": rotate, "StreamK": 0, "PrefetchAcrossPersistent": 0,
         "UseSubtileImpl": False, "StoreRemapVectorWidth": 0, "DirectToVgprA": False,
         "DirectToVgprB": False, "DirectToVgprSparseMetadata": False, "WorkGroupMapping": 1,
         "UseSgprForGRO": 0, "ForceDisableShadowInit": True,

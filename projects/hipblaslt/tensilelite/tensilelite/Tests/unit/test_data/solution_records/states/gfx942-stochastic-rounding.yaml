@@ -76,7 +76,7 @@ InternalSupportParams: {KernArgsVersion: 3, PersistentLoopArgsVersion: 0, Suppor
 KernelLanguage: Assembly
 KernelNameMin: Cijk_Ailk_Bljk_HH_F8NHS_BH_BiasSH_HAS_SAV_UserArgs_MT16x16x32_MI16x16x1_SN_GRVWA4_GRVWB8_MIWT1_1
 LDSSegInterleaveOffsets: {}
-LDSSegmentBRotate: 0
+LDSSegmentRotate: 0
 LDSSegmentInterleave: 0
 LDSTrInst: false
 LSCA: 16

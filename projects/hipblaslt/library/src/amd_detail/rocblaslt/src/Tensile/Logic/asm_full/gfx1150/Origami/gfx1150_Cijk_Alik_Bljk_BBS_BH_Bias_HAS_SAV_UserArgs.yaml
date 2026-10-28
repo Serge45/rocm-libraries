@@ -155,7 +155,7 @@
     MatrixInstruction: [16, 16, 16, 1]
     1LDSBuffer: 0
     LDSSegmentInterleave: 0
-    LDSSegmentBRotate: 0
+    LDSSegmentRotate: 0
     DepthU: 64
     NonTemporalE: 0
     NonTemporalGate: 0
@@ -350,7 +350,7 @@
     MatrixInstruction: [16, 16, 16, 1]
     1LDSBuffer: 1
     LDSSegmentInterleave: 0
-    LDSSegmentBRotate: 0
+    LDSSegmentRotate: 0
     DepthU: 128
     NonTemporalE: 0
     NonTemporalGate: 0
@@ -545,7 +545,7 @@
     MatrixInstruction: [16, 16, 16, 1]
     1LDSBuffer: 1
     LDSSegmentInterleave: 0
-    LDSSegmentBRotate: 0
+    LDSSegmentRotate: 0
     DepthU: 128
     NonTemporalE: 0
     NonTemporalGate: 0
@@ -740,7 +740,7 @@
     MatrixInstruction: [16, 16, 16, 1]
     1LDSBuffer: 0
     LDSSegmentInterleave: 0
-    LDSSegmentBRotate: 0
+    LDSSegmentRotate: 0
     DepthU: 64
     NonTemporalE: 0
     NonTemporalGate: 0
@@ -935,7 +935,7 @@
     MatrixInstruction: [16, 16, 16, 1]
     1LDSBuffer: 0
     LDSSegmentInterleave: 0
-    LDSSegmentBRotate: 0
+    LDSSegmentRotate: 0
     DepthU: 64
     NonTemporalE: 0
     NonTemporalGate: 0
@@ -1130,7 +1130,7 @@
     MatrixInstruction: [16, 16, 16, 1]
     1LDSBuffer: 1
     LDSSegmentInterleave: 0
-    LDSSegmentBRotate: 0
+    LDSSegmentRotate: 0
     DepthU: 64
     NonTemporalE: 0
     NonTemporalGate: 0
@@ -1325,7 +1325,7 @@
     MatrixInstruction: [16, 16, 16, 1]
     1LDSBuffer: 0
     LDSSegmentInterleave: 0
-    LDSSegmentBRotate: 0
+    LDSSegmentRotate: 0
     DepthU: 32
     NonTemporalE: 0
     NonTemporalGate: 0
@@ -1520,7 +1520,7 @@
     MatrixInstruction: [16, 16, 16, 1]
     1LDSBuffer: 1
     LDSSegmentInterleave: 0
-    LDSSegmentBRotate: 0
+    LDSSegmentRotate: 0
     DepthU: 64
     NonTemporalE: 0
     NonTemporalGate: 0
@@ -1715,7 +1715,7 @@
     MatrixInstruction: [16, 16, 16, 1]
     1LDSBuffer: 1
     LDSSegmentInterleave: 0
-    LDSSegmentBRotate: 0
+    LDSSegmentRotate: 0
     DepthU: 64
     NonTemporalE: 0
     NonTemporalGate: 0
@@ -1910,7 +1910,7 @@
     MatrixInstruction: [16, 16, 16, 1]
     1LDSBuffer: 1
     LDSSegmentInterleave: 0
-    LDSSegmentBRotate: 0
+    LDSSegmentRotate: 0
     DepthU: 64
     NonTemporalE: 0
     NonTemporalGate: 0

@@ -443,7 +443,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -617,7 +617,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -794,7 +794,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -971,7 +971,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -1145,7 +1145,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -1324,7 +1324,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -1494,7 +1494,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -1665,7 +1665,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -1838,7 +1838,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -2012,7 +2012,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -2188,7 +2188,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -2364,7 +2364,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -2536,7 +2536,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -2712,7 +2712,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -2888,7 +2888,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -3067,7 +3067,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -3240,7 +3240,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -3412,7 +3412,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -3586,7 +3586,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -3758,7 +3758,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -3932,7 +3932,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -4104,7 +4104,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -4280,7 +4280,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -4459,7 +4459,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -4636,7 +4636,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -4815,7 +4815,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -4990,7 +4990,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -5164,7 +5164,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -5339,7 +5339,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -5519,7 +5519,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -5700,7 +5700,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -5875,7 +5875,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -6053,7 +6053,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -6234,7 +6234,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -6413,7 +6413,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -6592,7 +6592,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -6771,7 +6771,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -6951,7 +6951,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -7131,7 +7131,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -7309,7 +7309,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -7484,7 +7484,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -7662,7 +7662,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -7839,7 +7839,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -8018,7 +8018,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -8190,7 +8190,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -8362,7 +8362,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -8545,7 +8545,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -8717,7 +8717,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -8888,7 +8888,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -9069,7 +9069,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -9248,7 +9248,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -9441,7 +9441,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -9632,7 +9632,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -9825,7 +9825,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -10017,7 +10017,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -10207,7 +10207,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -10399,7 +10399,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -10589,7 +10589,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -10779,7 +10779,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -10972,7 +10972,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -11162,7 +11162,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -11355,7 +11355,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -11548,7 +11548,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -11736,7 +11736,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -11926,7 +11926,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -12120,7 +12120,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -12313,7 +12313,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -12500,7 +12500,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -12689,7 +12689,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -12876,7 +12876,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -13067,7 +13067,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -13257,7 +13257,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -13446,7 +13446,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -13635,7 +13635,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -13826,7 +13826,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -14014,7 +14014,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -14202,7 +14202,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -14390,7 +14390,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -14581,7 +14581,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -14767,7 +14767,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -14960,7 +14960,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -15149,7 +15149,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -15355,7 +15355,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -15562,7 +15562,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -15772,7 +15772,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -15983,7 +15983,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -16192,7 +16192,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -16403,7 +16403,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -16616,7 +16616,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -16828,7 +16828,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -17034,7 +17034,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -17245,7 +17245,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -17454,7 +17454,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -17665,7 +17665,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -17878,7 +17878,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -18084,7 +18084,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -18295,7 +18295,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -18504,7 +18504,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -18712,7 +18712,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -18925,7 +18925,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -19135,7 +19135,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -19346,7 +19346,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -19554,7 +19554,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -19763,7 +19763,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -19972,7 +19972,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -20184,7 +20184,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -20396,7 +20396,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -20604,7 +20604,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -20816,7 +20816,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -21026,7 +21026,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -21235,7 +21235,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -21449,7 +21449,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -21658,7 +21658,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -21865,7 +21865,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -22076,7 +22076,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -22283,7 +22283,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -22495,7 +22495,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -22704,7 +22704,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -22914,7 +22914,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -23123,7 +23123,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -23332,7 +23332,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -23542,7 +23542,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -23754,7 +23754,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -23964,7 +23964,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -24174,7 +24174,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -24380,7 +24380,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -24591,7 +24591,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -24800,7 +24800,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -25013,7 +25013,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -25225,7 +25225,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -25435,7 +25435,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -25647,7 +25647,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -25855,7 +25855,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -26063,7 +26063,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -26275,7 +26275,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -26488,7 +26488,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -26702,7 +26702,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -26912,7 +26912,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -27125,7 +27125,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -27333,7 +27333,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -27546,7 +27546,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -27759,7 +27759,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -27967,7 +27967,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -28179,7 +28179,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -28387,7 +28387,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -28595,7 +28595,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -28804,7 +28804,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -29017,7 +29017,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -29222,7 +29222,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -29433,7 +29433,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -29639,7 +29639,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -29851,7 +29851,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -30057,7 +30057,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -30265,7 +30265,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -30475,7 +30475,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -30684,7 +30684,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -30897,7 +30897,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -31109,7 +31109,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -31319,7 +31319,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -31528,7 +31528,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -31737,7 +31737,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -31946,7 +31946,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -32155,7 +32155,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -32367,7 +32367,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -32576,7 +32576,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -32785,7 +32785,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -32994,7 +32994,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -33205,7 +33205,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -33414,7 +33414,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -33623,7 +33623,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -33833,7 +33833,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -34045,7 +34045,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -34256,7 +34256,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -34464,7 +34464,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -34672,7 +34672,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -34884,7 +34884,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -35094,7 +35094,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -35306,7 +35306,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -35516,7 +35516,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -35730,7 +35730,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -35941,7 +35941,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -36151,7 +36151,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -36360,7 +36360,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -36571,7 +36571,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -36781,7 +36781,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -36989,7 +36989,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -37202,7 +37202,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -37415,7 +37415,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -37626,7 +37626,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -37836,7 +37836,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -38045,7 +38045,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -38258,7 +38258,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -38469,7 +38469,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -38680,7 +38680,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -38888,7 +38888,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -39097,7 +39097,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -39309,7 +39309,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -39518,7 +39518,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -39730,7 +39730,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -39942,7 +39942,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -40152,7 +40152,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -40363,7 +40363,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -40570,7 +40570,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -40781,7 +40781,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -40989,7 +40989,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -41197,7 +41197,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -41411,7 +41411,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -41621,7 +41621,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -41830,7 +41830,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -42043,7 +42043,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -42252,7 +42252,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -42462,7 +42462,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -42673,7 +42673,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -42883,7 +42883,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -43094,7 +43094,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -43303,7 +43303,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -43514,7 +43514,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -43726,7 +43726,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -43934,7 +43934,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -44141,7 +44141,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -44353,7 +44353,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -44560,7 +44560,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -44775,7 +44775,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -44986,7 +44986,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -45199,7 +45199,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -45411,7 +45411,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -45622,7 +45622,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -45834,7 +45834,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -46044,7 +46044,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -46253,7 +46253,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -46463,7 +46463,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -46670,7 +46670,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -46881,7 +46881,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -47093,7 +47093,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -47306,7 +47306,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -47515,7 +47515,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -47724,7 +47724,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -47933,7 +47933,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -48143,7 +48143,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -48353,7 +48353,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -48565,7 +48565,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -48771,7 +48771,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -48982,7 +48982,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -49192,7 +49192,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -49404,7 +49404,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -49617,7 +49617,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -49824,7 +49824,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -50038,7 +50038,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -50250,7 +50250,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -50461,7 +50461,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -50670,7 +50670,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -50878,7 +50878,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -51084,7 +51084,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -51292,7 +51292,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -51502,7 +51502,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -51712,7 +51712,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -51926,7 +51926,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -52135,7 +52135,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -52344,7 +52344,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -52550,7 +52550,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -52759,7 +52759,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -52970,7 +52970,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -53175,7 +53175,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -53384,7 +53384,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -53594,7 +53594,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -53802,7 +53802,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -54014,7 +54014,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -54227,7 +54227,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -54435,7 +54435,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -54645,7 +54645,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -54855,7 +54855,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -55064,7 +55064,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -55273,7 +55273,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -55478,7 +55478,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -55686,7 +55686,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -55897,7 +55897,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -56106,7 +56106,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -56315,7 +56315,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -56523,7 +56523,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -56729,7 +56729,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -56943,7 +56943,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -57152,7 +57152,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -57361,7 +57361,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -57570,7 +57570,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -57779,7 +57779,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -57989,7 +57989,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -58198,7 +58198,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -58405,7 +58405,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -58612,7 +58612,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -58822,7 +58822,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -59030,7 +59030,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -59241,7 +59241,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -59452,7 +59452,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -59661,7 +59661,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -59870,7 +59870,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -60079,7 +60079,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -60291,7 +60291,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -60498,7 +60498,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -60705,7 +60705,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -60915,7 +60915,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -61125,7 +61125,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -61335,7 +61335,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -61542,7 +61542,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -61750,7 +61750,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -61959,7 +61959,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -62171,7 +62171,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -62382,7 +62382,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -62590,7 +62590,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -62797,7 +62797,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -63005,7 +63005,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -63214,7 +63214,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -63424,7 +63424,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -63634,7 +63634,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -63842,7 +63842,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -64049,7 +64049,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -64256,7 +64256,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -64464,7 +64464,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -64669,7 +64669,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -64876,7 +64876,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -65086,7 +65086,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -65296,7 +65296,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -65505,7 +65505,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -65711,7 +65711,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -65921,7 +65921,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -66131,7 +66131,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -66339,7 +66339,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -66548,7 +66548,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -66755,7 +66755,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -66961,7 +66961,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -67165,7 +67165,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -67376,7 +67376,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -67587,7 +67587,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -67797,7 +67797,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -68010,7 +68010,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -68219,7 +68219,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -68428,7 +68428,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -68639,7 +68639,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -68848,7 +68848,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -69059,7 +69059,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -69271,7 +69271,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -69479,7 +69479,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -69686,7 +69686,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -69895,7 +69895,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -70103,7 +70103,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -70314,7 +70314,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -70523,7 +70523,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -70730,7 +70730,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -70939,7 +70939,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -71149,7 +71149,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -71356,7 +71356,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -71561,7 +71561,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -71771,7 +71771,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -71978,7 +71978,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -72184,7 +72184,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -72392,7 +72392,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -72602,7 +72602,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -72812,7 +72812,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -73024,7 +73024,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -73232,7 +73232,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -73439,7 +73439,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -73651,7 +73651,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -73858,7 +73858,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -74064,7 +74064,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -74278,7 +74278,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -74488,7 +74488,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -74700,7 +74700,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -74910,7 +74910,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -75120,7 +75120,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -75330,7 +75330,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -75542,7 +75542,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -75752,7 +75752,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -75961,7 +75961,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -76171,7 +76171,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -76383,7 +76383,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -76593,7 +76593,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -76803,7 +76803,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -77013,7 +77013,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -77220,7 +77220,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -77429,7 +77429,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -77638,7 +77638,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -77849,7 +77849,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -78062,7 +78062,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -78271,7 +78271,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -78482,7 +78482,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -78694,7 +78694,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -78905,7 +78905,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -79115,7 +79115,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -79325,7 +79325,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -79536,7 +79536,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -79747,7 +79747,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -79957,7 +79957,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -80168,7 +80168,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -80378,7 +80378,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -80589,7 +80589,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -80799,7 +80799,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -81007,7 +81007,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -81218,7 +81218,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -81426,7 +81426,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -81633,7 +81633,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -81840,7 +81840,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -82049,7 +82049,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -82259,7 +82259,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -82471,7 +82471,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -82679,7 +82679,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -82891,7 +82891,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -83100,7 +83100,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -83311,7 +83311,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -83519,7 +83519,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -83728,7 +83728,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -83938,7 +83938,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -84148,7 +84148,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -84358,7 +84358,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -84566,7 +84566,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -84773,7 +84773,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -84981,7 +84981,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -85190,7 +85190,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -85398,7 +85398,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -85608,7 +85608,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -85817,7 +85817,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -86026,7 +86026,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -86235,7 +86235,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -86444,7 +86444,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -86653,7 +86653,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -86865,7 +86865,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -87074,7 +87074,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -87280,7 +87280,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -87489,7 +87489,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -87701,7 +87701,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -87910,7 +87910,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -88120,7 +88120,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -88328,7 +88328,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -88538,7 +88538,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -88747,7 +88747,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -88954,7 +88954,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -89168,7 +89168,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -89378,7 +89378,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -89585,7 +89585,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -89794,7 +89794,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -90005,7 +90005,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -90212,7 +90212,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -90421,7 +90421,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -90632,7 +90632,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -90844,7 +90844,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -91054,7 +91054,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -91265,7 +91265,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -91475,7 +91475,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -91682,7 +91682,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -91893,7 +91893,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -92103,7 +92103,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -92318,7 +92318,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -92527,7 +92527,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -92738,7 +92738,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -92949,7 +92949,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -93155,7 +93155,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -93366,7 +93366,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -93573,7 +93573,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -93786,7 +93786,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -93995,7 +93995,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -94205,7 +94205,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -94418,7 +94418,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -94629,7 +94629,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -94841,7 +94841,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -95050,7 +95050,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -95261,7 +95261,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -95470,7 +95470,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -95681,7 +95681,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -95891,7 +95891,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -96099,7 +96099,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -96312,7 +96312,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -96524,7 +96524,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -96733,7 +96733,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -96945,7 +96945,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -97155,7 +97155,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -97365,7 +97365,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -97576,7 +97576,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -97789,7 +97789,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -97998,7 +97998,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -98209,7 +98209,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -98419,7 +98419,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -98625,7 +98625,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -98836,7 +98836,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -99047,7 +99047,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -99258,7 +99258,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -99466,7 +99466,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -99676,7 +99676,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -99884,7 +99884,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -100093,7 +100093,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -100303,7 +100303,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -100508,7 +100508,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -100720,7 +100720,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -100927,7 +100927,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -101136,7 +101136,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -101361,7 +101361,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -101587,7 +101587,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -101817,7 +101817,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -102045,7 +102045,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -102273,7 +102273,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -102502,7 +102502,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -102729,7 +102729,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -102959,7 +102959,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -103188,7 +103188,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -103418,7 +103418,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -103648,7 +103648,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -103879,7 +103879,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -104111,7 +104111,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -104341,7 +104341,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -104569,7 +104569,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -104795,7 +104795,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -105021,7 +105021,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -105251,7 +105251,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -105477,7 +105477,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -105707,7 +105707,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -105937,7 +105937,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -106166,7 +106166,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -106396,7 +106396,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -106623,7 +106623,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -106849,7 +106849,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -107074,7 +107074,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -107300,7 +107300,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -107525,7 +107525,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -107757,7 +107757,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -107987,7 +107987,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -108217,7 +108217,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -108449,7 +108449,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -108676,7 +108676,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -108908,7 +108908,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -109140,7 +109140,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -109372,7 +109372,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -109604,7 +109604,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -109834,7 +109834,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -110067,7 +110067,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -110295,7 +110295,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -110528,7 +110528,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -110757,7 +110757,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -110989,7 +110989,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -111268,7 +111268,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -111547,7 +111547,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -111825,7 +111825,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   PostLoopStoreInNll: true
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
@@ -112111,7 +112111,7 @@ Solutions:
   tailLoopOptB: true
   WorkAssignment: StaticGrid
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
 - 1LDSBuffer: 1
@@ -112397,7 +112397,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
 - 1LDSBuffer: 1
@@ -112685,7 +112685,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
 - 1LDSBuffer: 1
@@ -112971,7 +112971,7 @@ Solutions:
   tailLoopOptB: true
   WorkAssignment: StaticGrid
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
 - 1LDSBuffer: 1
@@ -113258,7 +113258,7 @@ Solutions:
   tailLoopOptB: true
   WorkAssignment: StaticGrid
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
 - 1LDSBuffer: 1
@@ -113544,7 +113544,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
 - 1LDSBuffer: 1
@@ -113828,7 +113828,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
 - 1LDSBuffer: 1
@@ -114116,7 +114116,7 @@ Solutions:
   tailLoopOptB: true
   WorkAssignment: StaticGrid
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
 - 1LDSBuffer: 1
@@ -114401,7 +114401,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
 - 1LDSBuffer: 1
@@ -114684,7 +114684,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
 - 1LDSBuffer: 1
@@ -114967,7 +114967,7 @@ Solutions:
   tailLoopOptB: true
   WorkAssignment: StaticGrid
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
 - 1LDSBuffer: 1
@@ -115253,7 +115253,7 @@ Solutions:
   tailLoopOptB: true
   WorkAssignment: StaticGrid
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
 - 1LDSBuffer: 1
@@ -115541,7 +115541,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
 - 1LDSBuffer: 1
@@ -115829,7 +115829,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
 - 1LDSBuffer: 1
@@ -116115,7 +116115,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
 - 1LDSBuffer: 1
@@ -116400,7 +116400,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
 - ActivationFuncCall: false
@@ -116686,7 +116686,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
 - 1LDSBuffer: 1
@@ -116972,7 +116972,7 @@ Solutions:
   tailLoopOptB: true
   WorkAssignment: StaticGrid
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
 - 1LDSBuffer: 1
@@ -117257,7 +117257,7 @@ Solutions:
   tailLoopOptB: true
   WorkAssignment: StaticGrid
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
 - 1LDSBuffer: 1
@@ -117542,7 +117542,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
 - 1LDSBuffer: 1
@@ -117826,7 +117826,7 @@ Solutions:
   tailLoopOptB: true
   WorkAssignment: StaticGrid
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
 - 1LDSBuffer: 1
@@ -118112,7 +118112,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
 - 1LDSBuffer: 1
@@ -118399,7 +118399,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
 - 1LDSBuffer: 1
@@ -118683,7 +118683,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
 - 1LDSBuffer: 1
@@ -118967,7 +118967,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
 - 1LDSBuffer: 1
@@ -119250,7 +119250,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
 - 1LDSBuffer: 1
@@ -119533,7 +119533,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   StinkyTofuRegisterAllocation: 0
   ClusterAIDMapping: -1
 IndexOrder: [2, 3, 0, 1]

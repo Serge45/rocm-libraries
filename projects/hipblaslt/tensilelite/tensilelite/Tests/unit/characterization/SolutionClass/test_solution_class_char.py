@@ -64,7 +64,7 @@ def test_all_solutions_constructed(solutions, snapshot):
 ])
 def test_contiguous_a_layout_keeps_default_names(solution, naming, split_gsu, b_rotate):
     state = deepcopy(solution._state)
-    state["LDSSegmentBRotate"] = b_rotate
+    state["LDSSegmentRotate"] = b_rotate
     assert state["WaveTileContiguousA"] is False
     del state["WaveTileContiguousA"]
     legacy_state = deepcopy(state)

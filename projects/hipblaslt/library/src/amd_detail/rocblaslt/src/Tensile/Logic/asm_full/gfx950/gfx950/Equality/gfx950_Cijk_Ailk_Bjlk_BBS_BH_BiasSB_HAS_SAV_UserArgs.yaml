@@ -443,7 +443,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -628,7 +628,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -813,7 +813,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -996,7 +996,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -1179,7 +1179,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -1361,7 +1361,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -1547,7 +1547,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -1730,7 +1730,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -1915,7 +1915,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -2098,7 +2098,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -2283,7 +2283,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -2468,7 +2468,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -2654,7 +2654,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -2841,7 +2841,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -3029,7 +3029,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -3215,7 +3215,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -3403,7 +3403,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -3592,7 +3592,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -3780,7 +3780,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -3967,7 +3967,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -4154,7 +4154,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -4340,7 +4340,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -4526,7 +4526,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -4717,7 +4717,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -4904,7 +4904,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -5092,7 +5092,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -5280,7 +5280,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -5467,7 +5467,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -5655,7 +5655,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -5843,7 +5843,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -6028,7 +6028,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -6215,7 +6215,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -6401,7 +6401,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -6589,7 +6589,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -6776,7 +6776,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -6964,7 +6964,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -7152,7 +7152,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -7338,7 +7338,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -7529,7 +7529,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -7719,7 +7719,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -7908,7 +7908,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -8096,7 +8096,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -8281,7 +8281,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -8468,7 +8468,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -8658,7 +8658,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -8843,7 +8843,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -9028,7 +9028,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -9214,7 +9214,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -9399,7 +9399,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -9587,7 +9587,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -9777,7 +9777,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -9963,7 +9963,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -10150,7 +10150,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -10340,7 +10340,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -10529,7 +10529,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -10716,7 +10716,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -10906,7 +10906,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -11095,7 +11095,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -11282,7 +11282,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -11470,7 +11470,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -11658,7 +11658,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -11844,7 +11844,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -12030,7 +12030,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -12215,7 +12215,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -12402,7 +12402,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -12587,7 +12587,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -12773,7 +12773,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -12959,7 +12959,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -13150,7 +13150,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -13341,7 +13341,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -13530,7 +13530,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -13718,7 +13718,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -13907,7 +13907,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -14093,7 +14093,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -14284,7 +14284,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -14469,7 +14469,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -14651,7 +14651,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -14839,7 +14839,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -15025,7 +15025,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -15214,7 +15214,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -15403,7 +15403,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -15590,7 +15590,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -15777,7 +15777,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -15962,7 +15962,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -16143,7 +16143,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -16327,7 +16327,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -16513,7 +16513,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -16697,7 +16697,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -16880,7 +16880,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -17065,7 +17065,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -17245,7 +17245,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -17426,7 +17426,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -17611,7 +17611,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -17796,7 +17796,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -17980,7 +17980,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -18165,7 +18165,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -18352,7 +18352,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -18536,7 +18536,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -18720,7 +18720,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -18904,7 +18904,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -19086,7 +19086,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -19271,7 +19271,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -19455,7 +19455,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -19639,7 +19639,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -19820,7 +19820,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -20005,7 +20005,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -20186,7 +20186,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -20368,7 +20368,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -20551,7 +20551,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -20738,7 +20738,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -20923,7 +20923,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -21107,7 +21107,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -21286,7 +21286,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -21468,7 +21468,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -21653,7 +21653,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -21838,7 +21838,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -22020,7 +22020,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -22204,7 +22204,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -22386,7 +22386,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -22566,7 +22566,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -22752,7 +22752,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -22936,7 +22936,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -23119,7 +23119,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -23303,7 +23303,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -23488,7 +23488,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -23673,7 +23673,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -23858,7 +23858,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -24044,7 +24044,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -24230,7 +24230,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -24418,7 +24418,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -24601,7 +24601,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -24784,7 +24784,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -24968,7 +24968,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -25154,7 +25154,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -25343,7 +25343,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -25527,7 +25527,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -25712,7 +25712,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -25903,7 +25903,7 @@ Solutions:
   WorkQueueStealing: 0
   _PersistentLoop: false
   ReuseAcrossPersistent: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   PostLoopStoreInNll: true
@@ -26090,7 +26090,7 @@ Solutions:
   WorkQueueStealing: 0
   _PersistentLoop: false
   ReuseAcrossPersistent: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   PostLoopStoreInNll: true
@@ -26277,7 +26277,7 @@ Solutions:
   WorkQueueStealing: 0
   _PersistentLoop: false
   ReuseAcrossPersistent: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   PostLoopStoreInNll: true
@@ -26465,7 +26465,7 @@ Solutions:
   WorkQueueStealing: 0
   _PersistentLoop: false
   ReuseAcrossPersistent: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   PostLoopStoreInNll: true
@@ -26651,7 +26651,7 @@ Solutions:
   WorkQueueStealing: 0
   _PersistentLoop: false
   ReuseAcrossPersistent: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   PostLoopStoreInNll: true
@@ -26838,7 +26838,7 @@ Solutions:
   WorkQueueStealing: 0
   _PersistentLoop: false
   ReuseAcrossPersistent: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   PostLoopStoreInNll: true
@@ -27023,7 +27023,7 @@ Solutions:
   WorkQueueStealing: 0
   _PersistentLoop: false
   ReuseAcrossPersistent: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   PostLoopStoreInNll: true
@@ -27209,7 +27209,7 @@ Solutions:
   WorkQueueStealing: 0
   _PersistentLoop: false
   ReuseAcrossPersistent: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   PostLoopStoreInNll: true
@@ -27396,7 +27396,7 @@ Solutions:
   WorkQueueStealing: 0
   _PersistentLoop: false
   ReuseAcrossPersistent: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   PostLoopStoreInNll: true
@@ -27580,7 +27580,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -27766,7 +27766,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -27954,7 +27954,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -28140,7 +28140,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -28327,7 +28327,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -28515,7 +28515,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -28703,7 +28703,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -28892,7 +28892,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -29077,7 +29077,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -29266,7 +29266,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -29454,7 +29454,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -29640,7 +29640,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -29829,7 +29829,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -30018,7 +30018,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -30205,7 +30205,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -30391,7 +30391,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -30579,7 +30579,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -30763,7 +30763,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -30947,7 +30947,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -31134,7 +31134,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -31322,7 +31322,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -31511,7 +31511,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -31702,7 +31702,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -31890,7 +31890,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -32076,7 +32076,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -32264,7 +32264,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -32453,7 +32453,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -32639,7 +32639,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -32828,7 +32828,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -33015,7 +33015,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -33203,7 +33203,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -33391,7 +33391,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -33581,7 +33581,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -33768,7 +33768,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -33954,7 +33954,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -34141,7 +34141,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -34330,7 +34330,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -34517,7 +34517,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -34704,7 +34704,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -34891,7 +34891,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -35079,7 +35079,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -35267,7 +35267,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -35454,7 +35454,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -35640,7 +35640,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -35828,7 +35828,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -36017,7 +36017,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -36206,7 +36206,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -36395,7 +36395,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -36584,7 +36584,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -36782,7 +36782,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -36980,7 +36980,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -37174,7 +37174,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -37368,7 +37368,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -37565,7 +37565,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -37762,7 +37762,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -37955,7 +37955,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -38151,7 +38151,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -38344,7 +38344,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -38539,7 +38539,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -38734,7 +38734,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -38929,7 +38929,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -39124,7 +39124,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -39322,7 +39322,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -39516,7 +39516,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -39713,7 +39713,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -39906,7 +39906,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -40100,7 +40100,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -40283,7 +40283,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -40478,7 +40478,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -40673,7 +40673,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -40868,7 +40868,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -41064,7 +41064,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -41259,7 +41259,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -41456,7 +41456,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -41654,7 +41654,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -41848,7 +41848,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -42042,7 +42042,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -42238,7 +42238,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -42436,7 +42436,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -42631,7 +42631,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -42825,7 +42825,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -43021,7 +43021,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -43217,7 +43217,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -43411,7 +43411,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -43607,7 +43607,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -43805,7 +43805,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -44000,7 +44000,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -44195,7 +44195,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -44390,7 +44390,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -44588,7 +44588,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -44780,7 +44780,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -44973,7 +44973,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -45168,7 +45168,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -45362,7 +45362,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -45558,7 +45558,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -45754,7 +45754,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -45948,7 +45948,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -46145,7 +46145,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -46340,7 +46340,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -46535,7 +46535,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -46730,7 +46730,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -46921,7 +46921,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -47117,7 +47117,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -47312,7 +47312,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -47510,7 +47510,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -47707,7 +47707,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -47900,7 +47900,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -48095,7 +48095,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -48292,7 +48292,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -48487,7 +48487,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -48681,7 +48681,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -48879,7 +48879,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -49074,7 +49074,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -49269,7 +49269,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -49460,7 +49460,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -49655,7 +49655,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -49852,7 +49852,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -50049,7 +50049,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -50244,7 +50244,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -50441,7 +50441,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -50631,7 +50631,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -50828,7 +50828,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -51017,7 +51017,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -51204,7 +51204,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -51392,7 +51392,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -51580,7 +51580,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -51763,7 +51763,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -51961,7 +51961,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -52149,7 +52149,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -52344,7 +52344,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -52532,7 +52532,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -52726,7 +52726,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -52921,7 +52921,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -53118,7 +53118,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -53306,7 +53306,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -53495,7 +53495,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -53692,7 +53692,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -53890,7 +53890,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -54088,7 +54088,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -54281,7 +54281,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -54474,7 +54474,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -54668,7 +54668,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -54864,7 +54864,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -55061,7 +55061,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -55258,7 +55258,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -55455,7 +55455,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -55643,7 +55643,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -55821,7 +55821,7 @@ Solutions:
   WorkQueueStealing: 0
   _PersistentLoop: false
   ReuseAcrossPersistent: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   PostLoopStoreInNll: true
@@ -56004,7 +56004,7 @@ Solutions:
   WorkQueueStealing: 0
   _PersistentLoop: false
   ReuseAcrossPersistent: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   PostLoopStoreInNll: true
@@ -56199,7 +56199,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -56387,7 +56387,7 @@ Solutions:
   WorkQueueStealing: 0
   _PersistentLoop: false
   ReuseAcrossPersistent: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   PostLoopStoreInNll: true
@@ -56581,7 +56581,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -56775,7 +56775,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -56972,7 +56972,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -57169,7 +57169,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -57364,7 +57364,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -57557,7 +57557,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -57748,7 +57748,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -57930,7 +57930,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -58126,7 +58126,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -58319,7 +58319,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -58515,7 +58515,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -58698,7 +58698,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -58891,7 +58891,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -59087,7 +59087,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -59272,7 +59272,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -59467,7 +59467,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -59659,7 +59659,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -59842,7 +59842,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -60036,7 +60036,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -60229,7 +60229,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -60425,7 +60425,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -60613,7 +60613,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -60805,7 +60805,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -61000,7 +61000,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -61182,7 +61182,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -61377,7 +61377,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -61570,7 +61570,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -61765,7 +61765,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -61960,7 +61960,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -62156,7 +62156,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -62351,7 +62351,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -62547,7 +62547,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -62741,7 +62741,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -62938,7 +62938,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -63131,7 +63131,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -63326,7 +63326,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -63521,7 +63521,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -63712,7 +63712,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -63903,7 +63903,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -64095,7 +64095,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -64282,7 +64282,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -64473,7 +64473,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -64663,7 +64663,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -64858,7 +64858,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -65054,7 +65054,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -65250,7 +65250,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -65442,7 +65442,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -65642,7 +65642,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -65844,7 +65844,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -66043,7 +66043,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -66244,7 +66244,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -66443,7 +66443,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -66643,7 +66643,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -66842,7 +66842,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -67041,7 +67041,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -67243,7 +67243,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -67440,7 +67440,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -67639,7 +67639,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -67840,7 +67840,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -68042,7 +68042,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -68244,7 +68244,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -68446,7 +68446,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -68647,7 +68647,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -68849,7 +68849,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -69049,7 +69049,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -69249,7 +69249,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -69448,7 +69448,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -69641,7 +69641,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -69842,7 +69842,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -70043,7 +70043,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -70246,7 +70246,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -70447,7 +70447,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -70647,7 +70647,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -70847,7 +70847,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -71047,7 +71047,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -71246,7 +71246,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -71447,7 +71447,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -71649,7 +71649,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -71847,7 +71847,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -72048,7 +72048,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -72245,7 +72245,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -72445,7 +72445,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -72645,7 +72645,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -72846,7 +72846,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -73044,7 +73044,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -73245,7 +73245,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -73443,7 +73443,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -73641,7 +73641,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -73842,7 +73842,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -74042,7 +74042,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -74242,7 +74242,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -74441,7 +74441,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -74641,7 +74641,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -74840,7 +74840,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -75038,7 +75038,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -75237,7 +75237,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -75437,7 +75437,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -75637,7 +75637,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -75837,7 +75837,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -76037,7 +76037,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -76235,7 +76235,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -76432,7 +76432,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -76631,7 +76631,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -76831,7 +76831,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -77033,7 +77033,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -77236,7 +77236,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -77440,7 +77440,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -77641,7 +77641,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -77842,7 +77842,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -78043,7 +78043,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -78245,7 +78245,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -78445,7 +78445,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -78642,7 +78642,7 @@ Solutions:
   PersistentXCCMapping: 2
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -78841,7 +78841,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -79040,7 +79040,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -79242,7 +79242,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -79442,7 +79442,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -79643,7 +79643,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -79841,7 +79841,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -80038,7 +80038,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -80235,7 +80235,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -80432,7 +80432,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -80629,7 +80629,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -80824,7 +80824,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -81023,7 +81023,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -81224,7 +81224,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -81429,7 +81429,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -81630,7 +81630,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -81826,7 +81826,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -82025,7 +82025,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -82221,7 +82221,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -82418,7 +82418,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -82617,7 +82617,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -82816,7 +82816,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -83016,7 +83016,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -83216,7 +83216,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -83416,7 +83416,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -83616,7 +83616,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -83815,7 +83815,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -84014,7 +84014,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -84213,7 +84213,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -84415,7 +84415,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -84619,7 +84619,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -84817,7 +84817,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -85015,7 +85015,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -85215,7 +85215,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -85420,7 +85420,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -85617,7 +85617,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -85814,7 +85814,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -86033,7 +86033,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -86251,7 +86251,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -86474,7 +86474,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -86693,7 +86693,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -86912,7 +86912,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -87128,7 +87128,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -87346,7 +87346,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -87567,7 +87567,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -87789,7 +87789,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -88011,7 +88011,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -88231,7 +88231,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -88453,7 +88453,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -88672,7 +88672,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -88893,7 +88893,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -89111,7 +89111,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -89328,7 +89328,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -89547,7 +89547,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -89768,7 +89768,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -89988,7 +89988,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -90208,7 +90208,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -90424,7 +90424,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -90643,7 +90643,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -90861,7 +90861,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -91083,7 +91083,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -91304,7 +91304,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -91523,7 +91523,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -91743,7 +91743,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -91964,7 +91964,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -92182,7 +92182,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -92401,7 +92401,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -92616,7 +92616,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -92835,7 +92835,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -93051,7 +93051,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -93267,7 +93267,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -93486,7 +93486,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -93704,7 +93704,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -93920,7 +93920,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -94140,7 +94140,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -94360,7 +94360,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -94577,7 +94577,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -94796,7 +94796,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -95016,7 +95016,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -95250,7 +95250,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -95485,7 +95485,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -95720,7 +95720,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -95957,7 +95957,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -96193,7 +96193,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -96427,7 +96427,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -96662,7 +96662,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -96901,7 +96901,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -97138,7 +97138,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -97374,7 +97374,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -97609,7 +97609,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -97845,7 +97845,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -98080,7 +98080,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -98313,7 +98313,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -98547,7 +98547,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -98779,7 +98779,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -99014,7 +99014,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -99251,7 +99251,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -99489,7 +99489,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -99724,7 +99724,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -99957,7 +99957,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -100195,7 +100195,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -100430,7 +100430,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -100663,7 +100663,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -100900,7 +100900,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -101133,7 +101133,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -101368,7 +101368,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -101603,7 +101603,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -101836,7 +101836,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -102071,7 +102071,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -102308,7 +102308,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -102544,7 +102544,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -102779,7 +102779,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -103014,7 +103014,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -103251,7 +103251,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -103489,7 +103489,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -103725,7 +103725,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -103963,7 +103963,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -104199,7 +104199,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -104435,7 +104435,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -104670,7 +104670,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -104905,7 +104905,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -105135,7 +105135,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -105368,7 +105368,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -105606,7 +105606,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -105843,7 +105843,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -106077,7 +106077,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -106308,7 +106308,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -106544,7 +106544,7 @@ Solutions:
   PersistentXCCMapping: 4
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -106779,7 +106779,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -107014,7 +107014,7 @@ Solutions:
   PersistentXCCMapping: 8
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -107252,7 +107252,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -107487,7 +107487,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -107725,7 +107725,7 @@ Solutions:
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
   _PersistentLoop: true
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -108017,7 +108017,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -108308,7 +108308,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -108600,7 +108600,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -108892,7 +108892,7 @@ Solutions:
   tailLoopOptB: true
   WorkAssignment: StaticGrid
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -109184,7 +109184,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -109477,7 +109477,7 @@ Solutions:
   tailLoopOptB: true
   WorkAssignment: StaticGrid
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -109773,7 +109773,7 @@ Solutions:
   tailLoopOptB: true
   WorkAssignment: StaticGrid
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -110067,7 +110067,7 @@ Solutions:
   tailLoopOptB: true
   WorkAssignment: StaticGrid
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -110359,7 +110359,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -110649,7 +110649,7 @@ Solutions:
   tailLoopOptB: true
   WorkAssignment: StaticGrid
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -110940,7 +110940,7 @@ Solutions:
   tailLoopOptB: true
   WorkAssignment: StaticGrid
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -111226,7 +111226,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -111518,7 +111518,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -111808,7 +111808,7 @@ Solutions:
   tailLoopOptB: true
   WorkAssignment: StaticGrid
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -112100,7 +112100,7 @@ Solutions:
   tailLoopOptB: true
   WorkAssignment: StaticGrid
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -112390,7 +112390,7 @@ Solutions:
   tailLoopOptB: true
   WorkAssignment: StaticGrid
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -112683,7 +112683,7 @@ Solutions:
   tailLoopOptB: true
   WorkAssignment: StaticGrid
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -112973,7 +112973,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -113260,7 +113260,7 @@ Solutions:
   tailLoopOptB: true
   WorkAssignment: StaticGrid
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -113552,7 +113552,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -113844,7 +113844,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -114133,7 +114133,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -114423,7 +114423,7 @@ Solutions:
   tailLoopOptB: true
   WorkAssignment: StaticGrid
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -114714,7 +114714,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -115005,7 +115005,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -115295,7 +115295,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -115586,7 +115586,7 @@ Solutions:
   tailLoopOptB: true
   WorkAssignment: StaticGrid
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -115876,7 +115876,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -116166,7 +116166,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -116457,7 +116457,7 @@ Solutions:
   tailLoopOptB: true
   WorkAssignment: StaticGrid
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -116747,7 +116747,7 @@ Solutions:
   tailLoopOptB: true
   WorkAssignment: StaticGrid
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -117035,7 +117035,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -117324,7 +117324,7 @@ Solutions:
   tailLoopOptB: true
   WorkAssignment: StaticGrid
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -117615,7 +117615,7 @@ Solutions:
   tailLoopOptB: true
   WorkAssignment: StaticGrid
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -117906,7 +117906,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -118196,7 +118196,7 @@ Solutions:
   tailLoopOptB: true
   WorkAssignment: StaticGrid
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -118487,7 +118487,7 @@ Solutions:
   tailLoopOptB: true
   WorkAssignment: StaticGrid
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -118779,7 +118779,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -119068,7 +119068,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -119359,7 +119359,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0
@@ -119651,7 +119651,7 @@ Solutions:
   WorkAssignment: StaticGrid
   PersistentXCCMapping: 0
   WorkQueueStealing: 0
-  LDSSegmentBRotate: 0
+  LDSSegmentRotate: 0
   TemporalHintGate: 0
   NonVolatileGate: 0
   ReuseAcrossPersistent: 0

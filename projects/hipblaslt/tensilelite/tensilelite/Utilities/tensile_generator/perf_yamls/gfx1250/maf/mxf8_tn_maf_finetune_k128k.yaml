@@ -86,7 +86,7 @@ BenchmarkProblems:
         - VectorWidthA: [-1]
         - VectorWidthB: [4]
         - LDSSegmentInterleave: [1]
-        - LDSSegmentBRotate: [1]
+        - LDSSegmentRotate: [1]
         - LocalReadVectorWidth: [-1]
         - 1LDSBuffer: [0]
         - SourceSwap: [True]

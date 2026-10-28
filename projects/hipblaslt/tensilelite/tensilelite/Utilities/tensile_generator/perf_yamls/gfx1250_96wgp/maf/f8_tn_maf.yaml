@@ -99,7 +99,7 @@ BenchmarkProblems:
         - InitCIterWmma: [0]
         - SwInstructionPrefetch: [0]
         - ClusterAIDMapping: [-2]
-        - LDSSegmentBRotate: [1]
+        - LDSSegmentRotate: [1]
       BenchmarkForkParameters:
       JoinParameters:
       BenchmarkJoinParameters:

@@ -81,9 +81,9 @@ def mxFreePhase(kernel: Mapping, tc: str) -> bool:
 
 
 def mxsbRotateSplit(kernel: Mapping) -> bool:
-    """LDSSegmentBRotate on a full-wave MXSB tile (no TileSpan): one ds_load per vIdx,
+    """LDSSegmentRotate on a full-wave MXSB tile (no TileSpan): one ds_load per vIdx,
     and two MXSB read addresses that each SIMD pair orders by its rotation."""
-    return (bool(kernel.get("LDSSegmentBRotate")) and bool(kernel["ProblemType"].get("MXBlockB"))
+    return (bool(kernel.get("LDSSegRotateB")) and bool(kernel["ProblemType"].get("MXBlockB"))
             and kernel["MatrixInstN"] == kernel["WavefrontSize"])
 
 

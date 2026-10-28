@@ -115,7 +115,7 @@ Kernel: true
 KernelLanguage: Assembly
 KernelNameMin: RuntimeGroup_Cijk_Alik_Bljk_I4B_BBS_BH_SABBGU8_UserArgs_MT64x160x64_MI16x16x1_gfx1151
 LDSSegInterleaveOffsets: null
-LDSSegmentBRotate: 0
+LDSSegmentRotate: 0
 LDSSegmentInterleave: 0
 LDSTrInst: false
 LSCA: 64

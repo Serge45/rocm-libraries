@@ -28,7 +28,7 @@ def test_mx_scale_tail_crosses_padding_blocks(
         interleave, mi=[16, 16, 128, 1, 1, 2 if interleave else 1, 1, 2, 2],
         VectorWidthA=2 if interleave else 1, VectorWidthB=1, DepthU=512, HalfPLR=0,
         SourceSwap=source_swap, WaveTileContiguousA=False,
-        LDSSegmentBRotate=0, NumElementsPerBatchStore=16,
+        LDSSegmentRotate=0, NumElementsPerBatchStore=16,
         ProblemType={"DataType": "F8", "DestDataType": "S",
                      "MXBlockA": 32, "MXBlockB": 32},
         **{"LdsPad" + tc: 16, "LdsBlockSizePerPad" + tc: block})
