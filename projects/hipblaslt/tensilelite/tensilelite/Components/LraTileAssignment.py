@@ -1037,7 +1037,8 @@ class LraTileAssignmentMFMA(LraTileAssignment):
                 _segPacked = kernel.get("LDSSegmentInterleave") == 1 \
                     and kernel["LDSSegInterleaveOffsets"].get("footprintPacked") and segILActive
                 _segWavesPerComp = (num1DWaves // (kernel["NumWaves"] // 2)) if _segPacked else 1
-                if _segPacked and _segWavesPerComp > 1:
+                # [1,4] B-rotate picks B's component by vIdx in LocalRead, so no wave-pair jump here.
+                if _segPacked and _segWavesPerComp > 1 and not (tc == "B" and kernel.get("LDSSegmentBRotate")):
                     # [4,1]/[1,4]: wtid0 = segment jump + within-comp offset. portSplit jumps on the
                     # read port (wtid0 & 1), otherwise on the component (wtid0 // 2). wavesPerComp == 2.
                     _portSplit = (tc == "A" and _segOff.get("portSplitA", False)) or \
