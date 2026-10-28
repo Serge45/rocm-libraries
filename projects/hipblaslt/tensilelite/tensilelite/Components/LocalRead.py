@@ -1886,12 +1886,12 @@ class LocalReadMFMA(LocalRead):
                             highBits = 0 if writer.states.archCaps["DSLow16NotPreserve"] else highBitsForHalf or isHigh16Bits
 
                             addrIdx = paramList[0] // 65536
-                            if tc == "B" and kernel.get("LDSSegRotateB"):
-                                # B-rotate swaps LocalReadAddrB+0/+1 per SIMD pair, so register h must
+                            if (tc == "A" and kernel.get("LDSSegRotateA")) or (tc == "B" and kernel.get("LDSSegRotateB")):
+                                # Rotate swaps LocalReadAddr<tc>+0/+1 per SIMD pair, so register h must
                                 # serve exactly component h (see segment_interleave.rotate_reason).
                                 assert numOffsets == 1 and \
-                                    addrIdx == segCompByteOff // _segOff.get("readStrideBytesB", _segOff["writeStrideBytes"]), \
-                                    "LDSSegmentRotate: B read vIdx=%u uses LocalReadAddrB+%u" % (vIdx, addrIdx)
+                                    addrIdx == segCompByteOff // _segOff.get("readStrideBytes" + tc, _segOff["writeStrideBytes"]), \
+                                    "LDSSegmentRotate: %s read vIdx=%u uses LocalReadAddr%s+%u" % (tc, vIdx, tc, addrIdx)
                             addressWindows = (kernel.get("LDSSegInterleaveOffsets") or {}).get("readAddressWindows" + tc)
                             registerIndex = addressWindows.index(addrIdx) if addressWindows is not None else addrIdx
                             srcAddr=vgpr("LocalReadAddr%s+%u"%(tc, registerIndex))

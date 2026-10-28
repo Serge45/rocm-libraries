@@ -7235,11 +7235,11 @@ class KernelWriterAssembly(KernelWriter):
       # LRA update (swap, reset, inc) loops over all of them instead.
       return module
     maxOff = self.states.regCaps["maxLDSConstOffset"]
-    if tc == "B" and kernel.get("LDSSegRotateB"):
+    if (tc == "A" and kernel.get("LDSSegRotateA")) or (tc == "B" and kernel.get("LDSSegRotateB")):
       # +0 already carries the pair offset; +1 = +0 + per-wave delta (see lraDeclareAddresses).
-      assert numLra == 2 and maxOff == 65536, "LDSSegmentRotate needs exactly 2 B local-read addresses"
-      module.add(VAddU32(dst=vgpr("LocalReadAddrB+1"), src0=sgpr("RotateLRDelta"), src1=vgpr("LocalReadAddrB+0"), \
-                         comment="B-rotate: other component"))
+      assert numLra == 2 and maxOff == 65536, "LDSSegmentRotate needs exactly 2 %s local-read addresses" % tc
+      module.add(VAddU32(dst=vgpr("LocalReadAddr%s+1" % tc), src0=sgpr("RotateLRDelta"), src1=vgpr("LocalReadAddr%s+0" % tc), \
+                         comment="%s-rotate: other component" % tc))
       return module
     windows = (kernel.get("LDSSegInterleaveOffsets") or {}).get("readAddressWindows" + tc)
     if windows is not None:
@@ -7342,26 +7342,26 @@ class KernelWriterAssembly(KernelWriter):
       module.add(VAddCOU32(dst=vgpr("LocalReadAddr%s+0"%tc), dst1=VCC(),
                            src0=hex(_ldsBase), src1=vgpr("LocalReadAddr%s+0"%tc),
                            comment=" += LdsOffset%s (lower)"%tc))
-      if tc == "B" and kernel.get("LDSSegRotateB"):
-        # B-rotate: SIMD pair 1 (odd wave) reads B half h from component 1-h.
+      if (tc == "A" and kernel.get("LDSSegRotateA")) or (tc == "B" and kernel.get("LDSSegRotateB")):
+        # Rotate: SIMD pair 1 (odd wave) reads half h of tensor tc from component 1-h.
         # LocalRead uses logical stride R; the physical LDS component stride is S.
         # Pair p needs +0 = root + p*S and +1 = +0 + S - (R % 64K) - p*2S.
         compStride = _segOff["writeStrideBytes"]
-        readStride = _segOff.get("readStrideBytesB", compStride)
+        readStride = _segOff.get("readStrideBytes" + tc, compStride)
         baseDelta = compStride - readStride % self.states.regCaps["maxLDSConstOffset"]
-        with self.allocTmpSgpr(1, tag="bRotatePair") as tmpSgprInfo:
+        with self.allocTmpSgpr(1, tag="rotatePair") as tmpSgprInfo:
           pairSgpr = sgpr(tmpSgprInfo.idx)
-          module.add(VReadfirstlaneB32(dst=pairSgpr, src=vgpr("Serial"), comment="B-rotate: tId"))
+          module.add(VReadfirstlaneB32(dst=pairSgpr, src=vgpr("Serial"), comment="rotate: tId"))
           module.add(SLShiftRightB32(dst=pairSgpr, shiftHex=log2(kernel["WavefrontSize"]), src=pairSgpr, \
-                                     comment="B-rotate: wave id"))
-          module.add(SAndB32(dst=pairSgpr, src0=pairSgpr, src1=1, comment="B-rotate: pair = wave id & 1"))
+                                     comment="rotate: wave id"))
+          module.add(SAndB32(dst=pairSgpr, src0=pairSgpr, src1=1, comment="rotate: pair = wave id & 1"))
           module.add(SMulI32(dst=sgpr("RotateLRDelta"), src0=pairSgpr, src1=2 * compStride, \
-                             comment="B-rotate: pair * 2S"))
+                             comment="rotate: pair * 2S"))
           module.add(SSubU32(dst=sgpr("RotateLRDelta"), src0=baseDelta, \
-                             src1=sgpr("RotateLRDelta"), comment="B-rotate: component delta minus pair*2S"))
-          module.add(SMulI32(dst=pairSgpr, src0=pairSgpr, src1=compStride, comment="B-rotate: pair * S"))
-          module.add(VAddU32(dst=vgpr("LocalReadAddrB+0"), src0=pairSgpr, src1=vgpr("LocalReadAddrB+0"), \
-                             comment="B-rotate: pair 1 reads the other component first"))
+                             src1=sgpr("RotateLRDelta"), comment="rotate: component delta minus pair*2S"))
+          module.add(SMulI32(dst=pairSgpr, src0=pairSgpr, src1=compStride, comment="rotate: pair * S"))
+          module.add(VAddU32(dst=vgpr("LocalReadAddr%s+0" % tc), src0=pairSgpr, src1=vgpr("LocalReadAddr%s+0" % tc), \
+                             comment="%s-rotate: pair 1 reads the other component first" % tc))
 
     if tP["isA"]:
       numVgpr = self.states.a.numVgprLocalReadAddr
@@ -9775,26 +9775,44 @@ class KernelWriterAssembly(KernelWriter):
   ##############################################################################
   # End Summation
   ##############################################################################
-  def _bRotateUnswapAcc(self, kernel):
-    """LDSSegmentRotate: SIMD pair 1 read B tile j from tile (j + WT1/2) mod WT1, so its
-    accumulator tile (i, j) holds C(i, rot(j)). Swap the two B halves back before the epilogue."""
-    module = Module("bRotateUnswapAcc")
+  def _rotateUnswapAcc(self, kernel):
+    """LDSSegmentRotate: SIMD pair 1 read B tile j from tile (j + WT1/2) mod WT1 (B-rotate) and/or A tile i
+    from tile (i + WT0/2) mod WT0 (A-rotate), so its accumulator tile (i, j) holds C(rot(i), rot(j)).
+    Swap the halves back before the epilogue: B swaps j <-> j + WT1/2, A swaps i <-> i + WT0/2, and
+    A+B swaps the two diagonals (i, j) <-> (i + WT0/2, j + WT1/2) and (i, j + WT1/2) <-> (i + WT0/2, j)."""
+    module = Module("rotateUnswapAcc")
+    rotA, rotB = bool(kernel.get("LDSSegRotateA")), bool(kernel.get("LDSSegRotateB"))
     wt0, wt1 = kernel["MIWaveTile"][0], kernel["MIWaveTile"][1]
     accsPerTile = kernel["MatrixInstM"] * kernel["MatrixInstN"] * kernel["MatrixInstB"] \
                   // kernel["WavefrontSize"] * kernel["MIRegPerOut"]
-    assert wt1 % 2 == 0 and accsPerTile * wt0 * wt1 == self.states.c.numVgprValu, \
+    assert (not rotB or wt1 % 2 == 0) and (not rotA or wt0 % 2 == 0) \
+      and accsPerTile * wt0 * wt1 == self.states.c.numVgprValu, \
       "LDSSegmentRotate: unexpected accumulator layout"
-    skip = Label(self.labels.getUniqueNamePrefix("BRotate_Unswap_End"), "")
-    self._emitTdmWaveParitySCCAuto(module, kernel, "B-rotate: SIMD pair 1 (odd wave)?")
+    skip = Label(self.labels.getUniqueNamePrefix("Rotate_Unswap_End"), "")
+    self._emitTdmWaveParitySCCAuto(module, kernel, "Rotate: SIMD pair 1 (odd wave)?")
     module.add(SCBranchSCC0(labelName=skip.getLabelName(), comment="pair 0: accumulators already in order"))
-    half = wt1 // 2
-    for j in range(half):
-      for i in range(wt0):
-        a = (j * wt0 + i) * accsPerTile
-        b = ((j + half) * wt0 + i) * accsPerTile
-        for r in range(accsPerTile):
-          module.add(VSwapB32(dst=vgpr("ValuC+%u" % (a + r)), src=vgpr("ValuC+%u" % (b + r)), \
-                              comment="B-rotate: acc(%u,%u) <-> acc(%u,%u)" % (i, j, i, j + half) if r == 0 else ""))
+    h0, h1 = wt0 // 2, wt1 // 2
+
+    def swapTiles(i0, j0, i1, j1, tag):
+      a = (j0 * wt0 + i0) * accsPerTile
+      b = (j1 * wt0 + i1) * accsPerTile
+      for r in range(accsPerTile):
+        module.add(VSwapB32(dst=vgpr("ValuC+%u" % (a + r)), src=vgpr("ValuC+%u" % (b + r)), \
+                            comment="%s-rotate: acc(%u,%u) <-> acc(%u,%u)" % (tag, i0, j0, i1, j1) if r == 0 else ""))
+
+    if rotA and rotB:
+      for j in range(h1):
+        for i in range(h0):
+          swapTiles(i, j, i + h0, j + h1, "A+B")
+          swapTiles(i, j + h1, i + h0, j, "A+B")
+    elif rotB:
+      for j in range(h1):
+        for i in range(wt0):
+          swapTiles(i, j, i, j + h1, "B")
+    else:
+      for j in range(wt1):
+        for i in range(h0):
+          swapTiles(i, j, i + h0, j, "A")
     module.add(skip)
     return module
 
@@ -9806,8 +9824,8 @@ class KernelWriterAssembly(KernelWriter):
     if kernel["StorePriorityOpt"]:
       module.add(SSetPrior(prior=0, comment="optimization store"))
 
-    if kernel.get("LDSSegRotateB"):
-      module.add(self._bRotateUnswapAcc(kernel))
+    if kernel.get("LDSSegRotateA") or kernel.get("LDSSegRotateB"):
+      module.add(self._rotateUnswapAcc(kernel))
 
     if isOptNLL:
       vbegin = self.states.startVgprMisc
