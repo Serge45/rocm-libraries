@@ -1,5 +1,7 @@
 import pytest
-from tensilelite.SolutionStructs.segment_interleave import evaluate, aligned_budget_ok, SEG, _footprint, _tensor_footprint
+from tensilelite.SolutionStructs.segment_interleave import (evaluate, aligned_budget_ok, SEG, _footprint, _tensor_footprint,
+                                                              lockstep_conflict, _rotate_set)
+import tensilelite.SolutionStructs.segment_interleave as _lsi
 
 pytestmark = pytest.mark.unit
 
@@ -1358,7 +1360,7 @@ def _brot14_state(**ovr):
     # fit one segment, so the aligned layout [B0][A][pad][B1] with S = 64K applies.
     kw = dict(DepthU=256, MatrixInstM=16, MatrixInstN=16, MIWaveGroup=[1, 4], MIWaveTile=[8, 2],
               VectorWidthA=8, VectorWidthB=1, LdsBlockSizePerPadA=256, LdsBlockSizePerPadB=256,
-              LdsPadA=16, LdsPadB=16, PrefetchGlobalRead=2, LDSSegmentInterleave=1, LDSSegmentRotate=1, LDSSegRotateB=True,
+              LdsPadA=16, LdsPadB=16, PrefetchGlobalRead=2, LDSSegmentInterleave=1, LDSSegmentRotate=2, LDSSegRotateB=True,
               ProblemType=dict(DataType=_FakeDataType(bf16=False, f8=True, nbytes=1.0)))
     kw.update(ovr)
     s = _vw8_state(**kw)
@@ -1427,14 +1429,130 @@ def test_rotate_plan_modes():
     assert rotate_plan(s) == (False, True, None)                                  # 1 = auto -> B
     assert rotate_plan(_brot_state(LDSSegmentRotate=2)) == (False, True, None)    # force B
     assert rotate_plan(_brot_state(LDSSegmentRotate=0)) == (False, False, None)   # off
-    for mode in (3, 4):                                                           # A-rotate reserved
-        a, b, reason = rotate_plan(_brot_state(LDSSegmentRotate=mode))
-        assert (a, b) == (False, False) and "not supported yet" in reason
-    a, b, reason = rotate_plan(_brot_state(PrefetchGlobalRead=1))
+    a, b, reason = rotate_plan(_brot_state(LDSSegmentRotate=3))                   # A-only is not supported
+    assert (a, b) == (False, False) and "A-only" in reason
+    a, b, reason = rotate_plan(_brot_state(LDSSegmentRotate=4))                   # A+B only on [1,4]
+    assert (a, b) == (False, False) and "[1,4] only" in reason
+    a, b, reason = rotate_plan(_brot41_state(PrefetchGlobalRead=1))
     assert (a, b) == (False, False) and "PrefetchGlobalRead=2" in reason
     assert "persistent" in rotate_plan(s, persistent=True)[2]
 
 def test_rotate_reason_needs_a_tensor_and_no_a():
     s = _brot_state()
-    assert "A-rotate" in rotate_reason(s, True, False)
+    assert "A-only" in rotate_reason(s, True, False)
+    assert "A-rotate" in rotate_reason(s, True, True)            # [2,2]: A-rotate is [1,4] only
     assert "no tensor" in rotate_reason(s, False, False)
+
+
+def test_lockstep_model_numbers():
+    # [2,2]: A already follows the port parity, B-rotate removes the rest.
+    s = _brot_state()
+    assert lockstep_conflict(s, False, False) == pytest.approx(50.0)
+    assert lockstep_conflict(s, False, True) == pytest.approx(0.0)
+    # [4,1] MT256x128: A split per wave pair (0.5), B whole (1); weights A 1/3, B 2/3.
+    s = _brot41_state()
+    assert lockstep_conflict(s, False, False) == pytest.approx(83.333, abs=0.01)
+    assert lockstep_conflict(s, False, True) == pytest.approx(16.667, abs=0.01)
+    # [1,4] MT128x128: A whole (1), B split per wave pair (0.5); weights A 0.8, B 0.2.
+    s = _brot14_state()
+    assert lockstep_conflict(s, False, False) == pytest.approx(90.0)
+    assert lockstep_conflict(s, False, True) == pytest.approx(80.0)
+    assert lockstep_conflict(s, True, True) == pytest.approx(0.0)
+
+def _brot14ab_state(**ovr):
+    # F8 [1,4] MT128x128, WaveTile [8,2], VWA 4 / VWB 1 (both even): A half and B half are 17408 bytes each.
+    kw = dict(MIWaveTile=[8, 2], VectorWidthA=4, VectorWidthB=1, LDSSegmentRotate=4, LDSSegRotateA=True)
+    kw.update(ovr)
+    return _brot14_state(**kw)
+
+def test_rotate_set_modes_and_auto():
+    assert _rotate_set(_brot14_state(LDSSegmentRotate=0)) == (False, False)
+    assert _rotate_set(_brot14_state(LDSSegmentRotate=2)) == (False, True)
+    assert _rotate_set(_brot14_state(LDSSegmentRotate=3)) == (True, False)
+    assert _rotate_set(_brot14_state(LDSSegmentRotate=4)) == (True, True)
+    # auto: [1,4] with an even A vIdx count takes A+B (B alone leaves A at 80%), odd nA stays B only
+    assert _rotate_set(_brot14ab_state(LDSSegmentRotate=1)) == (True, True)
+    assert _rotate_set(_brot14_state(LDSSegmentRotate=1)) == (False, True)        # VWA 8 = WaveTileA, nA = 1
+    # a rotation is added only above the minimum modeled gain
+    old = _lsi.ROTATE_MIN_GAIN_PCT
+    try:
+        _lsi.ROTATE_MIN_GAIN_PCT = 95.0
+        assert _rotate_set(_brot14ab_state(LDSSegmentRotate=1)) == (False, True)
+    finally:
+        _lsi.ROTATE_MIN_GAIN_PCT = old
+    # other wave groups only rotate B
+    assert _rotate_set(_brot_state(LDSSegmentRotate=1)) == (False, True)
+    assert _rotate_set(_brot41_state(LDSSegmentRotate=1)) == (False, True)
+
+def test_rotate_ab_14_layout_and_gate():
+    s = _brot14ab_state()
+    r = evaluate(s)
+    fA, fB = _footprint(s, "A"), _footprint(s, "B")
+    assert r["applicable"] and r["aligned"] and r["reason"] == "aligned", r["reason"]
+    o = r["offsets"]
+    assert "aBaseline" not in o and "bBaseline" not in o
+    assert o["ldsBaseA"] == 0 and o["ldsBaseB"] == fA and o["writeStrideBytes"] == SEG
+    assert r["blockSpan"] == SEG + fA + fB
+    assert rotate_plan(s) == (True, True, None)
+    assert rotate_reason(s, True, True) is None
+    # auto picks the same set
+    assert rotate_plan(_brot14ab_state(LDSSegmentRotate=1)) == (True, True, None)
+
+def test_rotate_ab_14_rejects_unsupported():
+    # tight: A half + B half >= 64K
+    r = evaluate(_brot14ab_state(MIWaveTile=[16, 4]))
+    assert not r["applicable"] and "aligned" in r["reason"], r["reason"]
+    # odd nA (VWA == WaveTileA)
+    r = evaluate(_brot14ab_state(VectorWidthA=8))
+    assert not r["applicable"] and "VectorWidthA" in r["reason"], r["reason"]
+    # odd nB
+    r = evaluate(_brot14ab_state(VectorWidthB=2))
+    assert not r["applicable"] and "VectorWidthB" in r["reason"], r["reason"]
+    # PGR != 2
+    assert not evaluate(_brot14ab_state(PrefetchGlobalRead=1))["applicable"]
+    # TDMSplit never takes the A+B layout
+    s = _brot14ab_state(TDMSplit=1)
+    assert rotate_plan(s)[2] is not None
+    # MX (A or B)
+    for mx in ({"MXBlockA": 32}, {"MXBlockB": 32}):
+        s = _brot14ab_state()
+        s["ProblemType"] = {**s["ProblemType"], **mx}
+        _brot_rejects(s, "MX: MIWaveGroup [4,1] / [1,4]")
+    # persistent
+    assert "persistent" in rotate_plan(_brot14ab_state(), persistent=True)[2]
+    # A components must be in different 64K segments
+    s = _brot14ab_state()
+    s["StoreSwapAddr"] = True
+    s["LdsOffsetA"] = 50000
+    reason = rotate_reason(s, True, True)
+    assert reason is not None and "different 64K segments" in reason, reason
+    # A+B layout with aBaseline leftover from the B-only layout is rejected
+    s = _brot14ab_state()
+    s["LDSSegInterleaveOffsets"] = {**s["LDSSegInterleaveOffsets"], "aBaseline": True, "activeTC": "B"}
+    assert "aBaseline" in rotate_reason(s, True, True)
+
+
+def test_rotate_ab_14_paired_buffers_read_write_agree_shared_delta():
+    # [1,4] A+B on the paired layout: both tensors use the same logical stride, so one delta SGPR
+    # serves A and B, and every byte of each component is read from where TDM wrote it.
+    from tensilelite.SolutionStructs.segment_interleave import paired_buffer_layout_reason
+    s = _brot14ab_state(MaxLDS=5 * SEG)
+    assert rotate_reason(s, True, True) is None
+    o = paired_buffer_offsets(s)
+    assert o is not None and paired_buffer_layout_reason(s, o) is None
+    physical = o["writeStrideBytes"]
+    assert o["readStrideBytesA"] == o["readStrideBytesB"]
+    logical = o["readStrideBytesB"]
+    for tc in ("A", "B"):
+        base = s["LdsOffsetA"] if tc == "A" else o["ldsBaseB"]
+        for pair in range(2):
+            root = base + pair * physical
+            delta = physical - logical % SEG - pair * 2 * physical
+            for within in range(0, o["bufferStride" + tc], 4):
+                for buf in range(2):
+                    addr = root + within + buf * o["bufferStride" + tc]
+                    for half in range(2):
+                        read = addr + half * delta + half * (logical % SEG)
+                        written = (base + (half ^ pair) * physical
+                                   + buf * o["bufferStride" + tc] + within)
+                        assert read == written

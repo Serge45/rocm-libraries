@@ -8907,8 +8907,18 @@ class KernelWriter(PersistentKernelState, StreamKKernelState, metaclass=abc.ABCM
             readStride = segOffsets.get("readStrideBytesB", segOffsets["writeStrideBytes"])
             reachB = (numComp - 1) * readStride + maxOffsetB // numComp
             maxOffsetB = max(maxOffsetB, reachB)
+          if kernel.get("LDSSegRotateA"):
+            # A-rotate: A's component 1 is reached through the read offset as well.
+            segOffsetsA = kernel["LDSSegInterleaveOffsets"]
+            readStrideA = segOffsetsA.get("readStrideBytesA", segOffsetsA["writeStrideBytes"])
+            reachA = (numComp - 1) * readStrideA + maxOffsetA // numComp
+            maxOffsetA = max(maxOffsetA, reachA)
 
-        numVgprMultiplierA = maxOffsetA // maxLDSConstOffset + 1
+        # Rotated tensors need exactly two local-read addresses, which an exact 128 KiB extent would exceed.
+        if kernel.get("LDSSegRotateA"):
+          numVgprMultiplierA = (maxOffsetA + maxLDSConstOffset - 1) // maxLDSConstOffset
+        else:
+          numVgprMultiplierA = maxOffsetA // maxLDSConstOffset + 1
         # maxOffsetB is an extent (last byte is maxOffsetB-1), so an exact multiple of the reach needs no extra register.
         # B-rotate asserts exactly two B local-read addresses, which this exposes at 128 KiB extents.
         if kernel.get("LDSSegRotateB"):
@@ -10155,8 +10165,8 @@ class KernelWriter(PersistentKernelState, StreamKKernelState, metaclass=abc.ABCM
       self.defineSgpr(self.loopCounterName(kernel,i), 1)
 
     self.defineSgpr("OrigLoopCounter", 1)
-    if kernel.get("LDSSegRotateB"):
-      # B-rotate: per-wave LocalReadAddrB+1 - LocalReadAddrB+0.
+    if kernel.get("LDSSegRotateA") or kernel.get("LDSSegRotateB"):
+      # Rotate: per-wave LocalReadAddr+1 - LocalReadAddr+0 (pair 0: +64K, pair 1: 64K - 2*S), shared by A and B.
       # Defined here (not in defineVariableSgprs) because lraDeclareAddresses is emitted first.
       self.defineSgpr("RotateLRDelta", 1)
     if (kernel.get("LDSSegInterleaveOffsets") or {}).get("pairedBuffers"):
