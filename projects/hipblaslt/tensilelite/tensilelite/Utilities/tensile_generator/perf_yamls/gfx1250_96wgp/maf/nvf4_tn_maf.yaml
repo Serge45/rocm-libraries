@@ -74,7 +74,7 @@ BenchmarkProblems:
         - GlobalSplitUWorkGroupMappingRoundRobin: [True]
         - HalfPLR: [1]
         - InitCIterWmma: [1]
-        - LDSSegmentBRotate: [0]
+        - LDSSegmentRotate: [0]
         - LDSSegmentInterleave: [1]
         - LdsBlockSizePerPadA: [-1]
         - LdsBlockSizePerPadB: [-1]

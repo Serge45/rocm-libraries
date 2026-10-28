@@ -61,7 +61,7 @@ def format_lds_layout(state, kernel_name):
     layout = "paired" if paired else "interleaved" if offsets else "ordinary"
     lines = [f"[LDS layout] {kernel_name}",
              f"  layout={layout}, MIWaveGroup={state.get('MIWaveGroup')}, "
-             f"TDMSplit={bool(state.get('TDMSplit'))}, BRotate={bool(state.get('LDSSegmentBRotate'))}",
+             f"TDMSplit={bool(state.get('TDMSplit'))}, Rotate(A,B)=({bool(state.get('LDSSegRotateA'))}, {bool(state.get('LDSSegRotateB'))})",
              f"  Reserved LDS: {state['LdsNumBytes']} bytes; ranges are [start, end), including padding.",
              "  Buffer strides (bytes): " + ", ".join(strides),
              "  Matrix staging regions (ascending address):"]

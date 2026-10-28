@@ -78,9 +78,9 @@ from .Naming import getSolutionNameFull
 from .Problem import ProblemType
 from .lds_layout import format_lds_layout
 from .segment_interleave import evaluate as segIntEval, aligned_budget_ok as segAlignedBudget, \
-  b_rotate_reason as segBRotateReason, \
   paired_buffer_reason as segPairedReason, paired_buffer_offsets as segPairedOffsets, \
-  paired_buffer_layout_reason as segPairedLayoutReason
+  paired_buffer_layout_reason as segPairedLayoutReason, \
+  rotate_plan as segRotatePlan
 from ..Toolchain.Component import Assembler
 from ..Components.CustomSchedule import hasCustomSchedule
 
@@ -6679,15 +6679,21 @@ class Solution(collections.abc.Mapping):
     if state["HalfPLR"]:
       state["ExpandPointerSwap"] = False
 
-    # Resolve paired placement before LDS occupancy, epilogue reuse and MaxLDS checks.
-    if state["LDSSegmentBRotate"]:
-      _bRotReason = segBRotateReason(state, isPersistent(state))
-      if _bRotReason is not None:
-        reject(state, printRejectionReason, "LDSSegmentBRotate: %s" % _bRotReason)
+    # Resolved LDSSegmentRotate decision, read by the emit sites.
+    state["LDSSegRotateA"] = False
+    state["LDSSegRotateB"] = False
+    if state["LDSSegmentRotate"]:
+      _rotA, _rotB, _rotReason = segRotatePlan(state, isPersistent(state))
+      if _rotReason is not None:
+        reject(state, printRejectionReason, "LDSSegmentRotate: %s" % _rotReason)
         return
+      state["LDSSegRotateA"], state["LDSSegRotateB"] = _rotA, _rotB
+    _rotating = state["LDSSegRotateA"] or state["LDSSegRotateB"]
+
+    # Resolve paired placement before LDS occupancy, epilogue reuse and MaxLDS checks.
     # Persistent kernels retain their existing interleave offsets and buffer swaps.
     if state["LDSSegmentInterleave"] == 1 and not state["TDMSplit"] and not _segAligned and not isPersistent(state):
-      _pairedReason = None if state["LDSSegmentBRotate"] else segPairedReason(state, isPersistent(state))
+      _pairedReason = None if _rotating else segPairedReason(state, isPersistent(state))
       if _pairedReason is None:
         _pairedOffsets = segPairedOffsets(state)
         _pairedReason = "layout exceeds MaxLDS" if _pairedOffsets is None else segPairedLayoutReason(state, _pairedOffsets)
@@ -6697,9 +6703,9 @@ class Solution(collections.abc.Mapping):
         state["LDSSegInterleaveOffsets"] = _pairedOffsets
         state["StoreSwapAddr"] = True
         ldsNumBytesAB = _pairedOffsets["pairedUsedBytes"]
-      elif state["LDSSegmentBRotate"] or _segRequested == 1:
-        # Explicit tight interleave and tight B rotation require a valid paired layout.
-        _parameter = "LDSSegmentBRotate" if state["LDSSegmentBRotate"] else "LDSSegmentInterleave=1"
+      elif _rotating or _segRequested == 1:
+        # Explicit tight interleave and tight rotation require a valid paired layout.
+        _parameter = "LDSSegmentRotate" if _rotating else "LDSSegmentInterleave=1"
         reject(state, printRejectionReason, "%s requires paired LDS placement: %s" % (_parameter, _pairedReason))
         return
       else:

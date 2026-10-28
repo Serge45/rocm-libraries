@@ -61,7 +61,7 @@ BenchmarkProblems:
         - GlobalReadVectorWidthB: [-1]
         - GlobalSplitUWorkGroupMappingRoundRobin: [True]
         - InitCIterWmma: [-1]
-        - LDSSegmentBRotate: [0]
+        - LDSSegmentRotate: [0]
         - LDSSegmentInterleave: [0]
         - LdsBlockSizePerPadA: [-1]
         - LdsBlockSizePerPadB: [-1]

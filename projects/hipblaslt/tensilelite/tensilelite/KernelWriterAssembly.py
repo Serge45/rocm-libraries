@@ -6819,10 +6819,10 @@ class KernelWriterAssembly(KernelWriter):
   def _lraFanOut(self, kernel, tc, numLra):
     module = Module("lraFanOut")
     maxOff = self.states.regCaps["maxLDSConstOffset"]
-    if tc == "B" and kernel.get("LDSSegmentBRotate"):
+    if tc == "B" and kernel.get("LDSSegRotateB"):
       # +0 already carries the pair offset; +1 = +0 + per-wave delta (see lraDeclareAddresses).
-      assert numLra == 2 and maxOff == 65536, "LDSSegmentBRotate needs exactly 2 B local-read addresses"
-      module.add(VAddU32(dst=vgpr("LocalReadAddrB+1"), src0=sgpr("BRotateLRDelta"), src1=vgpr("LocalReadAddrB+0"), \
+      assert numLra == 2 and maxOff == 65536, "LDSSegmentRotate needs exactly 2 B local-read addresses"
+      module.add(VAddU32(dst=vgpr("LocalReadAddrB+1"), src0=sgpr("RotateLRDelta"), src1=vgpr("LocalReadAddrB+0"), \
                          comment="B-rotate: other component"))
       return module
     windows = (kernel.get("LDSSegInterleaveOffsets") or {}).get("readAddressWindows" + tc)
@@ -6858,7 +6858,7 @@ class KernelWriterAssembly(KernelWriter):
       module.add(VAddCOU32(dst=vgpr("LocalReadAddr%s+0"%tc), dst1=VCC(),
                            src0=hex(_ldsBase), src1=vgpr("LocalReadAddr%s+0"%tc),
                            comment=" += LdsOffset%s (lower)"%tc))
-      if tc == "B" and kernel.get("LDSSegmentBRotate"):
+      if tc == "B" and kernel.get("LDSSegRotateB"):
         # B-rotate: SIMD pair 1 (odd wave) reads B half h from component 1-h.
         # LocalRead uses logical stride R; the physical LDS component stride is S.
         # Pair p needs +0 = root + p*S and +1 = +0 + S - (R % 64K) - p*2S.
@@ -6871,10 +6871,10 @@ class KernelWriterAssembly(KernelWriter):
           module.add(SLShiftRightB32(dst=pairSgpr, shiftHex=log2(kernel["WavefrontSize"]), src=pairSgpr, \
                                      comment="B-rotate: wave id"))
           module.add(SAndB32(dst=pairSgpr, src0=pairSgpr, src1=1, comment="B-rotate: pair = wave id & 1"))
-          module.add(SMulI32(dst=sgpr("BRotateLRDelta"), src0=pairSgpr, src1=2 * compStride, \
+          module.add(SMulI32(dst=sgpr("RotateLRDelta"), src0=pairSgpr, src1=2 * compStride, \
                              comment="B-rotate: pair * 2S"))
-          module.add(SSubU32(dst=sgpr("BRotateLRDelta"), src0=baseDelta, \
-                             src1=sgpr("BRotateLRDelta"), comment="B-rotate: component delta minus pair*2S"))
+          module.add(SSubU32(dst=sgpr("RotateLRDelta"), src0=baseDelta, \
+                             src1=sgpr("RotateLRDelta"), comment="B-rotate: component delta minus pair*2S"))
           module.add(SMulI32(dst=pairSgpr, src0=pairSgpr, src1=compStride, comment="B-rotate: pair * S"))
           module.add(VAddU32(dst=vgpr("LocalReadAddrB+0"), src0=pairSgpr, src1=vgpr("LocalReadAddrB+0"), \
                              comment="B-rotate: pair 1 reads the other component first"))
@@ -9263,14 +9263,14 @@ class KernelWriterAssembly(KernelWriter):
   # End Summation
   ##############################################################################
   def _bRotateUnswapAcc(self, kernel):
-    """LDSSegmentBRotate: SIMD pair 1 read B tile j from tile (j + WT1/2) mod WT1, so its
+    """LDSSegmentRotate: SIMD pair 1 read B tile j from tile (j + WT1/2) mod WT1, so its
     accumulator tile (i, j) holds C(i, rot(j)). Swap the two B halves back before the epilogue."""
     module = Module("bRotateUnswapAcc")
     wt0, wt1 = kernel["MIWaveTile"][0], kernel["MIWaveTile"][1]
     accsPerTile = kernel["MatrixInstM"] * kernel["MatrixInstN"] * kernel["MatrixInstB"] \
                   // kernel["WavefrontSize"] * kernel["MIRegPerOut"]
     assert wt1 % 2 == 0 and accsPerTile * wt0 * wt1 == self.states.c.numVgprValu, \
-      "LDSSegmentBRotate: unexpected accumulator layout"
+      "LDSSegmentRotate: unexpected accumulator layout"
     skip = Label(self.labels.getUniqueNamePrefix("BRotate_Unswap_End"), "")
     self._emitTdmWaveParitySCCAuto(module, kernel, "B-rotate: SIMD pair 1 (odd wave)?")
     module.add(SCBranchSCC0(labelName=skip.getLabelName(), comment="pair 0: accumulators already in order"))
@@ -9293,7 +9293,7 @@ class KernelWriterAssembly(KernelWriter):
     if kernel["StorePriorityOpt"]:
       module.add(SSetPrior(prior=0, comment="optimization store"))
 
-    if kernel.get("LDSSegmentBRotate"):
+    if kernel.get("LDSSegRotateB"):
       module.add(self._bRotateUnswapAcc(kernel))
 
     if isOptNLL:
