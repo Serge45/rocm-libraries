@@ -386,6 +386,36 @@ def _evaluate_asymmetric(state):
             "blockSpan": blockSpan, "reason": "bcontig-asym-aligned"}
 
 
+def _evaluate_brotate_1x4(state):
+    # [1,4] + B-rotate, aligned layout only: B (active, split across the 4 waves) is split into two
+    # components by vIdx instead of by wave pair, and A (shared by all waves) stays one unsplit block:
+    #   [B0][A][pad to 64K][B1]     S = 64K, so B0 and B1 sit in different segments.
+    # Odd waves then read B from the other component (B-rotate). A is not rotated, so VWA is untouched.
+    if state.get("PrefetchGlobalRead") != 2:
+        return _no("[1,4] B-rotate: needs PGR=2 (aligned layout grows LDS)")
+    vwb, wtb = state["VectorWidthB"], state["MIWaveTile"][1]
+    if vwb <= 0 or wtb % vwb != 0 or (wtb // vwb) % 2 != 0:
+        return _no("[1,4] B-rotate: MIWaveTile[1]/VectorWidthB must be even")
+    if not _b_readable(state):
+        return _no("[1,4] B-rotate: B cannot be split across segments")
+    base = state["LdsOffsetA"]
+    fB = _footprint(state, "B")                  # one B component
+    aSpan = _tensor_footprint(state, "A")        # whole A, one block
+    if (base % SEG) + fB + aSpan >= SEG:
+        return _no("[1,4] B-rotate: tight layout (B component + A >= 64K) not supported")
+    pre = _ceil_seg(base + fB + aSpan) - base    # B0 -> B1 distance, rounded up to a segment boundary
+    o = {"ldsBaseB": base, "ldsBaseA": base + fB, "writeStrideBytes": pre, "footprintPacked": True,
+         "aBaseline": True, "activeTC": "B"}
+    blockSpan = base + pre + fB
+    bMXSA, bMXSB, mxEnd = _mx_scale_bases(state, blockSpan)
+    if bMXSA is not None: o["ldsBaseMXSA"] = bMXSA
+    if bMXSB is not None: o["ldsBaseMXSB"] = bMXSB
+    blockSpan = max(blockSpan, mxEnd)
+    return {"applicable": True, "aligned": True, "offsets": o, "blockSpan": blockSpan,
+            "reason": "brotate-1x4-aligned",
+            "segmentMap": "BROTATE-1x4-ALIGNED seg%d={B0,A} seg%d={B1}" % (base // SEG, (base + pre) // SEG)}
+
+
 def evaluate(state):
     pt = state["ProblemType"]
     # Tri-state knob: -1 = auto (default), 0 = force baseline, 1 = force on where applicable.
@@ -425,6 +455,9 @@ def evaluate(state):
     # [A0][B0][A1][B1] layout below (A is still split per wave pair by LocalRead/LraTileAssignment).
     bRotate41 = (mode == 1 and state.get("LDSSegmentBRotate") and [wgM, wgN] == [4, 1]
                  and not state.get("TDMSplit"))
+    # [1,4] + B-rotate: split B by vIdx with A kept whole (see _evaluate_brotate_1x4).
+    if mode == 1 and state.get("LDSSegmentBRotate") and [wgM, wgN] == [1, 4] and not state.get("TDMSplit"):
+        return _evaluate_brotate_1x4(state)
     if (wgM == 1) ^ (wgN == 1) and not bRotate41:
         return _evaluate_asymmetric(state)
     if [wgM, wgN] != [2, 2] and not bRotate41:
@@ -457,7 +490,8 @@ def b_rotate_reason(state, persistent=False):
 
     Validate the logical [2,2] split layout used by aligned and paired tight kernels. MIWaveGroup [4,1]
     (non-MX, non-TDMSplit) reuses the same layout: all four waves share B, which evaluate() splits
-    into two components, and the pair is still wave id & 1.
+    into two components, and the pair is still wave id & 1. MIWaveGroup [1,4] (non-MX, non-TDMSplit,
+    aligned only) keeps A as one block and splits B by vIdx: [B0][A][pad][B1] with S == 64K.
     B's logical component stride stays in [64K, 128K), so LocalReadAddrB+h still selects
     half h. The physical component stride comes from the selected layout; a per-wave
     register delta bridges that distance and rotates odd waves' B reads. The accumulator halves are
@@ -467,7 +501,11 @@ def b_rotate_reason(state, persistent=False):
     if tuple(state.get("ISA", ()))[:2] != (12, 5):            return "not gfx1250"
     if state.get("LDSSegmentInterleave") != 1:                return "needs LDSSegmentInterleave=1"
     o = state.get("LDSSegInterleaveOffsets") or {}
+    is14 = list(state["MIWaveGroup"]) == [1, 4]
     for key in ("aBaseline", "bBaseline", "portSplitA", "portSplitB", "componentSplit"):
+        # [1,4] keeps A as one whole block (aBaseline) with B active and split by vIdx.
+        if key == "aBaseline" and is14 and o.get("activeTC") == "B":
+            continue
         if o.get(key):                                        return "LSI layout '%s' not supported" % key
     S = o.get("readStrideBytesB", o.get("writeStrideBytes", 0))
     if not (SEG <= S < 2 * SEG):                              return "component stride must be in [64K, 128K)"
@@ -479,10 +517,12 @@ def b_rotate_reason(state, persistent=False):
     if baseB < S - SEG:                                       return "ldsBaseB below S - 64K"
     if state.get("NumLdsBlk") != 2 or state.get("1LDSBuffer") != 0:
         return "needs 2 LDS buffers"
-    if list(state["MIWaveGroup"]) not in ([2, 2], [4, 1]) or state["NumWaves"] != 4 or state["WavefrontSize"] != 32:
-        return "needs MIWaveGroup [2,2] or [4,1], 4 waves, wave32"
-    if list(state["MIWaveGroup"]) == [4, 1] and (pt.get("MXBlockA") or pt.get("MXBlockB")):
-        return "MX: MIWaveGroup [4,1] not supported"
+    if list(state["MIWaveGroup"]) not in ([2, 2], [4, 1], [1, 4]) or state["NumWaves"] != 4 or state["WavefrontSize"] != 32:
+        return "needs MIWaveGroup [2,2], [4,1] or [1,4], 4 waves, wave32"
+    if list(state["MIWaveGroup"]) in ([4, 1], [1, 4]) and (pt.get("MXBlockA") or pt.get("MXBlockB")):
+        return "MX: MIWaveGroup [4,1] / [1,4] not supported"
+    if is14 and (baseB + fB - 1) // SEG >= (baseB + S) // SEG:
+        return "[1,4]: B components must lie in different 64K segments"
     fA = _footprint(state, "A")
     if fA > SEG:
         return "A component exceeds 64K"

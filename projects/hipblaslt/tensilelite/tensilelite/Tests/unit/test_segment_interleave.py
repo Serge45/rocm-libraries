@@ -1,5 +1,5 @@
 import pytest
-from tensilelite.SolutionStructs.segment_interleave import evaluate, aligned_budget_ok, SEG, _footprint
+from tensilelite.SolutionStructs.segment_interleave import evaluate, aligned_budget_ok, SEG, _footprint, _tensor_footprint
 
 pytestmark = pytest.mark.unit
 
@@ -721,7 +721,7 @@ def test_brotate_rejects_buffering_and_schedule_modes():
     _brot_rejects(_brot_state(ExpandPointerSwap=1), "ExpandPointerSwap=0")
 
 def test_brotate_rejects_wave_config():
-    _brot_rejects(_brot_state(MIWaveGroup=[1, 4]), "[2,2]")
+    _brot_rejects(_brot_state(MIWaveGroup=[1, 8]), "[2,2]")
     _brot_rejects(_brot_state(NumWaves=8), "[2,2]")
     _brot_rejects(_brot_state(WavefrontSize=64), "wave32")
     _brot_rejects(_brot_state(VectorWidthB=0), "even")
@@ -1386,17 +1386,20 @@ def test_brotate_41_rejects_unsupported():
     assert b_rotate_reason(s) is not None
     # StreamK/persistent is still gated on this base.
     assert "persistent" in b_rotate_reason(_brot41_state(), persistent=True)
-    # [1,4] never takes the split layout.
-    assert evaluate(_brot41_state(MIWaveGroup=[1, 4], MIWaveTile=[16, 4]))["offsets"].get("aBaseline") is True
+    # [1,4] with nV == 1 (VWB == WaveTileB) has no B component to rotate.
+    assert not evaluate(_brot41_state(MIWaveGroup=[1, 4], MIWaveTile=[16, 4]))["applicable"]
     assert b_rotate_reason(_brot41_state(tight=True, TDMSplit=1)) is not None
 
 
-@pytest.mark.parametrize("tight", [False, True])
-def test_brotate_41_paired_buffers_read_write_agree(tight):
-    # [4,1] B-rotate on the common paired layout: every byte of each B component, for both pairs,
-    # both buffers and both halves, is read from where TDM wrote it.
+def _brot_paired_cases():
+    return [("41", False), ("41", True), ("14", False)]
+
+@pytest.mark.parametrize("wg,tight", _brot_paired_cases())
+def test_brotate_paired_buffers_read_write_agree_asym(wg, tight):
+    # [4,1] / [1,4] B-rotate on the common paired layout: every byte of each B component, for both
+    # pairs, both buffers and both halves, is read from where TDM wrote it.
     from tensilelite.SolutionStructs.segment_interleave import paired_buffer_layout_reason
-    s = _brot41_state(tight=tight, MaxLDS=5 * SEG)
+    s = (_brot41_state(tight=tight, MaxLDS=5 * SEG) if wg == "41" else _brot14_state(MaxLDS=5 * SEG))
     assert b_rotate_reason(s) is None
     o = paired_buffer_offsets(s)
     assert o is not None and paired_buffer_layout_reason(s, o) is None
@@ -1412,3 +1415,72 @@ def test_brotate_41_paired_buffers_read_write_agree(tight):
                     written = (o["ldsBaseB"] + (half ^ pair) * physical
                                + buf * o["bufferStrideB"] + within)
                     assert read == written
+
+
+def _brot14_state(**ovr):
+    # F8 [1,4] MT128x128x256, WaveTile [8,2], VWB 1 (nV = 2): B component (17408) + whole A (34816)
+    # fit one segment, so the aligned layout [B0][A][pad][B1] with S = 64K applies.
+    kw = dict(DepthU=256, MatrixInstM=16, MatrixInstN=16, MIWaveGroup=[1, 4], MIWaveTile=[8, 2],
+              VectorWidthA=8, VectorWidthB=1, LdsBlockSizePerPadA=256, LdsBlockSizePerPadB=256,
+              LdsPadA=16, LdsPadB=16, PrefetchGlobalRead=2, LDSSegmentInterleave=1, LDSSegmentBRotate=1,
+              ProblemType=dict(DataType=_FakeDataType(bf16=False, f8=True, nbytes=1.0)))
+    kw.update(ovr)
+    s = _vw8_state(**kw)
+    s["LDSSegInterleaveOffsets"] = evaluate(s)["offsets"] or {}
+    s.update({"NumLdsBlk": 2, "1LDSBuffer": 0, "ExpandPointerSwap": 0, "HalfPLR": 0, "LocalSplitU": 1,
+              "StoreSwapAddr": False, "LdsOffsetA_Blk": 131072})
+    return s
+
+def test_brotate_14_aligned_layout_and_gate():
+    s = _brot14_state()
+    r = evaluate(s)
+    fB, aSpan = _footprint(s, "B"), _tensor_footprint(s, "A")
+    assert r["applicable"] and r["aligned"] and r["reason"] == "brotate-1x4-aligned", r["reason"]
+    o = r["offsets"]
+    assert o["aBaseline"] is True and o["activeTC"] == "B" and "bBaseline" not in o
+    assert o["ldsBaseB"] == 0 and o["ldsBaseA"] == fB and o["writeStrideBytes"] == SEG
+    assert fB + aSpan < SEG and r["blockSpan"] == SEG + fB
+    assert b_rotate_reason(s) is None
+    # nV = 4 (WaveTile [4,4], VWB 1) is fine too
+    assert b_rotate_reason(_brot14_state(MIWaveTile=[4, 4])) is None
+
+def test_brotate_14_off_or_auto_or_tdmsplit_keep_other_layouts():
+    # B-rotate off: the existing asymmetric layout (B coarse, split per wave pair).
+    r = evaluate(_brot14_state(LDSSegmentBRotate=0, VectorWidthB=2))
+    assert r["applicable"] and "asym" in r["reason"] and r["offsets"].get("aBaseline") is True
+    # auto LSI never takes the B-rotate layout.
+    assert evaluate(_brot14_state(LDSSegmentInterleave=-1))["reason"] != "brotate-1x4-aligned"
+    # TDMSplit never takes it either, and the gate rejects it.
+    s = _brot14_state(TDMSplit=1)
+    assert evaluate(s)["reason"] != "brotate-1x4-aligned"
+    assert b_rotate_reason(s) is not None
+
+def test_brotate_14_rejects_unsupported():
+    # tight: B component + A >= 64K (MT256)
+    r = evaluate(_brot14_state(MIWaveTile=[16, 2]))
+    assert not r["applicable"] and "tight" in r["reason"], r["reason"]
+    # odd nV (VWB == WaveTileB)
+    r = evaluate(_brot14_state(VectorWidthB=2))
+    assert not r["applicable"] and "even" in r["reason"], r["reason"]
+    # aligned layout needs PGR=2
+    r = evaluate(_brot14_state(PrefetchGlobalRead=1))
+    assert not r["applicable"] and "PGR=2" in r["reason"], r["reason"]
+    # MX (A or B)
+    for mx in ({"MXBlockA": 32}, {"MXBlockB": 32}):
+        s = _brot14_state()
+        s["ProblemType"] = {**s["ProblemType"], **mx}
+        _brot_rejects(s, "MX: MIWaveGroup [4,1] / [1,4]")
+    # StreamK/persistent is still gated on this base
+    assert "persistent" in b_rotate_reason(_brot14_state(), persistent=True)
+    # B components must be in different 64K segments
+    s = _brot14_state()
+    s["StoreSwapAddr"] = True
+    s["LDSSegInterleaveOffsets"] = {**s["LDSSegInterleaveOffsets"], "ldsBaseB": 50000}
+    _brot_rejects(s, "different 64K segments")
+    # aBaseline is only accepted for [1,4] with B active
+    s = _brot14_state()
+    s["LDSSegInterleaveOffsets"] = {**s["LDSSegInterleaveOffsets"], "activeTC": "A"}
+    _brot_rejects(s, "aBaseline")
+    s = _brot_state()
+    s["LDSSegInterleaveOffsets"] = {**s["LDSSegInterleaveOffsets"], "aBaseline": True, "activeTC": "B"}
+    _brot_rejects(s, "aBaseline")
