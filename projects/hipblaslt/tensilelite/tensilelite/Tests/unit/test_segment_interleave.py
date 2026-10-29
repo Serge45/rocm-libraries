@@ -700,6 +700,12 @@ def test_brotate_mx_rejects_unsupported_scale_layouts():
     assert "InMemorySwizzle" in b_rotate_reason(_brot_mx_state(MXScaleFormat="NoSwizzle"))
     assert "(12, 5, 0)" in b_rotate_reason(_brot_mx_state(ISA=(12, 5, 1)))
 
+def _with_mx(state, **mx):
+    state["ProblemType"] = {**state["ProblemType"], **mx}
+    state["MXScaleFormat"] = "InMemorySwizzle"
+    state["WavefrontSize"] = 32
+    return state
+
 def _brot_rejects(state, text):
     reason = b_rotate_reason(state)
     assert reason is not None and text in reason, reason
@@ -1378,13 +1384,8 @@ def test_brotate_41_off_or_auto_keeps_asymmetric_layout():
 
 def test_brotate_41_rejects_unsupported():
     _brot_rejects(_brot41_state(VectorWidthB=8), "even")  # nV == 1: B stays one component
-    s = _brot41_state()
-    s["ProblemType"] = {**s["ProblemType"], "MXBlockA": 32, "MXBlockB": 32}
-    _brot_rejects(s, "MX: MIWaveGroup [4,1]")
-    for mx in ({"MXBlockA": 32}, {"MXBlockB": 32}):
-        s = _brot41_state()
-        s["ProblemType"] = {**s["ProblemType"], **mx}
-        _brot_rejects(s, "MX: MIWaveGroup [4,1]")
+    # MX scales on the rotated B need nV == 2 (WaveTileB 8, VWB 2 gives nV 4)
+    _brot_rejects(_with_mx(_brot41_state(VectorWidthB=2), MXBlockB=32), "MIWaveTile[1]/VectorWidthB == 2")
     # A not coarse (VWA != WaveTileA) and no TDMSplit: no split layout, so no B-rotate.
     s = _brot41_state(VectorWidthA=2)
     assert not evaluate(s)["applicable"]
@@ -1470,11 +1471,6 @@ def test_brotate_14_rejects_unsupported():
     # aligned layout needs PGR=2
     r = evaluate(_brot14_state(PrefetchGlobalRead=1))
     assert not r["applicable"] and "PGR=2" in r["reason"], r["reason"]
-    # MX (A or B)
-    for mx in ({"MXBlockA": 32}, {"MXBlockB": 32}):
-        s = _brot14_state()
-        s["ProblemType"] = {**s["ProblemType"], **mx}
-        _brot_rejects(s, "MX: MIWaveGroup [4,1] / [1,4]")
     # StreamK/persistent is still gated on this base
     assert "persistent" in b_rotate_reason(_brot14_state(), persistent=True)
     # B components must be in different 64K segments
@@ -1580,11 +1576,6 @@ def test_rotate_ab_14_rejects_unsupported():
     # TDMSplit never takes the A+B layout
     s = _brot14ab_state(TDMSplit=1)
     assert rotate_plan(s)[2] is not None
-    # MX (A or B)
-    for mx in ({"MXBlockA": 32}, {"MXBlockB": 32}):
-        s = _brot14ab_state()
-        s["ProblemType"] = {**s["ProblemType"], **mx}
-        _brot_rejects(s, "MX: MIWaveGroup [4,1] / [1,4]")
     # persistent
     assert "persistent" in rotate_plan(_brot14ab_state(), persistent=True)[2]
     # A components must be in different 64K segments
@@ -1623,3 +1614,34 @@ def test_rotate_ab_14_paired_buffers_read_write_agree_shared_delta():
                         written = (base + (half ^ pair) * physical
                                    + buf * o["bufferStride" + tc] + within)
                         assert read == written
+
+
+def test_rotate_mx_scales_on_41_and_14():
+    # [4,1] B-rotate: MXSB follows B (nV = 8/4 = 2); MXSA is not rotated, so nA does not matter.
+    for mx in (dict(MXBlockB=32), dict(MXBlockA=32, MXBlockB=32)):
+        assert b_rotate_reason(_with_mx(_brot41_state(), **mx)) is None
+    # [1,4] B-only: MXSB follows B (nV 2); MXSA unrotated, even with nA = 1
+    s = _with_mx(_brot14_state(MIWaveTile=[8, 2], VectorWidthA=8, VectorWidthB=1), MXBlockA=32, MXBlockB=32)
+    assert b_rotate_reason(s) is None
+    # [1,4] A+B: both scale tensors follow, each needs nV == 2
+    s = _with_mx(_brot14ab_state(), MXBlockA=32, MXBlockB=32)
+    assert rotate_reason(s, True, True) is None
+
+def test_rotate_mx_rejects_unsupported_scale_layouts():
+    base = lambda **ovr: {**_with_mx(_brot14ab_state(), MXBlockA=32, MXBlockB=32), **ovr}
+    # rotated A with nA = 4 (VWA 2 of WaveTileA 8): scale tile needs nV == 2
+    assert "MIWaveTile[0]/VectorWidthA == 2" in rotate_reason(_with_mx(_brot14ab_state(VectorWidthA=2), MXBlockA=32, MXBlockB=32), True, True)
+    assert "MatrixInstM" in rotate_reason(_with_mx(_brot14ab_state(MatrixInstM=32), MXBlockA=32, MXBlockB=32), True, True)
+    assert "DirectToVgprMXSA" in rotate_reason(base(DirectToVgprMXSA=True), True, True)
+    assert "InMemorySwizzle" in rotate_reason(base(MXScaleFormat="NoSwizzle"), True, True)
+    assert "(12, 5, 0)" in rotate_reason(base(ISA=(12, 5, 1)), True, True)
+    # an unrotated scale tensor is not checked: B-only with MXBlockA and nA = 4 still passes
+    s = _with_mx(_brot14_state(MIWaveTile=[8, 2], VectorWidthA=2, VectorWidthB=1), MXBlockA=32, MXBlockB=32)
+    assert rotate_reason(s, False, True) is None
+
+def test_rotate_set_auto_prefers_b_when_mx_scales_cannot_follow_a():
+    # nA = 4 is even, so without MX auto may take A+B; with MXBlockA the A scales need nA == 2.
+    s = _with_mx(_brot14ab_state(LDSSegmentRotate=1, VectorWidthA=2), MXBlockA=32, MXBlockB=32)
+    assert _rotate_set(s) == (False, True)
+    s = _with_mx(_brot14ab_state(LDSSegmentRotate=1), MXBlockA=32, MXBlockB=32)
+    assert _rotate_set(s) == (True, True)

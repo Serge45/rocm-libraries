@@ -684,10 +684,10 @@ class LocalReadMFMA(LocalRead):
                             kernel["MatrixInstN"] * kernel["MatrixInstBN"] * kernel["MIWaveGroup"][1] * kernel["VectorWidthB"]]
         tileSpanInfo = self.getMxsTileSpanInfo(kernel, tc, tile01, writer.states.asmCaps)
         mxsTileSpan = tileSpanInfo is not None
-        if tc == "MXSB" and kernel.get("LDSSegRotateB"):
-            # LRA rotates MXSB by flipping the half-wave select, which covers only one group.
-            assert mxsTileSpan and tileSpanInfo["numGroups"] == 1 and kernel["MIWaveGroup"][1] > 1, \
-                "LDSSegmentRotate: MXSB needs the single-group TileSpan wave-split layout"
+        if (tc == "MXSA" and kernel.get("LDSSegRotateA")) or (tc == "MXSB" and kernel.get("LDSSegRotateB")):
+            # LRA rotates the scales by swapping the half-waves, which covers only one group.
+            assert mxsTileSpan and tileSpanInfo["numGroups"] == 1, \
+                "LDSSegmentRotate: %s needs the single-group TileSpan layout" % tc
         numVectorsPerTile = self.getMxNumVectorsPerTile(kernel, tc, tile01, writer.states.asmCaps)
         # 2D phase: each vector reads through its own LocalReadAddr+vIdx, which
         # already holds its scale row (mxPhaseLraFixup); no vIdx immediate.
