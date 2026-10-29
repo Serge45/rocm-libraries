@@ -951,6 +951,19 @@ class LraTileAssignmentMFMA(LraTileAssignment):
                 # so lanes 0..MI-1 vs MI..2MI-1 already carry block 2g / partner 2g+1 in the
                 # lower/upper half-wave of a single ds_load; no hi offset needed.
                 module.addComment0("N offset: nIdx = wtid")
+                if (tc == "MXSA" and kernel.get("LDSSegRotateA")) or (tc == "MXSB" and kernel.get("LDSSegRotateB")):
+                    # Rotation: SIMD pair 1 reads vIdx v from rot(v) = 1 - v (nV == 2, gated in
+                    # rotate_reason). Swap the half-waves: lane l loads row l ^ MI, so lanes 0..MI-1
+                    # get the partner block and MI..2MI-1 the base block.
+                    assert matrixInstTO * 2 == waveWidth and num1DBlocks == 1
+                    module.add(vectorStaticDivide(dummy, dividendReg, waveWidth, tmpVgprRes, \
+                        "8. (rotate) wave id = tid / wavelength(%u)" % waveWidth))
+                    module.add(VAndB32(dst=vgpr(dummy), src0=1, src1=vgpr(dummy), \
+                        comment="8. (rotate) pair = wave id & 1"))
+                    module.add(vectorStaticMultiply(vgpr(dummy), vgpr(dummy), matrixInstTO, tmpSgprInfo, \
+                        "8. (rotate) pair * MI_dim(%u)" % matrixInstTO))
+                    module.add(VXorB32(dst=vgpr(tReg), src0=vgpr(dummy), src1=vgpr(tReg), \
+                        comment="8. (rotate) nIdx ^= pair * MI: swap half-waves for pair 1"))
 
             applyVWCalcEarly = perpStride > 1 and kernel["ProblemType"]["TLU%s"%tc] == 0 and kernel["ProblemType"]["DataType"].numBytes() != 2
             if applyVWCalcEarly:
@@ -1080,15 +1093,15 @@ class LraTileAssignmentMFMA(LraTileAssignment):
                     tileDim = "M" if tile01 == 0 else "N"
                     module.add(vectorStaticDivide(dummy, dividendReg, matrixInstTO, tmpVgprRes, \
                         "8. (TileSpan wave-split) hiSel = tid / MI_dim(%u)" % matrixInstTO))
-                    if tc == "MXSB" and kernel.get("LDSSegRotateB"):
-                        # B-rotate: SIMD pair 1 reads B vIdx v from rot(v) = 1 - v (nV == 2, gated
+                    if (tc == "MXSA" and kernel.get("LDSSegRotateA")) or (tc == "MXSB" and kernel.get("LDSSegRotateB")):
+                        # Rotate: SIMD pair 1 reads vIdx v from rot(v) = 1 - v (nV == 2, gated
                         # in rotate_reason). Its scales must follow: flip the half-wave select so
                         # lanes 0..MI-1 load the partner block and MI..2MI-1 the base block.
-                        pairReg = writer.vgprPool.checkOut(1, tag="bRotatePair")
+                        pairReg = writer.vgprPool.checkOut(1, tag="rotatePair")
                         module.add(vectorStaticDivide(pairReg, dividendReg, waveWidth, tmpVgprRes, \
-                            "8. (B-rotate) wave id = tid / wavelength(%u)" % waveWidth))
+                            "8. (rotate) wave id = tid / wavelength(%u)" % waveWidth))
                         module.add(VXorB32(dst=vgpr(dummy), src0=vgpr(pairReg), src1=vgpr(dummy), \
-                            comment="8. (B-rotate) hiSel ^= wave id (pair = wave id & 1)"))
+                            comment="8. (rotate) hiSel ^= wave id (pair = wave id & 1)"))
                         writer.vgprPool.checkIn(pairReg)
                     module.add(VAndB32(dst=vgpr(dummy), src0=1, src1=vgpr(dummy), \
                         comment="8. (TileSpan wave-split) hi = (tid / MI_dim) & 1  (lower/upper half-wave)"))

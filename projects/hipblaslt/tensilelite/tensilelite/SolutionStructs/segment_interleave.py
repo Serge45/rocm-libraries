@@ -389,7 +389,13 @@ def _rotate_set(state):
     cands = [(False, True)]
     if tuple(state["MIWaveGroup"]) == (1, 4):
         cands.append((True, True))
-    feasible = [c for c in cands if _vidx_even(state, "B") and (not c[0] or _vidx_even(state, "A"))]
+    def _ok(tc):
+        # Rotated MX scales need exactly two vIdx groups (see rotate_reason).
+        if not state["ProblemType"].get("MXBlock" + tc):
+            return _vidx_even(state, tc)
+        idx = 0 if tc == "A" else 1
+        return state["VectorWidth" + tc] > 0 and state["MIWaveTile"][idx] // state["VectorWidth" + tc] == 2
+    feasible = [c for c in cands if _ok("B") and (not c[0] or _ok("A"))]
     if not feasible:
         return False, True
     best, bestRate = feasible[0], lockstep_conflict(state, *feasible[0])
@@ -601,8 +607,8 @@ def rotate_reason(state, rotA, rotB, persistent=False):
     accumulator tiles swapped along M, shared delta register).
 
     Validate the logical [2,2] split layout used by aligned and paired tight kernels. MIWaveGroup [4,1]
-    (non-MX, non-TDMSplit) reuses the same layout: all four waves share B, which evaluate() splits
-    into two components, and the pair is still wave id & 1. MIWaveGroup [1,4] (non-MX, non-TDMSplit,
+    (non-TDMSplit) reuses the same layout: all four waves share B, which evaluate() splits
+    into two components, and the pair is still wave id & 1. MIWaveGroup [1,4] (non-TDMSplit,
     aligned only) keeps A as one block and splits B by vIdx: [B0][A][pad][B1] with S == 64K.
     B's logical component stride stays in [64K, 128K), so LocalReadAddrB+h still selects
     half h. The physical component stride comes from the selected layout; a per-wave
@@ -639,8 +645,6 @@ def rotate_reason(state, rotA, rotB, persistent=False):
         return "needs 2 LDS buffers"
     if list(state["MIWaveGroup"]) not in ([2, 2], [4, 1], [1, 4]) or state["NumWaves"] != 4 or state["WavefrontSize"] != 32:
         return "needs MIWaveGroup [2,2], [4,1] or [1,4], 4 waves, wave32"
-    if list(state["MIWaveGroup"]) in ([4, 1], [1, 4]) and (pt.get("MXBlockA") or pt.get("MXBlockB")):
-        return "MX: MIWaveGroup [4,1] / [1,4] not supported"
     if is14 and (baseB + fB - 1) // SEG >= (baseB + S) // SEG:
         return "[1,4]: B components must lie in different 64K segments"
     fA = _footprint(state, "A")
@@ -663,17 +667,20 @@ def rotate_reason(state, rotA, rotB, persistent=False):
     vwb, wtb = state["VectorWidthB"], state["MIWaveTile"][1]
     if vwb <= 0 or wtb % vwb != 0 or (wtb // vwb) % 2 != 0:
         return "MIWaveTile[1]/VectorWidthB must be even"
-    if pt.get("MXBlockB"):
-        # MXSB must follow the rotation. Supported only for the TileSpan wave-split layout with
-        # one group (nV == 2): vIdx 0/1 scales sit in the lower/upper half-wave of one ds_load,
-        # so pair 1 flips the half-wave select in LRA. MXSA needs nothing (A is not rotated).
-        # TileSpan (LocalRead.getMxsTileSpanInfo) is gated on exactly gfx1250.
+    # MX scales must follow the rotation. Supported only for the TileSpan layout with one group
+    # (nV == 2): vIdx 0/1 scales sit in the lower/upper half-wave of one ds_load, so pair 1 swaps
+    # the half-waves in LRA (LraTileAssignment). TileSpan (LocalRead.getMxsTileSpanInfo) is gated
+    # on exactly gfx1250. A scale tensor that is not rotated needs nothing.
+    for tc, rot, mi, wt, vw in (("A", rotA, state["MatrixInstM"], state["MIWaveTile"][0], state["VectorWidthA"]),
+                                ("B", rotB, state["MatrixInstN"], state["MIWaveTile"][1], state["VectorWidthB"])):
+        if not (rot and pt.get("MXBlock" + tc)):
+            continue
         if tuple(state.get("ISA", ())) != (12, 5, 0):         return "MX: needs ISA (12, 5, 0)"
-        if state.get("DirectToVgprMXSB"):                     return "MX: DirectToVgprMXSB not supported"
+        if state.get("DirectToVgprMXS" + tc):                 return "MX: DirectToVgprMXS%s not supported" % tc
         if state.get("MXScaleFormat") != "InMemorySwizzle":   return "MX: needs MXScaleFormat InMemorySwizzle"
-        if state["MatrixInstN"] != state["WavefrontSize"] // 2:
-            return "MX: needs MatrixInstN == WavefrontSize/2"
-        if wtb // vwb != 2:                                   return "MX: needs MIWaveTile[1]/VectorWidthB == 2"
+        if mi != state["WavefrontSize"] // 2:
+            return "MX: needs MatrixInst%s == WavefrontSize/2" % ("M" if tc == "A" else "N")
+        if wt // vw != 2:                                     return "MX: needs MIWaveTile[%d]/VectorWidth%s == 2" % (0 if tc == "A" else 1, tc)
     if pt.get("Sparse"):                                      return "sparse not supported"
     for key in ("TDMSplit", "UseSubtileImpl", "DirectToVgprA", "DirectToVgprB", "DirectToLdsB",
                 "enableLDSTrA", "enableLDSTrB", "UseDotInstruction", "UseCustomMainLoopSchedule",
