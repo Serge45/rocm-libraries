@@ -4,15 +4,18 @@
 
 from copy import deepcopy
 import importlib
+import re
+import xml.etree.ElementTree as ET
 from types import SimpleNamespace
 
 import pytest
 
 from tensilelite.Common.GlobalParameters import globalParameters, _assertGlobalParametersAreValid
 from tensilelite.Common.TypeValidationErrors import ConfigTypeError
-from tensilelite.SolutionStructs.lds_layout import format_lds_layout
+from tensilelite.SolutionStructs.lds_layout import format_lds_layout, lds_layout_model, _rotation_model
+from tensilelite.SolutionStructs.lds_layout_svg import build_svg, svg_file_name, write_layout_svg
 from tensilelite.SolutionStructs.segment_interleave import evaluate, paired_buffer_offsets
-from tensilelite.Tests.unit.test_segment_interleave import _vw8_state
+from tensilelite.Tests.unit.test_segment_interleave import _vw8_state, _brot41_state, _brot14ab_state
 
 pytestmark = pytest.mark.unit
 
@@ -205,3 +208,137 @@ def test_asymmetric_patterns_report_active_groups_and_whole_operand(wg, active, 
         offsets = state['LDSSegInterleaveOffsets']
         key = 'componentSplit' if variant == 'tdmsplit_half' else 'portSplit' + active
         assert offsets[key]
+
+
+# ---- rotation read order, bars and SVG ----
+
+def _rotating_41_tight():
+    state = _brot41_state(tight=True, MaxLDS=5 * 65536)
+    offsets = paired_buffer_offsets(state)
+    state.update(LDSSegInterleaveOffsets=offsets, LdsNumBytes=offsets['pairedUsedBytes'])
+    return state
+
+
+def _rotating_14_ab():
+    state = _brot14ab_state()
+    state['LdsNumBytes'] = 131072 + evaluate(state)['blockSpan']
+    return state
+
+
+def _segs(region):
+    return set(range(region[0] // 65536, (region[1] - 1) // 65536 + 1))
+
+
+@pytest.mark.parametrize('make_state,tensors', [(_rotating_41_tight, ['B']), (_rotating_14_ab, ['A', 'B'])])
+def test_rotation_model_follows_the_s_xor_p_rule_and_is_conflict_free(make_state, tensors):
+    model = lds_layout_model(make_state(), 'k')
+    assert sorted({e['tensor'] for e in model['rotations']}) == tensors
+    assert len(model['rotations']) == 2 * len(tensors)        # ping and pong per rotated tensor
+    for entry in model['rotations']:
+        by_comp = {r[4]: r for r in model['regions'] if r[3] == entry['tensor'] and r[5] == entry['phase']}
+        for st in entry['steps']:
+            assert st['pair0'][0] == st['step'] and st['pair1'][0] == st['step'] ^ 1
+            assert st['pair0'][1] == tuple(sorted(_segs(by_comp[st['pair0'][0]])))
+            assert st['ok']
+
+
+def test_rotation_model_reports_a_conflict_when_components_share_a_segment():
+    model = dict(gfx1250=True, rotate=(False, True),
+                 regions=[(0, 1000, 'B0 ping', 'B', 0, 'ping'), (2000, 3000, 'B1 ping', 'B', 1, 'ping')])
+    steps = _rotation_model(model)[0]['steps']
+    assert [st['ok'] for st in steps] == [False, False]
+    assert 'CONFLICT' in build_svg(dict(name='x', macro_tile=(None, None), wave_group=[1, 4], layout='paired',
+                                        rotate=(False, True), reserved=65536, has_offsets=True,
+                                        regions=model['regions'], rotations=_rotation_model(model)))
+
+
+def test_rotation_model_is_absent_without_rotation_and_off_gfx1250():
+    assert lds_layout_model(_ordinary(), 'k')['rotations'] == []
+    state = _rotating_41_tight()
+    state['ISA'] = (9, 4, 2)
+    assert lds_layout_model(state, 'k')['rotations'] == []
+
+
+def test_text_has_rotation_table_and_bars_without_ansi_by_default():
+    text = format_lds_layout(_rotating_41_tight(), 'k')
+    assert 'Rotation B ping' in text and 'Rotation B pong' in text
+    assert 'pair0 B0' in text and 'pair1 B1' in text and 'CONFLICT' not in text
+    assert '\033[' not in text
+    bars = [line for line in text.splitlines() if line.startswith('  seg ')]
+    assert len(bars) == 5
+    assert all(len(line.split('|')[1]) == 64 for line in bars)
+    assert 'A' in bars[0] and 'b' in bars[1] + bars[2] + bars[3]
+    # existing line formats used by older assertions stay disjoint from the new sections
+    assert not any(line.startswith('    [') or line.startswith('    S') for line in text.splitlines()
+                   if line.startswith('  seg ') or line.startswith('    step'))
+
+
+def test_bars_can_be_colored_explicitly():
+    text = format_lds_layout(_rotating_41_tight(), 'k', color=True)
+    assert '\033[34mA\033[0m' in text
+    plain = re.sub(r'\033\[[0-9;]*m', '', text)
+    assert plain == format_lds_layout(_rotating_41_tight(), 'k', color=False)
+
+
+def test_non_rotating_layout_prints_bars_but_no_rotation_section():
+    text = format_lds_layout(_ordinary(), 'k')
+    assert '  seg 0 |' in text and 'Rotation' not in text
+
+
+@pytest.mark.parametrize('make_state', [_rotating_41_tight, _rotating_14_ab])
+def test_svg_is_well_formed_and_names_every_region(make_state):
+    state = make_state()
+    model = lds_layout_model(state, 'my_kernel')
+    svg = build_svg(model)
+    root = ET.fromstring(svg)
+    ns = {'s': 'http://www.w3.org/2000/svg'}
+    assert root.find('s:title', ns).text == 'my_kernel'
+    texts = [t.text or '' for t in root.iter('{http://www.w3.org/2000/svg}text')]
+    for start, end, name, *_ in model['regions']:
+        assert f'[{start:7d}, {end:7d})  {name}  ({end - start} B)' in texts
+    text = ' '.join(texts)
+    assert 'no conflict' in text and 'CONFLICT' not in text
+    assert 'Rotation read order' in text
+
+
+def test_svg_file_name_is_short_stable_and_unique_per_kernel(tmp_path):
+    state = _rotating_41_tight()
+    long_name = 'Cijk_' + 'x' * 600
+    path = write_layout_svg(state, long_name, str(tmp_path / 'sub'))
+    assert path == write_layout_svg(state, long_name, str(tmp_path / 'sub'))
+    name = path.rsplit('/', 1)[1]
+    assert len(name) < 100 and name.startswith('MT') and name.endswith('.svg')
+    assert name != svg_file_name(lds_layout_model(state, long_name + 'y'))
+    ET.parse(path)
+
+
+def test_formatting_and_svg_do_not_mutate_state(tmp_path):
+    state = _rotating_41_tight()
+    before = deepcopy({k: v for k, v in state.items() if k != 'ProblemType'})
+    format_lds_layout(state, 'k')
+    write_layout_svg(state, 'k', str(tmp_path))
+    assert {k: v for k, v in state.items() if k != 'ProblemType'} == before
+
+
+def test_svg_dir_global_defaults_to_off():
+    assert globalParameters['LDSLayoutDir'] is None
+
+
+@pytest.mark.parametrize('directory,expected', [(None, 0), ('given', 1)])
+def test_solution_writes_svg_only_when_a_directory_is_set(monkeypatch, tmp_path, directory, expected):
+    module = importlib.import_module('tensilelite.SolutionStructs.Solution')
+    final = _rotating_41_tight()
+    final.update(Valid=True)
+    monkeypatch.setattr(module.Solution, 'assignDerivedParameters',
+                        staticmethod(lambda state, *args: state.update(final)))
+    monkeypatch.setattr(module, 'getSolutionNameFull', lambda *args: 'test_kernel')
+    monkeypatch.setitem(globalParameters, 'PrintLDSLayout', True)
+    monkeypatch.setitem(globalParameters, 'LDSLayoutDir', str(tmp_path / 'lds') if directory else None)
+    isa = (12, 5, 0)
+    module.Solution({'ISA': isa, 'ProblemType': {'OperationType': 'GEMM', 'DataType': 'H'}},
+                    False, False, False,
+                    SimpleNamespace(code_object_version='default', rocm_version=None),
+                    {isa: SimpleNamespace(asmCaps={'SupportedISA': True})})
+    files = list((tmp_path / 'lds').glob('*.svg')) if directory else []
+    assert len(files) == expected
+    assert (tmp_path / 'lds').exists() == bool(directory)

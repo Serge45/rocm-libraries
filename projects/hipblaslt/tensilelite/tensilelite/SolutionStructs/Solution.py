@@ -77,6 +77,7 @@ from ..Common.ValidParameters import validParameters, \
 from .Naming import getSolutionNameFull
 from .Problem import ProblemType
 from .lds_layout import format_lds_layout
+from .lds_layout_svg import write_layout_svg
 from .segment_interleave import evaluate as segIntEval, aligned_budget_ok as segAlignedBudget, \
   paired_buffer_reason as segPairedReason, paired_buffer_offsets as segPairedOffsets, \
   paired_buffer_layout_reason as segPairedLayoutReason, \
@@ -867,6 +868,8 @@ class Solution(collections.abc.Mapping):
     if (globalParameters["PrintLDSLayout"] and self["Valid"]
         and not isHandwrittenCustomKernel and "LdsNumBytes" in self._state):
       print(format_lds_layout(self._state, str(self)), flush=True)
+      if globalParameters.get("LDSLayoutDir"):
+        write_layout_svg(self._state, str(self), globalParameters["LDSLayoutDir"])
 
   # these keys are copied from ProblemType to internal that may be overridden
   InternalKeys = ["UseSgprForGRO","VectorStore"]

@@ -777,6 +777,9 @@ def Tensile(userArgs):
         print("Overriding {0}={1}".format(key, value))
         globalParameters[key] = value
 
+    if globalParameters["PrintLDSLayout"]:
+        globalParameters["LDSLayoutDir"] = str(outputPath / "lds_layout")
+
     if "MaxFileName" in globalParameters or "MaxFileName" in config:
         printWarning("MaxFileName is no longer configurable, it will be automatically set to 64")
 
