@@ -275,6 +275,8 @@ globalParameters["PrintTensorScaleAlphaVec"] = 0  # Print TensorScaleAlphaVec af
 globalParameters["PrintTensorAmaxD"] = 0  # Print AmaxD after validation
 # Print final matrix-staging LDS addresses and the gfx1250 segment map during kernel generation.
 globalParameters["PrintLDSLayout"] = False
+# Set by Tensile.py to <OutputPath>/lds_layout when PrintLDSLayout is on: one SVG per kernel (allocation + rotation read order).
+globalParameters["LDSLayoutDir"] = None
 globalParameters["PrintWinnersOnly"] = False  # Only print the solutions which become the fastest
 globalParameters["PrintCodeCommands"] = (
     False  # print the commands used to generate the code objects (asm,link,hip-clang, etc)
@@ -825,6 +827,7 @@ globalParameterTypeOverrides = {
     "CmakeCxxCompiler":        {type(None), str},   # path, populated at startup
     "RocProfCounter":          {type(None), str},   # counter spec or None
     "MXDataGenerator":         {type(None), bool},  # unset keeps the per-problem default
+    "LDSLayoutDir":            {type(None), str},   # set by Tensile.py when PrintLDSLayout is on
 }
 
 
