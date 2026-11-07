@@ -317,6 +317,12 @@ def _getName(state, requiredParameters: frozenset, splitGSU: bool, ignoreInterna
     else:
       requiredParametersTemp.discard("LDSSegmentBRotate")
 
+    # MXScaleVgprInterleave=0 is the default layout; naming it would rename every kernel.
+    if state.get("MXScaleVgprInterleave", 0):
+      requiredParametersTemp.add("MXScaleVgprInterleave")
+    else:
+      requiredParametersTemp.discard("MXScaleVgprInterleave")
+
     # ClusterAIDMapping=-1 (disabled) is the default; naming it would rename every kernel.
     if state.get("ClusterAIDMapping", -1) != -1:
       requiredParametersTemp.add("ClusterAIDMapping")
