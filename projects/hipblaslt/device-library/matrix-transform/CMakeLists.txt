@@ -30,6 +30,7 @@ string(REGEX MATCHALL "gfx[a-z0-9]+(-[a-z0-9]+)*" archs "${GPU_TARGETS}")
 list(REMOVE_DUPLICATES archs)
 
 set(matrix_transform_cpp "${CMAKE_CURRENT_SOURCE_DIR}/matrix_transform.cpp")
+set(matrix_transform_h "${CMAKE_CURRENT_SOURCE_DIR}/matrix_transform.h")
 
 # clang derives the HIP compilation-unit ID (and the __hip_cuid_<hash> symbol
 # it emits) from the input path and the full command line, including -o, so
@@ -44,6 +45,9 @@ foreach(arch IN LISTS archs)
     add_custom_command(
         COMMAND ${CMAKE_CXX_COMPILER} -x hip ${matrix_transform_cpp} -cuid=${matrix_transform_cuid} --offload-arch=${offload_arch} -c --offload-device-only -Xoffload-linker --build-id=sha1 -O3 -DNDEBUG -o ${output_library}
         OUTPUT ${output_library}
+        # Rebuild the code object when its sources change. Without this the
+        # output is only built once and later kernel edits are silently ignored.
+        DEPENDS ${matrix_transform_cpp} ${matrix_transform_h}
         COMMENT "Building hipblasltTransform_${arch}.hsaco"
     )
     add_custom_target(matrix-transform-cp-${arch} ALL
