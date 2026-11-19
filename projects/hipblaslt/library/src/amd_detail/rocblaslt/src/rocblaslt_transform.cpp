@@ -155,7 +155,9 @@ namespace
                                      uint32_t           ldB,
                                      uint32_t           ldC,
                                      uint32_t           batchSize,
-                                     uint32_t           batchStride,
+                                     uint32_t           batchStrideA,
+                                     uint32_t           batchStrideB,
+                                     uint32_t           batchStrideC,
                                      bool               transA,
                                      bool               transB,
                                      hipStream_t        stream,
@@ -181,7 +183,9 @@ namespace
             kArgs.appendAligned("ldA", ldA);
             kArgs.appendAligned("ldB", ldB);
             kArgs.appendAligned("ldC", ldC);
-            kArgs.appendAligned("batchStride", batchStride);
+            kArgs.appendAligned("batchStrideA", batchStrideA);
+            kArgs.appendAligned("batchStrideB", batchStrideB);
+            kArgs.appendAligned("batchStrideC", batchStrideC);
             kArgs.appendAligned("transA", transA);
             kArgs.appendAligned("transB", transB);
         }
@@ -211,7 +215,9 @@ namespace
             kArgs.appendAligned("ldA", ldA);
             kArgs.appendAligned("ldB", ldB);
             kArgs.appendAligned("ldC", ldC);
-            kArgs.appendAligned("batchStride", batchStride);
+            kArgs.appendAligned("batchStrideA", batchStrideA);
+            kArgs.appendAligned("batchStrideB", batchStrideB);
+            kArgs.appendAligned("batchStrideC", batchStrideC);
             kArgs.appendAligned("transA", transA);
             kArgs.appendAligned("transB", transB);
         }
@@ -251,7 +257,9 @@ namespace
         uint32_t           ldB,                                                                 \
         uint32_t           ldC,                                                                 \
         uint32_t           batchSize,                                                           \
-        uint32_t           batchStride,                                                         \
+        uint32_t           batchStrideA,                                                        \
+        uint32_t           batchStrideB,                                                        \
+        uint32_t           batchStrideC,                                                        \
         bool               opA,                                                                 \
         bool               opB,                                                                 \
         hipStream_t        stream,                                                              \
@@ -275,7 +283,9 @@ namespace
                                                     ldB,                                        \
                                                     ldC,                                        \
                                                     batchSize,                                  \
-                                                    batchStride,                                \
+                                                    batchStrideA,                               \
+                                                    batchStrideB,                               \
+                                                    batchStrideC,                               \
                                                     opA,                                        \
                                                     opB,                                        \
                                                     stream,                                     \
@@ -299,7 +309,9 @@ namespace
             uint32_t           ldB,                                                             \
             uint32_t           ldC,                                                             \
             uint32_t           batchSize,                                                       \
-            uint32_t           batchStride,                                                     \
+            uint32_t           batchStrideA,                                                    \
+            uint32_t           batchStrideB,                                                    \
+            uint32_t           batchStrideC,                                                    \
             bool               opA,                                                             \
             bool               opB,                                                             \
             hipStream_t        stream,                                                          \
@@ -324,7 +336,9 @@ namespace
                  ldB,                                                                           \
                  ldC,                                                                           \
                  batchSize,                                                                     \
-                 batchStride,                                                                   \
+                 batchStrideA,                                                                  \
+                 batchStrideB,                                                                  \
+                 batchStrideC,                                                                  \
                  opA,                                                                           \
                  opB,                                                                           \
                  stream,                                                                        \
@@ -348,7 +362,9 @@ namespace
             uint32_t           ldB,                                                             \
             uint32_t           ldC,                                                             \
             uint32_t           batchSize,                                                       \
-            uint32_t           batchStride,                                                     \
+            uint32_t           batchStrideA,                                                    \
+            uint32_t           batchStrideB,                                                    \
+            uint32_t           batchStrideC,                                                    \
             bool               opA,                                                             \
             bool               opB,                                                             \
             hipStream_t        stream,                                                          \
@@ -373,7 +389,9 @@ namespace
                  ldB,                                                                           \
                  ldC,                                                                           \
                  batchSize,                                                                     \
-                 batchStride,                                                                   \
+                 batchStrideA,                                                                  \
+                 batchStrideB,                                                                  \
+                 batchStrideC,                                                                  \
                  opA,                                                                           \
                  opB,                                                                           \
                  stream,                                                                        \
@@ -397,7 +415,9 @@ namespace
             uint32_t           ldB,                                                             \
             uint32_t           ldC,                                                             \
             uint32_t           batchSize,                                                       \
-            uint32_t           batchStride,                                                     \
+            uint32_t           batchStrideA,                                                    \
+            uint32_t           batchStrideB,                                                    \
+            uint32_t           batchStrideC,                                                    \
             bool               opA,                                                             \
             bool               opB,                                                             \
             hipStream_t        stream,                                                          \
@@ -422,7 +442,9 @@ namespace
                  ldB,                                                                           \
                  ldC,                                                                           \
                  batchSize,                                                                     \
-                 batchStride,                                                                   \
+                 batchStrideA,                                                                  \
+                 batchStrideB,                                                                  \
+                 batchStrideC,                                                                  \
                  opA,                                                                           \
                  opB,                                                                           \
                  stream,                                                                        \
@@ -446,7 +468,9 @@ namespace
             uint32_t           ldB,                                                             \
             uint32_t           ldC,                                                             \
             uint32_t           batchSize,                                                       \
-            uint32_t           batchStride,                                                     \
+            uint32_t           batchStrideA,                                                    \
+            uint32_t           batchStrideB,                                                    \
+            uint32_t           batchStrideC,                                                    \
             bool               opA,                                                             \
             bool               opB,                                                             \
             hipStream_t        stream,                                                          \
@@ -471,7 +495,9 @@ namespace
                  ldB,                                                                           \
                  ldC,                                                                           \
                  batchSize,                                                                     \
-                 batchStride,                                                                   \
+                 batchStrideA,                                                                  \
+                 batchStrideB,                                                                  \
+                 batchStrideC,                                                                  \
                  opA,                                                                           \
                  opB,                                                                           \
                  stream,                                                                        \
@@ -495,7 +521,9 @@ namespace
             uint32_t           ldB,                                                             \
             uint32_t           ldC,                                                             \
             uint32_t           batchSize,                                                       \
-            uint32_t           batchStride,                                                     \
+            uint32_t           batchStrideA,                                                    \
+            uint32_t           batchStrideB,                                                    \
+            uint32_t           batchStrideC,                                                    \
             bool               opA,                                                             \
             bool               opB,                                                             \
             hipStream_t        stream,                                                          \
@@ -520,7 +548,9 @@ namespace
                  ldB,                                                                           \
                  ldC,                                                                           \
                  batchSize,                                                                     \
-                 batchStride,                                                                   \
+                 batchStrideA,                                                                  \
+                 batchStrideB,                                                                  \
+                 batchStrideC,                                                                  \
                  opA,                                                                           \
                  opB,                                                                           \
                  stream,                                                                        \
@@ -544,7 +574,9 @@ namespace
             uint32_t           ldB,                                                             \
             uint32_t           ldC,                                                             \
             uint32_t           batchSize,                                                       \
-            uint32_t           batchStride,                                                     \
+            uint32_t           batchStrideA,                                                    \
+            uint32_t           batchStrideB,                                                    \
+            uint32_t           batchStrideC,                                                    \
             bool               opA,                                                             \
             bool               opB,                                                             \
             hipStream_t        stream,                                                          \
@@ -569,7 +601,9 @@ namespace
                  ldB,                                                                           \
                  ldC,                                                                           \
                  batchSize,                                                                     \
-                 batchStride,                                                                   \
+                 batchStrideA,                                                                  \
+                 batchStrideB,                                                                  \
+                 batchStrideC,                                                                  \
                  opA,                                                                           \
                  opB,                                                                           \
                  stream,                                                                        \
@@ -594,7 +628,9 @@ namespace
                uint32_t           ldB,                                                          \
                uint32_t           ldC,                                                          \
                uint32_t           batchSize,                                                    \
-               uint32_t           batchStride,                                                  \
+               uint32_t           batchStrideA,                                                 \
+               uint32_t           batchStrideB,                                                 \
+               uint32_t           batchStrideC,                                                 \
                bool               opA,                                                          \
                bool               opB,                                                          \
                hipStream_t        stream,                                                       \
@@ -619,7 +655,9 @@ namespace
                     ldB,                                                                        \
                     ldC,                                                                        \
                     batchSize,                                                                  \
-                    batchStride,                                                                \
+                    batchStrideA,                                                               \
+                    batchStrideB,                                                               \
+                    batchStrideC,                                                               \
                     opA,                                                                        \
                     opB,                                                                        \
                     stream,                                                                     \
@@ -639,6 +677,8 @@ namespace
                                                              const void*,
                                                              const void*,
                                                              bool,
+                                                             uint32_t,
+                                                             uint32_t,
                                                              uint32_t,
                                                              uint32_t,
                                                              uint32_t,
@@ -830,6 +870,8 @@ rocblaslt_status rocblaslt_matrix_transform(rocblaslt_handle                 han
                                               layoutC->ld,
                                               layoutA->batch_count,
                                               layoutA->batch_stride,
+                                              layoutB->batch_stride,
+                                              layoutC->batch_stride,
                                               transA,
                                               transB,
                                               stream,

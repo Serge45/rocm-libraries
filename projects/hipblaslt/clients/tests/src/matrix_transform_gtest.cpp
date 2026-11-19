@@ -1424,3 +1424,176 @@ INSTANTIATE_TEST_SUITE_P(
                        ::testing::ValuesIn({HIPBLASLT_ORDER_ROW, HIPBLASLT_ORDER_COL}),
                        ::testing::ValuesIn({HIPBLASLT_ORDER_ROW, HIPBLASLT_ORDER_COL}),
                        ::testing::ValuesIn({HIPBLASLT_ORDER_ROW, HIPBLASLT_ORDER_COL})));
+
+namespace
+{
+    struct DeviceBuffer
+    {
+        void* ptr{};
+        ~DeviceBuffer()
+        {
+            if(ptr)
+            {
+                (void)hipFree(ptr);
+            }
+        }
+    };
+
+    // Strided-batched transform where A, B and C each have their own leading
+    // dimension and batch stride: C_i = alpha * A_i + beta * B_i, with
+    // X_i = X + i * strideX. The reference is computed on the host from the
+    // per-matrix strides, so any kernel that applies one stride to all of A, B
+    // and C is detected.
+    template <typename DType, typename ScaleType>
+    void runStridedBatchTransform(hipDataType datatype,
+                                  hipDataType scaleDatatype,
+                                  bool        useB,
+                                  int32_t     batchCount)
+    {
+        constexpr int64_t m       = 64;
+        constexpr int64_t n       = 64;
+        constexpr int64_t ldA     = 80; // padded
+        constexpr int64_t ldB     = 96; // padded differently from A
+        constexpr int64_t ldC     = 64; // packed
+        constexpr int64_t strideA = ldA * n;
+        constexpr int64_t strideB = ldB * n;
+        constexpr int64_t strideC = ldC * n;
+        constexpr auto    op      = HIPBLAS_OP_N;
+        const ScaleType   alpha   = ScaleType(1.0f);
+        const ScaleType   beta    = ScaleType(2.0f);
+
+        std::vector<DType> hA(strideA * batchCount);
+        std::vector<DType> hB(strideB * batchCount);
+        for(auto& v : hA)
+        {
+            v = DType(rand() % 7 - 3);
+        }
+        for(auto& v : hB)
+        {
+            v = DType(rand() % 7 - 3);
+        }
+
+        DeviceBuffer dA, dB, dC;
+        ASSERT_EQ(hipMalloc(&dA.ptr, hA.size() * sizeof(DType)), hipSuccess);
+        ASSERT_EQ(hipMalloc(&dB.ptr, hB.size() * sizeof(DType)), hipSuccess);
+        ASSERT_EQ(hipMalloc(&dC.ptr, strideC * batchCount * sizeof(DType)), hipSuccess);
+        ASSERT_EQ(hipMemcpy(dA.ptr, hA.data(), hA.size() * sizeof(DType), hipMemcpyHostToDevice),
+                  hipSuccess);
+        ASSERT_EQ(hipMemcpy(dB.ptr, hB.data(), hB.size() * sizeof(DType), hipMemcpyHostToDevice),
+                  hipSuccess);
+        // Sentinel so elements that are never written are detected.
+        ASSERT_EQ(hipMemset(dC.ptr, 0x7F, strideC * batchCount * sizeof(DType)), hipSuccess);
+
+        hipblasLtMatrixTransformDesc_t desc;
+        ASSERT_EQ(hipblasLtMatrixTransformDescCreate(&desc, scaleDatatype),
+                  HIPBLAS_STATUS_SUCCESS);
+        hipblasLtPointerMode_t pMode = HIPBLASLT_POINTER_MODE_HOST;
+        ASSERT_EQ(hipblasLtMatrixTransformDescSetAttribute(
+                      desc, HIPBLASLT_MATRIX_TRANSFORM_DESC_POINTER_MODE, &pMode, sizeof(pMode)),
+                  HIPBLAS_STATUS_SUCCESS);
+        ASSERT_EQ(hipblasLtMatrixTransformDescSetAttribute(
+                      desc, HIPBLASLT_MATRIX_TRANSFORM_DESC_TRANSA, &op, sizeof(op)),
+                  HIPBLAS_STATUS_SUCCESS);
+        ASSERT_EQ(hipblasLtMatrixTransformDescSetAttribute(
+                      desc, HIPBLASLT_MATRIX_TRANSFORM_DESC_TRANSB, &op, sizeof(op)),
+                  HIPBLAS_STATUS_SUCCESS);
+
+        hipblasLtMatrixLayout_t layoutA, layoutB{}, layoutC;
+        ASSERT_EQ(hipblasLtMatrixLayoutCreate(&layoutA, datatype, m, n, ldA),
+                  HIPBLAS_STATUS_SUCCESS);
+        ASSERT_EQ(hipblasLtMatrixLayoutCreate(&layoutC, datatype, m, n, ldC),
+                  HIPBLAS_STATUS_SUCCESS);
+        if(useB)
+        {
+            ASSERT_EQ(hipblasLtMatrixLayoutCreate(&layoutB, datatype, m, n, ldB),
+                      HIPBLAS_STATUS_SUCCESS);
+        }
+
+        auto setBatch = [&](hipblasLtMatrixLayout_t layout, int64_t stride) {
+            EXPECT_EQ(hipblasLtMatrixLayoutSetAttribute(layout,
+                                                        HIPBLASLT_MATRIX_LAYOUT_BATCH_COUNT,
+                                                        &batchCount,
+                                                        sizeof(batchCount)),
+                      HIPBLAS_STATUS_SUCCESS);
+            EXPECT_EQ(hipblasLtMatrixLayoutSetAttribute(layout,
+                                                        HIPBLASLT_MATRIX_LAYOUT_STRIDED_BATCH_OFFSET,
+                                                        &stride,
+                                                        sizeof(stride)),
+                      HIPBLAS_STATUS_SUCCESS);
+        };
+        setBatch(layoutA, strideA);
+        setBatch(layoutC, strideC);
+        if(useB)
+        {
+            setBatch(layoutB, strideB);
+        }
+
+        hipblasLtHandle_t handle{};
+        ASSERT_EQ(hipblasLtCreate(&handle), HIPBLAS_STATUS_SUCCESS);
+        const auto status
+            = hipblasLtMatrixTransform(handle,
+                                       desc,
+                                       &alpha,
+                                       dA.ptr,
+                                       layoutA,
+                                       useB ? &beta : nullptr,
+                                       useB ? dB.ptr : nullptr,
+                                       useB ? layoutB : nullptr,
+                                       dC.ptr,
+                                       layoutC,
+                                       nullptr);
+        EXPECT_EQ(status, HIPBLAS_STATUS_SUCCESS);
+        ASSERT_EQ(hipDeviceSynchronize(), hipSuccess);
+
+        EXPECT_EQ(hipblasLtMatrixTransformDescDestroy(desc), HIPBLAS_STATUS_SUCCESS);
+        EXPECT_EQ(hipblasLtDestroy(handle), HIPBLAS_STATUS_SUCCESS);
+        EXPECT_EQ(hipblasLtMatrixLayoutDestroy(layoutA), HIPBLAS_STATUS_SUCCESS);
+        EXPECT_EQ(hipblasLtMatrixLayoutDestroy(layoutC), HIPBLAS_STATUS_SUCCESS);
+        if(useB)
+        {
+            EXPECT_EQ(hipblasLtMatrixLayoutDestroy(layoutB), HIPBLAS_STATUS_SUCCESS);
+        }
+        ASSERT_EQ(status, HIPBLAS_STATUS_SUCCESS);
+
+        std::vector<DType> hC(strideC * batchCount);
+        ASSERT_EQ(hipMemcpy(hC.data(), dC.ptr, hC.size() * sizeof(DType), hipMemcpyDeviceToHost),
+                  hipSuccess);
+
+        for(int32_t i = 0; i < batchCount; ++i)
+        {
+            for(int64_t col = 0; col < n; ++col)
+            {
+                for(int64_t row = 0; row < m; ++row)
+                {
+                    float expected = float(alpha) * float(hA[i * strideA + col * ldA + row]);
+                    if(useB)
+                    {
+                        expected += float(beta) * float(hB[i * strideB + col * ldB + row]);
+                    }
+                    const float actual = float(hC[i * strideC + col * ldC + row]);
+                    if(actual != expected)
+                    {
+                        FAIL() << "batch " << i << " (row " << row << ", col " << col
+                               << "): expected " << expected << ", got " << actual;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Each of A, B and C must be addressed with its own batch stride.
+TEST(MatrixTransformTest, StridedBatch_NullB_Float)
+{
+    runStridedBatchTransform<hipblasLtFloat, hipblasLtFloat>(HIP_R_32F, HIP_R_32F, false, 4);
+}
+
+TEST(MatrixTransformTest, StridedBatch_AllPresent_Float)
+{
+    runStridedBatchTransform<hipblasLtFloat, hipblasLtFloat>(HIP_R_32F, HIP_R_32F, true, 4);
+}
+
+TEST(MatrixTransformTest, StridedBatch_AllPresent_Half)
+{
+    runStridedBatchTransform<hipblasLtHalf, hipblasLtFloat>(HIP_R_16F, HIP_R_32F, true, 4);
+}

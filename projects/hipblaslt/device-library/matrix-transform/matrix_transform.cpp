@@ -113,7 +113,9 @@ namespace amd_detail
                               uint32_t         ldA,
                               uint32_t         ldB,
                               uint32_t         ldC,
-                              uint32_t         batchStride,
+                              uint32_t         batchStrideA,
+                              uint32_t         batchStrideB,
+                              uint32_t         batchStrideC,
                               bool             transA,
                               bool             transB)
     {
@@ -142,7 +144,9 @@ namespace amd_detail
             beta = *betaPtr;
         }
 
-        const auto batchOffset = batchIdx * batchStride;
+        const auto batchOffsetA = batchIdx * batchStrideA;
+        const auto batchOffsetB = batchIdx * batchStrideB;
+        const auto batchOffsetC = batchIdx * batchStrideC;
 
         if constexpr(VectorWidth == 1)
         {
@@ -150,15 +154,15 @@ namespace amd_detail
             {
                 const auto offsetA = (transA ? getOffset<RowMajA>(col, row, ldA)
                                              : getOffset<RowMajA>(row, col, ldA))
-                                     + batchOffset;
+                                     + batchOffsetA;
                 const auto offsetB = (transB ? getOffset<RowMajB>(col, row, ldB)
                                              : getOffset<RowMajB>(row, col, ldB))
-                                     + batchOffset;
+                                     + batchOffsetB;
                 const ScaleType aData = a ? static_cast<ScaleType>(a[offsetA]) : 0;
                 const ScaleType bData = b ? static_cast<ScaleType>(b[offsetB]) : 0;
                 const DType     cData = static_cast<DType>(aData * alpha + bData * beta);
                 const auto      offsetC
-                    = getOffset<RowMajC>(tRow + blockRow, tCol + blockCol, ldC) + batchOffset;
+                    = getOffset<RowMajC>(tRow + blockRow, tCol + blockCol, ldC) + batchOffsetC;
                 c[offsetC] = cData;
             }
         }
@@ -198,19 +202,19 @@ namespace amd_detail
                 {
                     offsetA = (transA ? getOffset<RowMajA>(col + i - vectorShift, row, ldA)
                                       : getOffset<RowMajA>(row, col + i - vectorShift, ldA))
-                              + batchOffset;
+                              + batchOffsetA;
                     offsetB = (transB ? getOffset<RowMajB>(col + i - vectorShift, row, ldB)
                                       : getOffset<RowMajB>(row, col + i - vectorShift, ldB))
-                              + batchOffset;
+                              + batchOffsetB;
                 }
                 else
                 {
                     offsetA = (transA ? getOffset<RowMajA>(col, row + i - vectorShift, ldA)
                                       : getOffset<RowMajA>(row + i - vectorShift, col, ldA))
-                              + batchOffset;
+                              + batchOffsetA;
                     offsetB = (transB ? getOffset<RowMajB>(col, row + i - vectorShift, ldB)
                                       : getOffset<RowMajB>(row + i - vectorShift, col, ldB))
-                              + batchOffset;
+                              + batchOffsetB;
                 }
 
                 aData[i] = a ? static_cast<ScaleType>(a[offsetA]) : 0;
@@ -224,12 +228,12 @@ namespace amd_detail
             if constexpr(RowMajC)
             {
                 cOffset = getOffset<RowMajC>(tRow + blockRow, tCol + blockCol - vectorShift, ldC)
-                          + batchOffset;
+                          + batchOffsetC;
             }
             else
             {
                 cOffset = getOffset<RowMajC>(tRow + blockRow - vectorShift, tCol + blockCol, ldC)
-                          + batchOffset;
+                          + batchOffsetC;
             }
 
             using VectorType = typename VectorIOType<DType, VectorWidth>::vtype;
@@ -302,7 +306,9 @@ __global__ void TRANSFORM_FUNC_NAME(S, S, 1, 1, 1, 16, 16, 1)(DTYPE(S) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -318,7 +324,9 @@ __global__ void TRANSFORM_FUNC_NAME(S, S, 1, 1, 1, 16, 16, 1)(DTYPE(S) * c,
                                                                            ldA,
                                                                            ldB,
                                                                            ldC,
-                                                                           batchStride,
+                                                                           batchStrideA,
+                                                                           batchStrideB,
+                                                                           batchStrideC,
                                                                            transA,
                                                                            transB);
 }
@@ -334,7 +342,9 @@ __global__ void TRANSFORM_FUNC_NAME(S, S, 1, 1, 1, 16, 16, 4)(DTYPE(S) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -350,7 +360,9 @@ __global__ void TRANSFORM_FUNC_NAME(S, S, 1, 1, 1, 16, 16, 4)(DTYPE(S) * c,
                                                                            ldA,
                                                                            ldB,
                                                                            ldC,
-                                                                           batchStride,
+                                                                           batchStrideA,
+                                                                           batchStrideB,
+                                                                           batchStrideC,
                                                                            transA,
                                                                            transB);
 }
@@ -366,7 +378,9 @@ __global__ void TRANSFORM_FUNC_NAME(S, S, 1, 1, 0, 16, 16, 1)(DTYPE(S) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -382,7 +396,9 @@ __global__ void TRANSFORM_FUNC_NAME(S, S, 1, 1, 0, 16, 16, 1)(DTYPE(S) * c,
                                                                             ldA,
                                                                             ldB,
                                                                             ldC,
-                                                                            batchStride,
+                                                                            batchStrideA,
+                                                                            batchStrideB,
+                                                                            batchStrideC,
                                                                             transA,
                                                                             transB);
 }
@@ -398,7 +414,9 @@ __global__ void TRANSFORM_FUNC_NAME(S, S, 1, 1, 0, 16, 16, 4)(DTYPE(S) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -414,7 +432,9 @@ __global__ void TRANSFORM_FUNC_NAME(S, S, 1, 1, 0, 16, 16, 4)(DTYPE(S) * c,
                                                                             ldA,
                                                                             ldB,
                                                                             ldC,
-                                                                            batchStride,
+                                                                            batchStrideA,
+                                                                            batchStrideB,
+                                                                            batchStrideC,
                                                                             transA,
                                                                             transB);
 }
@@ -430,7 +450,9 @@ __global__ void TRANSFORM_FUNC_NAME(S, S, 1, 0, 1, 16, 16, 1)(DTYPE(S) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -446,7 +468,9 @@ __global__ void TRANSFORM_FUNC_NAME(S, S, 1, 0, 1, 16, 16, 1)(DTYPE(S) * c,
                                                                             ldA,
                                                                             ldB,
                                                                             ldC,
-                                                                            batchStride,
+                                                                            batchStrideA,
+                                                                            batchStrideB,
+                                                                            batchStrideC,
                                                                             transA,
                                                                             transB);
 }
@@ -462,7 +486,9 @@ __global__ void TRANSFORM_FUNC_NAME(S, S, 1, 0, 1, 16, 16, 4)(DTYPE(S) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -478,7 +504,9 @@ __global__ void TRANSFORM_FUNC_NAME(S, S, 1, 0, 1, 16, 16, 4)(DTYPE(S) * c,
                                                                             ldA,
                                                                             ldB,
                                                                             ldC,
-                                                                            batchStride,
+                                                                            batchStrideA,
+                                                                            batchStrideB,
+                                                                            batchStrideC,
                                                                             transA,
                                                                             transB);
 }
@@ -494,7 +522,9 @@ __global__ void TRANSFORM_FUNC_NAME(S, S, 1, 0, 0, 16, 16, 1)(DTYPE(S) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -510,7 +540,9 @@ __global__ void TRANSFORM_FUNC_NAME(S, S, 1, 0, 0, 16, 16, 1)(DTYPE(S) * c,
                                                                              ldA,
                                                                              ldB,
                                                                              ldC,
-                                                                             batchStride,
+                                                                             batchStrideA,
+                                                                             batchStrideB,
+                                                                             batchStrideC,
                                                                              transA,
                                                                              transB);
 }
@@ -526,7 +558,9 @@ __global__ void TRANSFORM_FUNC_NAME(S, S, 1, 0, 0, 16, 16, 4)(DTYPE(S) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -542,7 +576,9 @@ __global__ void TRANSFORM_FUNC_NAME(S, S, 1, 0, 0, 16, 16, 4)(DTYPE(S) * c,
                                                                              ldA,
                                                                              ldB,
                                                                              ldC,
-                                                                             batchStride,
+                                                                             batchStrideA,
+                                                                             batchStrideB,
+                                                                             batchStrideC,
                                                                              transA,
                                                                              transB);
 }
@@ -558,7 +594,9 @@ __global__ void TRANSFORM_FUNC_NAME(S, S, 0, 1, 1, 16, 16, 1)(DTYPE(S) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -574,7 +612,9 @@ __global__ void TRANSFORM_FUNC_NAME(S, S, 0, 1, 1, 16, 16, 1)(DTYPE(S) * c,
                                                                             ldA,
                                                                             ldB,
                                                                             ldC,
-                                                                            batchStride,
+                                                                            batchStrideA,
+                                                                            batchStrideB,
+                                                                            batchStrideC,
                                                                             transA,
                                                                             transB);
 }
@@ -590,7 +630,9 @@ __global__ void TRANSFORM_FUNC_NAME(S, S, 0, 1, 1, 16, 16, 4)(DTYPE(S) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -606,7 +648,9 @@ __global__ void TRANSFORM_FUNC_NAME(S, S, 0, 1, 1, 16, 16, 4)(DTYPE(S) * c,
                                                                             ldA,
                                                                             ldB,
                                                                             ldC,
-                                                                            batchStride,
+                                                                            batchStrideA,
+                                                                            batchStrideB,
+                                                                            batchStrideC,
                                                                             transA,
                                                                             transB);
 }
@@ -622,7 +666,9 @@ __global__ void TRANSFORM_FUNC_NAME(S, S, 0, 1, 0, 16, 16, 1)(DTYPE(S) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -638,7 +684,9 @@ __global__ void TRANSFORM_FUNC_NAME(S, S, 0, 1, 0, 16, 16, 1)(DTYPE(S) * c,
                                                                              ldA,
                                                                              ldB,
                                                                              ldC,
-                                                                             batchStride,
+                                                                             batchStrideA,
+                                                                             batchStrideB,
+                                                                             batchStrideC,
                                                                              transA,
                                                                              transB);
 }
@@ -654,7 +702,9 @@ __global__ void TRANSFORM_FUNC_NAME(S, S, 0, 1, 0, 16, 16, 4)(DTYPE(S) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -670,7 +720,9 @@ __global__ void TRANSFORM_FUNC_NAME(S, S, 0, 1, 0, 16, 16, 4)(DTYPE(S) * c,
                                                                              ldA,
                                                                              ldB,
                                                                              ldC,
-                                                                             batchStride,
+                                                                             batchStrideA,
+                                                                             batchStrideB,
+                                                                             batchStrideC,
                                                                              transA,
                                                                              transB);
 }
@@ -686,7 +738,9 @@ __global__ void TRANSFORM_FUNC_NAME(S, S, 0, 0, 1, 16, 16, 1)(DTYPE(S) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -702,7 +756,9 @@ __global__ void TRANSFORM_FUNC_NAME(S, S, 0, 0, 1, 16, 16, 1)(DTYPE(S) * c,
                                                                              ldA,
                                                                              ldB,
                                                                              ldC,
-                                                                             batchStride,
+                                                                             batchStrideA,
+                                                                             batchStrideB,
+                                                                             batchStrideC,
                                                                              transA,
                                                                              transB);
 }
@@ -718,7 +774,9 @@ __global__ void TRANSFORM_FUNC_NAME(S, S, 0, 0, 1, 16, 16, 4)(DTYPE(S) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -734,7 +792,9 @@ __global__ void TRANSFORM_FUNC_NAME(S, S, 0, 0, 1, 16, 16, 4)(DTYPE(S) * c,
                                                                              ldA,
                                                                              ldB,
                                                                              ldC,
-                                                                             batchStride,
+                                                                             batchStrideA,
+                                                                             batchStrideB,
+                                                                             batchStrideC,
                                                                              transA,
                                                                              transB);
 }
@@ -750,7 +810,9 @@ __global__ void TRANSFORM_FUNC_NAME(S, S, 0, 0, 0, 16, 16, 1)(DTYPE(S) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -766,7 +828,9 @@ __global__ void TRANSFORM_FUNC_NAME(S, S, 0, 0, 0, 16, 16, 1)(DTYPE(S) * c,
                                                                               ldA,
                                                                               ldB,
                                                                               ldC,
-                                                                              batchStride,
+                                                                              batchStrideA,
+                                                                              batchStrideB,
+                                                                              batchStrideC,
                                                                               transA,
                                                                               transB);
 }
@@ -782,7 +846,9 @@ __global__ void TRANSFORM_FUNC_NAME(S, S, 0, 0, 0, 16, 16, 4)(DTYPE(S) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -798,7 +864,9 @@ __global__ void TRANSFORM_FUNC_NAME(S, S, 0, 0, 0, 16, 16, 4)(DTYPE(S) * c,
                                                                               ldA,
                                                                               ldB,
                                                                               ldC,
-                                                                              batchStride,
+                                                                              batchStrideA,
+                                                                              batchStrideB,
+                                                                              batchStrideC,
                                                                               transA,
                                                                               transB);
 }
@@ -814,7 +882,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, H, 1, 1, 1, 16, 16, 1)(DTYPE(H) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -830,7 +900,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, H, 1, 1, 1, 16, 16, 1)(DTYPE(H) * c,
                                                                            ldA,
                                                                            ldB,
                                                                            ldC,
-                                                                           batchStride,
+                                                                           batchStrideA,
+                                                                           batchStrideB,
+                                                                           batchStrideC,
                                                                            transA,
                                                                            transB);
 }
@@ -846,7 +918,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, H, 1, 1, 1, 16, 16, 4)(DTYPE(H) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -862,7 +936,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, H, 1, 1, 1, 16, 16, 4)(DTYPE(H) * c,
                                                                            ldA,
                                                                            ldB,
                                                                            ldC,
-                                                                           batchStride,
+                                                                           batchStrideA,
+                                                                           batchStrideB,
+                                                                           batchStrideC,
                                                                            transA,
                                                                            transB);
 }
@@ -878,7 +954,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, H, 1, 1, 0, 16, 16, 1)(DTYPE(H) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -894,7 +972,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, H, 1, 1, 0, 16, 16, 1)(DTYPE(H) * c,
                                                                             ldA,
                                                                             ldB,
                                                                             ldC,
-                                                                            batchStride,
+                                                                            batchStrideA,
+                                                                            batchStrideB,
+                                                                            batchStrideC,
                                                                             transA,
                                                                             transB);
 }
@@ -910,7 +990,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, H, 1, 1, 0, 16, 16, 4)(DTYPE(H) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -926,7 +1008,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, H, 1, 1, 0, 16, 16, 4)(DTYPE(H) * c,
                                                                             ldA,
                                                                             ldB,
                                                                             ldC,
-                                                                            batchStride,
+                                                                            batchStrideA,
+                                                                            batchStrideB,
+                                                                            batchStrideC,
                                                                             transA,
                                                                             transB);
 }
@@ -942,7 +1026,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, H, 1, 0, 1, 16, 16, 1)(DTYPE(H) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -958,7 +1044,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, H, 1, 0, 1, 16, 16, 1)(DTYPE(H) * c,
                                                                             ldA,
                                                                             ldB,
                                                                             ldC,
-                                                                            batchStride,
+                                                                            batchStrideA,
+                                                                            batchStrideB,
+                                                                            batchStrideC,
                                                                             transA,
                                                                             transB);
 }
@@ -974,7 +1062,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, H, 1, 0, 1, 16, 16, 4)(DTYPE(H) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -990,7 +1080,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, H, 1, 0, 1, 16, 16, 4)(DTYPE(H) * c,
                                                                             ldA,
                                                                             ldB,
                                                                             ldC,
-                                                                            batchStride,
+                                                                            batchStrideA,
+                                                                            batchStrideB,
+                                                                            batchStrideC,
                                                                             transA,
                                                                             transB);
 }
@@ -1006,7 +1098,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, H, 1, 0, 0, 16, 16, 1)(DTYPE(H) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -1022,7 +1116,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, H, 1, 0, 0, 16, 16, 1)(DTYPE(H) * c,
                                                                              ldA,
                                                                              ldB,
                                                                              ldC,
-                                                                             batchStride,
+                                                                             batchStrideA,
+                                                                             batchStrideB,
+                                                                             batchStrideC,
                                                                              transA,
                                                                              transB);
 }
@@ -1038,7 +1134,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, H, 1, 0, 0, 16, 16, 4)(DTYPE(H) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -1054,7 +1152,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, H, 1, 0, 0, 16, 16, 4)(DTYPE(H) * c,
                                                                              ldA,
                                                                              ldB,
                                                                              ldC,
-                                                                             batchStride,
+                                                                             batchStrideA,
+                                                                             batchStrideB,
+                                                                             batchStrideC,
                                                                              transA,
                                                                              transB);
 }
@@ -1070,7 +1170,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, H, 0, 1, 1, 16, 16, 1)(DTYPE(H) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -1086,7 +1188,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, H, 0, 1, 1, 16, 16, 1)(DTYPE(H) * c,
                                                                             ldA,
                                                                             ldB,
                                                                             ldC,
-                                                                            batchStride,
+                                                                            batchStrideA,
+                                                                            batchStrideB,
+                                                                            batchStrideC,
                                                                             transA,
                                                                             transB);
 }
@@ -1102,7 +1206,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, H, 0, 1, 1, 16, 16, 4)(DTYPE(H) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -1118,7 +1224,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, H, 0, 1, 1, 16, 16, 4)(DTYPE(H) * c,
                                                                             ldA,
                                                                             ldB,
                                                                             ldC,
-                                                                            batchStride,
+                                                                            batchStrideA,
+                                                                            batchStrideB,
+                                                                            batchStrideC,
                                                                             transA,
                                                                             transB);
 }
@@ -1134,7 +1242,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, H, 0, 1, 0, 16, 16, 1)(DTYPE(H) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -1150,7 +1260,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, H, 0, 1, 0, 16, 16, 1)(DTYPE(H) * c,
                                                                              ldA,
                                                                              ldB,
                                                                              ldC,
-                                                                             batchStride,
+                                                                             batchStrideA,
+                                                                             batchStrideB,
+                                                                             batchStrideC,
                                                                              transA,
                                                                              transB);
 }
@@ -1166,7 +1278,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, H, 0, 1, 0, 16, 16, 4)(DTYPE(H) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -1182,7 +1296,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, H, 0, 1, 0, 16, 16, 4)(DTYPE(H) * c,
                                                                              ldA,
                                                                              ldB,
                                                                              ldC,
-                                                                             batchStride,
+                                                                             batchStrideA,
+                                                                             batchStrideB,
+                                                                             batchStrideC,
                                                                              transA,
                                                                              transB);
 }
@@ -1198,7 +1314,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, H, 0, 0, 1, 16, 16, 1)(DTYPE(H) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -1214,7 +1332,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, H, 0, 0, 1, 16, 16, 1)(DTYPE(H) * c,
                                                                              ldA,
                                                                              ldB,
                                                                              ldC,
-                                                                             batchStride,
+                                                                             batchStrideA,
+                                                                             batchStrideB,
+                                                                             batchStrideC,
                                                                              transA,
                                                                              transB);
 }
@@ -1230,7 +1350,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, H, 0, 0, 1, 16, 16, 4)(DTYPE(H) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -1246,7 +1368,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, H, 0, 0, 1, 16, 16, 4)(DTYPE(H) * c,
                                                                              ldA,
                                                                              ldB,
                                                                              ldC,
-                                                                             batchStride,
+                                                                             batchStrideA,
+                                                                             batchStrideB,
+                                                                             batchStrideC,
                                                                              transA,
                                                                              transB);
 }
@@ -1262,7 +1386,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, H, 0, 0, 0, 16, 16, 1)(DTYPE(H) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -1278,7 +1404,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, H, 0, 0, 0, 16, 16, 1)(DTYPE(H) * c,
                                                                               ldA,
                                                                               ldB,
                                                                               ldC,
-                                                                              batchStride,
+                                                                              batchStrideA,
+                                                                              batchStrideB,
+                                                                              batchStrideC,
                                                                               transA,
                                                                               transB);
 }
@@ -1294,7 +1422,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, H, 0, 0, 0, 16, 16, 4)(DTYPE(H) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -1310,7 +1440,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, H, 0, 0, 0, 16, 16, 4)(DTYPE(H) * c,
                                                                               ldA,
                                                                               ldB,
                                                                               ldC,
-                                                                              batchStride,
+                                                                              batchStrideA,
+                                                                              batchStrideB,
+                                                                              batchStrideC,
                                                                               transA,
                                                                               transB);
 }
@@ -1326,7 +1458,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, S, 1, 1, 1, 16, 16, 1)(DTYPE(H) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -1342,7 +1476,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, S, 1, 1, 1, 16, 16, 1)(DTYPE(H) * c,
                                                                            ldA,
                                                                            ldB,
                                                                            ldC,
-                                                                           batchStride,
+                                                                           batchStrideA,
+                                                                           batchStrideB,
+                                                                           batchStrideC,
                                                                            transA,
                                                                            transB);
 }
@@ -1358,7 +1494,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, S, 1, 1, 1, 16, 16, 4)(DTYPE(H) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -1374,7 +1512,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, S, 1, 1, 1, 16, 16, 4)(DTYPE(H) * c,
                                                                            ldA,
                                                                            ldB,
                                                                            ldC,
-                                                                           batchStride,
+                                                                           batchStrideA,
+                                                                           batchStrideB,
+                                                                           batchStrideC,
                                                                            transA,
                                                                            transB);
 }
@@ -1390,7 +1530,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, S, 1, 1, 0, 16, 16, 1)(DTYPE(H) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -1406,7 +1548,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, S, 1, 1, 0, 16, 16, 1)(DTYPE(H) * c,
                                                                             ldA,
                                                                             ldB,
                                                                             ldC,
-                                                                            batchStride,
+                                                                            batchStrideA,
+                                                                            batchStrideB,
+                                                                            batchStrideC,
                                                                             transA,
                                                                             transB);
 }
@@ -1422,7 +1566,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, S, 1, 1, 0, 16, 16, 4)(DTYPE(H) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -1438,7 +1584,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, S, 1, 1, 0, 16, 16, 4)(DTYPE(H) * c,
                                                                             ldA,
                                                                             ldB,
                                                                             ldC,
-                                                                            batchStride,
+                                                                            batchStrideA,
+                                                                            batchStrideB,
+                                                                            batchStrideC,
                                                                             transA,
                                                                             transB);
 }
@@ -1454,7 +1602,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, S, 1, 0, 1, 16, 16, 1)(DTYPE(H) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -1470,7 +1620,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, S, 1, 0, 1, 16, 16, 1)(DTYPE(H) * c,
                                                                             ldA,
                                                                             ldB,
                                                                             ldC,
-                                                                            batchStride,
+                                                                            batchStrideA,
+                                                                            batchStrideB,
+                                                                            batchStrideC,
                                                                             transA,
                                                                             transB);
 }
@@ -1486,7 +1638,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, S, 1, 0, 1, 16, 16, 4)(DTYPE(H) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -1502,7 +1656,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, S, 1, 0, 1, 16, 16, 4)(DTYPE(H) * c,
                                                                             ldA,
                                                                             ldB,
                                                                             ldC,
-                                                                            batchStride,
+                                                                            batchStrideA,
+                                                                            batchStrideB,
+                                                                            batchStrideC,
                                                                             transA,
                                                                             transB);
 }
@@ -1518,7 +1674,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, S, 1, 0, 0, 16, 16, 1)(DTYPE(H) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -1534,7 +1692,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, S, 1, 0, 0, 16, 16, 1)(DTYPE(H) * c,
                                                                              ldA,
                                                                              ldB,
                                                                              ldC,
-                                                                             batchStride,
+                                                                             batchStrideA,
+                                                                             batchStrideB,
+                                                                             batchStrideC,
                                                                              transA,
                                                                              transB);
 }
@@ -1550,7 +1710,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, S, 1, 0, 0, 16, 16, 4)(DTYPE(H) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -1566,7 +1728,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, S, 1, 0, 0, 16, 16, 4)(DTYPE(H) * c,
                                                                              ldA,
                                                                              ldB,
                                                                              ldC,
-                                                                             batchStride,
+                                                                             batchStrideA,
+                                                                             batchStrideB,
+                                                                             batchStrideC,
                                                                              transA,
                                                                              transB);
 }
@@ -1582,7 +1746,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, S, 0, 1, 1, 16, 16, 1)(DTYPE(H) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -1598,7 +1764,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, S, 0, 1, 1, 16, 16, 1)(DTYPE(H) * c,
                                                                             ldA,
                                                                             ldB,
                                                                             ldC,
-                                                                            batchStride,
+                                                                            batchStrideA,
+                                                                            batchStrideB,
+                                                                            batchStrideC,
                                                                             transA,
                                                                             transB);
 }
@@ -1614,7 +1782,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, S, 0, 1, 1, 16, 16, 4)(DTYPE(H) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -1630,7 +1800,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, S, 0, 1, 1, 16, 16, 4)(DTYPE(H) * c,
                                                                             ldA,
                                                                             ldB,
                                                                             ldC,
-                                                                            batchStride,
+                                                                            batchStrideA,
+                                                                            batchStrideB,
+                                                                            batchStrideC,
                                                                             transA,
                                                                             transB);
 }
@@ -1646,7 +1818,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, S, 0, 1, 0, 16, 16, 1)(DTYPE(H) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -1662,7 +1836,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, S, 0, 1, 0, 16, 16, 1)(DTYPE(H) * c,
                                                                              ldA,
                                                                              ldB,
                                                                              ldC,
-                                                                             batchStride,
+                                                                             batchStrideA,
+                                                                             batchStrideB,
+                                                                             batchStrideC,
                                                                              transA,
                                                                              transB);
 }
@@ -1678,7 +1854,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, S, 0, 1, 0, 16, 16, 4)(DTYPE(H) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -1694,7 +1872,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, S, 0, 1, 0, 16, 16, 4)(DTYPE(H) * c,
                                                                              ldA,
                                                                              ldB,
                                                                              ldC,
-                                                                             batchStride,
+                                                                             batchStrideA,
+                                                                             batchStrideB,
+                                                                             batchStrideC,
                                                                              transA,
                                                                              transB);
 }
@@ -1710,7 +1890,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, S, 0, 0, 1, 16, 16, 1)(DTYPE(H) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -1726,7 +1908,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, S, 0, 0, 1, 16, 16, 1)(DTYPE(H) * c,
                                                                              ldA,
                                                                              ldB,
                                                                              ldC,
-                                                                             batchStride,
+                                                                             batchStrideA,
+                                                                             batchStrideB,
+                                                                             batchStrideC,
                                                                              transA,
                                                                              transB);
 }
@@ -1742,7 +1926,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, S, 0, 0, 1, 16, 16, 4)(DTYPE(H) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -1758,7 +1944,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, S, 0, 0, 1, 16, 16, 4)(DTYPE(H) * c,
                                                                              ldA,
                                                                              ldB,
                                                                              ldC,
-                                                                             batchStride,
+                                                                             batchStrideA,
+                                                                             batchStrideB,
+                                                                             batchStrideC,
                                                                              transA,
                                                                              transB);
 }
@@ -1774,7 +1962,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, S, 0, 0, 0, 16, 16, 1)(DTYPE(H) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -1790,7 +1980,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, S, 0, 0, 0, 16, 16, 1)(DTYPE(H) * c,
                                                                               ldA,
                                                                               ldB,
                                                                               ldC,
-                                                                              batchStride,
+                                                                              batchStrideA,
+                                                                              batchStrideB,
+                                                                              batchStrideC,
                                                                               transA,
                                                                               transB);
 }
@@ -1806,7 +1998,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, S, 0, 0, 0, 16, 16, 4)(DTYPE(H) * c,
                                                               uint32_t ldA,
                                                               uint32_t ldB,
                                                               uint32_t ldC,
-                                                              uint32_t batchStride,
+                                                              uint32_t batchStrideA,
+                                                              uint32_t batchStrideB,
+                                                              uint32_t batchStrideC,
                                                               bool     transA,
                                                               bool     transB)
 {
@@ -1822,7 +2016,9 @@ __global__ void TRANSFORM_FUNC_NAME(H, S, 0, 0, 0, 16, 16, 4)(DTYPE(H) * c,
                                                                               ldA,
                                                                               ldB,
                                                                               ldC,
-                                                                              batchStride,
+                                                                              batchStrideA,
+                                                                              batchStrideB,
+                                                                              batchStrideC,
                                                                               transA,
                                                                               transB);
 }
@@ -1838,7 +2034,9 @@ __global__ void TRANSFORM_FUNC_NAME(BF16, S, 1, 1, 1, 16, 16, 1)(DTYPE(BF16) * c
                                                                  uint32_t ldA,
                                                                  uint32_t ldB,
                                                                  uint32_t ldC,
-                                                                 uint32_t batchStride,
+                                                                 uint32_t batchStrideA,
+                                                                 uint32_t batchStrideB,
+                                                                 uint32_t batchStrideC,
                                                                  bool     transA,
                                                                  bool     transB)
 {
@@ -1854,7 +2052,9 @@ __global__ void TRANSFORM_FUNC_NAME(BF16, S, 1, 1, 1, 16, 16, 1)(DTYPE(BF16) * c
                                                                               ldA,
                                                                               ldB,
                                                                               ldC,
-                                                                              batchStride,
+                                                                              batchStrideA,
+                                                                              batchStrideB,
+                                                                              batchStrideC,
                                                                               transA,
                                                                               transB);
 }
@@ -1870,7 +2070,9 @@ __global__ void TRANSFORM_FUNC_NAME(BF16, S, 1, 1, 1, 16, 16, 4)(DTYPE(BF16) * c
                                                                  uint32_t ldA,
                                                                  uint32_t ldB,
                                                                  uint32_t ldC,
-                                                                 uint32_t batchStride,
+                                                                 uint32_t batchStrideA,
+                                                                 uint32_t batchStrideB,
+                                                                 uint32_t batchStrideC,
                                                                  bool     transA,
                                                                  bool     transB)
 {
@@ -1886,7 +2088,9 @@ __global__ void TRANSFORM_FUNC_NAME(BF16, S, 1, 1, 1, 16, 16, 4)(DTYPE(BF16) * c
                                                                               ldA,
                                                                               ldB,
                                                                               ldC,
-                                                                              batchStride,
+                                                                              batchStrideA,
+                                                                              batchStrideB,
+                                                                              batchStrideC,
                                                                               transA,
                                                                               transB);
 }
@@ -1902,7 +2106,9 @@ __global__ void TRANSFORM_FUNC_NAME(BF16, S, 1, 1, 0, 16, 16, 1)(DTYPE(BF16) * c
                                                                  uint32_t ldA,
                                                                  uint32_t ldB,
                                                                  uint32_t ldC,
-                                                                 uint32_t batchStride,
+                                                                 uint32_t batchStrideA,
+                                                                 uint32_t batchStrideB,
+                                                                 uint32_t batchStrideC,
                                                                  bool     transA,
                                                                  bool     transB)
 {
@@ -1918,7 +2124,9 @@ __global__ void TRANSFORM_FUNC_NAME(BF16, S, 1, 1, 0, 16, 16, 1)(DTYPE(BF16) * c
                                                                                ldA,
                                                                                ldB,
                                                                                ldC,
-                                                                               batchStride,
+                                                                               batchStrideA,
+                                                                               batchStrideB,
+                                                                               batchStrideC,
                                                                                transA,
                                                                                transB);
 }
@@ -1934,7 +2142,9 @@ __global__ void TRANSFORM_FUNC_NAME(BF16, S, 1, 1, 0, 16, 16, 4)(DTYPE(BF16) * c
                                                                  uint32_t ldA,
                                                                  uint32_t ldB,
                                                                  uint32_t ldC,
-                                                                 uint32_t batchStride,
+                                                                 uint32_t batchStrideA,
+                                                                 uint32_t batchStrideB,
+                                                                 uint32_t batchStrideC,
                                                                  bool     transA,
                                                                  bool     transB)
 {
@@ -1950,7 +2160,9 @@ __global__ void TRANSFORM_FUNC_NAME(BF16, S, 1, 1, 0, 16, 16, 4)(DTYPE(BF16) * c
                                                                                ldA,
                                                                                ldB,
                                                                                ldC,
-                                                                               batchStride,
+                                                                               batchStrideA,
+                                                                               batchStrideB,
+                                                                               batchStrideC,
                                                                                transA,
                                                                                transB);
 }
@@ -1966,7 +2178,9 @@ __global__ void TRANSFORM_FUNC_NAME(BF16, S, 1, 0, 1, 16, 16, 1)(DTYPE(BF16) * c
                                                                  uint32_t ldA,
                                                                  uint32_t ldB,
                                                                  uint32_t ldC,
-                                                                 uint32_t batchStride,
+                                                                 uint32_t batchStrideA,
+                                                                 uint32_t batchStrideB,
+                                                                 uint32_t batchStrideC,
                                                                  bool     transA,
                                                                  bool     transB)
 {
@@ -1982,7 +2196,9 @@ __global__ void TRANSFORM_FUNC_NAME(BF16, S, 1, 0, 1, 16, 16, 1)(DTYPE(BF16) * c
                                                                                ldA,
                                                                                ldB,
                                                                                ldC,
-                                                                               batchStride,
+                                                                               batchStrideA,
+                                                                               batchStrideB,
+                                                                               batchStrideC,
                                                                                transA,
                                                                                transB);
 }
@@ -1998,7 +2214,9 @@ __global__ void TRANSFORM_FUNC_NAME(BF16, S, 1, 0, 1, 16, 16, 4)(DTYPE(BF16) * c
                                                                  uint32_t ldA,
                                                                  uint32_t ldB,
                                                                  uint32_t ldC,
-                                                                 uint32_t batchStride,
+                                                                 uint32_t batchStrideA,
+                                                                 uint32_t batchStrideB,
+                                                                 uint32_t batchStrideC,
                                                                  bool     transA,
                                                                  bool     transB)
 {
@@ -2014,7 +2232,9 @@ __global__ void TRANSFORM_FUNC_NAME(BF16, S, 1, 0, 1, 16, 16, 4)(DTYPE(BF16) * c
                                                                                ldA,
                                                                                ldB,
                                                                                ldC,
-                                                                               batchStride,
+                                                                               batchStrideA,
+                                                                               batchStrideB,
+                                                                               batchStrideC,
                                                                                transA,
                                                                                transB);
 }
@@ -2030,7 +2250,9 @@ __global__ void TRANSFORM_FUNC_NAME(BF16, S, 1, 0, 0, 16, 16, 1)(DTYPE(BF16) * c
                                                                  uint32_t ldA,
                                                                  uint32_t ldB,
                                                                  uint32_t ldC,
-                                                                 uint32_t batchStride,
+                                                                 uint32_t batchStrideA,
+                                                                 uint32_t batchStrideB,
+                                                                 uint32_t batchStrideC,
                                                                  bool     transA,
                                                                  bool     transB)
 {
@@ -2046,7 +2268,9 @@ __global__ void TRANSFORM_FUNC_NAME(BF16, S, 1, 0, 0, 16, 16, 1)(DTYPE(BF16) * c
                                                                                 ldA,
                                                                                 ldB,
                                                                                 ldC,
-                                                                                batchStride,
+                                                                                batchStrideA,
+                                                                                batchStrideB,
+                                                                                batchStrideC,
                                                                                 transA,
                                                                                 transB);
 }
@@ -2062,7 +2286,9 @@ __global__ void TRANSFORM_FUNC_NAME(BF16, S, 1, 0, 0, 16, 16, 4)(DTYPE(BF16) * c
                                                                  uint32_t ldA,
                                                                  uint32_t ldB,
                                                                  uint32_t ldC,
-                                                                 uint32_t batchStride,
+                                                                 uint32_t batchStrideA,
+                                                                 uint32_t batchStrideB,
+                                                                 uint32_t batchStrideC,
                                                                  bool     transA,
                                                                  bool     transB)
 {
@@ -2078,7 +2304,9 @@ __global__ void TRANSFORM_FUNC_NAME(BF16, S, 1, 0, 0, 16, 16, 4)(DTYPE(BF16) * c
                                                                                 ldA,
                                                                                 ldB,
                                                                                 ldC,
-                                                                                batchStride,
+                                                                                batchStrideA,
+                                                                                batchStrideB,
+                                                                                batchStrideC,
                                                                                 transA,
                                                                                 transB);
 }
@@ -2094,7 +2322,9 @@ __global__ void TRANSFORM_FUNC_NAME(BF16, S, 0, 1, 1, 16, 16, 1)(DTYPE(BF16) * c
                                                                  uint32_t ldA,
                                                                  uint32_t ldB,
                                                                  uint32_t ldC,
-                                                                 uint32_t batchStride,
+                                                                 uint32_t batchStrideA,
+                                                                 uint32_t batchStrideB,
+                                                                 uint32_t batchStrideC,
                                                                  bool     transA,
                                                                  bool     transB)
 {
@@ -2110,7 +2340,9 @@ __global__ void TRANSFORM_FUNC_NAME(BF16, S, 0, 1, 1, 16, 16, 1)(DTYPE(BF16) * c
                                                                                ldA,
                                                                                ldB,
                                                                                ldC,
-                                                                               batchStride,
+                                                                               batchStrideA,
+                                                                               batchStrideB,
+                                                                               batchStrideC,
                                                                                transA,
                                                                                transB);
 }
@@ -2126,7 +2358,9 @@ __global__ void TRANSFORM_FUNC_NAME(BF16, S, 0, 1, 1, 16, 16, 4)(DTYPE(BF16) * c
                                                                  uint32_t ldA,
                                                                  uint32_t ldB,
                                                                  uint32_t ldC,
-                                                                 uint32_t batchStride,
+                                                                 uint32_t batchStrideA,
+                                                                 uint32_t batchStrideB,
+                                                                 uint32_t batchStrideC,
                                                                  bool     transA,
                                                                  bool     transB)
 {
@@ -2142,7 +2376,9 @@ __global__ void TRANSFORM_FUNC_NAME(BF16, S, 0, 1, 1, 16, 16, 4)(DTYPE(BF16) * c
                                                                                ldA,
                                                                                ldB,
                                                                                ldC,
-                                                                               batchStride,
+                                                                               batchStrideA,
+                                                                               batchStrideB,
+                                                                               batchStrideC,
                                                                                transA,
                                                                                transB);
 }
@@ -2158,7 +2394,9 @@ __global__ void TRANSFORM_FUNC_NAME(BF16, S, 0, 1, 0, 16, 16, 1)(DTYPE(BF16) * c
                                                                  uint32_t ldA,
                                                                  uint32_t ldB,
                                                                  uint32_t ldC,
-                                                                 uint32_t batchStride,
+                                                                 uint32_t batchStrideA,
+                                                                 uint32_t batchStrideB,
+                                                                 uint32_t batchStrideC,
                                                                  bool     transA,
                                                                  bool     transB)
 {
@@ -2174,7 +2412,9 @@ __global__ void TRANSFORM_FUNC_NAME(BF16, S, 0, 1, 0, 16, 16, 1)(DTYPE(BF16) * c
                                                                                 ldA,
                                                                                 ldB,
                                                                                 ldC,
-                                                                                batchStride,
+                                                                                batchStrideA,
+                                                                                batchStrideB,
+                                                                                batchStrideC,
                                                                                 transA,
                                                                                 transB);
 }
@@ -2190,7 +2430,9 @@ __global__ void TRANSFORM_FUNC_NAME(BF16, S, 0, 1, 0, 16, 16, 4)(DTYPE(BF16) * c
                                                                  uint32_t ldA,
                                                                  uint32_t ldB,
                                                                  uint32_t ldC,
-                                                                 uint32_t batchStride,
+                                                                 uint32_t batchStrideA,
+                                                                 uint32_t batchStrideB,
+                                                                 uint32_t batchStrideC,
                                                                  bool     transA,
                                                                  bool     transB)
 {
@@ -2206,7 +2448,9 @@ __global__ void TRANSFORM_FUNC_NAME(BF16, S, 0, 1, 0, 16, 16, 4)(DTYPE(BF16) * c
                                                                                 ldA,
                                                                                 ldB,
                                                                                 ldC,
-                                                                                batchStride,
+                                                                                batchStrideA,
+                                                                                batchStrideB,
+                                                                                batchStrideC,
                                                                                 transA,
                                                                                 transB);
 }
@@ -2222,7 +2466,9 @@ __global__ void TRANSFORM_FUNC_NAME(BF16, S, 0, 0, 1, 16, 16, 1)(DTYPE(BF16) * c
                                                                  uint32_t ldA,
                                                                  uint32_t ldB,
                                                                  uint32_t ldC,
-                                                                 uint32_t batchStride,
+                                                                 uint32_t batchStrideA,
+                                                                 uint32_t batchStrideB,
+                                                                 uint32_t batchStrideC,
                                                                  bool     transA,
                                                                  bool     transB)
 {
@@ -2238,7 +2484,9 @@ __global__ void TRANSFORM_FUNC_NAME(BF16, S, 0, 0, 1, 16, 16, 1)(DTYPE(BF16) * c
                                                                                 ldA,
                                                                                 ldB,
                                                                                 ldC,
-                                                                                batchStride,
+                                                                                batchStrideA,
+                                                                                batchStrideB,
+                                                                                batchStrideC,
                                                                                 transA,
                                                                                 transB);
 }
@@ -2254,7 +2502,9 @@ __global__ void TRANSFORM_FUNC_NAME(BF16, S, 0, 0, 1, 16, 16, 4)(DTYPE(BF16) * c
                                                                  uint32_t ldA,
                                                                  uint32_t ldB,
                                                                  uint32_t ldC,
-                                                                 uint32_t batchStride,
+                                                                 uint32_t batchStrideA,
+                                                                 uint32_t batchStrideB,
+                                                                 uint32_t batchStrideC,
                                                                  bool     transA,
                                                                  bool     transB)
 {
@@ -2270,7 +2520,9 @@ __global__ void TRANSFORM_FUNC_NAME(BF16, S, 0, 0, 1, 16, 16, 4)(DTYPE(BF16) * c
                                                                                 ldA,
                                                                                 ldB,
                                                                                 ldC,
-                                                                                batchStride,
+                                                                                batchStrideA,
+                                                                                batchStrideB,
+                                                                                batchStrideC,
                                                                                 transA,
                                                                                 transB);
 }
@@ -2286,7 +2538,9 @@ __global__ void TRANSFORM_FUNC_NAME(BF16, S, 0, 0, 0, 16, 16, 1)(DTYPE(BF16) * c
                                                                  uint32_t ldA,
                                                                  uint32_t ldB,
                                                                  uint32_t ldC,
-                                                                 uint32_t batchStride,
+                                                                 uint32_t batchStrideA,
+                                                                 uint32_t batchStrideB,
+                                                                 uint32_t batchStrideC,
                                                                  bool     transA,
                                                                  bool     transB)
 {
@@ -2302,7 +2556,9 @@ __global__ void TRANSFORM_FUNC_NAME(BF16, S, 0, 0, 0, 16, 16, 1)(DTYPE(BF16) * c
                                                                                  ldA,
                                                                                  ldB,
                                                                                  ldC,
-                                                                                 batchStride,
+                                                                                 batchStrideA,
+                                                                                 batchStrideB,
+                                                                                 batchStrideC,
                                                                                  transA,
                                                                                  transB);
 }
@@ -2318,7 +2574,9 @@ __global__ void TRANSFORM_FUNC_NAME(BF16, S, 0, 0, 0, 16, 16, 4)(DTYPE(BF16) * c
                                                                  uint32_t ldA,
                                                                  uint32_t ldB,
                                                                  uint32_t ldC,
-                                                                 uint32_t batchStride,
+                                                                 uint32_t batchStrideA,
+                                                                 uint32_t batchStrideB,
+                                                                 uint32_t batchStrideC,
                                                                  bool     transA,
                                                                  bool     transB)
 {
@@ -2334,7 +2592,9 @@ __global__ void TRANSFORM_FUNC_NAME(BF16, S, 0, 0, 0, 16, 16, 4)(DTYPE(BF16) * c
                                                                                  ldA,
                                                                                  ldB,
                                                                                  ldC,
-                                                                                 batchStride,
+                                                                                 batchStrideA,
+                                                                                 batchStrideB,
+                                                                                 batchStrideC,
                                                                                  transA,
                                                                                  transB);
 }
@@ -2350,7 +2610,9 @@ __global__ void TRANSFORM_FUNC_NAME(I8, S, 1, 1, 1, 16, 16, 1)(DTYPE(I8) * c,
                                                                uint32_t ldA,
                                                                uint32_t ldB,
                                                                uint32_t ldC,
-                                                               uint32_t batchStride,
+                                                               uint32_t batchStrideA,
+                                                               uint32_t batchStrideB,
+                                                               uint32_t batchStrideC,
                                                                bool     transA,
                                                                bool     transB)
 {
@@ -2366,7 +2628,9 @@ __global__ void TRANSFORM_FUNC_NAME(I8, S, 1, 1, 1, 16, 16, 1)(DTYPE(I8) * c,
                                                                             ldA,
                                                                             ldB,
                                                                             ldC,
-                                                                            batchStride,
+                                                                            batchStrideA,
+                                                                            batchStrideB,
+                                                                            batchStrideC,
                                                                             transA,
                                                                             transB);
 }
@@ -2382,7 +2646,9 @@ __global__ void TRANSFORM_FUNC_NAME(I8, S, 1, 1, 1, 16, 16, 4)(DTYPE(I8) * c,
                                                                uint32_t ldA,
                                                                uint32_t ldB,
                                                                uint32_t ldC,
-                                                               uint32_t batchStride,
+                                                               uint32_t batchStrideA,
+                                                               uint32_t batchStrideB,
+                                                               uint32_t batchStrideC,
                                                                bool     transA,
                                                                bool     transB)
 {
@@ -2398,7 +2664,9 @@ __global__ void TRANSFORM_FUNC_NAME(I8, S, 1, 1, 1, 16, 16, 4)(DTYPE(I8) * c,
                                                                             ldA,
                                                                             ldB,
                                                                             ldC,
-                                                                            batchStride,
+                                                                            batchStrideA,
+                                                                            batchStrideB,
+                                                                            batchStrideC,
                                                                             transA,
                                                                             transB);
 }
@@ -2414,7 +2682,9 @@ __global__ void TRANSFORM_FUNC_NAME(I8, S, 1, 1, 0, 16, 16, 1)(DTYPE(I8) * c,
                                                                uint32_t ldA,
                                                                uint32_t ldB,
                                                                uint32_t ldC,
-                                                               uint32_t batchStride,
+                                                               uint32_t batchStrideA,
+                                                               uint32_t batchStrideB,
+                                                               uint32_t batchStrideC,
                                                                bool     transA,
                                                                bool     transB)
 {
@@ -2430,7 +2700,9 @@ __global__ void TRANSFORM_FUNC_NAME(I8, S, 1, 1, 0, 16, 16, 1)(DTYPE(I8) * c,
                                                                              ldA,
                                                                              ldB,
                                                                              ldC,
-                                                                             batchStride,
+                                                                             batchStrideA,
+                                                                             batchStrideB,
+                                                                             batchStrideC,
                                                                              transA,
                                                                              transB);
 }
@@ -2446,7 +2718,9 @@ __global__ void TRANSFORM_FUNC_NAME(I8, S, 1, 1, 0, 16, 16, 4)(DTYPE(I8) * c,
                                                                uint32_t ldA,
                                                                uint32_t ldB,
                                                                uint32_t ldC,
-                                                               uint32_t batchStride,
+                                                               uint32_t batchStrideA,
+                                                               uint32_t batchStrideB,
+                                                               uint32_t batchStrideC,
                                                                bool     transA,
                                                                bool     transB)
 {
@@ -2462,7 +2736,9 @@ __global__ void TRANSFORM_FUNC_NAME(I8, S, 1, 1, 0, 16, 16, 4)(DTYPE(I8) * c,
                                                                              ldA,
                                                                              ldB,
                                                                              ldC,
-                                                                             batchStride,
+                                                                             batchStrideA,
+                                                                             batchStrideB,
+                                                                             batchStrideC,
                                                                              transA,
                                                                              transB);
 }
@@ -2478,7 +2754,9 @@ __global__ void TRANSFORM_FUNC_NAME(I8, S, 1, 0, 1, 16, 16, 1)(DTYPE(I8) * c,
                                                                uint32_t ldA,
                                                                uint32_t ldB,
                                                                uint32_t ldC,
-                                                               uint32_t batchStride,
+                                                               uint32_t batchStrideA,
+                                                               uint32_t batchStrideB,
+                                                               uint32_t batchStrideC,
                                                                bool     transA,
                                                                bool     transB)
 {
@@ -2494,7 +2772,9 @@ __global__ void TRANSFORM_FUNC_NAME(I8, S, 1, 0, 1, 16, 16, 1)(DTYPE(I8) * c,
                                                                              ldA,
                                                                              ldB,
                                                                              ldC,
-                                                                             batchStride,
+                                                                             batchStrideA,
+                                                                             batchStrideB,
+                                                                             batchStrideC,
                                                                              transA,
                                                                              transB);
 }
@@ -2510,7 +2790,9 @@ __global__ void TRANSFORM_FUNC_NAME(I8, S, 1, 0, 1, 16, 16, 4)(DTYPE(I8) * c,
                                                                uint32_t ldA,
                                                                uint32_t ldB,
                                                                uint32_t ldC,
-                                                               uint32_t batchStride,
+                                                               uint32_t batchStrideA,
+                                                               uint32_t batchStrideB,
+                                                               uint32_t batchStrideC,
                                                                bool     transA,
                                                                bool     transB)
 {
@@ -2526,7 +2808,9 @@ __global__ void TRANSFORM_FUNC_NAME(I8, S, 1, 0, 1, 16, 16, 4)(DTYPE(I8) * c,
                                                                              ldA,
                                                                              ldB,
                                                                              ldC,
-                                                                             batchStride,
+                                                                             batchStrideA,
+                                                                             batchStrideB,
+                                                                             batchStrideC,
                                                                              transA,
                                                                              transB);
 }
@@ -2542,7 +2826,9 @@ __global__ void TRANSFORM_FUNC_NAME(I8, S, 1, 0, 0, 16, 16, 1)(DTYPE(I8) * c,
                                                                uint32_t ldA,
                                                                uint32_t ldB,
                                                                uint32_t ldC,
-                                                               uint32_t batchStride,
+                                                               uint32_t batchStrideA,
+                                                               uint32_t batchStrideB,
+                                                               uint32_t batchStrideC,
                                                                bool     transA,
                                                                bool     transB)
 {
@@ -2558,7 +2844,9 @@ __global__ void TRANSFORM_FUNC_NAME(I8, S, 1, 0, 0, 16, 16, 1)(DTYPE(I8) * c,
                                                                               ldA,
                                                                               ldB,
                                                                               ldC,
-                                                                              batchStride,
+                                                                              batchStrideA,
+                                                                              batchStrideB,
+                                                                              batchStrideC,
                                                                               transA,
                                                                               transB);
 }
@@ -2574,7 +2862,9 @@ __global__ void TRANSFORM_FUNC_NAME(I8, S, 1, 0, 0, 16, 16, 4)(DTYPE(I8) * c,
                                                                uint32_t ldA,
                                                                uint32_t ldB,
                                                                uint32_t ldC,
-                                                               uint32_t batchStride,
+                                                               uint32_t batchStrideA,
+                                                               uint32_t batchStrideB,
+                                                               uint32_t batchStrideC,
                                                                bool     transA,
                                                                bool     transB)
 {
@@ -2590,7 +2880,9 @@ __global__ void TRANSFORM_FUNC_NAME(I8, S, 1, 0, 0, 16, 16, 4)(DTYPE(I8) * c,
                                                                               ldA,
                                                                               ldB,
                                                                               ldC,
-                                                                              batchStride,
+                                                                              batchStrideA,
+                                                                              batchStrideB,
+                                                                              batchStrideC,
                                                                               transA,
                                                                               transB);
 }
@@ -2606,7 +2898,9 @@ __global__ void TRANSFORM_FUNC_NAME(I8, S, 0, 1, 1, 16, 16, 1)(DTYPE(I8) * c,
                                                                uint32_t ldA,
                                                                uint32_t ldB,
                                                                uint32_t ldC,
-                                                               uint32_t batchStride,
+                                                               uint32_t batchStrideA,
+                                                               uint32_t batchStrideB,
+                                                               uint32_t batchStrideC,
                                                                bool     transA,
                                                                bool     transB)
 {
@@ -2622,7 +2916,9 @@ __global__ void TRANSFORM_FUNC_NAME(I8, S, 0, 1, 1, 16, 16, 1)(DTYPE(I8) * c,
                                                                              ldA,
                                                                              ldB,
                                                                              ldC,
-                                                                             batchStride,
+                                                                             batchStrideA,
+                                                                             batchStrideB,
+                                                                             batchStrideC,
                                                                              transA,
                                                                              transB);
 }
@@ -2638,7 +2934,9 @@ __global__ void TRANSFORM_FUNC_NAME(I8, S, 0, 1, 1, 16, 16, 4)(DTYPE(I8) * c,
                                                                uint32_t ldA,
                                                                uint32_t ldB,
                                                                uint32_t ldC,
-                                                               uint32_t batchStride,
+                                                               uint32_t batchStrideA,
+                                                               uint32_t batchStrideB,
+                                                               uint32_t batchStrideC,
                                                                bool     transA,
                                                                bool     transB)
 {
@@ -2654,7 +2952,9 @@ __global__ void TRANSFORM_FUNC_NAME(I8, S, 0, 1, 1, 16, 16, 4)(DTYPE(I8) * c,
                                                                              ldA,
                                                                              ldB,
                                                                              ldC,
-                                                                             batchStride,
+                                                                             batchStrideA,
+                                                                             batchStrideB,
+                                                                             batchStrideC,
                                                                              transA,
                                                                              transB);
 }
@@ -2670,7 +2970,9 @@ __global__ void TRANSFORM_FUNC_NAME(I8, S, 0, 1, 0, 16, 16, 1)(DTYPE(I8) * c,
                                                                uint32_t ldA,
                                                                uint32_t ldB,
                                                                uint32_t ldC,
-                                                               uint32_t batchStride,
+                                                               uint32_t batchStrideA,
+                                                               uint32_t batchStrideB,
+                                                               uint32_t batchStrideC,
                                                                bool     transA,
                                                                bool     transB)
 {
@@ -2686,7 +2988,9 @@ __global__ void TRANSFORM_FUNC_NAME(I8, S, 0, 1, 0, 16, 16, 1)(DTYPE(I8) * c,
                                                                               ldA,
                                                                               ldB,
                                                                               ldC,
-                                                                              batchStride,
+                                                                              batchStrideA,
+                                                                              batchStrideB,
+                                                                              batchStrideC,
                                                                               transA,
                                                                               transB);
 }
@@ -2702,7 +3006,9 @@ __global__ void TRANSFORM_FUNC_NAME(I8, S, 0, 1, 0, 16, 16, 4)(DTYPE(I8) * c,
                                                                uint32_t ldA,
                                                                uint32_t ldB,
                                                                uint32_t ldC,
-                                                               uint32_t batchStride,
+                                                               uint32_t batchStrideA,
+                                                               uint32_t batchStrideB,
+                                                               uint32_t batchStrideC,
                                                                bool     transA,
                                                                bool     transB)
 {
@@ -2718,7 +3024,9 @@ __global__ void TRANSFORM_FUNC_NAME(I8, S, 0, 1, 0, 16, 16, 4)(DTYPE(I8) * c,
                                                                               ldA,
                                                                               ldB,
                                                                               ldC,
-                                                                              batchStride,
+                                                                              batchStrideA,
+                                                                              batchStrideB,
+                                                                              batchStrideC,
                                                                               transA,
                                                                               transB);
 }
@@ -2734,7 +3042,9 @@ __global__ void TRANSFORM_FUNC_NAME(I8, S, 0, 0, 1, 16, 16, 1)(DTYPE(I8) * c,
                                                                uint32_t ldA,
                                                                uint32_t ldB,
                                                                uint32_t ldC,
-                                                               uint32_t batchStride,
+                                                               uint32_t batchStrideA,
+                                                               uint32_t batchStrideB,
+                                                               uint32_t batchStrideC,
                                                                bool     transA,
                                                                bool     transB)
 {
@@ -2750,7 +3060,9 @@ __global__ void TRANSFORM_FUNC_NAME(I8, S, 0, 0, 1, 16, 16, 1)(DTYPE(I8) * c,
                                                                               ldA,
                                                                               ldB,
                                                                               ldC,
-                                                                              batchStride,
+                                                                              batchStrideA,
+                                                                              batchStrideB,
+                                                                              batchStrideC,
                                                                               transA,
                                                                               transB);
 }
@@ -2766,7 +3078,9 @@ __global__ void TRANSFORM_FUNC_NAME(I8, S, 0, 0, 1, 16, 16, 4)(DTYPE(I8) * c,
                                                                uint32_t ldA,
                                                                uint32_t ldB,
                                                                uint32_t ldC,
-                                                               uint32_t batchStride,
+                                                               uint32_t batchStrideA,
+                                                               uint32_t batchStrideB,
+                                                               uint32_t batchStrideC,
                                                                bool     transA,
                                                                bool     transB)
 {
@@ -2782,7 +3096,9 @@ __global__ void TRANSFORM_FUNC_NAME(I8, S, 0, 0, 1, 16, 16, 4)(DTYPE(I8) * c,
                                                                               ldA,
                                                                               ldB,
                                                                               ldC,
-                                                                              batchStride,
+                                                                              batchStrideA,
+                                                                              batchStrideB,
+                                                                              batchStrideC,
                                                                               transA,
                                                                               transB);
 }
@@ -2798,7 +3114,9 @@ __global__ void TRANSFORM_FUNC_NAME(I8, S, 0, 0, 0, 16, 16, 1)(DTYPE(I8) * c,
                                                                uint32_t ldA,
                                                                uint32_t ldB,
                                                                uint32_t ldC,
-                                                               uint32_t batchStride,
+                                                               uint32_t batchStrideA,
+                                                               uint32_t batchStrideB,
+                                                               uint32_t batchStrideC,
                                                                bool     transA,
                                                                bool     transB)
 {
@@ -2814,7 +3132,9 @@ __global__ void TRANSFORM_FUNC_NAME(I8, S, 0, 0, 0, 16, 16, 1)(DTYPE(I8) * c,
                                                                                ldA,
                                                                                ldB,
                                                                                ldC,
-                                                                               batchStride,
+                                                                               batchStrideA,
+                                                                               batchStrideB,
+                                                                               batchStrideC,
                                                                                transA,
                                                                                transB);
 }
@@ -2830,7 +3150,9 @@ __global__ void TRANSFORM_FUNC_NAME(I8, S, 0, 0, 0, 16, 16, 4)(DTYPE(I8) * c,
                                                                uint32_t ldA,
                                                                uint32_t ldB,
                                                                uint32_t ldC,
-                                                               uint32_t batchStride,
+                                                               uint32_t batchStrideA,
+                                                               uint32_t batchStrideB,
+                                                               uint32_t batchStrideC,
                                                                bool     transA,
                                                                bool     transB)
 {
@@ -2846,7 +3168,9 @@ __global__ void TRANSFORM_FUNC_NAME(I8, S, 0, 0, 0, 16, 16, 4)(DTYPE(I8) * c,
                                                                                ldA,
                                                                                ldB,
                                                                                ldC,
-                                                                               batchStride,
+                                                                               batchStrideA,
+                                                                               batchStrideB,
+                                                                               batchStrideC,
                                                                                transA,
                                                                                transB);
 }
@@ -2862,7 +3186,9 @@ __global__ void TRANSFORM_FUNC_NAME(I32, S, 1, 1, 1, 16, 16, 1)(DTYPE(I32) * c,
                                                                 uint32_t ldA,
                                                                 uint32_t ldB,
                                                                 uint32_t ldC,
-                                                                uint32_t batchStride,
+                                                                uint32_t batchStrideA,
+                                                                uint32_t batchStrideB,
+                                                                uint32_t batchStrideC,
                                                                 bool     transA,
                                                                 bool     transB)
 {
@@ -2878,7 +3204,9 @@ __global__ void TRANSFORM_FUNC_NAME(I32, S, 1, 1, 1, 16, 16, 1)(DTYPE(I32) * c,
                                                                              ldA,
                                                                              ldB,
                                                                              ldC,
-                                                                             batchStride,
+                                                                             batchStrideA,
+                                                                             batchStrideB,
+                                                                             batchStrideC,
                                                                              transA,
                                                                              transB);
 }
@@ -2894,7 +3222,9 @@ __global__ void TRANSFORM_FUNC_NAME(I32, S, 1, 1, 1, 16, 16, 4)(DTYPE(I32) * c,
                                                                 uint32_t ldA,
                                                                 uint32_t ldB,
                                                                 uint32_t ldC,
-                                                                uint32_t batchStride,
+                                                                uint32_t batchStrideA,
+                                                                uint32_t batchStrideB,
+                                                                uint32_t batchStrideC,
                                                                 bool     transA,
                                                                 bool     transB)
 {
@@ -2910,7 +3240,9 @@ __global__ void TRANSFORM_FUNC_NAME(I32, S, 1, 1, 1, 16, 16, 4)(DTYPE(I32) * c,
                                                                              ldA,
                                                                              ldB,
                                                                              ldC,
-                                                                             batchStride,
+                                                                             batchStrideA,
+                                                                             batchStrideB,
+                                                                             batchStrideC,
                                                                              transA,
                                                                              transB);
 }
@@ -2926,7 +3258,9 @@ __global__ void TRANSFORM_FUNC_NAME(I32, S, 1, 1, 0, 16, 16, 1)(DTYPE(I32) * c,
                                                                 uint32_t ldA,
                                                                 uint32_t ldB,
                                                                 uint32_t ldC,
-                                                                uint32_t batchStride,
+                                                                uint32_t batchStrideA,
+                                                                uint32_t batchStrideB,
+                                                                uint32_t batchStrideC,
                                                                 bool     transA,
                                                                 bool     transB)
 {
@@ -2942,7 +3276,9 @@ __global__ void TRANSFORM_FUNC_NAME(I32, S, 1, 1, 0, 16, 16, 1)(DTYPE(I32) * c,
                                                                               ldA,
                                                                               ldB,
                                                                               ldC,
-                                                                              batchStride,
+                                                                              batchStrideA,
+                                                                              batchStrideB,
+                                                                              batchStrideC,
                                                                               transA,
                                                                               transB);
 }
@@ -2958,7 +3294,9 @@ __global__ void TRANSFORM_FUNC_NAME(I32, S, 1, 1, 0, 16, 16, 4)(DTYPE(I32) * c,
                                                                 uint32_t ldA,
                                                                 uint32_t ldB,
                                                                 uint32_t ldC,
-                                                                uint32_t batchStride,
+                                                                uint32_t batchStrideA,
+                                                                uint32_t batchStrideB,
+                                                                uint32_t batchStrideC,
                                                                 bool     transA,
                                                                 bool     transB)
 {
@@ -2974,7 +3312,9 @@ __global__ void TRANSFORM_FUNC_NAME(I32, S, 1, 1, 0, 16, 16, 4)(DTYPE(I32) * c,
                                                                               ldA,
                                                                               ldB,
                                                                               ldC,
-                                                                              batchStride,
+                                                                              batchStrideA,
+                                                                              batchStrideB,
+                                                                              batchStrideC,
                                                                               transA,
                                                                               transB);
 }
@@ -2990,7 +3330,9 @@ __global__ void TRANSFORM_FUNC_NAME(I32, S, 1, 0, 1, 16, 16, 1)(DTYPE(I32) * c,
                                                                 uint32_t ldA,
                                                                 uint32_t ldB,
                                                                 uint32_t ldC,
-                                                                uint32_t batchStride,
+                                                                uint32_t batchStrideA,
+                                                                uint32_t batchStrideB,
+                                                                uint32_t batchStrideC,
                                                                 bool     transA,
                                                                 bool     transB)
 {
@@ -3006,7 +3348,9 @@ __global__ void TRANSFORM_FUNC_NAME(I32, S, 1, 0, 1, 16, 16, 1)(DTYPE(I32) * c,
                                                                               ldA,
                                                                               ldB,
                                                                               ldC,
-                                                                              batchStride,
+                                                                              batchStrideA,
+                                                                              batchStrideB,
+                                                                              batchStrideC,
                                                                               transA,
                                                                               transB);
 }
@@ -3022,7 +3366,9 @@ __global__ void TRANSFORM_FUNC_NAME(I32, S, 1, 0, 1, 16, 16, 4)(DTYPE(I32) * c,
                                                                 uint32_t ldA,
                                                                 uint32_t ldB,
                                                                 uint32_t ldC,
-                                                                uint32_t batchStride,
+                                                                uint32_t batchStrideA,
+                                                                uint32_t batchStrideB,
+                                                                uint32_t batchStrideC,
                                                                 bool     transA,
                                                                 bool     transB)
 {
@@ -3038,7 +3384,9 @@ __global__ void TRANSFORM_FUNC_NAME(I32, S, 1, 0, 1, 16, 16, 4)(DTYPE(I32) * c,
                                                                               ldA,
                                                                               ldB,
                                                                               ldC,
-                                                                              batchStride,
+                                                                              batchStrideA,
+                                                                              batchStrideB,
+                                                                              batchStrideC,
                                                                               transA,
                                                                               transB);
 }
@@ -3054,7 +3402,9 @@ __global__ void TRANSFORM_FUNC_NAME(I32, S, 1, 0, 0, 16, 16, 1)(DTYPE(I32) * c,
                                                                 uint32_t ldA,
                                                                 uint32_t ldB,
                                                                 uint32_t ldC,
-                                                                uint32_t batchStride,
+                                                                uint32_t batchStrideA,
+                                                                uint32_t batchStrideB,
+                                                                uint32_t batchStrideC,
                                                                 bool     transA,
                                                                 bool     transB)
 {
@@ -3070,7 +3420,9 @@ __global__ void TRANSFORM_FUNC_NAME(I32, S, 1, 0, 0, 16, 16, 1)(DTYPE(I32) * c,
                                                                                ldA,
                                                                                ldB,
                                                                                ldC,
-                                                                               batchStride,
+                                                                               batchStrideA,
+                                                                               batchStrideB,
+                                                                               batchStrideC,
                                                                                transA,
                                                                                transB);
 }
@@ -3086,7 +3438,9 @@ __global__ void TRANSFORM_FUNC_NAME(I32, S, 1, 0, 0, 16, 16, 4)(DTYPE(I32) * c,
                                                                 uint32_t ldA,
                                                                 uint32_t ldB,
                                                                 uint32_t ldC,
-                                                                uint32_t batchStride,
+                                                                uint32_t batchStrideA,
+                                                                uint32_t batchStrideB,
+                                                                uint32_t batchStrideC,
                                                                 bool     transA,
                                                                 bool     transB)
 {
@@ -3102,7 +3456,9 @@ __global__ void TRANSFORM_FUNC_NAME(I32, S, 1, 0, 0, 16, 16, 4)(DTYPE(I32) * c,
                                                                                ldA,
                                                                                ldB,
                                                                                ldC,
-                                                                               batchStride,
+                                                                               batchStrideA,
+                                                                               batchStrideB,
+                                                                               batchStrideC,
                                                                                transA,
                                                                                transB);
 }
@@ -3118,7 +3474,9 @@ __global__ void TRANSFORM_FUNC_NAME(I32, S, 0, 1, 1, 16, 16, 1)(DTYPE(I32) * c,
                                                                 uint32_t ldA,
                                                                 uint32_t ldB,
                                                                 uint32_t ldC,
-                                                                uint32_t batchStride,
+                                                                uint32_t batchStrideA,
+                                                                uint32_t batchStrideB,
+                                                                uint32_t batchStrideC,
                                                                 bool     transA,
                                                                 bool     transB)
 {
@@ -3134,7 +3492,9 @@ __global__ void TRANSFORM_FUNC_NAME(I32, S, 0, 1, 1, 16, 16, 1)(DTYPE(I32) * c,
                                                                               ldA,
                                                                               ldB,
                                                                               ldC,
-                                                                              batchStride,
+                                                                              batchStrideA,
+                                                                              batchStrideB,
+                                                                              batchStrideC,
                                                                               transA,
                                                                               transB);
 }
@@ -3150,7 +3510,9 @@ __global__ void TRANSFORM_FUNC_NAME(I32, S, 0, 1, 1, 16, 16, 4)(DTYPE(I32) * c,
                                                                 uint32_t ldA,
                                                                 uint32_t ldB,
                                                                 uint32_t ldC,
-                                                                uint32_t batchStride,
+                                                                uint32_t batchStrideA,
+                                                                uint32_t batchStrideB,
+                                                                uint32_t batchStrideC,
                                                                 bool     transA,
                                                                 bool     transB)
 {
@@ -3166,7 +3528,9 @@ __global__ void TRANSFORM_FUNC_NAME(I32, S, 0, 1, 1, 16, 16, 4)(DTYPE(I32) * c,
                                                                               ldA,
                                                                               ldB,
                                                                               ldC,
-                                                                              batchStride,
+                                                                              batchStrideA,
+                                                                              batchStrideB,
+                                                                              batchStrideC,
                                                                               transA,
                                                                               transB);
 }
@@ -3182,7 +3546,9 @@ __global__ void TRANSFORM_FUNC_NAME(I32, S, 0, 1, 0, 16, 16, 1)(DTYPE(I32) * c,
                                                                 uint32_t ldA,
                                                                 uint32_t ldB,
                                                                 uint32_t ldC,
-                                                                uint32_t batchStride,
+                                                                uint32_t batchStrideA,
+                                                                uint32_t batchStrideB,
+                                                                uint32_t batchStrideC,
                                                                 bool     transA,
                                                                 bool     transB)
 {
@@ -3198,7 +3564,9 @@ __global__ void TRANSFORM_FUNC_NAME(I32, S, 0, 1, 0, 16, 16, 1)(DTYPE(I32) * c,
                                                                                ldA,
                                                                                ldB,
                                                                                ldC,
-                                                                               batchStride,
+                                                                               batchStrideA,
+                                                                               batchStrideB,
+                                                                               batchStrideC,
                                                                                transA,
                                                                                transB);
 }
@@ -3214,7 +3582,9 @@ __global__ void TRANSFORM_FUNC_NAME(I32, S, 0, 1, 0, 16, 16, 4)(DTYPE(I32) * c,
                                                                 uint32_t ldA,
                                                                 uint32_t ldB,
                                                                 uint32_t ldC,
-                                                                uint32_t batchStride,
+                                                                uint32_t batchStrideA,
+                                                                uint32_t batchStrideB,
+                                                                uint32_t batchStrideC,
                                                                 bool     transA,
                                                                 bool     transB)
 {
@@ -3230,7 +3600,9 @@ __global__ void TRANSFORM_FUNC_NAME(I32, S, 0, 1, 0, 16, 16, 4)(DTYPE(I32) * c,
                                                                                ldA,
                                                                                ldB,
                                                                                ldC,
-                                                                               batchStride,
+                                                                               batchStrideA,
+                                                                               batchStrideB,
+                                                                               batchStrideC,
                                                                                transA,
                                                                                transB);
 }
@@ -3246,7 +3618,9 @@ __global__ void TRANSFORM_FUNC_NAME(I32, S, 0, 0, 1, 16, 16, 1)(DTYPE(I32) * c,
                                                                 uint32_t ldA,
                                                                 uint32_t ldB,
                                                                 uint32_t ldC,
-                                                                uint32_t batchStride,
+                                                                uint32_t batchStrideA,
+                                                                uint32_t batchStrideB,
+                                                                uint32_t batchStrideC,
                                                                 bool     transA,
                                                                 bool     transB)
 {
@@ -3262,7 +3636,9 @@ __global__ void TRANSFORM_FUNC_NAME(I32, S, 0, 0, 1, 16, 16, 1)(DTYPE(I32) * c,
                                                                                ldA,
                                                                                ldB,
                                                                                ldC,
-                                                                               batchStride,
+                                                                               batchStrideA,
+                                                                               batchStrideB,
+                                                                               batchStrideC,
                                                                                transA,
                                                                                transB);
 }
@@ -3278,7 +3654,9 @@ __global__ void TRANSFORM_FUNC_NAME(I32, S, 0, 0, 1, 16, 16, 4)(DTYPE(I32) * c,
                                                                 uint32_t ldA,
                                                                 uint32_t ldB,
                                                                 uint32_t ldC,
-                                                                uint32_t batchStride,
+                                                                uint32_t batchStrideA,
+                                                                uint32_t batchStrideB,
+                                                                uint32_t batchStrideC,
                                                                 bool     transA,
                                                                 bool     transB)
 {
@@ -3294,7 +3672,9 @@ __global__ void TRANSFORM_FUNC_NAME(I32, S, 0, 0, 1, 16, 16, 4)(DTYPE(I32) * c,
                                                                                ldA,
                                                                                ldB,
                                                                                ldC,
-                                                                               batchStride,
+                                                                               batchStrideA,
+                                                                               batchStrideB,
+                                                                               batchStrideC,
                                                                                transA,
                                                                                transB);
 }
@@ -3310,7 +3690,9 @@ __global__ void TRANSFORM_FUNC_NAME(I32, S, 0, 0, 0, 16, 16, 1)(DTYPE(I32) * c,
                                                                 uint32_t ldA,
                                                                 uint32_t ldB,
                                                                 uint32_t ldC,
-                                                                uint32_t batchStride,
+                                                                uint32_t batchStrideA,
+                                                                uint32_t batchStrideB,
+                                                                uint32_t batchStrideC,
                                                                 bool     transA,
                                                                 bool     transB)
 {
@@ -3326,7 +3708,9 @@ __global__ void TRANSFORM_FUNC_NAME(I32, S, 0, 0, 0, 16, 16, 1)(DTYPE(I32) * c,
                                                                                 ldA,
                                                                                 ldB,
                                                                                 ldC,
-                                                                                batchStride,
+                                                                                batchStrideA,
+                                                                                batchStrideB,
+                                                                                batchStrideC,
                                                                                 transA,
                                                                                 transB);
 }
@@ -3342,7 +3726,9 @@ __global__ void TRANSFORM_FUNC_NAME(I32, S, 0, 0, 0, 16, 16, 4)(DTYPE(I32) * c,
                                                                 uint32_t ldA,
                                                                 uint32_t ldB,
                                                                 uint32_t ldC,
-                                                                uint32_t batchStride,
+                                                                uint32_t batchStrideA,
+                                                                uint32_t batchStrideB,
+                                                                uint32_t batchStrideC,
                                                                 bool     transA,
                                                                 bool     transB)
 {
@@ -3358,7 +3744,9 @@ __global__ void TRANSFORM_FUNC_NAME(I32, S, 0, 0, 0, 16, 16, 4)(DTYPE(I32) * c,
                                                                                 ldA,
                                                                                 ldB,
                                                                                 ldC,
-                                                                                batchStride,
+                                                                                batchStrideA,
+                                                                                batchStrideB,
+                                                                                batchStrideC,
                                                                                 transA,
                                                                                 transB);
 }
