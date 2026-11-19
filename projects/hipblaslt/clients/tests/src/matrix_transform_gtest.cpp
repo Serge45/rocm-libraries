@@ -1424,3 +1424,146 @@ INSTANTIATE_TEST_SUITE_P(
                        ::testing::ValuesIn({HIPBLASLT_ORDER_ROW, HIPBLASLT_ORDER_COL}),
                        ::testing::ValuesIn({HIPBLASLT_ORDER_ROW, HIPBLASLT_ORDER_COL}),
                        ::testing::ValuesIn({HIPBLASLT_ORDER_ROW, HIPBLASLT_ORDER_COL})));
+
+namespace
+{
+    // Runs a transform with exactly one of A/B omitted (NULL pointer and NULL
+    // layout): C = scale * X, where X is the operand that is present. The
+    // kernel selection and batch parameters must come from the layouts that
+    // are actually provided, not from the placeholder used for the omitted one.
+    template <typename DType, typename ScaleType>
+    void runNullOperandTransform(bool        nullA,
+                                 hipDataType datatype,
+                                 hipDataType scaleDatatype,
+                                 int32_t     batchSize)
+    {
+        constexpr int64_t m           = 64;
+        constexpr int64_t n           = 64;
+        constexpr auto    op          = HIPBLAS_OP_N;
+        constexpr auto    orderX      = HIPBLASLT_ORDER_ROW;
+        constexpr auto    orderC      = HIPBLASLT_ORDER_COL;
+        const int64_t     batchStride = m * n;
+        const uint32_t    ldX         = getLeadingDimSize<true>(m, n);
+        const uint32_t    ldC         = getLeadingDimSize<false>(m, n);
+        ScaleType         scale       = ScaleType(1.0f);
+
+        auto inputs = makeMatrixTransformIOPtr(datatype, m, n, batchSize);
+        ASSERT_NE(inputs, nullptr);
+        void* dX = inputs->getBuf(nullA ? 1 : 0);
+        void* dC = inputs->getBuf(2);
+        // Fill C with a sentinel so batches that are never written are detected.
+        ASSERT_EQ(hipMemset(dC, 0x7F, m * n * batchSize * inputs->elemNumBytes()), hipSuccess);
+
+        hipblasLtMatrixTransformDesc_t desc;
+        ASSERT_EQ(hipblasLtMatrixTransformDescCreate(&desc, scaleDatatype),
+                  HIPBLAS_STATUS_SUCCESS);
+        hipblasLtPointerMode_t pMode = HIPBLASLT_POINTER_MODE_HOST;
+        ASSERT_EQ(hipblasLtMatrixTransformDescSetAttribute(
+                      desc, HIPBLASLT_MATRIX_TRANSFORM_DESC_POINTER_MODE, &pMode, sizeof(pMode)),
+                  HIPBLAS_STATUS_SUCCESS);
+        ASSERT_EQ(hipblasLtMatrixTransformDescSetAttribute(
+                      desc, HIPBLASLT_MATRIX_TRANSFORM_DESC_TRANSA, &op, sizeof(op)),
+                  HIPBLAS_STATUS_SUCCESS);
+        ASSERT_EQ(hipblasLtMatrixTransformDescSetAttribute(
+                      desc, HIPBLASLT_MATRIX_TRANSFORM_DESC_TRANSB, &op, sizeof(op)),
+                  HIPBLAS_STATUS_SUCCESS);
+
+        hipblasLtMatrixLayout_t layoutX, layoutC;
+        ASSERT_EQ(hipblasLtMatrixLayoutCreate(&layoutX, datatype, m, n, ldX),
+                  HIPBLAS_STATUS_SUCCESS);
+        ASSERT_EQ(hipblasLtMatrixLayoutCreate(&layoutC, datatype, m, n, ldC),
+                  HIPBLAS_STATUS_SUCCESS);
+        for(auto [layout, order] : {std::make_pair(layoutX, orderX), std::make_pair(layoutC, orderC)})
+        {
+            ASSERT_EQ(hipblasLtMatrixLayoutSetAttribute(
+                          layout, HIPBLASLT_MATRIX_LAYOUT_ORDER, &order, sizeof(order)),
+                      HIPBLAS_STATUS_SUCCESS);
+            ASSERT_EQ(hipblasLtMatrixLayoutSetAttribute(layout,
+                                                        HIPBLASLT_MATRIX_LAYOUT_BATCH_COUNT,
+                                                        &batchSize,
+                                                        sizeof(batchSize)),
+                      HIPBLAS_STATUS_SUCCESS);
+            ASSERT_EQ(hipblasLtMatrixLayoutSetAttribute(layout,
+                                                        HIPBLASLT_MATRIX_LAYOUT_STRIDED_BATCH_OFFSET,
+                                                        &batchStride,
+                                                        sizeof(batchStride)),
+                      HIPBLAS_STATUS_SUCCESS);
+        }
+
+        hipblasLtHandle_t handle{};
+        ASSERT_EQ(hipblasLtCreate(&handle), HIPBLAS_STATUS_SUCCESS);
+        hipblasStatus_t status;
+        if(nullA)
+        {
+            status = hipblasLtMatrixTransform(
+                handle, desc, nullptr, nullptr, nullptr, &scale, dX, layoutX, dC, layoutC, nullptr);
+        }
+        else
+        {
+            status = hipblasLtMatrixTransform(
+                handle, desc, &scale, dX, layoutX, nullptr, nullptr, nullptr, dC, layoutC, nullptr);
+        }
+        EXPECT_EQ(status, HIPBLAS_STATUS_SUCCESS);
+        ASSERT_EQ(hipDeviceSynchronize(), hipSuccess);
+
+        EXPECT_EQ(hipblasLtMatrixTransformDescDestroy(desc), HIPBLAS_STATUS_SUCCESS);
+        EXPECT_EQ(hipblasLtDestroy(handle), HIPBLAS_STATUS_SUCCESS);
+        EXPECT_EQ(hipblasLtMatrixLayoutDestroy(layoutX), HIPBLAS_STATUS_SUCCESS);
+        EXPECT_EQ(hipblasLtMatrixLayoutDestroy(layoutC), HIPBLAS_STATUS_SUCCESS);
+        ASSERT_EQ(status, HIPBLAS_STATUS_SUCCESS);
+
+        // The omitted operand is passed as null, and its coefficient is zero.
+        if(nullA)
+        {
+            validation<DType>(dC, nullptr, dX, 0, 1, m, n, 0, ldX, ldC, batchSize, batchStride,
+                              true, true, false, false, false);
+        }
+        else
+        {
+            validation<DType>(dC, dX, nullptr, 1, 0, m, n, ldX, 0, ldC, batchSize, batchStride,
+                              true, true, false, false, false);
+        }
+    }
+}
+
+// A (or B) omitted: type, batch count and batch stride must come from the
+// operand that is present, not from a placeholder layout.
+TEST(MatrixTransformTest, NullA_Half_FloatScale)
+{
+    runNullOperandTransform<hipblasLtHalf, hipblasLtFloat>(true, HIP_R_16F, HIP_R_32F, 1);
+}
+
+TEST(MatrixTransformTest, NullA_Half_HalfScale)
+{
+    runNullOperandTransform<hipblasLtHalf, hipblasLtHalf>(true, HIP_R_16F, HIP_R_16F, 1);
+}
+
+TEST(MatrixTransformTest, NullA_BFloat16_FloatScale)
+{
+    runNullOperandTransform<hipblasLtBfloat16, hipblasLtFloat>(true, HIP_R_16BF, HIP_R_32F, 1);
+}
+
+TEST(MatrixTransformTest, NullA_Float_Batched)
+{
+    runNullOperandTransform<hipblasLtFloat, hipblasLtFloat>(true, HIP_R_32F, HIP_R_32F, 4);
+}
+
+TEST(MatrixTransformTest, NullA_Half_Batched)
+{
+    runNullOperandTransform<hipblasLtHalf, hipblasLtFloat>(true, HIP_R_16F, HIP_R_32F, 4);
+}
+
+TEST(MatrixTransformTest, NullB_Half_HalfScale)
+{
+    runNullOperandTransform<hipblasLtHalf, hipblasLtHalf>(false, HIP_R_16F, HIP_R_16F, 1);
+}
+
+TEST(MatrixTransformTest, NullB_Float_Batched)
+{
+    runNullOperandTransform<hipblasLtFloat, hipblasLtFloat>(false, HIP_R_32F, HIP_R_32F, 4);
+}
+
+TEST(MatrixTransformTest, NullB_Half_Batched)
+{
+    runNullOperandTransform<hipblasLtHalf, hipblasLtFloat>(false, HIP_R_16F, HIP_R_32F, 4);
+}

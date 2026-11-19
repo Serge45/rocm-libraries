@@ -793,6 +793,11 @@ rocblaslt_status rocblaslt_matrix_transform(rocblaslt_handle                 han
         return rocblaslt_status_invalid_value;
     }
 
+    // An omitted operand gets a placeholder layout below, which carries no valid
+    // data type or batch parameters. Take those from an operand that was actually
+    // provided; the check above guarantees at least one of layoutA/layoutB is.
+    const auto refLayout = layoutA ? layoutA : layoutB;
+
     if(!A && !layoutA)
     {
         layoutA = dummyMatrixLayout();
@@ -805,7 +810,7 @@ rocblaslt_status rocblaslt_matrix_transform(rocblaslt_handle                 han
 
     size_t vw  = layoutC->m < 4 || layoutC->n < 4 ? 1 : 4;
     auto   key = std::make_tuple(
-        layoutA->type, desc->scaleType, layoutA->order, layoutB->order, layoutC->order, vw);
+        refLayout->type, desc->scaleType, layoutA->order, layoutB->order, layoutC->order, vw);
 
     if(!transformKernels.count(key))
     {
@@ -828,8 +833,8 @@ rocblaslt_status rocblaslt_matrix_transform(rocblaslt_handle                 han
                                               layoutA->ld,
                                               layoutB->ld,
                                               layoutC->ld,
-                                              layoutA->batch_count,
-                                              layoutA->batch_stride,
+                                              refLayout->batch_count,
+                                              refLayout->batch_stride,
                                               transA,
                                               transB,
                                               stream,
